@@ -1,0 +1,72 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8">
+<title>Plano de vivienda — inicio</title><style>
+body{font-family:'Segoe UI',Arial,sans-serif;background:#f4f3ef;color:#23231f;margin:0;padding:26px}
+.wrap{max-width:1080px;margin:0 auto}
+h1{font-size:21px;font-weight:600;margin:0 0 2px}
+.sub{color:#6a6a63;font-size:13px;margin-bottom:22px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-bottom:26px}
+.card{background:#fff;border:1px solid #dedbd1;border-radius:10px;padding:20px;box-shadow:0 1px 3px rgba(0,0,0,.05);text-decoration:none;color:inherit;display:block;transition:box-shadow .15s,transform .15s}
+.card:hover{box-shadow:0 3px 10px rgba(0,0,0,.08);transform:translateY(-1px)}
+.card h3{margin:0 0 6px;font-size:15px;font-weight:600;color:#23231f}
+.card p{margin:0;font-size:12.5px;color:#6a6a63;line-height:1.5}
+.card .arrow{font-size:12px;color:#8a877e;margin-top:10px}
+.rooms{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-bottom:26px}
+.room{background:#fff;border:1px solid #dedbd1;border-radius:8px;padding:14px 16px;text-decoration:none;color:inherit;display:block;transition:box-shadow .15s,transform .15s}
+.room:hover{box-shadow:0 3px 10px rgba(0,0,0,.08);transform:translateY(-1px)}
+.room h4{margin:0 0 3px;font-size:13.5px;font-weight:600;color:#23231f}
+.room span{font-size:12px;color:#8a877e}
+h2{font-size:15px;margin:26px 0 6px}
+.sheet{background:#fff;border:1px solid #dedbd1;border-radius:10px;padding:22px;box-shadow:0 1px 3px rgba(0,0,0,.05)}
+table{border-collapse:collapse;width:100%;font-size:13px}
+th,td{border:1px solid #e3e0d7;padding:6px 9px;text-align:left}
+th{background:#f4f2ec;font-weight:600}
+td.n{text-align:right;font-variant-numeric:tabular-nums}
+tr.tot td{background:#f8f6f0;font-weight:700}
+.foot{font-size:11.5px;color:#8a877e;margin-top:22px;line-height:1.6;border-top:1px solid #e6e3da;padding-top:12px}
+</style></head><body><div class="wrap">
+<h1>Plano de vivienda — anteproyecto</h1>
+<div class="sub">Lote de 16,00 x 30,00 m · vivienda de una planta con galería, garage y pileta</div>
+
+<div class="cards">
+  <a class="card" href="plano-general.html">
+    <h3>Plano general</h3>
+    <p>Planta acotada completa, con muros, aberturas, cotas y cuadro de superficies.</p>
+    <div class="arrow">Ver plano →</div>
+  </a>
+  <a class="card" href="instructivo.html">
+    <h3>Instructivo y criterios técnicos</h3>
+    <p>Medidas mínimas y recomendadas de puertas y ventanas, y observaciones sobre el diseño actual.</p>
+    <div class="arrow">Ver instructivo →</div>
+  </a>
+</div>
+
+<h2>Por ambiente</h2>
+<div class="rooms">
+  <a class="room" href="ambientes/living-comedor.html"><h4>Living-Comedor</h4><span>21.60 m²</span></a>
+  <a class="room" href="ambientes/cocina.html"><h4>Cocina</h4><span>6.00 m²</span></a>
+  <a class="room" href="ambientes/habitacion-1.html"><h4>Hab. 1 (visitas)</h4><span>6.00 m²</span></a>
+  <a class="room" href="ambientes/habitacion-2.html"><h4>Hab. 2 (secundaria)</h4><span>9.00 m²</span></a>
+  <a class="room" href="ambientes/habitacion-3.html"><h4>Hab. 3 (principal)</h4><span>10.50 m²</span></a>
+  <a class="room" href="ambientes/bano-lavadero.html"><h4>Baño / Lavadero</h4><span>10.50 m²</span></a>
+  <a class="room" href="ambientes/galeria.html"><h4>Galería</h4><span>45.00 m²</span></a>
+  <a class="room" href="ambientes/garage.html"><h4>Garage</h4><span>64.00 m²</span></a>
+</div>
+
+<h2>Resumen de superficies</h2>
+<div class="sheet">
+<table>
+<tr><th>Sector</th><th style="text-align:right">Superficie (m²)</th></tr>
+<tr class="tot"><td>Total cubierto (vivienda)</td><td class="n">70.90</td></tr>
+<tr><td>Galería (semicubierta)</td><td class="n">45.00</td></tr>
+<tr><td>Garage</td><td class="n">64.00</td></tr>
+<tr><td>Pileta</td><td class="n">15.00</td></tr>
+<tr class="tot"><td>Lote</td><td class="n">480.00</td></tr>
+</table>
+</div>
+
+<div class="foot">
+Anteproyecto elaborado a partir del diseño en planilla, verificado a escala 1 celda = 0,50 m.
+No constituye documentación de obra: faltan plano de instalación sanitaria y eléctrica, planilla de carpintería,
+cortes, vistas y cálculo estructural, que deben ser elaborados y firmados por un profesional matriculado.
+</div>
+</div></body></html>
