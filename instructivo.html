@@ -61,25 +61,43 @@ p{font-size:13px;line-height:1.65}
 </ul>
 </div>
 
-<h2>Materiales de muros</h2>
-<p>Las medidas de cada ambiente y de implantación están tomadas <b>a eje de muro</b> (línea central del espesor de 0,15 m), que es la medida a usar para el replanteo en obra — no son luz libre interior. El paño interior real de cada ambiente queda <b>~0,15 m menor</b> por eje con pared en ambos lados (la mitad del espesor de cada lado); no hay que restar nada para el replanteo, pero sí tenerlo en cuenta al prever amoblamiento ajustado al límite.</p>
+<h2>Tipos de muro y materiales</h2>
+<p>Las medidas de cada ambiente y de implantación están tomadas <b>a eje de muro</b> (línea central del espesor real de cada tramo), que es la medida a usar para el replanteo en obra — no son luz libre interior. Como ahora no todos los muros tienen el mismo espesor, el paño interior real de cada ambiente queda entre 0,12 y 0,15 m menor por eje según qué tipo de muro tenga a cada lado (la mitad del espesor de cada uno); no hay que restar nada para el replanteo, pero sí tenerlo en cuenta al prever amoblamiento ajustado al límite.</p>
 <table>
-<tr><th>Muro</th><th>Material</th><th style="text-align:right">Espesor</th></tr>
-<tr><td>Muros generales</td><td>Ladrillo hueco</td><td class="n">0.15 m</td></tr>
-<tr><td>Muros con cañerías de agua (baño, cocina)</td><td>Ladrillo común</td><td class="n">0.15 m</td></tr>
+<tr><th>Tipo de muro</th><th>Material</th><th style="text-align:right">Espesor</th><th>Función</th></tr>
+<tr><td>Exterior</td><td>Ladrillo hueco</td><td class="n">0.15 m</td><td>Todos los cerramientos perimetrales de la casa y el garage</td></tr>
+<tr><td>Con instalaciones</td><td>Ladrillo común</td><td class="n">0.15 m</td><td>Muros por donde corren cañerías de agua/desagüe: los propios de Lavadero, el que conecta Lavadero–Antebaño–Baño, y el muro sur de la Cocina (bajo la ventana), donde va la bacha</td></tr>
+<tr><td>Interior</td><td>Ladrillo hueco</td><td class="n">0.12 m</td><td>Divisiones internas sin cañerías ni carga de muebles (entre habitaciones, hacia el pasillo, etc.)</td></tr>
+<tr><td>Interior reforzado (cocina)</td><td>Ladrillo hueco</td><td class="n">0.15 m</td><td>Muro de la Cocina contra Hab. 1, donde va la mesada larga con alacenas</td></tr>
 </table>
-<p>Mismo espesor en ambos casos (0,15 m); cambia el material por la necesidad de embutir cañerías, no la medida dibujada.</p>
+<p><b>Por qué 0,12 m para las divisiones interiores comunes:</b> es el espesor estándar en tabiquería residencial con ladrillo hueco — toma bien los marcos de puerta, permite anclar estantes/espejos sin problema y da una aislación acústica razonable entre ambientes, a un costo bastante menor que 0,15 m. Un espesor de 0,08 m queda corto para asentar marcos y aísla poco; 0,18 m o más no aporta nada en un tabique sin carga.</p>
+<p><b>Sobre el muro reforzado de cocina:</b> la bacha va contra la pared sur (exterior, bajo la ventana), no contra el muro de Hab. 1 — por eso ese muro sur pasa a ladrillo común (instalaciones) y el muro contra Hab. 1, que es donde corre la mesada larga con las alacenas, queda como hueco de 0,15 m reforzado en vez de caer en el estándar interior de 0,12 m.</p>
+<p style="font-size:12.5px;color:#8a877e">La ubicación exacta de las cañerías es responsabilidad del proyecto de instalación sanitaria (a cargo de un profesional matriculado, ver observaciones al pie); la clasificación de arriba es la mejor estimación de anteproyecto según el recorrido lógico del agua descripto para el Lavadero.</p>
 
 <h2>Criterio de ventanas</h2>
 <p>La superficie de ventana debe ser <b>≥ 1/6 a 1/8 de la superficie del piso</b> del ambiente (criterio habitual de código), con parte practicable ≥ la mitad de esa área para ventilación. No alcanza con cumplir el ancho: hay que revisar también la altura de cada abertura contra este cálculo.</p>
 <p><i>Ejemplo:</i> un ambiente de 9 m² necesita al menos 1,10–1,50 m² de ventana. Con 1,00 m de ancho, la altura debería rondar 1,10–1,50 m — no alcanza con una faja angosta.</p>
 <p><b>Altura desde el piso</b> hasta el borde inferior de cada ventana: 0,90 m en dormitorios, living/comedor y cocina (a la altura de la mesada); 1,20–1,40 m en baño y lavadero, por privacidad y para no interferir con artefactos o mobiliario contra esa pared.</p>
 
+<h2>Aire acondicionado</h2>
+<p>Por ahora se prevé climatización solo en <b>Living-Comedor</b> y <b>Habitación 3 (principal)</b>, con equipos <b>split frío/calor</b>. Cálculo de capacidad por regla práctica: <b>150 frigorías/hora por m²</b> como base (techo de 2,60 m, exposición normal), sumando ~15–20% en ambientes con mucha ventana o bajo cubierta liviana de chapa sin entrepiso (todo el techo de esta casa está en esa condición), y algo más si la orientación recibe sol fuerte.</p>
+<table>
+<tr><th>Ambiente</th><th style="text-align:right">Superficie</th><th>Factores</th><th style="text-align:right">Cálculo</th><th style="text-align:right">Equipo sugerido</th></tr>
+<tr><td>Living-Comedor</td><td class="n">26,95 m²</td><td>Ambiente grande y abierto, mucho vidrio (3 ventanas de 1,50 m), bajo chapa</td><td class="n">≈ 4850 fg</td><td class="n">6000 frigorías</td></tr>
+<tr><td>Habitación 3 (principal)</td><td class="n">12,25 m²</td><td>Doble orientación norte/oeste (sol de tarde), bajo chapa</td><td class="n">≈ 2200 fg</td><td class="n">3000 frigorías</td></tr>
+</table>
+<p><b>Ubicación de los equipos</b> (ver plano general):</p>
+<ul style="margin:8px 0 0;padding-left:20px">
+<li><b>Living-Comedor:</b> en el muro este (el de las ventanas), en el tramo de muro macizo que queda entre la ventana del Comedor y la de Living — justo a la altura del límite entre ambos, para repartir el aire hacia los dos lados. Si en el futuro se prefiere mejor distribución, la alternativa es dos equipos más chicos (uno por ambiente) en vez de uno solo de 6000 frigorías.</li>
+<li><b>Habitación 3:</b> en el muro del pasillo (donde va el ropero), corrido hacia el lado de la ventana oeste — es decir, lejos del rincón donde apoya la cabecera de la cama, para que el chorro de aire no pegue directo sobre quien duerme.</li>
+</ul>
+<p style="font-size:12.5px;color:#8a877e">Este cálculo es una guía de anteproyecto; la selección final del equipo (y el cálculo de carga térmica si se quiere mayor precisión) queda a cargo del instalador.</p>
+
 <h2>Criterios de amoblamiento</h2>
 <p>El detalle completo, ambiente por ambiente, está en cada <a href="../index.html">ficha</a>. Puntos generales que aplican a toda la casa:</p>
 <ul style="margin:8px 0 0;padding-left:20px">
 <li>Todos los roperos (Habitación 1, 2 y 3) llevan <b>puertas corredizas</b>, no abatibles — no necesitan espacio de barrido para abrirse, así que pueden ir pegados a la pared sin restarle circulación al resto del ambiente.</li>
-<li>El lavamanos y el mueble de guardado del baño (cosas de higiene) van en el <b>Antebaño</b>, no en el Baño: el Baño está al límite con inodoro + bidet + ducha (3 artefactos en 3,75 m²), mientras que el Antebaño tiene margen de sobra.</li>
+<li>El lavamanos y el mueble de guardado del baño (cosas de higiene) van en el <b>Antebaño</b>, no en el Baño: el Baño reúne inodoro + bidet + ducha (3 artefactos en 4,20 m²), mientras que el Antebaño tiene margen de sobra.</li>
 <li>El termotanque del Lavadero es <b>eléctrico</b>: no necesita salida de ventilación (a diferencia de uno a gas), pero sí un circuito eléctrico dedicado — dato para la instalación eléctrica.</li>
 <li>La mesa del Comedor va orientada norte-sur, centrada en el ancho del ambiente (3,50 m), con 0,73 m libres a cada lado.</li>
 <li>En la Habitación 3 (principal), el ropero va contra la pared del pasillo, la cama con la cabecera contra la pared este y la TV contra la pared oeste.</li>
