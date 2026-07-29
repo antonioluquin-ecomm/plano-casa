@@ -39,7 +39,7 @@ p{font-size:13px;line-height:1.65}
 
 <div class="sheet">
 <h2>Mampostería <span class="badge badge-live">calculado desde el plano</span></h2>
-<p>Los metros lineales de cada tipo de muro se leen en vivo desde <a href="plano-general.html">plano-general.html</a> (clases <code>w-ext</code>, <code>w-inst</code>, <code>w-int</code> del SVG). Si se agranda un ambiente, se mueve una pared o se agrega un muro nuevo, esta tabla cambia sola al volver a abrir la página — no hay números escritos a mano acá abajo.</p>
+<p>Los metros lineales de cada tipo de muro se leen en vivo desde <a href="plano-general.html">plano-general.html</a> (clases <code>w-ext</code>, <code>w-inst</code>, <code>w-int</code> del SVG). Si se agranda un ambiente, se mueve una pared o se agrega un muro nuevo, esta tabla cambia sola al volver a abrir la página — no hay números escritos a mano acá abajo. El <b>Garage ya está construido</b> (independiente de la casa) — sus muros se excluyen de esta compra, ver nota debajo de la tabla. La <b>Galería es semicubierta y abierta, sin paredes propias</b> — el único muro real en ese límite es el de la casa (Cocina/Hab. 1, ya contabilizado como "con instalaciones" o exterior según el tramo), así que no suma metros de mampostería aparte.</p>
 
 <div class="params">
   <label>Altura de muro (m)<input type="number" id="wallHeight" value="2.60" step="0.05" min="2.00" max="4.00"></label>
@@ -55,8 +55,17 @@ p{font-size:13px;line-height:1.65}
 <tr class="tot" id="rowTotalHueco"><td colspan="7">Total ladrillo hueco (exterior + interior)</td><td class="n" id="totHueco">—</td></tr>
 <tr class="tot" id="rowTotalComun"><td colspan="7">Total ladrillo común</td><td class="n" id="totComun">—</td></tr>
 </table>
+<p style="font-size:12.5px;color:#8a877e" id="existingNote"></p>
 
-<div class="warn"><b>Los valores de rendimiento son de referencia</b> — dependen del módulo exacto del ladrillo (varía por ladrillera/corralón) y del espesor de junta usado en obra. Ajustalos en los campos de arriba cuando tengas el proveedor confirmado; la tabla se recalcula al instante. "Ladrillo hueco 0,15 m" en la práctica es un hueco de 12 cm con revoque grueso de 1,5 cm de cada lado — no existe como bloque comercial macizo de 15.</div>
+<div class="warn"><b>Los valores de rendimiento son de referencia</b> — dependen del módulo exacto del ladrillo (varía por ladrillera/corralón) y del espesor de junta usado en obra. Ajustalos en los campos de arriba cuando tengas el proveedor confirmado; la tabla se recalcula al instante. Solo se usan dos tipos de mampuesto en toda la obra: ladrillo hueco de 12 (exterior e interior) y ladrillo común (muros con instalaciones) — no existe ladrillo hueco de módulo 15.</div>
+
+<h3>Comparativa — todo en ladrillo común</h3>
+<p>Cuánto habría que comprar si en vez del esquema mixto (hueco en exterior/interior, común solo donde hay cañerías) se levantara <b>toda la mampostería en ladrillo común</b>. Usa la misma superficie de muro (largo × altura) leída del plano, aplicando el rendimiento y desperdicio de común de los campos de arriba a la totalidad. Sirve para comparar precio total de material contra el esquema mixto — no evalúa costo de mano de obra ni impacto térmico/acústico de pasar todo a común.</p>
+<table>
+<tr><th>Escenario</th><th style="text-align:right">Ladrillo hueco</th><th style="text-align:right">Ladrillo común</th></tr>
+<tr><td>Actual (mixto)</td><td class="n" id="cmpMixtoHueco">—</td><td class="n" id="cmpMixtoComun">—</td></tr>
+<tr><td>Alternativa (todo común)</td><td class="n">0</td><td class="n" id="cmpTodoComun">—</td></tr>
+</table>
 </div>
 
 <div class="sheet">
@@ -132,7 +141,7 @@ p{font-size:13px;line-height:1.65}
 <script>
 const SCALE = 32; // px por metro en plano-general.html
 const WALL_TYPES = [
-  {cls:'w-ext',  label:'Exterior',          material:'Ladrillo hueco',  thickness:'0.15 m'},
+  {cls:'w-ext',  label:'Exterior',          material:'Ladrillo hueco',  thickness:'0.12 m'},
   {cls:'w-inst', label:'Con instalaciones', material:'Ladrillo común',  thickness:'0.15 m'},
   {cls:'w-int',  label:'Interior',          material:'Ladrillo hueco',  thickness:'0.12 m'}
 ];
@@ -142,13 +151,20 @@ let wallLengthsPx = null;
 function readWallLengths(doc) {
   const lengths = {};
   WALL_TYPES.forEach(t => lengths[t.cls] = 0);
+  lengths.existingML = 0;
   doc.querySelectorAll('rect').forEach(r => {
-    const cls = r.getAttribute('class');
-    if (Object.prototype.hasOwnProperty.call(lengths, cls)) {
-      const w = parseFloat(r.getAttribute('width'));
-      const h = parseFloat(r.getAttribute('height'));
-      lengths[cls] += Math.max(w, h);
+    const classes = (r.getAttribute('class') || '').split(/\s+/);
+    const w = parseFloat(r.getAttribute('width'));
+    const h = parseFloat(r.getAttribute('height'));
+    const len = Math.max(w, h);
+    // w-existing = tramo ya construido (garage): se muestra aparte, no entra en la compra
+    if (classes.includes('w-existing')) {
+      lengths.existingML += len;
+      return;
     }
+    WALL_TYPES.forEach(t => {
+      if (classes.includes(t.cls)) lengths[t.cls] += len;
+    });
   });
   return lengths;
 }
@@ -185,6 +201,17 @@ function render() {
   document.getElementById('tbodyMamposteria').innerHTML = rows;
   document.getElementById('totHueco').textContent = totHueco.toLocaleString('es-AR') + ' un.';
   document.getElementById('totComun').textContent = totComun.toLocaleString('es-AR') + ' un.';
+  const existingML = wallLengthsPx.existingML || 0;
+  document.getElementById('existingNote').textContent =
+    'Muros del garage ya construidos, excluidos de esta compra: ' + (existingML / SCALE).toFixed(2) + ' ml de ladrillo hueco (no suman a los totales de arriba).';
+
+  const totalLenM = (wallLengthsPx['w-ext'] + wallLengthsPx['w-int'] + wallLengthsPx['w-inst']) / SCALE;
+  const totalAreaM2 = totalLenM * height;
+  const netTodoComun = totalAreaM2 * rendComun;
+  const totalTodoComun = Math.ceil(netTodoComun * (1 + wasteComun / 100));
+  document.getElementById('cmpMixtoHueco').textContent = totHueco.toLocaleString('es-AR') + ' un.';
+  document.getElementById('cmpMixtoComun').textContent = totComun.toLocaleString('es-AR') + ' un.';
+  document.getElementById('cmpTodoComun').textContent = totalTodoComun.toLocaleString('es-AR') + ' un.';
 }
 
 let aberturas = null;
