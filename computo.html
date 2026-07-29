@@ -1,0 +1,153 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8">
+<title>Cómputo de materiales — vivienda</title><style>
+body{font-family:'Segoe UI',Arial,sans-serif;background:#f4f3ef;color:#23231f;margin:0;padding:26px}
+.wrap{max-width:1080px;margin:0 auto}
+.nav{font-size:13px;margin-bottom:14px}
+.nav a{color:#6a6a63;text-decoration:none}
+.nav a:hover{text-decoration:underline}
+h1{font-size:21px;font-weight:600;margin:0 0 2px}
+.sub{color:#6a6a63;font-size:13px;margin-bottom:18px}
+h2{font-size:15px;margin:26px 0 6px}
+h3{font-size:13.5px;margin:16px 0 6px;color:#3a3a36}
+table{border-collapse:collapse;width:100%;font-size:13px;margin-top:12px}
+th,td{border:1px solid #e3e0d7;padding:6px 9px;text-align:left}
+th{background:#f4f2ec;font-weight:600}
+td.n{text-align:right;font-variant-numeric:tabular-nums}
+tr.tot td{background:#f8f6f0;font-weight:700}
+.warn{background:#fff8e9;border-left:3px solid #d8a93c;padding:11px 14px;border-radius:0 6px 6px 0;font-size:13px;line-height:1.65;margin-top:10px}
+.warn b{color:#8a6410}
+.ok{background:#eef7ec;border-left:3px solid #6f9a51;padding:11px 14px;border-radius:0 6px 6px 0;font-size:13px;line-height:1.65;margin-top:10px}
+.ok b{color:#4e7638}
+.foot{font-size:11.5px;color:#8a877e;margin-top:22px;line-height:1.6;border-top:1px solid #e6e3da;padding-top:12px}
+.foot a{color:#8a877e}
+.sheet{background:#fff;border:1px solid #dedbd1;border-radius:10px;padding:22px;box-shadow:0 1px 3px rgba(0,0,0,.05);margin-bottom:18px}
+p{font-size:13px;line-height:1.65}
+.params{display:flex;flex-wrap:wrap;gap:14px;margin:12px 0 4px;font-size:12.5px}
+.params label{display:flex;flex-direction:column;gap:3px;color:#55534c}
+.params input{width:80px;padding:5px 7px;border:1px solid #d8d5cb;border-radius:5px;font-size:13px;font-variant-numeric:tabular-nums}
+.badge{display:inline-block;font-size:10.5px;font-weight:700;padding:2px 8px;border-radius:20px;margin-left:8px;vertical-align:1px}
+.badge-live{background:#eef7ec;color:#4e7638}
+.badge-pending{background:#f4f2ec;color:#8a877e}
+.rubro{border:1px solid #e6e3da;border-radius:8px;padding:14px 16px;margin-top:10px}
+.rubro-h{display:flex;align-items:center;justify-content:space-between}
+.rubro-h span{font-weight:600;font-size:13.5px}
+.rubro p{color:#8a877e;font-size:12.5px;margin:6px 0 0}
+</style></head><body><div class="wrap">
+<div class="nav"><a href="index.html">&larr; Inicio</a> &nbsp;·&nbsp; <a href="plano-general.html">Plano general</a> &nbsp;·&nbsp; <a href="instructivo.html">Instructivo</a></div>
+<h1>Cómputo de materiales</h1>
+<div class="sub">Cantidades para compra, calculadas a partir de la geometría del plano — se recalculan solas cuando el plano cambia</div>
+
+<div class="sheet">
+<h2>Mampostería <span class="badge badge-live">calculado desde el plano</span></h2>
+<p>Los metros lineales de cada tipo de muro se leen en vivo desde <a href="plano-general.html">plano-general.html</a> (clases <code>w-ext</code>, <code>w-inst</code>, <code>w-int</code> del SVG). Si se agranda un ambiente, se mueve una pared o se agrega un muro nuevo, esta tabla cambia sola al volver a abrir la página — no hay números escritos a mano acá abajo.</p>
+
+<div class="params">
+  <label>Altura de muro (m)<input type="number" id="wallHeight" value="2.60" step="0.05" min="2.00" max="4.00"></label>
+  <label>Rendimiento ladrillo hueco (un/m²)<input type="number" id="rendHueco" value="17" step="0.5" min="1"></label>
+  <label>Rendimiento ladrillo común (un/m²)<input type="number" id="rendComun" value="62" step="1" min="1"></label>
+  <label>Desperdicio hueco (%)<input type="number" id="wasteHueco" value="10" step="1" min="0"></label>
+  <label>Desperdicio común (%)<input type="number" id="wasteComun" value="8" step="1" min="0"></label>
+</div>
+
+<table>
+<tr><th>Tipo de muro</th><th>Material</th><th style="text-align:right">Espesor</th><th style="text-align:right">Largo</th><th style="text-align:right">Superficie</th><th style="text-align:right">Ladrillos netos</th><th style="text-align:right">Desperdicio</th><th style="text-align:right">Total a comprar</th></tr>
+<tbody id="tbodyMamposteria"><tr><td colspan="8">Cargando datos del plano…</td></tr></tbody>
+<tr class="tot" id="rowTotalHueco"><td colspan="7">Total ladrillo hueco (exterior + interior)</td><td class="n" id="totHueco">—</td></tr>
+<tr class="tot" id="rowTotalComun"><td colspan="7">Total ladrillo común</td><td class="n" id="totComun">—</td></tr>
+</table>
+
+<div class="warn"><b>Los valores de rendimiento son de referencia</b> — dependen del módulo exacto del ladrillo (varía por ladrillera/corralón) y del espesor de junta usado en obra. Ajustalos en los campos de arriba cuando tengas el proveedor confirmado; la tabla se recalcula al instante. "Ladrillo hueco 0,15 m" en la práctica es un hueco de 12 cm con revoque grueso de 1,5 cm de cada lado — no existe como bloque comercial macizo de 15.</div>
+</div>
+
+<div class="sheet">
+<h2>Otros rubros</h2>
+<p>El resto del cómputo se va a ir completando a medida que definamos cada parte del proyecto (techo, estructura, instalaciones, aberturas, terminaciones). Cada rubro va a sumarse acá con el mismo criterio que mampostería: calculado en vivo desde la geometría del plano en cuanto esa parte tenga su propio dibujo, no tipeado a mano.</p>
+
+<div class="rubro"><div class="rubro-h"><span>Movimiento de suelo y fundaciones</span><span class="badge badge-pending">pendiente</span></div><p>Falta el cálculo estructural (zapatas, vigas de encadenado) — a cargo del profesional matriculado.</p></div>
+<div class="rubro"><div class="rubro-h"><span>Estructura</span><span class="badge badge-pending">pendiente</span></div><p>Columnas, vigas y encadenados — depende del cálculo estructural.</p></div>
+<div class="rubro"><div class="rubro-h"><span>Mampostería</span><span class="badge badge-live">calculado</span></div><p>Ver tabla arriba.</p></div>
+<div class="rubro"><div class="rubro-h"><span>Techos</span><span class="badge badge-pending">pendiente</span></div><p>Hay criterio general en el <a href="instructivo.html">instructivo</a> (chapa, a un agua, correas metálicas) pero todavía no hay geometría de faldones/correas en el plano para sacar m² de chapa y metros de perfil.</p></div>
+<div class="rubro"><div class="rubro-h"><span>Instalación sanitaria</span><span class="badge badge-pending">pendiente</span></div><p>Falta el proyecto de instalación sanitaria (a cargo de un profesional matriculado) para tener recorridos y metros de cañería.</p></div>
+<div class="rubro"><div class="rubro-h"><span>Instalación eléctrica</span><span class="badge badge-pending">pendiente</span></div><p>Falta el proyecto eléctrico para tener bocas, circuitos y metros de cable.</p></div>
+<div class="rubro"><div class="rubro-h"><span>Aberturas</span><span class="badge badge-pending">pendiente</span></div><p>La planilla de puertas y ventanas ya existe en <a href="plano-general.html">plano-general.html</a> — se puede sumar como rubro (cantidad y m² de vidrio) en la próxima vuelta.</p></div>
+<div class="rubro"><div class="rubro-h"><span>Revestimientos y contrapisos</span><span class="badge badge-pending">pendiente</span></div><p>El cuadro de superficies por ambiente ya existe — se puede calcular m² de piso/revestimiento apenas definamos qué material va en cada ambiente.</p></div>
+<div class="rubro"><div class="rubro-h"><span>Pintura</span><span class="badge badge-pending">pendiente</span></div><p>Se puede estimar por m² de muro (perímetro × altura, descontando aberturas) con los mismos datos que ya usa mampostería.</p></div>
+
+<p style="font-size:12.5px;color:#8a877e;margin-top:14px">Anteproyecto de gestión de obra en construcción — igual que el resto del sitio, no reemplaza el cómputo y presupuesto final que debe elaborar un profesional matriculado.</p>
+</div>
+
+<iframe id="planoFrame" src="plano-general.html" style="display:none" title="datos del plano"></iframe>
+
+<script>
+const SCALE = 32; // px por metro en plano-general.html
+const WALL_TYPES = [
+  {cls:'w-ext',  label:'Exterior',          material:'Ladrillo hueco',  thickness:'0.15 m'},
+  {cls:'w-inst', label:'Con instalaciones', material:'Ladrillo común',  thickness:'0.15 m'},
+  {cls:'w-int',  label:'Interior',          material:'Ladrillo hueco',  thickness:'0.12 m'}
+];
+
+let wallLengthsPx = null;
+
+function readWallLengths(doc) {
+  const lengths = {};
+  WALL_TYPES.forEach(t => lengths[t.cls] = 0);
+  doc.querySelectorAll('rect').forEach(r => {
+    const cls = r.getAttribute('class');
+    if (Object.prototype.hasOwnProperty.call(lengths, cls)) {
+      const w = parseFloat(r.getAttribute('width'));
+      const h = parseFloat(r.getAttribute('height'));
+      lengths[cls] += Math.max(w, h);
+    }
+  });
+  return lengths;
+}
+
+function num(id, fallback) {
+  const v = parseFloat(document.getElementById(id).value);
+  return isNaN(v) ? fallback : v;
+}
+
+function render() {
+  if (!wallLengthsPx) return;
+  const height = num('wallHeight', 2.60);
+  const rendHueco = num('rendHueco', 17);
+  const rendComun = num('rendComun', 62);
+  const wasteHueco = num('wasteHueco', 10);
+  const wasteComun = num('wasteComun', 8);
+
+  let rows = '';
+  let totHueco = 0, totComun = 0;
+  WALL_TYPES.forEach(t => {
+    const lenM = wallLengthsPx[t.cls] / SCALE;
+    const areaM2 = lenM * height;
+    const esHueco = t.material === 'Ladrillo hueco';
+    const rend = esHueco ? rendHueco : rendComun;
+    const waste = esHueco ? wasteHueco : wasteComun;
+    const net = areaM2 * rend;
+    const total = Math.ceil(net * (1 + waste / 100));
+    if (esHueco) totHueco += total; else totComun += total;
+    rows += '<tr><td>' + t.label + '</td><td>' + t.material + '</td><td class="n">' + t.thickness + '</td>' +
+      '<td class="n">' + lenM.toFixed(2) + ' m</td><td class="n">' + areaM2.toFixed(2) + ' m²</td>' +
+      '<td class="n">' + Math.round(net) + '</td><td class="n">' + waste + '%</td>' +
+      '<td class="n"><b>' + total.toLocaleString('es-AR') + '</b></td></tr>';
+  });
+  document.getElementById('tbodyMamposteria').innerHTML = rows;
+  document.getElementById('totHueco').textContent = totHueco.toLocaleString('es-AR') + ' un.';
+  document.getElementById('totComun').textContent = totComun.toLocaleString('es-AR') + ' un.';
+}
+
+document.getElementById('planoFrame').addEventListener('load', function () {
+  try {
+    wallLengthsPx = readWallLengths(this.contentDocument);
+    render();
+  } catch (e) {
+    document.getElementById('tbodyMamposteria').innerHTML =
+      '<tr><td colspan="8">No se pudo leer plano-general.html (' + e.message + '). Si estás abriendo el archivo directamente (file://), probá con otro navegador o publicá el sitio con GitHub Pages.</td></tr>';
+  }
+});
+
+['wallHeight','rendHueco','rendComun','wasteHueco','wasteComun'].forEach(function (id) {
+  document.getElementById(id).addEventListener('input', render);
+});
+</script>
+</div></body></html>
