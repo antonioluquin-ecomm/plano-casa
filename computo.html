@@ -60,17 +60,68 @@ p{font-size:13px;line-height:1.65}
 </div>
 
 <div class="sheet">
+<h2>Techo — casa <span class="badge badge-live">parámetros editables</span></h2>
+<p>La cubierta no tiene un faldón dibujado como geometría en el plano (a diferencia de los muros), así que este cómputo parte de la superficie cubierta y las medidas ya fijadas en el <a href="plano-general.html">plano general</a> y los criterios del <a href="instructivo.html">instructivo</a> (chapa trapezoidal, cerchas C doble, correas C80, pendiente 10–15%). Cambiá cualquier parámetro y los totales se recalculan solos. Cubre solo la <b>casa</b> — la <b>Galería</b> es una etapa futura (se computa aparte cuando se encare) y el <b>Garage</b> ya está construido, no entra en este cómputo.</p>
+
+<div class="params">
+  <label>Superficie cubierta — horizontal (m²)<input type="number" id="techoFootprint" value="82.00" step="0.1" min="1"></label>
+  <label>Ancho casa — E-O (m)<input type="number" id="techoAncho" value="10.00" step="0.1" min="1"></label>
+  <label>Profundidad — cumbrera a alero (m)<input type="number" id="techoProfundidad" value="7.70" step="0.1" min="1"></label>
+  <label>Pendiente (%)<input type="number" id="techoPendiente" value="12" step="0.5" min="10" max="15"></label>
+  <label>Voladizo de alero (m)<input type="number" id="techoAlero" value="0.50" step="0.05" min="0"></label>
+  <label>Desperdicio de chapa — solapes/cortes (%)<input type="number" id="techoDesperdicioChapa" value="12" step="1" min="0"></label>
+  <label>Separación entre correas (m)<input type="number" id="techoSepCorrea" value="1.20" step="0.05" min="0.5"></label>
+  <label>Separación entre cerchas (m)<input type="number" id="techoSepCercha" value="1.35" step="0.05" min="0.5"></label>
+  <label>Factor de perfil por cercha (cordones + diagonales)<input type="number" id="techoFactorCercha" value="2.2" step="0.1" min="1"></label>
+  <label>Fijaciones chapa (un/m²)<input type="number" id="techoTornillos" value="6" step="0.5" min="1"></label>
+  <label>Rendimiento manta aislante (m²/rollo)<input type="number" id="techoRendRollo" value="12" step="0.5" min="1"></label>
+  <label>Cielorraso placa verde — Baño+Antebaño+Lavadero (m²)<input type="number" id="techoVerde" value="12.70" step="0.1" min="0"></label>
+  <label>Desperdicio placas Durlock (%)<input type="number" id="techoDesperdicioPlaca" value="10" step="1" min="0"></label>
+  <label>Bajadas pluviales (un.)<input type="number" id="techoBajadas" value="2" step="1" min="1"></label>
+</div>
+
+<table>
+<tr><th>Ítem</th><th>Cálculo</th><th style="text-align:right">Cantidad</th></tr>
+<tbody id="tbodyTecho"></tbody>
+</table>
+
+<div class="warn"><b>Esto es un cómputo de anteproyecto para presupuestar, no un plano de estructura.</b> La cantidad y sección final de cerchas y correas depende del cálculo del ingeniero estructural (ver <a href="instructivo.html">instructivo</a>) — el "factor de perfil por cercha" de arriba es una estimación gruesa para no dejar el rubro en cero, ajustalo cuando esté el cálculo real. Los rendimientos de chapa, tornillería, manta y placas también dependen del proveedor/marca elegido.</div>
+</div>
+
+<div class="sheet">
+<h2>Aberturas <span class="badge badge-live">calculado desde el plano</span></h2>
+<p>Puertas y ventanas se compran <b>hechas</b> (unidad terminada, no material suelto a cortar) — así que el cómputo es directamente la cantidad a pedir por medida, leída en vivo desde la <a href="plano-general.html">planilla de aberturas</a> de <code>plano-general.html</code> (tabla <code>#tablaAberturas</code>). Si se agrega, saca o cambia de medida una puerta o ventana en el plano, esta tabla se actualiza sola.</p>
+
+<h3>Puertas</h3>
+<table><tr><th>Medida (an. x alto)</th><th>Tipo</th><th style="text-align:right">Cantidad a comprar</th></tr>
+<tbody id="tbodyPuertas"><tr><td colspan="3">Cargando datos del plano…</td></tr></tbody>
+</table>
+
+<h3>Ventanas</h3>
+<table><tr><th>Medida (an. x alto)</th><th>Tipo</th><th style="text-align:right">Cantidad a comprar</th></tr>
+<tbody id="tbodyVentanas"><tr><td colspan="3">Cargando datos del plano…</td></tr></tbody>
+</table>
+
+<table style="margin-top:16px">
+<tr class="tot"><td>Total puertas</td><td class="n" id="abTotalPuertas">—</td></tr>
+<tr class="tot"><td>Total ventanas</td><td class="n" id="abTotalVentanas">—</td></tr>
+</table>
+
+<div class="warn"><b>Cantidades por medida, no ficha técnica.</b> El material de la carpintería (aluminio, PVC, madera), el vidrio (DVH, laminado, etc.), el color y los herrajes quedan a definir al pedir presupuesto al proveedor de aberturas — esto solo da cuántas unidades de cada medida hay que pedir.</div>
+</div>
+
+<div class="sheet">
 <h2>Otros rubros</h2>
 <p>El resto del cómputo se va a ir completando a medida que definamos cada parte del proyecto (techo, estructura, instalaciones, aberturas, terminaciones). Cada rubro va a sumarse acá con el mismo criterio que mampostería: calculado en vivo desde la geometría del plano en cuanto esa parte tenga su propio dibujo, no tipeado a mano.</p>
 
 <div class="rubro"><div class="rubro-h"><span>Movimiento de suelo y fundaciones</span><span class="badge badge-pending">pendiente</span></div><p>Falta el cálculo estructural (zapatas, vigas de encadenado) — a cargo del profesional matriculado.</p></div>
 <div class="rubro"><div class="rubro-h"><span>Estructura</span><span class="badge badge-pending">pendiente</span></div><p>Columnas, vigas y encadenados — depende del cálculo estructural.</p></div>
 <div class="rubro"><div class="rubro-h"><span>Mampostería</span><span class="badge badge-live">calculado</span></div><p>Ver tabla arriba.</p></div>
-<div class="rubro"><div class="rubro-h"><span>Techos</span><span class="badge badge-pending">pendiente</span></div><p>Hay criterio general en el <a href="instructivo.html">instructivo</a> (chapa, a un agua, correas metálicas) pero todavía no hay geometría de faldones/correas en el plano para sacar m² de chapa y metros de perfil.</p></div>
-<div class="rubro"><div class="rubro-h"><span>Instalación sanitaria</span><span class="badge badge-pending">pendiente</span></div><p>Falta el proyecto de instalación sanitaria (a cargo de un profesional matriculado) para tener recorridos y metros de cañería.</p></div>
-<div class="rubro"><div class="rubro-h"><span>Instalación eléctrica</span><span class="badge badge-pending">pendiente</span></div><p>Falta el proyecto eléctrico para tener bocas, circuitos y metros de cable.</p></div>
+<div class="rubro"><div class="rubro-h"><span>Techos — casa</span><span class="badge badge-live">calculado</span></div><p>Ver sección propia arriba (chapa, correas, cerchas, aislación, cielorraso, canaletas y bajadas). Galería (etapa futura) y Garage (ya construido) quedan fuera de este cómputo.</p></div>
+<div class="rubro"><div class="rubro-h"><span>Instalación sanitaria</span><span class="badge badge-live">calculado (parcial)</span></div><p>Ver criterio completo en el <a href="instructivo.html">instructivo</a>: 9 artefactos con desagüe cloacal (Baño, Antebaño, Lavadero, Cocina, Galería). Cámara séptica + pozo absorbente <b>ya existen</b> (esquina suroeste del lote) — solo falta empalmar, verificando que su capacidad alcance para estos 9 artefactos. Faltan los <b>metros de cañería</b> (dependen del recorrido real, no se pueden estimar sin el plano de tendido) — eso queda a cargo del profesional matriculado.</p></div>
+<div class="rubro"><div class="rubro-h"><span>Instalación eléctrica</span><span class="badge badge-live">calculado (parcial)</span></div><p>Ver criterio completo en el <a href="instructivo.html">instructivo</a>: 14 circuitos (3 IUG + 3 TUG + 8 TUE), ≈36 puntos de luz interiores + Garage, ≈32 tomacorrientes. Faltan los <b>metros de cable</b> (dependen del recorrido real de cañerías, no se pueden estimar sin el plano de tendido) — eso sí queda a cargo del electricista matriculado.</p></div>
 <div class="rubro"><div class="rubro-h"><span>Instalación de gas</span><span class="badge badge-pending">pendiente</span></div><p>Cocina a garrafa (gabinete ventilado exterior en la Galería, junto a la Cocina) con campana en el anafe — ver <a href="instructivo.html">instructivo</a>. Falta definir cañería y accesorios con el instalador matriculado.</p></div>
-<div class="rubro"><div class="rubro-h"><span>Aberturas</span><span class="badge badge-pending">pendiente</span></div><p>La planilla de puertas y ventanas ya existe en <a href="plano-general.html">plano-general.html</a> — se puede sumar como rubro (cantidad y m² de vidrio) en la próxima vuelta.</p></div>
+<div class="rubro"><div class="rubro-h"><span>Aberturas</span><span class="badge badge-live">calculado</span></div><p>Ver sección propia arriba (cantidad, m² de vidrio y ml de marco por puerta/ventana, leído en vivo desde el plano).</p></div>
 <div class="rubro"><div class="rubro-h"><span>Revestimientos y contrapisos</span><span class="badge badge-pending">pendiente</span></div><p>El cuadro de superficies por ambiente ya existe — se puede calcular m² de piso/revestimiento apenas definamos qué material va en cada ambiente.</p></div>
 <div class="rubro"><div class="rubro-h"><span>Pintura</span><span class="badge badge-pending">pendiente</span></div><p>Se puede estimar por m² de muro (perímetro × altura, descontando aberturas) con los mismos datos que ya usa mampostería.</p></div>
 
@@ -137,6 +188,61 @@ function render() {
   document.getElementById('totComun').textContent = totComun.toLocaleString('es-AR') + ' un.';
 }
 
+let aberturas = null;
+
+function readAberturas(doc) {
+  const table = doc.querySelector('#tablaAberturas');
+  const items = [];
+  table.querySelectorAll('tr').forEach((tr, i) => {
+    if (i === 0) return; // header
+    const tds = tr.querySelectorAll('td');
+    if (tds.length < 5) return;
+    const ref = tds[0].textContent.trim();
+    const tipo = tds[1].textContent.trim();
+    const ancho = parseFloat(tds[3].textContent);
+    const alto = parseFloat(tds[4].textContent);
+    if (isNaN(ancho) || isNaN(alto)) return;
+    const categoria = ref.charAt(0) === 'P' ? 'Puerta' : 'Ventana';
+    const vidriada = /vidriad/i.test(tipo);
+    items.push({ categoria, tipo, ancho, alto, vidriada });
+  });
+  return items;
+}
+
+function groupAberturas(items, categoria) {
+  const groups = {};
+  items.filter(i => i.categoria === categoria).forEach(i => {
+    const key = i.ancho.toFixed(2) + 'x' + i.alto.toFixed(2) + '|' + i.tipo;
+    if (!groups[key]) groups[key] = { ancho: i.ancho, alto: i.alto, tipo: i.tipo, vidriada: i.vidriada, count: 0 };
+    groups[key].count++;
+  });
+  return Object.values(groups).sort((a, b) => b.ancho * b.alto - a.ancho * a.alto);
+}
+
+function renderAberturas() {
+  if (!aberturas) return;
+
+  const puertas = groupAberturas(aberturas, 'Puerta');
+  const ventanas = groupAberturas(aberturas, 'Ventana');
+
+  let totalPuertas = 0, totalVentanas = 0;
+
+  document.getElementById('tbodyPuertas').innerHTML = puertas.map(g => {
+    totalPuertas += g.count;
+    return '<tr><td>' + g.ancho.toFixed(2) + ' x ' + g.alto.toFixed(2) + ' m</td><td>' + g.tipo + '</td>' +
+      '<td class="n"><b>' + g.count + '</b></td></tr>';
+  }).join('');
+
+  document.getElementById('tbodyVentanas').innerHTML = ventanas.map(g => {
+    totalVentanas += g.count;
+    return '<tr><td>' + g.ancho.toFixed(2) + ' x ' + g.alto.toFixed(2) + ' m</td><td>' + g.tipo + '</td>' +
+      '<td class="n"><b>' + g.count + '</b></td></tr>';
+  }).join('');
+
+  document.getElementById('abTotalPuertas').textContent = totalPuertas + ' un.';
+  document.getElementById('abTotalVentanas').textContent = totalVentanas + ' un.';
+}
+
 document.getElementById('planoFrame').addEventListener('load', function () {
   try {
     wallLengthsPx = readWallLengths(this.contentDocument);
@@ -145,10 +251,96 @@ document.getElementById('planoFrame').addEventListener('load', function () {
     document.getElementById('tbodyMamposteria').innerHTML =
       '<tr><td colspan="8">No se pudo leer plano-general.html (' + e.message + '). Si estás abriendo el archivo directamente (file://), probá con otro navegador o publicá el sitio con GitHub Pages.</td></tr>';
   }
+  try {
+    aberturas = readAberturas(this.contentDocument);
+    renderAberturas();
+  } catch (e) {
+    document.getElementById('tbodyPuertas').innerHTML =
+      '<tr><td colspan="5">No se pudo leer la planilla de aberturas (' + e.message + ').</td></tr>';
+    document.getElementById('tbodyVentanas').innerHTML = '';
+  }
 });
 
 ['wallHeight','rendHueco','rendComun','wasteHueco','wasteComun'].forEach(function (id) {
   document.getElementById(id).addEventListener('input', render);
 });
+
+function renderTecho() {
+  const footprint = num('techoFootprint', 82.00);
+  const ancho = num('techoAncho', 10.00);
+  const profundidad = num('techoProfundidad', 7.70);
+  const pendiente = num('techoPendiente', 12);
+  const alero = num('techoAlero', 0.50);
+  const wasteChapa = num('techoDesperdicioChapa', 12);
+  const sepCorrea = num('techoSepCorrea', 1.20);
+  const sepCercha = num('techoSepCercha', 1.35);
+  const factorCercha = num('techoFactorCercha', 2.2);
+  const tornillosPorM2 = num('techoTornillos', 6);
+  const rendRollo = num('techoRendRollo', 12);
+  const verde = num('techoVerde', 12.70);
+  const wastePlaca = num('techoDesperdicioPlaca', 10);
+  const bajadas = num('techoBajadas', 2);
+
+  const cosAngulo = Math.cos(Math.atan(pendiente / 100));
+  const profundidadInclinada = profundidad / cosAngulo;
+
+  // Chapa: superficie horizontal + alero (norte, este, oeste), llevado a superficie inclinada, + desperdicio
+  const perimetroAlero = ancho + 2 * profundidad;
+  const areaAleroInclinada = (perimetroAlero * alero) / cosAngulo;
+  const chapaNeta = footprint / cosAngulo + areaAleroInclinada;
+  const chapaTotal = chapaNeta * (1 + wasteChapa / 100);
+
+  // Correas: perpendiculares a la pendiente, cada sepCorrea a lo largo de la profundidad inclinada
+  const numCorreas = Math.ceil(profundidadInclinada / sepCorrea) + 1;
+  const largoCorrea = ancho + 2 * alero;
+  const mlCorreas = numCorreas * largoCorrea;
+  const perfilesCorrea6m = Math.ceil(mlCorreas / 6);
+
+  // Cerchas: a lo largo del ancho, cada sepCercha
+  const numCerchas = Math.ceil(ancho / sepCercha) + 1;
+  const largoCerchaInclinada = profundidadInclinada + alero / cosAngulo;
+  const mlPerfilCercha = numCerchas * largoCerchaInclinada * factorCercha;
+
+  // Aislación: cubre la superficie inclinada de techo (sin alero), con pequeño desperdicio fijo del 5%
+  const m2Aislacion = (footprint / cosAngulo) * 1.05;
+  const rollosAislacion = Math.ceil(m2Aislacion / rendRollo);
+
+  // Tornillería
+  const tornillos = Math.ceil(chapaTotal * tornillosPorM2);
+
+  // Cielorraso (horizontal, no inclinado): estándar + placa verde
+  const m2Estandar = Math.max(footprint - verde, 0);
+  const totalEstandarConDesp = m2Estandar * (1 + wastePlaca / 100);
+  const totalVerdeConDesp = verde * (1 + wastePlaca / 100);
+  const RENDIMIENTO_PLACA = 2.88; // placa 1.20 x 2.40 m
+  const placasEstandar = Math.ceil(totalEstandarConDesp / RENDIMIENTO_PLACA);
+  const placasVerdes = Math.ceil(totalVerdeConDesp / RENDIMIENTO_PLACA);
+
+  // Canaleta principal (alero norte)
+  const mlCanaleta = ancho;
+
+  const rows = [
+    ['Chapa trapezoidal', 'Superficie cubierta + alero, llevada a superficie inclinada (÷cos pendiente) + desperdicio', chapaTotal.toFixed(2) + ' m²'],
+    ['Correas C80', numCorreas + ' líneas × ' + largoCorrea.toFixed(2) + ' m', mlCorreas.toFixed(1) + ' ml (≈' + perfilesCorrea6m + ' perfiles de 6 m)'],
+    ['Cerchas (perfil C doble)', numCerchas + ' cerchas × ' + largoCerchaInclinada.toFixed(2) + ' m × factor ' + factorCercha, mlPerfilCercha.toFixed(1) + ' ml de perfil'],
+    ['Tornillería autoperforante', chapaTotal.toFixed(2) + ' m² × ' + tornillosPorM2 + ' un/m²', tornillos.toLocaleString('es-AR') + ' un.'],
+    ['Aislación (lana + foil aluminizado)', 'Superficie inclinada + 5% desperdicio', m2Aislacion.toFixed(2) + ' m² (≈' + rollosAislacion + ' rollos)'],
+    ['Cielorraso Durlock — placa estándar', m2Estandar.toFixed(2) + ' m² + ' + wastePlaca + '%', placasEstandar + ' placas (' + totalEstandarConDesp.toFixed(2) + ' m²)'],
+    ['Cielorraso Durlock — placa verde (Baño/Antebaño/Lavadero)', verde.toFixed(2) + ' m² + ' + wastePlaca + '%', placasVerdes + ' placas (' + totalVerdeConDesp.toFixed(2) + ' m²)'],
+    ['Canaleta principal (alero norte)', 'Ancho de la casa', mlCanaleta.toFixed(2) + ' ml'],
+    ['Bajadas pluviales', 'Definido en el instructivo (mínimo 2)', bajadas + ' un.']
+  ];
+
+  document.getElementById('tbodyTecho').innerHTML = rows.map(r =>
+    '<tr><td>' + r[0] + '</td><td style="color:#6a6a63;font-size:12px">' + r[1] + '</td><td class="n"><b>' + r[2] + '</b></td></tr>'
+  ).join('');
+}
+
+['techoFootprint','techoAncho','techoProfundidad','techoPendiente','techoAlero','techoDesperdicioChapa',
+ 'techoSepCorrea','techoSepCercha','techoFactorCercha','techoTornillos','techoRendRollo','techoVerde',
+ 'techoDesperdicioPlaca','techoBajadas'].forEach(function (id) {
+  document.getElementById(id).addEventListener('input', renderTecho);
+});
+renderTecho();
 </script>
 </div></body></html>
