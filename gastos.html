@@ -29,6 +29,9 @@ p{font-size:13px;line-height:1.65}
 .seccion{border:1px solid #e6e3da;border-radius:8px;padding:14px 16px;margin-top:14px}
 .seccion h3{margin-top:0}
 .pendiente{color:#8a877e;font-size:12.5px}
+.filtros{display:flex;flex-wrap:wrap;gap:14px;margin:12px 0 4px}
+.filtros label{display:flex;flex-direction:column;gap:3px;font-size:12.5px;color:#55534c}
+.filtros select{padding:5px 7px;border:1px solid #d8d5cb;border-radius:5px;font-size:13px;min-width:170px;background:#fff}
 </style></head><body><div class="wrap">
 <div class="nav"><a href="index.html">&larr; Inicio</a> &nbsp;·&nbsp; <a href="computo.html">Cómputo de materiales</a> &nbsp;·&nbsp; <a href="plano-general.html">Plano general</a></div>
 <h1>Gastos reales</h1>
@@ -54,12 +57,26 @@ p{font-size:13px;line-height:1.65}
 <tr><td>Etapa 3 — Evolutivo</td><td class="n">$ 0</td><td class="n">$ 0</td><td class="n">$ 0</td></tr>
 <tr class="tot"><td>Total general</td><td class="n">$ 3.652.364</td><td class="n">$ 14.424.000</td><td class="n">$ 18.076.364</td></tr>
 </table>
-<p class="pendiente">Mano de obra de Etapa 1 en base a los pagos reales, tipificados por oficio: albañilería (Fabio + Silvio) y otros oficios — herrería, plomería, electricidad (ver detalle en Etapa 1).</p>
+</div>
+
+<div class="sheet">
+<h2>Mano de obra — registro completo</h2>
+<p>Todos los pagos de mano de obra en un solo lugar, uno por fila. Filtrable por oficio, contratista y etapa.</p>
+<div class="filtros">
+  <label>Etapa<select id="filtroEtapa"><option value="">Todas</option></select></label>
+  <label>Oficio<select id="filtroOficio"><option value="">Todos</option></select></label>
+  <label>Contratista<select id="filtroContratista"><option value="">Todos</option></select></label>
+</div>
+<table>
+<tr><th>Fecha</th><th>Etapa</th><th>Oficio</th><th>Contratista</th><th>Concepto</th><th style="text-align:right">Monto</th></tr>
+<tbody id="tbodyManoObra"></tbody>
+<tr class="tot"><td colspan="5">Total (según filtro)</td><td class="n" id="totManoObraFiltrado">—</td></tr>
+</table>
 </div>
 
 <div class="sheet">
 <div class="etapa-h"><span class="tit">Etapa 1 — Ya construido</span><span class="badge badge-done">terminado</span></div>
-<p>Mano de obra a cargo de dos albañiles: Fabio (Albañil 1) desde 07/03/2026, y Silvio (Albañil 2) desde 11/05/2026, quien terminó lo que había empezado Fabio. El detalle por rubro de abajo corresponde al trabajo de Silvio; Fabio se registra solo por pago, sin desglose por rubro.</p>
+<p>Mano de obra a cargo de dos albañiles: Fabio (Albañil 1) desde 07/03/2026, y Silvio (Albañil 2) desde 11/05/2026, quien terminó lo que había empezado Fabio. Los pagos de ambos, más los de herrería/plomería/electricidad, están en el registro completo de arriba. Acá abajo, el detalle de cómo se compone el trabajo de albañilería de Silvio por tipo de tarea (no es un pago aparte, es la apertura de su monto ya cargado).</p>
 
 <div class="seccion">
 <h3>Tapia Este</h3>
@@ -103,8 +120,9 @@ p{font-size:13px;line-height:1.65}
 </div>
 
 <table style="margin-top:16px">
-<tr class="tot"><td>Costo por rubro (Tapia Este + Garage + Frente)</td><td class="n">$ 5.057.000</td></tr>
+<tr class="tot"><td>Costo por tipo de tarea (Tapia Este + Garage + Frente)</td><td class="n">$ 5.057.000</td></tr>
 </table>
+<p class="pendiente">De los $ 5.250.000 pagados a Silvio (ver registro completo arriba), $ 5.057.000 están distribuidos en las tareas de arriba; los $ 193.000 restantes son un adelanto para la semana siguiente, todavía sin tarea asignada.</p>
 
 <div class="seccion">
 <h3>Materiales — Frente + Garage</h3>
@@ -124,65 +142,6 @@ p{font-size:13px;line-height:1.65}
 <tr class="tot"><td colspan="4">Subtotal materiales Frente + Garage</td><td class="n">$ 1.799.920</td></tr>
 </table>
 </div>
-
-<div class="seccion">
-<h3>Pagos realizados a Silvio</h3>
-<p>Pago semanal, todos los sábados.</p>
-<table>
-<tr><th>Fecha</th><th style="text-align:right">Monto</th></tr>
-<tr><td>16/05/2026</td><td class="n">$ 400.000</td></tr>
-<tr><td>23/05/2026</td><td class="n">$ 450.000</td></tr>
-<tr><td>30/05/2026</td><td class="n">$ 500.000</td></tr>
-<tr><td>06/06/2026</td><td class="n">$ 400.000</td></tr>
-<tr><td>15/06/2026</td><td class="n">$ 500.000</td></tr>
-<tr><td>20/06/2026</td><td class="n">$ 500.000</td></tr>
-<tr><td>27/06/2026</td><td class="n">$ 500.000</td></tr>
-<tr><td>04/07/2026</td><td class="n">$ 500.000</td></tr>
-<tr><td>11/07/2026</td><td class="n">$ 500.000</td></tr>
-<tr><td>18/07/2026</td><td class="n">$ 500.000</td></tr>
-<tr><td>25/07/2026</td><td class="n">$ 500.000</td></tr>
-<tr class="tot"><td>Total pagado a Silvio</td><td class="n">$ 5.250.000</td></tr>
-</table>
-</div>
-
-<div class="warn"><b>Diferencia entre costo por rubro y total pagado: $ 193.000 — es un adelanto.</b> El detalle por rubro (Tapia Este + Garage + Frente) suma $ 5.057.000; lo pagado a Silvio suma $ 5.250.000 porque incluye un adelanto de $ 193.000 para la semana siguiente, todavía sin rubro asignado. Cuando se cargue el trabajo de esa semana, ese monto se descuenta del pago correspondiente y se le suma su rubro al detalle de arriba.</div>
-
-<div class="seccion">
-<h3>Pagos realizados a Fabio — Albañilería</h3>
-<p>Trabajo previo al de Silvio en estas mismas secciones (Tapia Este, Garage, Frente), sin desglose por rubro todavía. Fabio también hizo trabajos de herrería, ver tabla de "Otros oficios" más abajo.</p>
-<table>
-<tr><th>Fecha</th><th style="text-align:right">Monto</th></tr>
-<tr><td>07/03/2026</td><td class="n">$ 600.000</td></tr>
-<tr><td>14/03/2026</td><td class="n">$ 400.000</td></tr>
-<tr><td>20/03/2026</td><td class="n">$ 250.000</td></tr>
-<tr><td>21/03/2026</td><td class="n">$ 250.000</td></tr>
-<tr><td>28/03/2026</td><td class="n">$ 800.000</td></tr>
-<tr><td>01/04/2026</td><td class="n">$ 420.000</td></tr>
-<tr><td>11/04/2026</td><td class="n">$ 500.000</td></tr>
-<tr><td>18/04/2026</td><td class="n">$ 700.000</td></tr>
-<tr><td>02/05/2026</td><td class="n">$ 650.000</td></tr>
-<tr><td>09/05/2026</td><td class="n">$ 3.224.000</td></tr>
-<tr class="tot"><td>Total pagado a Fabio</td><td class="n">$ 7.794.000</td></tr>
-</table>
-</div>
-
-<div class="seccion">
-<h3>Otros oficios</h3>
-<p>Trabajos de otros oficios en Etapa 1 — herrería, plomería, electricidad — pagados aparte de la albañilería. Cada uno tipificado por oficio y contratista.</p>
-<table>
-<tr><th>Fecha</th><th>Oficio</th><th>Contratista</th><th>Concepto</th><th style="text-align:right">Monto</th></tr>
-<tr><td>28/02/2026</td><td>Herrería</td><td>Fabio</td><td>2 portones de 3 m + puerta de 1,20 m</td><td class="n">$ 1.160.000</td></tr>
-<tr><td>04/04/2026</td><td>Plomería</td><td>Orlando</td><td>Trabajo de plomería</td><td class="n">$ 160.000</td></tr>
-<tr><td>07/04/2026</td><td>Electricidad</td><td>Daniel</td><td>Sacar un aire acondicionado</td><td class="n">$ 60.000</td></tr>
-<tr class="tot"><td colspan="4">Subtotal otros oficios</td><td class="n">$ 1.380.000</td></tr>
-</table>
-</div>
-
-<table style="margin-top:16px">
-<tr><td>Albañilería (Fabio + Silvio)</td><td class="n">$ 13.044.000</td></tr>
-<tr><td>Otros oficios (herrería, plomería, electricidad)</td><td class="n">$ 1.380.000</td></tr>
-<tr class="tot"><td>Total mano de obra Etapa 1</td><td class="n">$ 14.424.000</td></tr>
-</table>
 </div>
 
 <div class="sheet">
@@ -216,4 +175,78 @@ p{font-size:13px;line-height:1.65}
 <div class="foot">
 Registro manual de compras y pagos — se actualiza a medida que se van cargando nuevas compras y pagos de mano de obra.
 </div>
+
+<script>
+const PAGOS = [
+  {fecha:'2026-02-28', etapa:'Etapa 1', oficio:'Herrería',     contratista:'Fabio',   concepto:'2 portones de 3 m + puerta de 1,20 m', monto:1160000},
+  {fecha:'2026-03-07', etapa:'Etapa 1', oficio:'Albañilería',  contratista:'Fabio',   concepto:'Pago semanal', monto:600000},
+  {fecha:'2026-03-14', etapa:'Etapa 1', oficio:'Albañilería',  contratista:'Fabio',   concepto:'Pago semanal', monto:400000},
+  {fecha:'2026-03-20', etapa:'Etapa 1', oficio:'Albañilería',  contratista:'Fabio',   concepto:'Pago semanal', monto:250000},
+  {fecha:'2026-03-21', etapa:'Etapa 1', oficio:'Albañilería',  contratista:'Fabio',   concepto:'Pago semanal', monto:250000},
+  {fecha:'2026-03-28', etapa:'Etapa 1', oficio:'Albañilería',  contratista:'Fabio',   concepto:'Pago semanal', monto:800000},
+  {fecha:'2026-04-01', etapa:'Etapa 1', oficio:'Albañilería',  contratista:'Fabio',   concepto:'Pago semanal', monto:420000},
+  {fecha:'2026-04-04', etapa:'Etapa 1', oficio:'Plomería',     contratista:'Orlando', concepto:'Trabajo de plomería', monto:160000},
+  {fecha:'2026-04-07', etapa:'Etapa 1', oficio:'Electricidad', contratista:'Daniel',  concepto:'Sacar un aire acondicionado', monto:60000},
+  {fecha:'2026-04-11', etapa:'Etapa 1', oficio:'Albañilería',  contratista:'Fabio',   concepto:'Pago semanal', monto:500000},
+  {fecha:'2026-04-18', etapa:'Etapa 1', oficio:'Albañilería',  contratista:'Fabio',   concepto:'Pago semanal', monto:700000},
+  {fecha:'2026-05-02', etapa:'Etapa 1', oficio:'Albañilería',  contratista:'Fabio',   concepto:'Pago semanal', monto:650000},
+  {fecha:'2026-05-09', etapa:'Etapa 1', oficio:'Albañilería',  contratista:'Fabio',   concepto:'Pago semanal', monto:3224000},
+  {fecha:'2026-05-16', etapa:'Etapa 1', oficio:'Albañilería',  contratista:'Silvio',  concepto:'Pago semanal', monto:400000},
+  {fecha:'2026-05-23', etapa:'Etapa 1', oficio:'Albañilería',  contratista:'Silvio',  concepto:'Pago semanal', monto:450000},
+  {fecha:'2026-05-30', etapa:'Etapa 1', oficio:'Albañilería',  contratista:'Silvio',  concepto:'Pago semanal', monto:500000},
+  {fecha:'2026-06-06', etapa:'Etapa 1', oficio:'Albañilería',  contratista:'Silvio',  concepto:'Pago semanal', monto:400000},
+  {fecha:'2026-06-15', etapa:'Etapa 1', oficio:'Albañilería',  contratista:'Silvio',  concepto:'Pago semanal', monto:500000},
+  {fecha:'2026-06-20', etapa:'Etapa 1', oficio:'Albañilería',  contratista:'Silvio',  concepto:'Pago semanal', monto:500000},
+  {fecha:'2026-06-27', etapa:'Etapa 1', oficio:'Albañilería',  contratista:'Silvio',  concepto:'Pago semanal', monto:500000},
+  {fecha:'2026-07-04', etapa:'Etapa 1', oficio:'Albañilería',  contratista:'Silvio',  concepto:'Pago semanal', monto:500000},
+  {fecha:'2026-07-11', etapa:'Etapa 1', oficio:'Albañilería',  contratista:'Silvio',  concepto:'Pago semanal', monto:500000},
+  {fecha:'2026-07-18', etapa:'Etapa 1', oficio:'Albañilería',  contratista:'Silvio',  concepto:'Pago semanal', monto:500000},
+  {fecha:'2026-07-25', etapa:'Etapa 1', oficio:'Albañilería',  contratista:'Silvio',  concepto:'Pago semanal (incluye adelanto de $ 193.000 para la semana siguiente, sin tarea asignada)', monto:500000}
+];
+
+function fmtFecha(iso) {
+  const [y, m, d] = iso.split('-');
+  return d + '/' + m + '/' + y;
+}
+function money(v) {
+  return '$ ' + Math.round(v).toLocaleString('es-AR');
+}
+
+function fillSelect(id, values) {
+  const sel = document.getElementById(id);
+  [...new Set(values)].sort().forEach(v => {
+    const opt = document.createElement('option');
+    opt.value = v; opt.textContent = v;
+    sel.appendChild(opt);
+  });
+}
+fillSelect('filtroEtapa', PAGOS.map(p => p.etapa));
+fillSelect('filtroOficio', PAGOS.map(p => p.oficio));
+fillSelect('filtroContratista', PAGOS.map(p => p.contratista));
+
+function renderManoObra() {
+  const etapa = document.getElementById('filtroEtapa').value;
+  const oficio = document.getElementById('filtroOficio').value;
+  const contratista = document.getElementById('filtroContratista').value;
+
+  const filtrados = PAGOS.filter(p =>
+    (!etapa || p.etapa === etapa) &&
+    (!oficio || p.oficio === oficio) &&
+    (!contratista || p.contratista === contratista)
+  ).slice().sort((a, b) => a.fecha.localeCompare(b.fecha));
+
+  document.getElementById('tbodyManoObra').innerHTML = filtrados.map(p =>
+    '<tr><td>' + fmtFecha(p.fecha) + '</td><td>' + p.etapa + '</td><td>' + p.oficio + '</td><td>' +
+    p.contratista + '</td><td>' + p.concepto + '</td><td class="n">' + money(p.monto) + '</td></tr>'
+  ).join('') || '<tr><td colspan="6" style="color:#8a877e">No hay pagos que coincidan con el filtro.</td></tr>';
+
+  const total = filtrados.reduce((acc, p) => acc + p.monto, 0);
+  document.getElementById('totManoObraFiltrado').textContent = money(total);
+}
+
+['filtroEtapa', 'filtroOficio', 'filtroContratista'].forEach(id =>
+  document.getElementById(id).addEventListener('change', renderManoObra)
+);
+renderManoObra();
+</script>
 </div></body></html>
