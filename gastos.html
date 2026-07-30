@@ -32,6 +32,9 @@ p{font-size:13px;line-height:1.65}
 .filtros{display:flex;flex-wrap:wrap;gap:14px;margin:12px 0 4px}
 .filtros label{display:flex;flex-direction:column;gap:3px;font-size:12.5px;color:#55534c}
 .filtros select{padding:5px 7px;border:1px solid #d8d5cb;border-radius:5px;font-size:13px;min-width:170px;background:#fff}
+th[data-key]{cursor:pointer;user-select:none}
+th[data-key]:hover{background:#efece2}
+th[data-key] .arrow{color:#a6631b;font-size:11px}
 </style></head><body><div class="wrap">
 <div class="nav"><a href="index.html">&larr; Inicio</a> &nbsp;·&nbsp; <a href="computo.html">Cómputo de materiales</a> &nbsp;·&nbsp; <a href="plano-general.html">Plano general</a></div>
 <h1>Gastos reales</h1>
@@ -68,7 +71,14 @@ p{font-size:13px;line-height:1.65}
   <label>Contratista<select id="filtroContratista"><option value="">Todos</option></select></label>
 </div>
 <table>
-<tr><th>Fecha</th><th>Etapa</th><th>Oficio</th><th>Contratista</th><th>Concepto</th><th style="text-align:right">Monto</th></tr>
+<tr id="theadManoObra">
+  <th data-key="fecha">Fecha<span class="arrow"></span></th>
+  <th data-key="etapa">Etapa<span class="arrow"></span></th>
+  <th data-key="oficio">Oficio<span class="arrow"></span></th>
+  <th data-key="contratista">Contratista<span class="arrow"></span></th>
+  <th data-key="concepto">Concepto<span class="arrow"></span></th>
+  <th data-key="monto" style="text-align:right">Monto<span class="arrow"></span></th>
+</tr>
 <tbody id="tbodyManoObra"></tbody>
 <tr class="tot"><td colspan="5">Total (según filtro)</td><td class="n" id="totManoObraFiltrado">—</td></tr>
 </table>
@@ -132,7 +142,17 @@ p{font-size:13px;line-height:1.65}
   <label>Proveedor<select id="filtroProveedor"><option value="">Todos</option></select></label>
 </div>
 <table>
-<tr><th>Fecha</th><th>Comprobante</th><th>Proveedor</th><th>Destino</th><th>Item</th><th style="text-align:right">Precio unit.</th><th style="text-align:right">Desc.</th><th style="text-align:right">Cantidad</th><th style="text-align:right">Subtotal</th></tr>
+<tr id="theadMateriales">
+  <th data-key="fecha">Fecha<span class="arrow"></span></th>
+  <th data-key="comp">Comprobante<span class="arrow"></span></th>
+  <th data-key="prov">Proveedor<span class="arrow"></span></th>
+  <th data-key="destino">Destino<span class="arrow"></span></th>
+  <th data-key="item">Item<span class="arrow"></span></th>
+  <th data-key="precio" style="text-align:right">Precio unit.<span class="arrow"></span></th>
+  <th data-key="desc" style="text-align:right">Desc.<span class="arrow"></span></th>
+  <th data-key="cant" style="text-align:right">Cantidad<span class="arrow"></span></th>
+  <th data-key="subtotal" style="text-align:right">Subtotal<span class="arrow"></span></th>
+</tr>
 <tbody id="tbodyMateriales"></tbody>
 <tr class="tot"><td colspan="8">Total (según filtro)</td><td class="n" id="totMaterialesFiltrado">—</td></tr>
 </table>
@@ -217,6 +237,33 @@ function fillSelect(id, values) {
     const opt = document.createElement('option');
     opt.value = v; opt.textContent = v;
     sel.appendChild(opt);
+  });
+}
+
+function sortRows(rows, state) {
+  return rows.slice().sort((a, b) => {
+    const av = a[state.key], bv = b[state.key];
+    const cmp = (typeof av === 'number' && typeof bv === 'number')
+      ? av - bv
+      : String(av).localeCompare(String(bv), 'es');
+    return cmp * state.dir;
+  });
+}
+
+function setupSort(theadId, state, renderFn) {
+  document.querySelectorAll('#' + theadId + ' th[data-key]').forEach(th => {
+    th.addEventListener('click', () => {
+      if (state.key === th.dataset.key) { state.dir *= -1; }
+      else { state.key = th.dataset.key; state.dir = 1; }
+      renderFn();
+    });
+  });
+}
+
+function updateSortIndicators(theadId, state) {
+  document.querySelectorAll('#' + theadId + ' th[data-key]').forEach(th => {
+    th.querySelector('.arrow').textContent =
+      th.dataset.key === state.key ? (state.dir === 1 ? ' ▲' : ' ▼') : '';
   });
 }
 fillSelect('filtroEtapa', PAGOS.map(p => p.etapa));
@@ -306,14 +353,16 @@ const MATERIALES = [
 fillSelect('filtroDestino', MATERIALES.map(m => m.destino));
 fillSelect('filtroProveedor', MATERIALES.map(m => m.prov));
 
+const sortMateriales = {key: 'fecha', dir: 1};
+
 function renderMateriales() {
   const destino = document.getElementById('filtroDestino').value;
   const proveedor = document.getElementById('filtroProveedor').value;
 
-  const filtrados = MATERIALES.filter(m =>
+  const filtrados = sortRows(MATERIALES.filter(m =>
     (!destino || m.destino === destino) &&
     (!proveedor || m.prov === proveedor)
-  ).slice().sort((a, b) => a.fecha.localeCompare(b.fecha));
+  ), sortMateriales);
 
   document.getElementById('tbodyMateriales').innerHTML = filtrados.map(m =>
     '<tr><td>' + fmtFecha(m.fecha) + '</td><td>' + m.comp + '</td><td>' + m.prov + '</td><td>' + m.destino +
@@ -323,23 +372,27 @@ function renderMateriales() {
 
   const total = filtrados.reduce((acc, m) => acc + m.subtotal, 0);
   document.getElementById('totMaterialesFiltrado').textContent = money(total);
+  updateSortIndicators('theadMateriales', sortMateriales);
 }
 
 ['filtroDestino', 'filtroProveedor'].forEach(id =>
   document.getElementById(id).addEventListener('change', renderMateriales)
 );
+setupSort('theadMateriales', sortMateriales, renderMateriales);
 renderMateriales();
+
+const sortManoObra = {key: 'fecha', dir: 1};
 
 function renderManoObra() {
   const etapa = document.getElementById('filtroEtapa').value;
   const oficio = document.getElementById('filtroOficio').value;
   const contratista = document.getElementById('filtroContratista').value;
 
-  const filtrados = PAGOS.filter(p =>
+  const filtrados = sortRows(PAGOS.filter(p =>
     (!etapa || p.etapa === etapa) &&
     (!oficio || p.oficio === oficio) &&
     (!contratista || p.contratista === contratista)
-  ).slice().sort((a, b) => a.fecha.localeCompare(b.fecha));
+  ), sortManoObra);
 
   document.getElementById('tbodyManoObra').innerHTML = filtrados.map(p =>
     '<tr><td>' + fmtFecha(p.fecha) + '</td><td>' + p.etapa + '</td><td>' + p.oficio + '</td><td>' +
@@ -348,11 +401,13 @@ function renderManoObra() {
 
   const total = filtrados.reduce((acc, p) => acc + p.monto, 0);
   document.getElementById('totManoObraFiltrado').textContent = money(total);
+  updateSortIndicators('theadManoObra', sortManoObra);
 }
 
 ['filtroEtapa', 'filtroOficio', 'filtroContratista'].forEach(id =>
   document.getElementById(id).addEventListener('change', renderManoObra)
 );
+setupSort('theadManoObra', sortManoObra, renderManoObra);
 renderManoObra();
 </script>
 </div></body></html>
