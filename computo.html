@@ -28,6 +28,7 @@ p{font-size:13px;line-height:1.65}
 .badge{display:inline-block;font-size:10.5px;font-weight:700;padding:2px 8px;border-radius:20px;margin-left:8px;vertical-align:1px}
 .badge-live{background:#eef7ec;color:#4e7638}
 .badge-pending{background:#f4f2ec;color:#8a877e}
+.badge-quote{background:#fdf1de;color:#a6631b}
 .rubro{border:1px solid #e6e3da;border-radius:8px;padding:14px 16px;margin-top:10px}
 .rubro-h{display:flex;align-items:center;justify-content:space-between}
 .rubro-h span{font-weight:600;font-size:13.5px}
@@ -120,18 +121,41 @@ p{font-size:13px;line-height:1.65}
 </div>
 
 <div class="sheet">
+<h2>Presupuesto — albañilería <span class="badge badge-quote">cotización del albañil</span></h2>
+<p>Cotización recibida del albañil, un rubro por fila. En <b>Mampostería</b> y <b>Techo</b> la cantidad se toma en vivo del cómputo de arriba (no se tipea a mano); en el resto (bases, estructura, contrapiso, capa aisladora, demolición) todavía no hay geometría propia en el plano — falta el cálculo estructural — así que la cantidad de partida es la que dio el albañil en su presupuesto, editable si la ajustás. El precio unitario de cada fila también es editable, para probar otros valores o comparar proveedores.</p>
+
+<table>
+<tr><th>Rubro</th><th style="text-align:right">Cantidad</th><th>Unidad</th><th style="text-align:right">Precio unitario</th><th style="text-align:right">Subtotal</th></tr>
+<tr><td>Mampostería <span style="color:#8a877e;font-size:11.5px">(m² de muro a construir, excluye garage)</span></td><td class="n" id="presCantMamposteria">—</td><td>m²</td><td class="n"><input type="number" id="presPrecioMamposteria" value="10000" step="500" min="0"></td><td class="n" id="presSubMamposteria">—</td></tr>
+<tr><td>Bases</td><td class="n"><input type="number" id="presCantBases" value="13" step="1" min="0"></td><td>un.</td><td class="n"><input type="number" id="presPrecioBases" value="30000" step="1000" min="0"></td><td class="n" id="presSubBases">—</td></tr>
+<tr><td>Viga de arrastre</td><td class="n"><input type="number" id="presCantViga" value="60" step="1" min="0"></td><td>m²</td><td class="n"><input type="number" id="presPrecioViga" value="15000" step="500" min="0"></td><td class="n" id="presSubViga">—</td></tr>
+<tr><td>Contrapiso <span style="color:#8a877e;font-size:11.5px">(sugerido: igual a la superficie cubierta del techo)</span></td><td class="n"><input type="number" id="presCantContrapiso" value="82.00" step="0.5" min="0"></td><td>m²</td><td class="n"><input type="number" id="presPrecioContrapiso" value="15000" step="500" min="0"></td><td class="n" id="presSubContrapiso">—</td></tr>
+<tr><td>Columnas</td><td class="n"><input type="number" id="presCantColumnas" value="42" step="1" min="0"></td><td>ml</td><td class="n"><input type="number" id="presPrecioColumnas" value="15000" step="500" min="0"></td><td class="n" id="presSubColumnas">—</td></tr>
+<tr><td>Encadenado</td><td class="n"><input type="number" id="presCantEncadenado" value="60" step="1" min="0"></td><td>ml</td><td class="n"><input type="number" id="presPrecioEncadenado" value="15000" step="500" min="0"></td><td class="n" id="presSubEncadenado">—</td></tr>
+<tr><td>Techo <span style="color:#8a877e;font-size:11.5px">(m² de superficie cubierta, casa sin galería/garage)</span></td><td class="n" id="presCantTecho">—</td><td>m²</td><td class="n"><input type="number" id="presPrecioTecho" value="17000" step="500" min="0"></td><td class="n" id="presSubTecho">—</td></tr>
+<tr><td>Capa aisladora</td><td class="n"><input type="number" id="presCantAisladora" value="52" step="1" min="0"></td><td>m</td><td class="n"><input type="number" id="presPrecioAisladora" value="4000" step="500" min="0"></td><td class="n" id="presSubAisladora">—</td></tr>
+<tr><td>Demolición</td><td class="n"><input type="number" id="presCantDemolicion" value="55" step="1" min="0"></td><td>m²</td><td class="n"><input type="number" id="presPrecioDemolicion" value="6000" step="500" min="0"></td><td class="n" id="presSubDemolicion">—</td></tr>
+<tr class="tot"><td colspan="4">Total presupuesto albañil</td><td class="n" id="presTotal">—</td></tr>
+</table>
+
+<div class="warn"><b>Cantidades de bases, viga de arrastre, columnas, encadenado, capa aisladora y demolición: son las del propio presupuesto del albañil</b>, no una medición nuestra — todavía no está el cálculo estructural que defina cuántas bases o qué sección de columna hace falta. Usalas como punto de partida y ajustalas cuando tengas el plano de estructura firmado por el calculista. Mampostería y Techo sí están cruzados contra la geometría del plano, así que esos dos números no dependen de lo que haya tipeado el albañil.</div>
+</div>
+
+<div class="sheet">
 <h2>Otros rubros</h2>
 <p>El resto del cómputo se va a ir completando a medida que definamos cada parte del proyecto (techo, estructura, instalaciones, aberturas, terminaciones). Cada rubro va a sumarse acá con el mismo criterio que mampostería: calculado en vivo desde la geometría del plano en cuanto esa parte tenga su propio dibujo, no tipeado a mano.</p>
 
-<div class="rubro"><div class="rubro-h"><span>Movimiento de suelo y fundaciones</span><span class="badge badge-pending">pendiente</span></div><p>Falta el cálculo estructural (zapatas, vigas de encadenado) — a cargo del profesional matriculado.</p></div>
-<div class="rubro"><div class="rubro-h"><span>Estructura</span><span class="badge badge-pending">pendiente</span></div><p>Columnas, vigas y encadenados — depende del cálculo estructural.</p></div>
+<div class="rubro"><div class="rubro-h"><span>Movimiento de suelo y fundaciones</span><span class="badge badge-quote">cotizado (albañil)</span></div><p>Bases y viga de arrastre ya tienen precio del albañil (ver presupuesto de albañilería arriba), con la cantidad que él mismo tomó. Falta el cálculo estructural (zapatas, vigas de encadenado) que confirme si esa cantidad de bases es la correcta — a cargo del profesional matriculado.</p></div>
+<div class="rubro"><div class="rubro-h"><span>Estructura</span><span class="badge badge-quote">cotizado (albañil)</span></div><p>Columnas y encadenado ya tienen precio y metraje del albañil (ver presupuesto de albañilería arriba). Depende del cálculo estructural para confirmar sección y metraje final.</p></div>
 <div class="rubro"><div class="rubro-h"><span>Mampostería</span><span class="badge badge-live">calculado</span></div><p>Ver tabla arriba.</p></div>
 <div class="rubro"><div class="rubro-h"><span>Techos — casa</span><span class="badge badge-live">calculado</span></div><p>Ver sección propia arriba (chapa, correas, cerchas, aislación, cielorraso, canaletas y bajadas). Galería (etapa futura) y Garage (ya construido) quedan fuera de este cómputo.</p></div>
 <div class="rubro"><div class="rubro-h"><span>Instalación sanitaria</span><span class="badge badge-live">calculado (parcial)</span></div><p>Ver criterio completo en el <a href="instructivo.html">instructivo</a>: 9 artefactos con desagüe cloacal (Baño, Antebaño, Lavadero, Cocina, Galería). Cámara séptica + pozo absorbente <b>ya existen</b> (esquina suroeste del lote) — solo falta empalmar, verificando que su capacidad alcance para estos 9 artefactos. Faltan los <b>metros de cañería</b> (dependen del recorrido real, no se pueden estimar sin el plano de tendido) — eso queda a cargo del profesional matriculado.</p></div>
 <div class="rubro"><div class="rubro-h"><span>Instalación eléctrica</span><span class="badge badge-live">calculado (parcial)</span></div><p>Ver criterio completo en el <a href="instructivo.html">instructivo</a>: 14 circuitos (3 IUG + 3 TUG + 8 TUE), ≈36 puntos de luz interiores + Garage, ≈32 tomacorrientes. Faltan los <b>metros de cable</b> (dependen del recorrido real de cañerías, no se pueden estimar sin el plano de tendido) — eso sí queda a cargo del electricista matriculado.</p></div>
 <div class="rubro"><div class="rubro-h"><span>Instalación de gas</span><span class="badge badge-pending">pendiente</span></div><p>Cocina a garrafa (gabinete ventilado exterior en la Galería, junto a la Cocina) con campana en el anafe — ver <a href="instructivo.html">instructivo</a>. Falta definir cañería y accesorios con el instalador matriculado.</p></div>
 <div class="rubro"><div class="rubro-h"><span>Aberturas</span><span class="badge badge-live">calculado</span></div><p>Ver sección propia arriba (cantidad, m² de vidrio y ml de marco por puerta/ventana, leído en vivo desde el plano).</p></div>
-<div class="rubro"><div class="rubro-h"><span>Revestimientos y contrapisos</span><span class="badge badge-pending">pendiente</span></div><p>El cuadro de superficies por ambiente ya existe — se puede calcular m² de piso/revestimiento apenas definamos qué material va en cada ambiente.</p></div>
+<div class="rubro"><div class="rubro-h"><span>Contrapiso y capa aisladora</span><span class="badge badge-quote">cotizado (albañil)</span></div><p>Ambos con precio del albañil (ver presupuesto de albañilería arriba). La cantidad de contrapiso se sugiere igual a la superficie cubierta del techo (editable); la de capa aisladora es la que dio el albañil.</p></div>
+<div class="rubro"><div class="rubro-h"><span>Revestimientos (piso/pared, terminación)</span><span class="badge badge-pending">pendiente</span></div><p>El cuadro de superficies por ambiente ya existe — se puede calcular m² de piso/revestimiento apenas definamos qué material va en cada ambiente. Distinto del contrapiso (ya cotizado arriba), que es la base estructural bajo el piso.</p></div>
+<div class="rubro"><div class="rubro-h"><span>Demolición</span><span class="badge badge-quote">cotizado (albañil)</span></div><p>Con precio y metraje del albañil (ver presupuesto de albañilería arriba) — a confirmar qué tramo exacto de obra existente se demuele.</p></div>
 <div class="rubro"><div class="rubro-h"><span>Pintura</span><span class="badge badge-pending">pendiente</span></div><p>Se puede estimar por m² de muro (perímetro × altura, descontando aberturas) con los mismos datos que ya usa mampostería.</p></div>
 
 <p style="font-size:12.5px;color:#8a877e;margin-top:14px">Anteproyecto de gestión de obra en construcción — igual que el resto del sitio, no reemplaza el cómputo y presupuesto final que debe elaborar un profesional matriculado.</p>
@@ -213,6 +237,43 @@ function render() {
   document.getElementById('cmpMixtoHueco').textContent = totHueco.toLocaleString('es-AR') + ' un.';
   document.getElementById('cmpMixtoComun').textContent = totComun.toLocaleString('es-AR') + ' un.';
   document.getElementById('cmpTodoComun').textContent = totalTodoComun.toLocaleString('es-AR') + ' un.';
+
+  mamposteriaAreaM2 = totalAreaM2;
+  renderPresupuesto();
+}
+
+let mamposteriaAreaM2 = null;
+let techoFootprintM2 = null;
+
+function money(v) {
+  return '$ ' + Math.round(v).toLocaleString('es-AR');
+}
+
+function renderPresupuesto() {
+  if (mamposteriaAreaM2 === null || techoFootprintM2 === null) return;
+  document.getElementById('presCantMamposteria').textContent = mamposteriaAreaM2.toFixed(2);
+  document.getElementById('presCantTecho').textContent = techoFootprintM2.toFixed(2);
+
+  const rows = [
+    ['Mamposteria', mamposteriaAreaM2],
+    ['Bases', num('presCantBases', 0)],
+    ['Viga', num('presCantViga', 0)],
+    ['Contrapiso', num('presCantContrapiso', 0)],
+    ['Columnas', num('presCantColumnas', 0)],
+    ['Encadenado', num('presCantEncadenado', 0)],
+    ['Techo', techoFootprintM2],
+    ['Aisladora', num('presCantAisladora', 0)],
+    ['Demolicion', num('presCantDemolicion', 0)]
+  ];
+
+  let total = 0;
+  rows.forEach(([key, cant]) => {
+    const precio = num('presPrecio' + key, 0);
+    const subtotal = cant * precio;
+    total += subtotal;
+    document.getElementById('presSub' + key).textContent = money(subtotal);
+  });
+  document.getElementById('presTotal').textContent = money(total);
 }
 
 let aberturas = null;
@@ -294,6 +355,8 @@ document.getElementById('planoFrame').addEventListener('load', function () {
 
 function renderTecho() {
   const footprint = num('techoFootprint', 82.00);
+  techoFootprintM2 = footprint;
+  renderPresupuesto();
   const ancho = num('techoAncho', 10.00);
   const profundidad = num('techoProfundidad', 7.70);
   const pendiente = num('techoPendiente', 12);
@@ -369,5 +432,12 @@ function renderTecho() {
   document.getElementById(id).addEventListener('input', renderTecho);
 });
 renderTecho();
+
+['presPrecioMamposteria','presCantBases','presPrecioBases','presCantViga','presPrecioViga',
+ 'presCantContrapiso','presPrecioContrapiso','presCantColumnas','presPrecioColumnas',
+ 'presCantEncadenado','presPrecioEncadenado','presPrecioTecho','presCantAisladora','presPrecioAisladora',
+ 'presCantDemolicion','presPrecioDemolicion'].forEach(function (id) {
+  document.getElementById(id).addEventListener('input', renderPresupuesto);
+});
 </script>
 </div></body></html>
