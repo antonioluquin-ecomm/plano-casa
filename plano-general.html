@@ -37,6 +37,7 @@ h1{font-size:21px;font-weight:600;margin:0 0 2px}
 .dimt{stroke:#8a877e;stroke-width:.9}
 .dt{font-size:9.5px;fill:#4f4d47;text-anchor:middle;font-weight:600;font-variant-numeric:tabular-nums}
 .ac{fill:#e3ecf2;stroke:#1f7fae;stroke-width:1.3}
+.ac-prev{fill:none;stroke:#1f7fae;stroke-width:1.3;stroke-dasharray:2 2}
 .ac-t{font-size:7px;fill:#1f7fae;text-anchor:middle;font-weight:600}
 .nc{fill:#fff;stroke:#8a877e;stroke-width:1.2}
 .np{fill:#2e2e2b}
@@ -108,8 +109,7 @@ h2{font-size:15px;margin:26px 0 6px}
 <rect class="elec-toma" x="417" y="947" width="6" height="6"/><rect class="elec-toma" x="517" y="947" width="6" height="6"/>
 <rect class="ac" x="239.6" y="614.0" width="6.0" height="32.0"/><text class="ac-t" x="256.0" y="633.6" transform="rotate(-90 256.0 633.6)">A/C 6000 fg</text>
 <rect class="ac" x="516.0" y="649.6" width="32.0" height="6.0"/><text class="ac-t" x="532.0" y="668.0">A/C 3000 fg</text>
-<rect class="ac" x="392.0" y="649.6" width="32.0" height="6.0"/><text class="ac-t" x="408.0" y="668.0">A/C 3000 fg</text>
-<rect class="ac" x="428.0" y="610.8" width="32.0" height="6.0"/><text class="ac-t" x="444.0" y="606.8">A/C 2250 fg</text>
+<rect class="ac-prev" x="392.0" y="649.6" width="32.0" height="6.0"/><text class="ac-t" x="408.0" y="668.0">A/C previsto</text>
 </g><g class="layer" data-layer="plomeria">
 <path class="pl-af" d="M 516 462 L 516 540 M 516 478 L 532 478 L 532 607 M 516 462 L 380 462 L 380 517.6 L 380 525 M 516 462 L 516 435"/>
 <path class="pl-ac" d="M 500 462 L 500 540 M 500 478 L 545 478 L 545 607 M 500 462 L 395 462 L 395 517.6 L 395 525"/>
@@ -154,6 +154,7 @@ h2{font-size:15px;margin:26px 0 6px}
   <span><i style="background:#f2c744;border:1px solid #8a6410;border-radius:50%"></i>Punto de luz (esquemático)</span>
   <span><i style="background:#fff;border:1.5px solid #c9762a"></i>Tomacorriente (esquemático — cantidad real por ambiente en el instructivo)</span>
   <span><i style="background:#e3ecf2;border:1px solid #1f7fae"></i>Split A/C frío-calor</span>
+  <span><i style="background:#fff;border:1px dashed #1f7fae"></i>Split A/C previsto (no instalado)</span>
 </div>
 <div class="leg layer-legend" data-layer="plomeria" style="display:none">
   <span><i style="background:#fff;border-top:2px dashed #1f7fae"></i>Agua fría</span>
@@ -169,10 +170,10 @@ h2{font-size:15px;margin:26px 0 6px}
 <tr><th>Ambiente</th><th>Ubicación del equipo</th><th style="text-align:right">Capacidad</th></tr>
 <tr><td>Living-Comedor</td><td>Muro este, entre las dos ventanas (a la altura del límite Comedor/Living)</td><td class="n">6000 frigorías</td></tr>
 <tr><td>Habitación 3 (principal)</td><td>Muro del pasillo (norte), sobre el ropero, hacia el lado de la ventana oeste (lejos de la cabecera)</td><td class="n">3000 frigorías</td></tr>
-<tr><td>Habitación 2 (secundaria)</td><td>Muro del pasillo (norte), sobre el ropero</td><td class="n">3000 frigorías</td></tr>
-<tr><td>Habitación 1 (visitas)</td><td>Muro sur o del pasillo, según ubicación final de la cama</td><td class="n">2250 frigorías</td></tr>
+<tr><td>Habitación 2 (secundaria)</td><td>Previsto — muro del pasillo (norte), sobre el ropero, sin instalar por ahora</td><td class="n">3000 frigorías (a futuro)</td></tr>
+<tr><td>Habitación 1 (visitas)</td><td>Sin equipo</td><td class="n">—</td></tr>
 </table>
-<p style="font-size:12.5px;color:#6a6a63;margin-top:8px">Criterio de cálculo y justificación en el <a href="instructivo.html">instructivo</a>.</p>
+<p style="font-size:12.5px;color:#6a6a63;margin-top:8px">Criterio de cálculo, previsión de Hab. 2 y ubicación de unidades externas/desagote en el <a href="instructivo.html">instructivo</a>.</p>
 
 <h2>Cuadro de superficies</h2>
 <table>
