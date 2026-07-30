@@ -130,8 +130,8 @@ p{font-size:13px;line-height:1.65}
 <tr><td>Bases</td><td class="n"><input type="number" id="presCantBases" value="13" step="1" min="0"></td><td>un.</td><td class="n"><input type="number" id="presPrecioBases" value="30000" step="1000" min="0"></td><td class="n" id="presSubBases">—</td></tr>
 <tr><td>Viga de arrastre</td><td class="n"><input type="number" id="presCantViga" value="60" step="1" min="0"></td><td>m²</td><td class="n"><input type="number" id="presPrecioViga" value="15000" step="500" min="0"></td><td class="n" id="presSubViga">—</td></tr>
 <tr><td>Contrapiso <span style="color:#8a877e;font-size:11.5px">(sugerido: igual a la superficie cubierta del techo)</span></td><td class="n"><input type="number" id="presCantContrapiso" value="82.00" step="0.5" min="0"></td><td>m²</td><td class="n"><input type="number" id="presPrecioContrapiso" value="15000" step="500" min="0"></td><td class="n" id="presSubContrapiso">—</td></tr>
-<tr><td>Columnas</td><td class="n"><input type="number" id="presCantColumnas" value="42" step="1" min="0"></td><td>ml</td><td class="n"><input type="number" id="presPrecioColumnas" value="15000" step="500" min="0"></td><td class="n" id="presSubColumnas">—</td></tr>
-<tr><td>Encadenado</td><td class="n"><input type="number" id="presCantEncadenado" value="60" step="1" min="0"></td><td>ml</td><td class="n"><input type="number" id="presPrecioEncadenado" value="15000" step="500" min="0"></td><td class="n" id="presSubEncadenado">—</td></tr>
+<tr><td>Columnas</td><td class="n"><input type="number" id="presCantColumnas" value="42" step="1" min="0"></td><td>m</td><td class="n"><input type="number" id="presPrecioColumnas" value="15000" step="500" min="0"></td><td class="n" id="presSubColumnas">—</td></tr>
+<tr><td>Encadenado</td><td class="n"><input type="number" id="presCantEncadenado" value="60" step="1" min="0"></td><td>m</td><td class="n"><input type="number" id="presPrecioEncadenado" value="15000" step="500" min="0"></td><td class="n" id="presSubEncadenado">—</td></tr>
 <tr><td>Techo <span style="color:#8a877e;font-size:11.5px">(m² de superficie cubierta, casa sin galería/garage)</span></td><td class="n" id="presCantTecho">—</td><td>m²</td><td class="n"><input type="number" id="presPrecioTecho" value="17000" step="500" min="0"></td><td class="n" id="presSubTecho">—</td></tr>
 <tr><td>Capa aisladora</td><td class="n"><input type="number" id="presCantAisladora" value="52" step="1" min="0"></td><td>m</td><td class="n"><input type="number" id="presPrecioAisladora" value="4000" step="500" min="0"></td><td class="n" id="presSubAisladora">—</td></tr>
 <tr><td>Demolición</td><td class="n"><input type="number" id="presCantDemolicion" value="55" step="1" min="0"></td><td>m²</td><td class="n"><input type="number" id="presPrecioDemolicion" value="6000" step="500" min="0"></td><td class="n" id="presSubDemolicion">—</td></tr>
@@ -139,6 +139,26 @@ p{font-size:13px;line-height:1.65}
 </table>
 
 <div class="warn"><b>Cantidades de bases, viga de arrastre, columnas, encadenado, capa aisladora y demolición: son las del propio presupuesto del albañil</b>, no una medición nuestra — todavía no está el cálculo estructural que defina cuántas bases o qué sección de columna hace falta. Usalas como punto de partida y ajustalas cuando tengas el plano de estructura firmado por el calculista. Mampostería y Techo sí están cruzados contra la geometría del plano, así que esos dos números no dependen de lo que haya tipeado el albañil.</div>
+</div>
+
+<div class="sheet">
+<h2>Materiales para hormigón y accesorios <span class="badge badge-quote">cálculo del albañil</span></h2>
+<p>Cantidades a comprar para bases, viga de arrastre, columnas y encadenado, según el propio cálculo del albañil (no derivadas de la geometría del plano — falta el cálculo estructural firmado). Editables si el albañil ajusta el número o cambiás de proveedor.</p>
+
+<table>
+<tr><th>Material</th><th style="text-align:right">Cantidad</th><th>Unidad</th></tr>
+<tr><td>Cemento</td><td class="n"><input type="number" id="matCemento" value="90" step="1" min="0"></td><td>bolsas de 25 kg</td></tr>
+<tr><td>Plasticor</td><td class="n"><input type="number" id="matPlasticor" value="50" step="1" min="0"></td><td>bolsas de 25 kg</td></tr>
+<tr><td>Hierro del 8</td><td class="n"><input type="number" id="matHierro8" value="70" step="1" min="0"></td><td>barras</td></tr>
+<tr><td>Hierro del 6</td><td class="n"><input type="number" id="matHierro6" value="60" step="1" min="0"></td><td>barras</td></tr>
+<tr><td>Ripio</td><td class="n"><input type="number" id="matRipio" value="1" step="1" min="0"></td><td>camión</td></tr>
+<tr><td>Alambre (atar)</td><td class="n"><input type="number" id="matAlambre" value="6" step="0.5" min="0"></td><td>kg</td></tr>
+<tr><td>Clavos 2"</td><td class="n"><input type="number" id="matClavos2" value="1" step="0.5" min="0"></td><td>kg</td></tr>
+<tr><td>Clavos 2 1/2"</td><td class="n"><input type="number" id="matClavos25" value="1" step="0.5" min="0"></td><td>kg</td></tr>
+<tr><td>Piedra bola</td><td class="n"><input type="number" id="matPiedraBola" value="1" step="1" min="0"></td><td>camión</td></tr>
+</table>
+
+<div class="warn"><b>Todo el cálculo de esta tabla es del albañil</b>, no un cómputo derivado del plano — no hay geometría de bases/columnas/vigas todavía. Sirve como lista de compra de referencia; confirmá cantidad y calidad (tipo de cemento, diámetro real de hierro, etc.) con el corralón antes de comprar.</div>
 </div>
 
 <div class="sheet">
