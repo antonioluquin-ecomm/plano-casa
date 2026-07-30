@@ -52,10 +52,10 @@ p{font-size:13px;line-height:1.65}
 <h2>Resumen general</h2>
 <table>
 <tr><th>Etapa</th><th style="text-align:right">Materiales</th><th style="text-align:right">Mano de obra</th><th style="text-align:right">Total</th></tr>
-<tr><td>Etapa 1 — Ya construido</td><td class="n">$ 1.799.920</td><td class="n">$ 14.424.000</td><td class="n">$ 16.223.920</td></tr>
+<tr><td>Etapa 1 — Ya construido</td><td class="n">$ 2.159.920</td><td class="n">$ 14.624.000</td><td class="n">$ 16.783.920</td></tr>
 <tr><td>Etapa 2 — En obra (Casa)</td><td class="n">$ 1.852.444</td><td class="n">$ 0</td><td class="n">$ 1.852.444</td></tr>
 <tr><td>Etapa 3 — Evolutivo</td><td class="n">$ 0</td><td class="n">$ 0</td><td class="n">$ 0</td></tr>
-<tr class="tot"><td>Total general</td><td class="n">$ 3.652.364</td><td class="n">$ 14.424.000</td><td class="n">$ 18.076.364</td></tr>
+<tr class="tot"><td>Total general</td><td class="n">$ 4.012.364</td><td class="n">$ 14.624.000</td><td class="n">$ 18.636.364</td></tr>
 </table>
 </div>
 
@@ -142,6 +142,17 @@ p{font-size:13px;line-height:1.65}
 <tr class="tot"><td colspan="4">Subtotal materiales Frente + Garage</td><td class="n">$ 1.799.920</td></tr>
 </table>
 </div>
+
+<div class="seccion">
+<h3>Materiales — Garage (electricidad)</h3>
+<table>
+<tr><th>Fecha</th><th>Item</th><th style="text-align:right">Subtotal</th></tr>
+<tr><td>01/07/2026</td><td>Focos LED tipo barra (6 un.)</td><td class="n">$ 200.000</td></tr>
+<tr><td>01/07/2026</td><td>Otros materiales eléctricos</td><td class="n">$ 160.000</td></tr>
+<tr class="tot"><td colspan="2">Subtotal materiales Garage (electricidad)</td><td class="n">$ 360.000</td></tr>
+</table>
+<p class="pendiente">Mano de obra de esta instalación (Daniel, $ 200.000) está en el registro completo de mano de obra, arriba.</p>
+</div>
 </div>
 
 <div class="sheet">
@@ -201,7 +212,8 @@ const PAGOS = [
   {fecha:'2026-07-04', etapa:'Etapa 1', oficio:'Albañilería',  contratista:'Silvio',  concepto:'Pago semanal', monto:500000},
   {fecha:'2026-07-11', etapa:'Etapa 1', oficio:'Albañilería',  contratista:'Silvio',  concepto:'Pago semanal', monto:500000},
   {fecha:'2026-07-18', etapa:'Etapa 1', oficio:'Albañilería',  contratista:'Silvio',  concepto:'Pago semanal', monto:500000},
-  {fecha:'2026-07-25', etapa:'Etapa 1', oficio:'Albañilería',  contratista:'Silvio',  concepto:'Pago semanal (incluye adelanto de $ 193.000 para la semana siguiente, sin tarea asignada)', monto:500000}
+  {fecha:'2026-07-25', etapa:'Etapa 1', oficio:'Albañilería',  contratista:'Silvio',  concepto:'Pago semanal (incluye adelanto de $ 193.000 para la semana siguiente, sin tarea asignada)', monto:500000},
+  {fecha:'2026-07-01', etapa:'Etapa 1', oficio:'Electricidad', contratista:'Daniel',  concepto:'Instalación eléctrica Garage (6 focos LED tipo barra)', monto:200000}
 ];
 
 function fmtFecha(iso) {
