@@ -49,17 +49,17 @@ p{font-size:13px;line-height:1.65}
 <h2>Resumen general</h2>
 <table>
 <tr><th>Etapa</th><th style="text-align:right">Materiales</th><th style="text-align:right">Mano de obra</th><th style="text-align:right">Total</th></tr>
-<tr><td>Etapa 1 — Ya construido</td><td class="n">$ 1.799.920</td><td class="n">$ 5.250.000</td><td class="n">$ 7.049.920</td></tr>
+<tr><td>Etapa 1 — Ya construido</td><td class="n">$ 1.799.920</td><td class="n">$ 14.424.000</td><td class="n">$ 16.223.920</td></tr>
 <tr><td>Etapa 2 — En obra (Casa)</td><td class="n">$ 1.852.444</td><td class="n">$ 0</td><td class="n">$ 1.852.444</td></tr>
 <tr><td>Etapa 3 — Evolutivo</td><td class="n">$ 0</td><td class="n">$ 0</td><td class="n">$ 0</td></tr>
-<tr class="tot"><td>Total general</td><td class="n">$ 3.652.364</td><td class="n">$ 5.250.000</td><td class="n">$ 8.902.364</td></tr>
+<tr class="tot"><td>Total general</td><td class="n">$ 3.652.364</td><td class="n">$ 14.424.000</td><td class="n">$ 18.076.364</td></tr>
 </table>
-<p class="pendiente">Falta cargar el costo de mano de obra del Albañil 1 (Fabio), que hizo la parte de estas secciones anterior a la del Albañil 2 (Silvio, obra iniciada 11/05/2026). Los montos de mano de obra de arriba corresponden solo a Silvio, en base a los pagos semanales reales (ver Etapa 1).</p>
+<p class="pendiente">Mano de obra de Etapa 1 en base a los pagos reales, tipificados por oficio: albañilería (Fabio + Silvio) y otros oficios — herrería, plomería, electricidad (ver detalle en Etapa 1).</p>
 </div>
 
 <div class="sheet">
 <div class="etapa-h"><span class="tit">Etapa 1 — Ya construido</span><span class="badge badge-done">terminado</span></div>
-<p>Mano de obra a cargo de Silvio (Albañil 2), obra iniciada 11/05/2026, terminando lo que había empezado Fabio (Albañil 1). Falta cargar los pagos hechos a Fabio.</p>
+<p>Mano de obra a cargo de dos albañiles: Fabio (Albañil 1) desde 07/03/2026, y Silvio (Albañil 2) desde 11/05/2026, quien terminó lo que había empezado Fabio. El detalle por rubro de abajo corresponde al trabajo de Silvio; Fabio se registra solo por pago, sin desglose por rubro.</p>
 
 <div class="seccion">
 <h3>Tapia Este</h3>
@@ -145,7 +145,44 @@ p{font-size:13px;line-height:1.65}
 </table>
 </div>
 
-<div class="warn"><b>Diferencia entre costo por rubro y total pagado: $ 193.000 — es un adelanto.</b> El detalle por rubro (Tapia Este + Garage + Frente) suma $ 5.057.000; lo pagado suma $ 5.250.000 porque incluye un adelanto de $ 193.000 para la semana siguiente, todavía sin rubro asignado. Cuando se cargue el trabajo de esa semana, ese monto se descuenta del pago correspondiente y se le suma su rubro al detalle de arriba.</div>
+<div class="warn"><b>Diferencia entre costo por rubro y total pagado: $ 193.000 — es un adelanto.</b> El detalle por rubro (Tapia Este + Garage + Frente) suma $ 5.057.000; lo pagado a Silvio suma $ 5.250.000 porque incluye un adelanto de $ 193.000 para la semana siguiente, todavía sin rubro asignado. Cuando se cargue el trabajo de esa semana, ese monto se descuenta del pago correspondiente y se le suma su rubro al detalle de arriba.</div>
+
+<div class="seccion">
+<h3>Pagos realizados a Fabio — Albañilería</h3>
+<p>Trabajo previo al de Silvio en estas mismas secciones (Tapia Este, Garage, Frente), sin desglose por rubro todavía. Fabio también hizo trabajos de herrería, ver tabla de "Otros oficios" más abajo.</p>
+<table>
+<tr><th>Fecha</th><th style="text-align:right">Monto</th></tr>
+<tr><td>07/03/2026</td><td class="n">$ 600.000</td></tr>
+<tr><td>14/03/2026</td><td class="n">$ 400.000</td></tr>
+<tr><td>20/03/2026</td><td class="n">$ 250.000</td></tr>
+<tr><td>21/03/2026</td><td class="n">$ 250.000</td></tr>
+<tr><td>28/03/2026</td><td class="n">$ 800.000</td></tr>
+<tr><td>01/04/2026</td><td class="n">$ 420.000</td></tr>
+<tr><td>11/04/2026</td><td class="n">$ 500.000</td></tr>
+<tr><td>18/04/2026</td><td class="n">$ 700.000</td></tr>
+<tr><td>02/05/2026</td><td class="n">$ 650.000</td></tr>
+<tr><td>09/05/2026</td><td class="n">$ 3.224.000</td></tr>
+<tr class="tot"><td>Total pagado a Fabio</td><td class="n">$ 7.794.000</td></tr>
+</table>
+</div>
+
+<div class="seccion">
+<h3>Otros oficios</h3>
+<p>Trabajos de otros oficios en Etapa 1 — herrería, plomería, electricidad — pagados aparte de la albañilería. Cada uno tipificado por oficio y contratista.</p>
+<table>
+<tr><th>Fecha</th><th>Oficio</th><th>Contratista</th><th>Concepto</th><th style="text-align:right">Monto</th></tr>
+<tr><td>28/02/2026</td><td>Herrería</td><td>Fabio</td><td>2 portones de 3 m + puerta de 1,20 m</td><td class="n">$ 1.160.000</td></tr>
+<tr><td>04/04/2026</td><td>Plomería</td><td>Orlando</td><td>Trabajo de plomería</td><td class="n">$ 160.000</td></tr>
+<tr><td>07/04/2026</td><td>Electricidad</td><td>Daniel</td><td>Sacar un aire acondicionado</td><td class="n">$ 60.000</td></tr>
+<tr class="tot"><td colspan="4">Subtotal otros oficios</td><td class="n">$ 1.380.000</td></tr>
+</table>
+</div>
+
+<table style="margin-top:16px">
+<tr><td>Albañilería (Fabio + Silvio)</td><td class="n">$ 13.044.000</td></tr>
+<tr><td>Otros oficios (herrería, plomería, electricidad)</td><td class="n">$ 1.380.000</td></tr>
+<tr class="tot"><td>Total mano de obra Etapa 1</td><td class="n">$ 14.424.000</td></tr>
+</table>
 </div>
 
 <div class="sheet">
