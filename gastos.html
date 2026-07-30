@@ -1,0 +1,163 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8">
+<title>Gastos reales — vivienda</title><style>
+body{font-family:'Segoe UI',Arial,sans-serif;background:#f4f3ef;color:#23231f;margin:0;padding:26px}
+.wrap{max-width:1080px;margin:0 auto}
+.nav{font-size:13px;margin-bottom:14px}
+.nav a{color:#6a6a63;text-decoration:none}
+.nav a:hover{text-decoration:underline}
+h1{font-size:21px;font-weight:600;margin:0 0 2px}
+.sub{color:#6a6a63;font-size:13px;margin-bottom:18px}
+h2{font-size:15px;margin:26px 0 6px}
+h3{font-size:13.5px;margin:16px 0 6px;color:#3a3a36}
+table{border-collapse:collapse;width:100%;font-size:13px;margin-top:12px}
+th,td{border:1px solid #e3e0d7;padding:6px 9px;text-align:left}
+th{background:#f4f2ec;font-weight:600}
+td.n{text-align:right;font-variant-numeric:tabular-nums}
+tr.tot td{background:#f8f6f0;font-weight:700}
+.warn{background:#fff8e9;border-left:3px solid #d8a93c;padding:11px 14px;border-radius:0 6px 6px 0;font-size:13px;line-height:1.65;margin-top:10px}
+.warn b{color:#8a6410}
+.foot{font-size:11.5px;color:#8a877e;margin-top:22px;line-height:1.6;border-top:1px solid #e6e3da;padding-top:12px}
+.foot a{color:#8a877e}
+.sheet{background:#fff;border:1px solid #dedbd1;border-radius:10px;padding:22px;box-shadow:0 1px 3px rgba(0,0,0,.05);margin-bottom:18px}
+p{font-size:13px;line-height:1.65}
+.badge{display:inline-block;font-size:10.5px;font-weight:700;padding:2px 8px;border-radius:20px;margin-left:8px;vertical-align:1px}
+.badge-done{background:#eef7ec;color:#4e7638}
+.badge-progress{background:#fdf1de;color:#a6631b}
+.badge-future{background:#f4f2ec;color:#8a877e}
+.etapa-h{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px}
+.etapa-h span.tit{font-weight:600;font-size:16px}
+.seccion{border:1px solid #e6e3da;border-radius:8px;padding:14px 16px;margin-top:14px}
+.seccion h3{margin-top:0}
+.pendiente{color:#8a877e;font-size:12.5px}
+</style></head><body><div class="wrap">
+<div class="nav"><a href="index.html">&larr; Inicio</a> &nbsp;·&nbsp; <a href="computo.html">Cómputo de materiales</a> &nbsp;·&nbsp; <a href="plano-general.html">Plano general</a></div>
+<h1>Gastos reales</h1>
+<div class="sub">Registro de lo efectivamente comprado y pagado, organizado por etapa de obra. Distinto del <a href="computo.html">cómputo de materiales</a>, que son cantidades estimadas para presupuestar, no compras reales.</div>
+
+<div class="sheet">
+<h2>Etapas de obra</h2>
+<p>La obra se está haciendo por partes, no toda junta. Se agrupa en tres etapas:</p>
+<table>
+<tr><th>Etapa</th><th>Secciones</th><th>Estado</th></tr>
+<tr><td><b>Etapa 1 — Ya construido</b></td><td>Frente, Garage, Tapia Este</td><td>Terminado</td></tr>
+<tr><td><b>Etapa 2 — En obra</b></td><td>Casa</td><td>En curso</td></tr>
+<tr><td><b>Etapa 3 — Evolutivo (a futuro)</b></td><td>Galería, Tapia Oeste, Tapia Sur</td><td>Sin empezar</td></tr>
+</table>
+</div>
+
+<div class="sheet">
+<h2>Resumen general</h2>
+<table>
+<tr><th>Etapa</th><th style="text-align:right">Materiales</th><th style="text-align:right">Mano de obra</th><th style="text-align:right">Total</th></tr>
+<tr><td>Etapa 1 — Ya construido</td><td class="n">$ 0</td><td class="n">$ 5.250.000</td><td class="n">$ 5.250.000</td></tr>
+<tr><td>Etapa 2 — En obra (Casa)</td><td class="n">$ 1.852.444</td><td class="n">$ 0</td><td class="n">$ 1.852.444</td></tr>
+<tr><td>Etapa 3 — Evolutivo</td><td class="n">$ 0</td><td class="n">$ 0</td><td class="n">$ 0</td></tr>
+<tr class="tot"><td>Total general</td><td class="n">$ 1.852.444</td><td class="n">$ 5.250.000</td><td class="n">$ 7.102.444</td></tr>
+</table>
+<p class="pendiente">Falta cargar el costo de mano de obra del Albañil 1 (Fabio), que hizo la parte de estas secciones anterior a la del Albañil 2 (Silvio, obra iniciada 11/05/2026). Los montos de mano de obra de arriba corresponden solo a Silvio, en base a los pagos semanales reales (ver Etapa 1).</p>
+</div>
+
+<div class="sheet">
+<div class="etapa-h"><span class="tit">Etapa 1 — Ya construido</span><span class="badge badge-done">terminado</span></div>
+<p>Mano de obra a cargo de Silvio (Albañil 2), obra iniciada 11/05/2026, terminando lo que había empezado Fabio (Albañil 1). Falta cargar los pagos hechos a Fabio.</p>
+
+<div class="seccion">
+<h3>Tapia Este</h3>
+<table>
+<tr><th>Rubro</th><th style="text-align:right">Cantidad</th><th>Unidad</th><th style="text-align:right">Monto</th></tr>
+<tr><td>Mampostería</td><td class="n">21.5</td><td>m²</td><td class="n">$ 258.000</td></tr>
+<tr><td>Encadenado</td><td class="n">22</td><td>m</td><td class="n">$ 330.000</td></tr>
+<tr><td>Revoque</td><td class="n">74</td><td>m²</td><td class="n">$ 962.000</td></tr>
+<tr><td>Muchetas</td><td class="n">14</td><td>m</td><td class="n">$ 84.000</td></tr>
+<tr class="tot"><td colspan="3">Subtotal Tapia Este</td><td class="n">$ 1.634.000</td></tr>
+</table>
+</div>
+
+<div class="seccion">
+<h3>Garage</h3>
+<table>
+<tr><th>Rubro</th><th style="text-align:right">Cantidad</th><th>Unidad</th><th style="text-align:right">Monto</th></tr>
+<tr><td>Revoque rústico</td><td class="n">13</td><td>m²</td><td class="n">$ 169.000</td></tr>
+<tr><td>Barandas</td><td class="n">—</td><td></td><td class="n">$ 175.000</td></tr>
+<tr><td>Detalles pilares y piso</td><td class="n">—</td><td></td><td class="n">$ 120.000</td></tr>
+<tr><td>Techo</td><td class="n">63</td><td>m²</td><td class="n">$ 1.134.000</td></tr>
+<tr><td>Columnas</td><td class="n">24</td><td>m</td><td class="n">$ 360.000</td></tr>
+<tr><td>Mampostería</td><td class="n">7</td><td>m²</td><td class="n">$ 84.000</td></tr>
+<tr><td>Revoque grueso</td><td class="n">18</td><td>m²</td><td class="n">$ 180.000</td></tr>
+<tr><td>Revoque fino</td><td class="n">18</td><td>m²</td><td class="n">$ 144.000</td></tr>
+<tr class="tot"><td colspan="3">Subtotal Garage</td><td class="n">$ 2.366.000</td></tr>
+</table>
+</div>
+
+<div class="seccion">
+<h3>Frente</h3>
+<table>
+<tr><th>Rubro</th><th style="text-align:right">Cantidad</th><th>Unidad</th><th style="text-align:right">Monto</th></tr>
+<tr><td>Revoque grueso</td><td class="n">17</td><td>m²</td><td class="n">$ 170.000</td></tr>
+<tr><td>Revoque fino</td><td class="n">31</td><td>m²</td><td class="n">$ 240.000</td></tr>
+<tr><td>Muchetas</td><td class="n">24</td><td>m</td><td class="n">$ 120.000</td></tr>
+<tr><td>Paños fijos</td><td class="n">2</td><td>un.</td><td class="n">$ 427.000</td></tr>
+<tr><td>Colocación</td><td class="n">2</td><td>un.</td><td class="n">$ 100.000</td></tr>
+<tr class="tot"><td colspan="3">Subtotal Frente</td><td class="n">$ 1.057.000</td></tr>
+</table>
+</div>
+
+<table style="margin-top:16px">
+<tr class="tot"><td>Costo por rubro (Tapia Este + Garage + Frente)</td><td class="n">$ 5.057.000</td></tr>
+</table>
+
+<div class="seccion">
+<h3>Pagos realizados a Silvio</h3>
+<p>Pago semanal, todos los sábados.</p>
+<table>
+<tr><th>Fecha</th><th style="text-align:right">Monto</th></tr>
+<tr><td>16/05/2026</td><td class="n">$ 400.000</td></tr>
+<tr><td>23/05/2026</td><td class="n">$ 450.000</td></tr>
+<tr><td>30/05/2026</td><td class="n">$ 500.000</td></tr>
+<tr><td>06/06/2026</td><td class="n">$ 400.000</td></tr>
+<tr><td>15/06/2026</td><td class="n">$ 500.000</td></tr>
+<tr><td>20/06/2026</td><td class="n">$ 500.000</td></tr>
+<tr><td>27/06/2026</td><td class="n">$ 500.000</td></tr>
+<tr><td>04/07/2026</td><td class="n">$ 500.000</td></tr>
+<tr><td>11/07/2026</td><td class="n">$ 500.000</td></tr>
+<tr><td>18/07/2026</td><td class="n">$ 500.000</td></tr>
+<tr><td>25/07/2026</td><td class="n">$ 500.000</td></tr>
+<tr class="tot"><td>Total pagado a Silvio</td><td class="n">$ 5.250.000</td></tr>
+</table>
+</div>
+
+<div class="warn"><b>Diferencia entre costo por rubro y total pagado: $ 193.000 — es un adelanto.</b> El detalle por rubro (Tapia Este + Garage + Frente) suma $ 5.057.000; lo pagado suma $ 5.250.000 porque incluye un adelanto de $ 193.000 para la semana siguiente, todavía sin rubro asignado. Cuando se cargue el trabajo de esa semana, ese monto se descuenta del pago correspondiente y se le suma su rubro al detalle de arriba.</div>
+</div>
+
+<div class="sheet">
+<div class="etapa-h"><span class="tit">Etapa 2 — En obra</span><span class="badge badge-progress">en curso</span></div>
+
+<div class="seccion">
+<h3>Casa</h3>
+<p>Materiales comprados para hormigón y estructura (bases, columnas, encadenado).</p>
+<table>
+<tr><th>Fecha</th><th>Item</th><th style="text-align:right">Precio unitario</th><th style="text-align:right">Cantidad</th><th style="text-align:right">Subtotal</th></tr>
+<tr><td>30/07/2026</td><td>Cemento Loma Negra x 25 kg</td><td class="n">$ 6.300</td><td class="n">90</td><td class="n">$ 567.000</td></tr>
+<tr><td>30/07/2026</td><td>Plasticor x 25 kg</td><td class="n">$ 6.100</td><td class="n">60</td><td class="n">$ 366.000</td></tr>
+<tr><td>30/07/2026</td><td>Hierro Torsionado 8 mm x 12 m</td><td class="n">$ 8.305</td><td class="n">70</td><td class="n">$ 581.350</td></tr>
+<tr><td>30/07/2026</td><td>Hierro Torsionado 6 mm x 12 m</td><td class="n">$ 5.168</td><td class="n">60</td><td class="n">$ 310.080</td></tr>
+<tr><td>30/07/2026</td><td>Alambre del 16</td><td class="n">$ 3.553</td><td class="n">6 kg</td><td class="n">$ 21.318</td></tr>
+<tr><td>30/07/2026</td><td>Clavo p/parís 2"</td><td class="n">$ 3.348</td><td class="n">1 kg</td><td class="n">$ 3.348</td></tr>
+<tr><td>30/07/2026</td><td>Clavo p/parís 2.5"</td><td class="n">$ 3.348</td><td class="n">1 kg</td><td class="n">$ 3.348</td></tr>
+<tr class="tot"><td colspan="4">Subtotal materiales Casa</td><td class="n">$ 1.852.444</td></tr>
+</table>
+<p class="pendiente">Mano de obra de esta sección: todavía no hay pagos cargados.</p>
+</div>
+</div>
+
+<div class="sheet">
+<div class="etapa-h"><span class="tit">Etapa 3 — Evolutivo (a futuro)</span><span class="badge badge-future">sin empezar</span></div>
+<p class="pendiente">Galería, Tapia Oeste y Tapia Sur — todavía sin gastos cargados.</p>
+</div>
+
+<div class="warn"><b>Esto es lo efectivamente gastado, no una estimación.</b> Para comparar contra lo presupuestado, ver la tabla "Materiales para hormigón y accesorios" y el "Presupuesto — albañilería" en <a href="computo.html">computo.html</a>.</div>
+
+<div class="foot">
+Registro manual de compras y pagos — se actualiza a medida que se van cargando nuevas compras y pagos de mano de obra.
+</div>
+</div></body></html>
