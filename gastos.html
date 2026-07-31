@@ -76,7 +76,7 @@ details.acc .acc-body{padding:0 16px 16px}
 <tr><th>Etapa</th><th style="text-align:right">Materiales</th><th style="text-align:right">Mano de obra</th><th style="text-align:right">Total</th></tr>
 <tbody id="tblResumenBody"></tbody>
 </table>
-<p class="pendiente">Etapa 4 (a definir — probablemente Galería, Tapia Oeste, Tapia Sur) todavía no tiene gastos cargados.</p>
+<p class="pendiente">Los $ 193.000 de mano de obra en Etapa 3 son el adelanto que se le pagó a Silvio el 25/07, antes de que arrancara la Casa — se lo asigna ahí porque fue el trabajo siguiente después de la Tapia Este.</p>
 </div>
 
 <div class="sheet">
@@ -91,7 +91,7 @@ details.acc .acc-body{padding:0 16px 16px}
 
 <div class="sheet">
 <h2>Etapas de obra</h2>
-<p>La obra se está haciendo por partes, no toda junta. Las etapas 1 y 2 ya están terminadas; la 4 en adelante todavía se están definiendo.</p>
+<p>La obra se está haciendo por partes, no toda junta:</p>
 <table>
 <tr><th>Etapa</th><th>Secciones</th><th>Estado</th></tr>
 <tr><td><b>Etapa 1 — Ya construido</b></td><td>Frente, Garage</td><td>Terminado</td></tr>
@@ -155,7 +155,7 @@ details.acc .acc-body{padding:0 16px 16px}
 <tr class="tot"><td colspan="3">Subtotal Tapia Este</td><td class="n">$ 1.634.000</td></tr>
 </table>
 </div>
-<p class="pendiente">Los pagos de esos dos sábados (18/07 y 25/07) suman $ 1.000.000, contra $ 1.634.000 de costo por tarea — la diferencia es normal: el costo por tarea es la apertura del trabajo hecho, y el pago en efectivo no coincide semana a semana con eso (además incluye $ 193.000 de adelanto sin tarea asignada). Para más detalle ver la pestaña "Mano de obra".</p>
+<p class="pendiente">Este es el costo real de la tarea, y es el que se usa en el Resumen para Etapa 2. Los pagos en efectivo de esos dos sábados (18/07 y 25/07, $ 1.000.000) no coinciden con este monto porque el pago semanal no sigue el límite exacto entre tareas — el detalle pago por pago está en la pestaña "Mano de obra".</p>
 </div>
 </details>
 </div>
@@ -171,7 +171,7 @@ Registro manual de compras y pagos — se actualiza a medida que se van cargando
 <div id="tab-manoobra" class="tabpanel">
 <div class="sheet">
 <h2>Mano de obra — registro completo</h2>
-<p>Todos los pagos de mano de obra en un solo lugar, uno por fila. Filtrable por oficio, contratista y etapa; hacé clic en cualquier columna para ordenar.</p>
+<p>Todos los pagos de mano de obra en un solo lugar, uno por fila. Filtrable por oficio, contratista y etapa; hacé clic en cualquier columna para ordenar. La etapa de cada pago es por fecha — para Silvio el total por etapa acá no coincide con el Resumen, que usa el costo real por tarea (ver pestaña Resumen).</p>
 <div class="filtros">
   <label>Etapa<select id="filtroEtapa"><option value="">Todas</option></select></label>
   <label>Oficio<select id="filtroOficio"><option value="">Todos</option></select></label>
@@ -221,9 +221,8 @@ Registro manual de compras y pagos — se actualiza a medida que se van cargando
 </table>
 </div>
 <p class="pendiente">La fila de "Clavos" (2 kg, $ 9.041) es la diferencia entre el total real pagado el 08/04 por hierro 10mm + flete ($ 75.700) y lo que figura impreso en la boleta ($ 66.659) — cubre 2 kg de clavos que el remito anota a mano pero no están facturados aparte. El remito 0000-00039086 es la entrega del cemento del 08/04 (0019-00036118), no una compra aparte.</p>
-<p class="pendiente">La electricidad del Garage (focos LED + otros materiales) está en este mismo registro, filtrable por destino "Electricidad — Garage"; su mano de obra (Daniel, $ 200.000) está en la pestaña "Mano de obra".</p>
-<p class="pendiente"><b>Sobre el destino "Tapia Este" (Etapa 2):</b> la tapia la hizo Silvio solo, del 13 al 20/07/2026 — antes de eso terminaba detalles de Frente y Garage y techaba el garage. Por eso las compras del 25/06 en adelante (compradas por adelantado, justo antes de arrancar) quedaron como Tapia Este, y el resto de las compras de Silvio (16/05 al 07/07) como Frente + Garage (Etapa 1). Fabio (07/03 al 09/05) trabajó únicamente Frente y Garage, nunca la Tapia Este, así que todas sus compras también quedan en Etapa 1.</p>
-<p class="pendiente"><b>Sobre "Casa" (Etapa 3):</b> valores de la boleta final del 30/07 (Nº 0019-00046759), con el descuento por contado ya aplicado — la Plasticor bajó de 60 a 50 bolsas respecto del presupuesto inicial del mismo día. Mano de obra de esta sección: todavía no hay pagos cargados.</p>
+<p class="pendiente"><b>Sobre el destino "Tapia Este":</b> las compras del 25/06 en adelante se asumieron como compradas por adelantado para esa tarea (arrancó el 13/07) — es una inferencia por fecha, no un dato confirmado en la boleta.</p>
+<p class="pendiente"><b>Sobre "Casa" (Etapa 3):</b> valores de la boleta final del 30/07 (Nº 0019-00046759), con el descuento por contado ya aplicado — la Plasticor bajó de 60 a 50 bolsas respecto del presupuesto inicial del mismo día.</p>
 </div>
 </div>
 
@@ -421,9 +420,13 @@ function renderResumen() {
     'Etapa 3': 'Etapa 3 — Casa (en obra)',
     'Etapa 4': 'Etapa 4 — a definir'
   };
+  // La mano de obra de Silvio se cuenta por costo real de tarea (no por fecha de pago),
+  // porque sus pagos semanales no coinciden con el límite entre Frente+Garage y Tapia Este.
+  const SILVIO_COSTO_TAREA = {'Etapa 1': 3423000, 'Etapa 2': 1634000, 'Etapa 3': 193000};
   const rows = etapas.map(e => {
     const mat = MATERIALES.filter(m => m.etapa === e).reduce((a, m) => a + m.subtotal, 0);
-    const labor = PAGOS.filter(p => p.etapa === e).reduce((a, p) => a + p.monto, 0);
+    const laborResto = PAGOS.filter(p => p.etapa === e && p.contratista !== 'Silvio').reduce((a, p) => a + p.monto, 0);
+    const labor = laborResto + (SILVIO_COSTO_TAREA[e] || 0);
     return {etapa: e, mat, labor, total: mat + labor};
   });
   const totMat = rows.reduce((a, r) => a + r.mat, 0);
