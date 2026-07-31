@@ -29,7 +29,9 @@ p{font-size:13px;line-height:1.65}
 .pendiente{color:#8a877e;font-size:12.5px}
 .filtros{display:flex;flex-wrap:wrap;gap:14px;margin:12px 0 4px}
 .filtros label{display:flex;flex-direction:column;gap:3px;font-size:12.5px;color:#55534c}
-.filtros select{padding:5px 7px;border:1px solid #d8d5cb;border-radius:5px;font-size:13px;min-width:170px;background:#fff}
+.filtros select,.filtros input[type=text]{padding:5px 7px;border:1px solid #d8d5cb;border-radius:5px;font-size:13px;min-width:170px;background:#fff}
+.btnlimpiar{padding:5px 10px;border:1px solid #d8d5cb;border-radius:5px;font-size:12.5px;background:#f4f2ec;color:#55534c;cursor:pointer;font-family:inherit}
+.btnlimpiar:hover{background:#efece2}
 th[data-key]{cursor:pointer;user-select:none}
 th[data-key]:hover{background:#efece2}
 th[data-key] .arrow{color:#a6631b;font-size:11px}
@@ -109,15 +111,8 @@ details.acc .acc-body{padding:0 16px 16px}
 <h3>Garage</h3>
 <table>
 <tr><th>Rubro</th><th style="text-align:right">Cantidad</th><th>Unidad</th><th style="text-align:right">Monto</th></tr>
-<tr><td>Revoque rústico</td><td class="n">13</td><td>m²</td><td class="n">$ 169.000</td></tr>
-<tr><td>Barandas</td><td class="n">—</td><td></td><td class="n">$ 175.000</td></tr>
-<tr><td>Detalles pilares y piso</td><td class="n">—</td><td></td><td class="n">$ 120.000</td></tr>
-<tr><td>Techo</td><td class="n">63</td><td>m²</td><td class="n">$ 1.134.000</td></tr>
-<tr><td>Columnas</td><td class="n">24</td><td>m</td><td class="n">$ 360.000</td></tr>
-<tr><td>Mampostería</td><td class="n">7</td><td>m²</td><td class="n">$ 84.000</td></tr>
-<tr><td>Revoque grueso</td><td class="n">18</td><td>m²</td><td class="n">$ 180.000</td></tr>
-<tr><td>Revoque fino</td><td class="n">18</td><td>m²</td><td class="n">$ 144.000</td></tr>
-<tr class="tot"><td colspan="3">Subtotal Garage</td><td class="n">$ 2.366.000</td></tr>
+<tbody id="tbodyTareaGarage"></tbody>
+<tr class="tot"><td colspan="3">Subtotal Garage</td><td class="n" id="totTareaGarage">—</td></tr>
 </table>
 </div>
 
@@ -125,17 +120,13 @@ details.acc .acc-body{padding:0 16px 16px}
 <h3>Frente</h3>
 <table>
 <tr><th>Rubro</th><th style="text-align:right">Cantidad</th><th>Unidad</th><th style="text-align:right">Monto</th></tr>
-<tr><td>Revoque grueso</td><td class="n">17</td><td>m²</td><td class="n">$ 170.000</td></tr>
-<tr><td>Revoque fino</td><td class="n">31</td><td>m²</td><td class="n">$ 240.000</td></tr>
-<tr><td>Muchetas</td><td class="n">24</td><td>m</td><td class="n">$ 120.000</td></tr>
-<tr><td>Paños fijos</td><td class="n">2</td><td>un.</td><td class="n">$ 427.000</td></tr>
-<tr><td>Colocación</td><td class="n">2</td><td>un.</td><td class="n">$ 100.000</td></tr>
-<tr class="tot"><td colspan="3">Subtotal Frente</td><td class="n">$ 1.057.000</td></tr>
+<tbody id="tbodyTareaFrente"></tbody>
+<tr class="tot"><td colspan="3">Subtotal Frente</td><td class="n" id="totTareaFrente">—</td></tr>
 </table>
 </div>
 
 <table style="margin-top:16px">
-<tr class="tot"><td>Costo por tipo de tarea (Garage + Frente)</td><td class="n">$ 3.423.000</td></tr>
+<tr class="tot"><td>Costo por tipo de tarea (Garage + Frente)</td><td class="n" id="totTareaEtapa1">—</td></tr>
 </table>
 </div>
 </details>
@@ -148,11 +139,8 @@ details.acc .acc-body{padding:0 16px 16px}
 <h3>Tapia Este</h3>
 <table>
 <tr><th>Rubro</th><th style="text-align:right">Cantidad</th><th>Unidad</th><th style="text-align:right">Monto</th></tr>
-<tr><td>Mampostería</td><td class="n">21.5</td><td>m²</td><td class="n">$ 258.000</td></tr>
-<tr><td>Encadenado</td><td class="n">22</td><td>m</td><td class="n">$ 330.000</td></tr>
-<tr><td>Revoque</td><td class="n">74</td><td>m²</td><td class="n">$ 962.000</td></tr>
-<tr><td>Muchetas</td><td class="n">14</td><td>m</td><td class="n">$ 84.000</td></tr>
-<tr class="tot"><td colspan="3">Subtotal Tapia Este</td><td class="n">$ 1.634.000</td></tr>
+<tbody id="tbodyTareaTapiaEste"></tbody>
+<tr class="tot"><td colspan="3">Subtotal Tapia Este</td><td class="n" id="totTareaTapiaEste">—</td></tr>
 </table>
 </div>
 <p class="pendiente">Este es el costo real de la tarea, y es el que se usa en el Resumen para Etapa 2. Los pagos en efectivo de esos dos sábados (18/07 y 25/07, $ 1.000.000) no coinciden con este monto porque el pago semanal no sigue el límite exacto entre tareas — el detalle pago por pago está en la pestaña "Mano de obra".</p>
@@ -163,7 +151,7 @@ details.acc .acc-body{padding:0 16px 16px}
 <div class="warn"><b>Esto es lo efectivamente gastado, no una estimación.</b> Para comparar contra lo presupuestado, ver la tabla "Materiales para hormigón y accesorios" y el "Presupuesto — albañilería" en <a href="computo.html">computo.html</a>.</div>
 
 <div class="foot">
-Registro manual de compras y pagos — se actualiza a medida que se van cargando nuevas compras y pagos de mano de obra.
+Registro manual de compras y pagos — se actualiza a medida que se van cargando nuevas compras y pagos de mano de obra. Última actualización: 31/07/2026.
 </div>
 
 </div>
@@ -173,9 +161,11 @@ Registro manual de compras y pagos — se actualiza a medida que se van cargando
 <h2>Mano de obra — registro completo</h2>
 <p>Todos los pagos de mano de obra en un solo lugar, uno por fila. Filtrable por oficio, contratista y etapa; hacé clic en cualquier columna para ordenar. La etapa de cada pago es por fecha — para Silvio el total por etapa acá no coincide con el Resumen, que usa el costo real por tarea (ver pestaña Resumen).</p>
 <div class="filtros">
+  <label>Buscar<input type="text" id="buscarManoObra" placeholder="concepto, contratista..."></label>
   <label>Etapa<select id="filtroEtapa"><option value="">Todas</option></select></label>
   <label>Oficio<select id="filtroOficio"><option value="">Todos</option></select></label>
   <label>Contratista<select id="filtroContratista"><option value="">Todos</option></select></label>
+  <label>&nbsp;<button type="button" id="limpiarManoObra" class="btnlimpiar">Limpiar filtros</button></label>
 </div>
 <div class="tablewrap">
 <table>
@@ -199,9 +189,11 @@ Registro manual de compras y pagos — se actualiza a medida que se van cargando
 <h2>Materiales — registro completo</h2>
 <p>Todas las compras de materiales, de todas las etapas, en un solo lugar — filtrable por etapa, destino y proveedor, ordenable por cualquier columna. Mayormente del corralón <b>El Castor</b> (confirmado por sello en el comprobante 0019-00033460); parte de junio es de <b>Ferretería y Pinturería Santiago</b> (Av. Rivadavia y Pje. Arturo Ilia, Alderetes); los ítems en efectivo no tienen comprobante.</p>
 <div class="filtros">
+  <label>Buscar<input type="text" id="buscarMateriales" placeholder="item, comprobante..."></label>
   <label>Etapa<select id="filtroEtapaMat"><option value="">Todas</option></select></label>
   <label>Destino<select id="filtroDestino"><option value="">Todos</option></select></label>
   <label>Proveedor<select id="filtroProveedor"><option value="">Todos</option></select></label>
+  <label>&nbsp;<button type="button" id="limpiarMateriales" class="btnlimpiar">Limpiar filtros</button></label>
 </div>
 <div class="tablewrap">
 <table>
@@ -308,8 +300,8 @@ const MATERIALES = [
   {fecha:'2026-06-16', etapa:'Etapa 1', comp:'0019-00042477', prov:'El Castor', destino:'Barandas — Garage', item:'Planchuela 1x3/16', precio:'$ 14.287,41', desc:'20 %', cant:'1', subtotal:14287},
   {fecha:'2026-06-18', etapa:'Etapa 1', comp:'Nota de Venta 4525', prov:'Ferretería Santiago', destino:'Techo — Garage', item:'Chapa Acanalada Galva C25 x 6,5 m, cortada', precio:'$ 79.821,25', desc:'0 %', cant:'10', subtotal:798212},
   {fecha:'2026-06-18', etapa:'Etapa 1', comp:'Nota de Venta 4525', prov:'Ferretería Santiago', destino:'Techo — Garage', item:'Tornillo Autoperf. H Pta. Mecha 14x2', precio:'$ 113,25', desc:'0 %', cant:'200', subtotal:22650},
-  {fecha:'2026-06-23', etapa:'Etapa 1', comp:'Presupuesto 5325', prov:'Ferretería Santiago', destino:'Techo — Garage', item:'Caño Estr. Red. 3x1,2 mm', precio:'$ 37.912,00', desc:'0 %', cant:'1', subtotal:37912},
-  {fecha:'2026-06-23', etapa:'Etapa 1', comp:'Presupuesto 5325', prov:'Ferretería Santiago', destino:'Techo — Garage', item:'Caño Estr. Red. 4x1,6 mm', precio:'$ 67.394,25', desc:'0 %', cant:'1', subtotal:67394},
+  {fecha:'2026-06-23', etapa:'Etapa 1', comp:'Presupuesto 5325', prov:'Ferretería Santiago', destino:'Barandas — Garage', item:'Caño Estr. Red. 3x1,2 mm', precio:'$ 37.912,00', desc:'0 %', cant:'1', subtotal:37912},
+  {fecha:'2026-06-23', etapa:'Etapa 1', comp:'Presupuesto 5325', prov:'Ferretería Santiago', destino:'Barandas — Garage', item:'Caño Estr. Red. 4x1,6 mm', precio:'$ 67.394,25', desc:'0 %', cant:'1', subtotal:67394},
   {fecha:'2026-06-25', etapa:'Etapa 2', comp:'0019-00043286', prov:'El Castor', destino:'Tapia Este', item:'Hierro Torsionado 8 mm x 12 m', precio:'$ 7.998,00', desc:'20 %', cant:'7', subtotal:55986},
   {fecha:'2026-06-25', etapa:'Etapa 2', comp:'0019-00043286', prov:'El Castor', destino:'Tapia Este', item:'Hierro Torsionado 6 mm x 12 m', precio:'$ 5.208,00', desc:'20 %', cant:'6', subtotal:31248},
   {fecha:'2026-06-25', etapa:'Etapa 2', comp:'0019-00043286', prov:'El Castor', destino:'Tapia Este', item:'Alambre del 16', precio:'$ 3.553,20', desc:'20 %', cant:'2', subtotal:7106},
@@ -326,8 +318,9 @@ const MATERIALES = [
   {fecha:'2026-03-26', etapa:'Etapa 1', comp:'sin comprobante', prov:'Efectivo', destino:'Frente + Garage', item:'Ripio (entrega del 1 al 3)', precio:'—', desc:'—', cant:'—', subtotal:200000},
   {fecha:'2026-04-08', etapa:'Etapa 1', comp:'sin comprobante', prov:'Efectivo', destino:'Frente + Garage', item:'Ripio, base para rellenar', precio:'—', desc:'—', cant:'—', subtotal:140000},
   {fecha:'2026-05-05', etapa:'Etapa 1', comp:'sin comprobante', prov:'Efectivo', destino:'Frente + Garage', item:'Ripio', precio:'—', desc:'—', cant:'—', subtotal:30000},
-  {fecha:'2026-05-15', etapa:'Etapa 1', comp:'sin comprobante', prov:'Efectivo', destino:'Frente + Garage', item:'Plasticor y arena fina', precio:'—', desc:'—', cant:'—', subtotal:32000},
-  {fecha:'2026-05-18', etapa:'Etapa 1', comp:'sin comprobante', prov:'Efectivo', destino:'Frente + Garage', item:'Plasticor', precio:'—', desc:'—', cant:'—', subtotal:13000},
+  {fecha:'2026-05-15', etapa:'Etapa 1', comp:'sin comprobante', prov:'Efectivo', destino:'Frente + Garage', item:'Plasticor y bolsas para revoque fino (5 bolsas en total)', precio:'$ 6.400,00', desc:'—', cant:'5', subtotal:32000},
+  {fecha:'2026-05-18', etapa:'Etapa 1', comp:'sin comprobante', prov:'Efectivo', destino:'Frente + Garage', item:'Plasticor', precio:'$ 6.500,00', desc:'—', cant:'2', subtotal:13000},
+  {fecha:'2026-06-30', etapa:'Etapa 1', comp:'sin comprobante', prov:'Efectivo', destino:'Frente + Garage', item:'Bolsas para revoque fino', precio:'$ 6.500,00', desc:'—', cant:'3', subtotal:19500},
   {fecha:'2026-05-25', etapa:'Etapa 1', comp:'sin comprobante', prov:'Efectivo', destino:'Frente + Garage', item:'Arena y ripio', precio:'—', desc:'—', cant:'—', subtotal:60000},
   {fecha:'2026-06-09', etapa:'Etapa 2', comp:'sin comprobante', prov:'Efectivo', destino:'Tapia Este', item:'Ladrillos', precio:'$ 200,00', desc:'—', cant:'2.000', subtotal:400000},
   {fecha:'2026-06-25', etapa:'Etapa 2', comp:'sin comprobante', prov:'Efectivo', destino:'Tapia Este', item:'Arena', precio:'—', desc:'—', cant:'—', subtotal:30000},
@@ -343,6 +336,31 @@ const MATERIALES = [
   {fecha:'2026-07-30', etapa:'Etapa 3', comp:'0019-00046759', prov:'El Castor', destino:'Casa', item:'Flete', precio:'$ 2.338,46', desc:'20,00 %', cant:'3', subtotal:7015}
 ];
 
+// Detalle de tareas de Silvio por sección — costo real del trabajo hecho, no fecha de pago.
+// Única fuente de verdad: alimenta los acordeones y el Resumen (SILVIO_COSTO_TAREA se calcula desde acá).
+const TAREAS = [
+  {etapa: 'Etapa 1', seccion: 'Garage', rubro: 'Revoque rústico', cantidad: '13', unidad: 'm²', monto: 169000},
+  {etapa: 'Etapa 1', seccion: 'Garage', rubro: 'Barandas', cantidad: '—', unidad: '', monto: 175000},
+  {etapa: 'Etapa 1', seccion: 'Garage', rubro: 'Detalles pilares y piso', cantidad: '—', unidad: '', monto: 120000},
+  {etapa: 'Etapa 1', seccion: 'Garage', rubro: 'Techo', cantidad: '63', unidad: 'm²', monto: 1134000},
+  {etapa: 'Etapa 1', seccion: 'Garage', rubro: 'Columnas', cantidad: '24', unidad: 'm', monto: 360000},
+  {etapa: 'Etapa 1', seccion: 'Garage', rubro: 'Mampostería', cantidad: '7', unidad: 'm²', monto: 84000},
+  {etapa: 'Etapa 1', seccion: 'Garage', rubro: 'Revoque grueso', cantidad: '18', unidad: 'm²', monto: 180000},
+  {etapa: 'Etapa 1', seccion: 'Garage', rubro: 'Revoque fino', cantidad: '18', unidad: 'm²', monto: 144000},
+  {etapa: 'Etapa 1', seccion: 'Frente', rubro: 'Revoque grueso', cantidad: '17', unidad: 'm²', monto: 170000},
+  {etapa: 'Etapa 1', seccion: 'Frente', rubro: 'Revoque fino', cantidad: '31', unidad: 'm²', monto: 240000},
+  {etapa: 'Etapa 1', seccion: 'Frente', rubro: 'Muchetas', cantidad: '24', unidad: 'm', monto: 120000},
+  {etapa: 'Etapa 1', seccion: 'Frente', rubro: 'Paños fijos', cantidad: '2', unidad: 'un.', monto: 427000},
+  {etapa: 'Etapa 1', seccion: 'Frente', rubro: 'Colocación', cantidad: '2', unidad: 'un.', monto: 100000},
+  {etapa: 'Etapa 2', seccion: 'Tapia Este', rubro: 'Mampostería', cantidad: '21.5', unidad: 'm²', monto: 258000},
+  {etapa: 'Etapa 2', seccion: 'Tapia Este', rubro: 'Encadenado', cantidad: '22', unidad: 'm', monto: 330000},
+  {etapa: 'Etapa 2', seccion: 'Tapia Este', rubro: 'Revoque', cantidad: '74', unidad: 'm²', monto: 962000},
+  {etapa: 'Etapa 2', seccion: 'Tapia Este', rubro: 'Muchetas', cantidad: '14', unidad: 'm', monto: 84000}
+];
+
+// Adelanto pagado sin tarea todavía asignada — no es parte de TAREAS porque no es costo de una tarea hecha.
+const ADELANTO_SIN_ASIGNAR = {etapa: 'Etapa 3', monto: 193000};
+
 function fmtFecha(iso) {
   const [y, m, d] = iso.split('-');
   return d + '/' + m + '/' + y;
@@ -353,7 +371,7 @@ function money(v) {
 
 function fillSelect(id, values) {
   const sel = document.getElementById(id);
-  [...new Set(values)].sort().forEach(v => {
+  [...new Set(values)].sort((a, b) => a.localeCompare(b, 'es', {numeric: true})).forEach(v => {
     const opt = document.createElement('option');
     opt.value = v; opt.textContent = v;
     sel.appendChild(opt);
@@ -422,7 +440,9 @@ function renderResumen() {
   };
   // La mano de obra de Silvio se cuenta por costo real de tarea (no por fecha de pago),
   // porque sus pagos semanales no coinciden con el límite entre Frente+Garage y Tapia Este.
-  const SILVIO_COSTO_TAREA = {'Etapa 1': 3423000, 'Etapa 2': 1634000, 'Etapa 3': 193000};
+  const SILVIO_COSTO_TAREA = {};
+  TAREAS.forEach(t => { SILVIO_COSTO_TAREA[t.etapa] = (SILVIO_COSTO_TAREA[t.etapa] || 0) + t.monto; });
+  SILVIO_COSTO_TAREA[ADELANTO_SIN_ASIGNAR.etapa] = (SILVIO_COSTO_TAREA[ADELANTO_SIN_ASIGNAR.etapa] || 0) + ADELANTO_SIN_ASIGNAR.monto;
   const rows = etapas.map(e => {
     const mat = MATERIALES.filter(m => m.etapa === e).reduce((a, m) => a + m.subtotal, 0);
     const laborResto = PAGOS.filter(p => p.etapa === e && p.contratista !== 'Silvio').reduce((a, p) => a + p.monto, 0);
@@ -446,6 +466,23 @@ function renderResumen() {
   renderBars('chartDestino', groupSum(MATERIALES, m => m.destino, m => m.subtotal));
   renderBars('chartOficio', groupSum(PAGOS, p => p.oficio, p => p.monto));
 }
+
+function renderTareaTabla(tbodyId, totId, seccion) {
+  const filas = TAREAS.filter(t => t.seccion === seccion);
+  document.getElementById(tbodyId).innerHTML = filas.map(t =>
+    '<tr><td>' + t.rubro + '</td><td class="n">' + t.cantidad + '</td><td>' + t.unidad + '</td><td class="n">' + money(t.monto) + '</td></tr>'
+  ).join('');
+  document.getElementById(totId).textContent = money(filas.reduce((a, t) => a + t.monto, 0));
+}
+
+function renderTareas() {
+  renderTareaTabla('tbodyTareaGarage', 'totTareaGarage', 'Garage');
+  renderTareaTabla('tbodyTareaFrente', 'totTareaFrente', 'Frente');
+  renderTareaTabla('tbodyTareaTapiaEste', 'totTareaTapiaEste', 'Tapia Este');
+  const totEtapa1 = TAREAS.filter(t => t.etapa === 'Etapa 1').reduce((a, t) => a + t.monto, 0);
+  document.getElementById('totTareaEtapa1').textContent = money(totEtapa1);
+}
+renderTareas();
 renderResumen();
 
 // --- Mano de obra ---
@@ -459,11 +496,13 @@ function renderManoObra() {
   const etapa = document.getElementById('filtroEtapa').value;
   const oficio = document.getElementById('filtroOficio').value;
   const contratista = document.getElementById('filtroContratista').value;
+  const q = document.getElementById('buscarManoObra').value.trim().toLowerCase();
 
   const filtrados = sortRows(PAGOS.filter(p =>
     (!etapa || p.etapa === etapa) &&
     (!oficio || p.oficio === oficio) &&
-    (!contratista || p.contratista === contratista)
+    (!contratista || p.contratista === contratista) &&
+    (!q || (p.concepto + ' ' + p.contratista + ' ' + p.oficio).toLowerCase().includes(q))
   ), sortManoObra);
 
   document.getElementById('tbodyManoObra').innerHTML = filtrados.map(p =>
@@ -479,6 +518,12 @@ function renderManoObra() {
 ['filtroEtapa', 'filtroOficio', 'filtroContratista'].forEach(id =>
   document.getElementById(id).addEventListener('change', renderManoObra)
 );
+document.getElementById('buscarManoObra').addEventListener('input', renderManoObra);
+document.getElementById('limpiarManoObra').addEventListener('click', () => {
+  ['filtroEtapa', 'filtroOficio', 'filtroContratista'].forEach(id => document.getElementById(id).value = '');
+  document.getElementById('buscarManoObra').value = '';
+  renderManoObra();
+});
 setupSort('theadManoObra', sortManoObra, renderManoObra);
 renderManoObra();
 
@@ -493,11 +538,13 @@ function renderMateriales() {
   const etapa = document.getElementById('filtroEtapaMat').value;
   const destino = document.getElementById('filtroDestino').value;
   const proveedor = document.getElementById('filtroProveedor').value;
+  const q = document.getElementById('buscarMateriales').value.trim().toLowerCase();
 
   const filtrados = sortRows(MATERIALES.filter(m =>
     (!etapa || m.etapa === etapa) &&
     (!destino || m.destino === destino) &&
-    (!proveedor || m.prov === proveedor)
+    (!proveedor || m.prov === proveedor) &&
+    (!q || (m.item + ' ' + m.comp + ' ' + m.prov + ' ' + m.destino).toLowerCase().includes(q))
   ), sortMateriales);
 
   document.getElementById('tbodyMateriales').innerHTML = filtrados.map(m =>
@@ -514,6 +561,12 @@ function renderMateriales() {
 ['filtroEtapaMat', 'filtroDestino', 'filtroProveedor'].forEach(id =>
   document.getElementById(id).addEventListener('change', renderMateriales)
 );
+document.getElementById('buscarMateriales').addEventListener('input', renderMateriales);
+document.getElementById('limpiarMateriales').addEventListener('click', () => {
+  ['filtroEtapaMat', 'filtroDestino', 'filtroProveedor'].forEach(id => document.getElementById(id).value = '');
+  document.getElementById('buscarMateriales').value = '';
+  renderMateriales();
+});
 setupSort('theadMateriales', sortMateriales, renderMateriales);
 renderMateriales();
 </script>
