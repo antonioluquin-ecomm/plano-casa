@@ -32,6 +32,10 @@ p{font-size:13px;line-height:1.65}
 .elec-toma{fill:#fff;stroke:#c9762a;stroke-width:1.3}
 .room-leg{font-size:11px;color:#6a6a63;margin-top:8px;display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
 .room-leg i{width:20px;height:9px;display:inline-block;vertical-align:-1px;margin-right:5px;border-radius:2px}
+.pl-mk-af{fill:#dcecf5;stroke:#1f7fae;stroke-width:1.3}
+.pl-mk-ac{fill:#f7dedb;stroke:#c0392b;stroke-width:1.3}
+.pl-mk-cl{fill:#eee7da;stroke:#7a6a55;stroke-width:1.3}
+.pl-lbl{font-size:6.5px;fill:#5c5346;text-anchor:middle}
 </style></head><body><div class="wrap">
 <div class="nav"><a href="../index.html">&larr; Inicio</a> &nbsp;·&nbsp; <a href="../plano-general.html">Plano general</a> &nbsp;·&nbsp; <a href="../instructivo.html">Instructivo</a></div>
 <h1>Galería</h1>
@@ -42,6 +46,7 @@ p{font-size:13px;line-height:1.65}
 <button class="tab-btn" data-tab="cotas" onclick="showLayer('cotas')">Cotas</button>
 <button class="tab-btn active" data-tab="amoblamiento" onclick="showLayer('amoblamiento')">Amoblamiento</button>
 <button class="tab-btn" data-tab="electricidad" onclick="showLayer('electricidad')">Electricidad</button>
+<button class="tab-btn" data-tab="plomeria" onclick="showLayer('plomeria')">Plomería</button>
 </div>
 <div class="plano"><svg viewBox="-8 -8 669 224" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:420px;height:auto;background:#fdfcf9;border:1px solid #e3e0d7;border-radius:6px" class=""><line x1="14.0" y1="14.0" x2="639.0" y2="14.0" stroke="#2e2e2b" stroke-width="4.2" stroke-linecap="square"/><line x1="14.0" y1="14.0" x2="14.0" y2="194.0" stroke="#c9c5b8" stroke-width="1.4" stroke-dasharray="4 3"/><line x1="14.0" y1="194.0" x2="639.0" y2="194.0" stroke="#c9c5b8" stroke-width="1.4" stroke-dasharray="4 3"/><line x1="639.0" y1="14.0" x2="639.0" y2="194.0" stroke="#c9c5b8" stroke-width="1.4" stroke-dasharray="4 3"/><text x="320.0" y="10.5" font-size="8" fill="#8a877e" text-anchor="middle">pared de la casa</text><text x="164.0" y="35.9" font-size="10" fill="#6a6a63" text-anchor="middle">Galería</text><text x="502.0" y="76.0" font-size="9" fill="#6a6a63" text-anchor="middle">Asador</text><g class="layer active" data-layer="amoblamiento"><rect x="109.0" y="81.5" width="110.0" height="45.0" fill="#eae6da" stroke="#a39d87" stroke-width="1.3" rx="3.1"/><rect x="117.1" y="52.8" width="22.5" height="22.5" fill="#eae6da" stroke="#a39d87" stroke-width="1.3"/><rect x="156.2" y="52.8" width="22.5" height="22.5" fill="#eae6da" stroke="#a39d87" stroke-width="1.3"/><rect x="195.2" y="52.8" width="22.5" height="22.5" fill="#eae6da" stroke="#a39d87" stroke-width="1.3"/><rect x="117.1" y="132.8" width="22.5" height="22.5" fill="#eae6da" stroke="#a39d87" stroke-width="1.3"/><rect x="156.2" y="132.8" width="22.5" height="22.5" fill="#eae6da" stroke="#a39d87" stroke-width="1.3"/><rect x="195.2" y="132.8" width="22.5" height="22.5" fill="#eae6da" stroke="#a39d87" stroke-width="1.3"/><rect x="80.3" y="92.7" width="22.5" height="22.5" fill="#eae6da" stroke="#a39d87" stroke-width="1.3"/><rect x="225.9" y="92.7" width="22.5" height="22.5" fill="#eae6da" stroke="#a39d87" stroke-width="1.3"/><rect x="449.5" y="14.0" width="45.0" height="35.0" fill="#eae6da" stroke="#a39d87" stroke-width="1.3" rx="4.7"/><rect x="500.0" y="14.0" width="55.0" height="25.0" fill="#eae6da" stroke="#a39d87" stroke-width="1.3"/></g><g class="layer" data-layer="cotas">
 <line class="dim" x1="14" y1="6" x2="639" y2="6"/><line class="dimt" x1="14" y1="3.5" x2="14" y2="8.5"/><line class="dimt" x1="639" y1="3.5" x2="639" y2="8.5"/><text class="dt" x="326.5" y="4.5">12.50</text>
@@ -50,10 +55,15 @@ p{font-size:13px;line-height:1.65}
 <circle class="elec-luz" cx="164" cy="100" r="3"/>
 <circle class="elec-luz" cx="476" cy="100" r="3"/>
 <rect class="elec-toma" x="497" y="52" width="6" height="6"/>
+</g><g class="layer" data-layer="plomeria">
+<circle class="pl-mk-af" cx="520" cy="20" r="3.5"/><circle class="pl-mk-cl" cx="535" cy="20" r="3.5"/>
+<text class="pl-lbl" x="527" y="10">Paso de cañería (agua fría) — cruza desde el Lavadero</text>
+<text class="pl-lbl" x="527" y="34">Bacha (mesada asador)</text>
 </g></svg><div class="plano-cap">Esquema de Galería — muros y aberturas simplificados · elegí cotas, amoblamiento o electricidad arriba</div>
 <div class="room-leg" data-layer="cotas" style="display:none"><span>Medidas a eje de muro (0,15 m de espesor) — bordes sin muro real (semicubierta) marcados en línea de puntos</span></div>
 <div class="room-leg" data-layer="amoblamiento" style="display:flex"><span><i style="background:#eae6da;border:1px solid #a39d87"></i>Mobiliario / equipamiento asador</span></div>
 <div class="room-leg" data-layer="electricidad" style="display:none"><span><i style="background:#f2c744;border:1px solid #8a6410;border-radius:50%"></i>Punto de luz (esquemático)</span><span><i style="background:#fff;border:1.5px solid #c9762a"></i>Tomacorriente (esquemático)</span></div>
+<div class="room-leg" data-layer="plomeria" style="display:none"><span><i style="background:#dcecf5;border:1px solid #1f7fae;border-radius:50%"></i>Agua fría</span><span><i style="background:#eee7da;border:1px solid #7a6a55;border-radius:50%"></i>Desagüe</span></div>
 </div>
 
 <div class="sheet">
@@ -87,6 +97,13 @@ p{font-size:13px;line-height:1.65}
 <tr><td>Mesada con bacha de lavado</td><td class="n">0.70 x 0.50</td></tr>
 </table>
 <p>La mesa y las sillas van cerca de la corrediza (extremo oeste), con espacio de sobra alrededor. Parrilla, horno y mesada van apilados dentro del ancho de 1,00 m del asador (extremo este), uno abajo del otro en el largo de 2,50 m.</p>
+
+<h2>Equipamiento sanitario</h2>
+<table>
+<tr><th>Ambiente</th><th>Artefacto</th><th>Agua fría</th><th>Agua caliente</th><th>Desagüe</th></tr>
+<tr><td>Galería</td><td>Mesada con bacha (asador)</td><td class="n">Sí</td><td class="n">—</td><td class="n">Sí</td></tr>
+</table>
+<p>Se resuelve solo con agua fría — alcanza para enjuagar platos/vasos en el uso exterior, sin necesidad de bajar agua caliente hasta la galería. El ramal sale del Lavadero (que tiene la puerta más corta hacia la galería) — ver criterio completo en el <a href="../instructivo.html">instructivo</a>.</p>
 
 <h2>Notas</h2>
 <div class="ok"><b>Parrilla y horno necesitan salida de humo.</b> No es solo amoblamiento: hay que prever campana o chimenea para el asador, dato a coordinar con la estructura del techo de la galería.</div>
