@@ -135,8 +135,8 @@ p{font-size:13px;line-height:1.65}
 <tr><td>Habitación 1 (visitas)</td><td class="n">6,00 m²</td><td class="n">2</td><td>Línea central</td><td>Llave simple, sin dimmer</td></tr>
 <tr><td>Habitación 2 (secundaria)</td><td class="n">10,50 m²</td><td class="n">4</td><td>Grilla 2x2 corrida hacia la pared norte (opuesta al ropero)</td><td>Ropero contra la pared del pasillo (sur) come ~0,60 m — sin spots sobre el ropero</td></tr>
 <tr><td>Habitación 3 (principal)</td><td class="n">12,25 m²</td><td class="n">4</td><td>Grilla 2x2 corrida hacia la pared norte (opuesta al ropero), ~1,75 x 1,00–2,30 m</td><td>Mismo criterio que Hab. 2; correr el spot más próximo al split de pared para no quedar sobre la salida de aire</td></tr>
-<tr><td>Baño</td><td class="n">4,20 m²</td><td class="n">2</td><td>Línea (zona vanitory + zona ducha/inodoro)</td><td>IP44 general, IP65 si queda directo sobre la ducha; el de la zona espejo mejor adelantado, no exacto sobre la cabeza</td></tr>
-<tr><td>Antebaño</td><td class="n">3,50 m²</td><td class="n">1</td><td>Centrado, o junto al espejo si hay vanitory</td><td>—</td></tr>
+<tr><td>Baño</td><td class="n">4,20 m²</td><td class="n">2</td><td>Zona inodoro/bidet + zona ducha (el vanitory está en el Antebaño, no acá)</td><td>IP44 en general, IP65 la de la ducha (va directo arriba)</td></tr>
+<tr><td>Antebaño</td><td class="n">3,50 m²</td><td class="n">2</td><td>Central + junto al espejo/vanitory</td><td>La del espejo, adelantada — no exacto sobre la cabeza</td></tr>
 <tr><td>Lavadero</td><td class="n">5,00 m²</td><td class="n">2</td><td>Línea central</td><td>IP44 por vapor; priorizar extracción de aire sobre sumar más luz</td></tr>
 <tr><td>Pasillo</td><td class="n">7,60 m²</td><td class="n">4</td><td>3 en el tramo largo (~1,70 m entre sí) + 1 en el recodo</td><td>Candidato a sensor de movimiento en vez de llave, por ser ambiente de paso</td></tr>
 <tr><td>Galería</td><td class="n">62,50 m²</td><td class="n">—</td><td>Franja de artefactos cerca de la casa + faroles de pared/colgados de las cerchas en el resto</td><td>Sin cielorraso: todo de superficie, atornillado a la cara inferior de las cerchas (no a la chapa). IP44 en todos por ser semicubierto. Punto propio de mayor potencia sobre el asador</td></tr>
@@ -167,7 +167,7 @@ p{font-size:13px;line-height:1.65}
 <tr><td>IUG 3 — Iluminación exterior</td><td>Galería, Garage</td><td class="n">10 A</td><td class="n">1,5 mm²</td></tr>
 <tr><td>TUG 1 — Tomas zona social</td><td>Living, Comedor, Cocina (tomas generales, no la heladera)</td><td class="n">20 A</td><td class="n">2,5 mm²</td></tr>
 <tr><td>TUG 2 — Tomas zona privada</td><td>Hab. 1, Hab. 2, Hab. 3, Pasillo</td><td class="n">20 A</td><td class="n">2,5 mm²</td></tr>
-<tr><td>TUG 3 — Tomas Baño/Antebaño</td><td>Baño, Antebaño (bajo diferencial reforzado)</td><td class="n">20 A</td><td class="n">2,5 mm²</td></tr>
+<tr><td>TUG 3 — Tomas Baño/Antebaño/Lavadero</td><td>Baño (sin tomas), Antebaño, toma general del Lavadero (bajo diferencial reforzado)</td><td class="n">20 A</td><td class="n">2,5 mm²</td></tr>
 <tr><td>TUE — Heladera</td><td>Cocina, toma dedicada (para no perderla si salta otro circuito)</td><td class="n">20 A</td><td class="n">2,5 mm²</td></tr>
 <tr><td>TUE — Termotanque</td><td>Lavadero</td><td class="n">20 A</td><td class="n">2,5 mm²</td></tr>
 <tr><td>TUE — Lavarropas</td><td>Lavadero</td><td class="n">20 A</td><td class="n">2,5 mm²</td></tr>
@@ -187,8 +187,8 @@ p{font-size:13px;line-height:1.65}
 <tr><td>Habitación 1</td><td class="n">2</td><td>Ambos lados del arrimo de cama previsible</td></tr>
 <tr><td>Habitación 2</td><td class="n">3</td><td>Veladores (2) + escritorio/TV</td></tr>
 <tr><td>Habitación 3</td><td class="n">4</td><td>Veladores (2) + TV + escritorio</td></tr>
-<tr><td>Baño</td><td class="n">1</td><td>Junto al espejo (secador de pelo), IP44, alejada de la zona de ducha</td></tr>
-<tr><td>Antebaño</td><td class="n">1</td><td>Junto al espejo/vanitory</td></tr>
+<tr><td>Baño</td><td class="n">0</td><td>Sin toma — el vanitory (y su toma para secador de pelo) está en el Antebaño; inodoro, bidet y ducha no necesitan</td></tr>
+<tr><td>Antebaño</td><td class="n">1</td><td>Junto al espejo/vanitory (secador de pelo), IP44</td></tr>
 <tr><td>Lavadero</td><td class="n">1 general + 2 dedicadas</td><td>1 general (plancha, etc.) + lavarropas + termotanque (ya contadas como TUE)</td></tr>
 <tr><td>Pasillo</td><td class="n">1</td><td>Uso ocasional (aspiradora)</td></tr>
 <tr><td>Galería</td><td class="n">3</td><td>IP44 — zona asador (heladerita, parrilla eléctrica opcional) y zona mesa</td></tr>
