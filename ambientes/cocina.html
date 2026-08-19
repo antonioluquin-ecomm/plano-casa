@@ -56,13 +56,17 @@ p{font-size:13px;line-height:1.65}
 <line class="dim" x1="14" y1="171" x2="114" y2="171"/><line class="dimt" x1="14" y1="168.5" x2="14" y2="173.5"/><line class="dimt" x1="114" y1="168.5" x2="114" y2="173.5"/><text class="dt" x="64" y="175.5">2.00</text>
 </g><g class="layer" data-layer="electricidad">
 <circle class="elec-luz" cx="64" cy="89" r="3"/>
-<line x1="20" y1="20" x2="76" y2="20" stroke="#f2c744" stroke-width="2"/>
+<circle class="elec-luz" cx="14" cy="51.5" r="3"/>
+<text x="21" y="54" font-size="5.5" fill="#8a6410" text-anchor="start">Sobre la barra</text>
+<line x1="16" y1="20" x2="37" y2="20" stroke="#f2c744" stroke-width="2"/>
+<line x1="91" y1="20" x2="112" y2="20" stroke="#f2c744" stroke-width="2"/>
+<line x1="105" y1="48" x2="105" y2="72" stroke="#f2c744" stroke-width="2"/>
+<line x1="105" y1="106" x2="105" y2="129" stroke="#f2c744" stroke-width="2"/>
 <text x="48" y="9" font-size="5.5" fill="#8a6410" text-anchor="middle">Tira LED bajo alacena</text>
-<rect class="elec-toma" x="49" y="16" width="6" height="6"/>
-<rect class="elec-toma" x="30" y="16" width="6" height="6"/>
-<rect class="elec-toma" x="78" y="16" width="6" height="6"/>
-<rect class="elec-toma" x="108" y="57" width="6" height="6"/>
-<rect class="elec-toma" x="108" y="115" width="6" height="6"/>
+<rect class="elec-toma" x="26" y="16" width="6" height="6"/>
+<rect class="elec-toma" x="97" y="16" width="6" height="6"/>
+<rect class="elec-toma" x="108" y="58" width="6" height="6"/>
+<rect class="elec-toma" x="108" y="118" width="6" height="6"/>
 <rect class="elec-toma" x="108" y="137" width="6" height="6"/>
 <text x="108" y="150" font-size="5.5" fill="#6a6a63" text-anchor="middle">Dedicada heladera</text>
 </g><g class="layer" data-layer="plomeria">
@@ -76,7 +80,7 @@ p{font-size:13px;line-height:1.65}
 </g></svg><div class="plano-cap">Esquema de Cocina — muros y aberturas simplificados · elegí cotas, amoblamiento o electricidad arriba</div>
 <div class="room-leg" data-layer="cotas" style="display:none"><span>Medidas a eje de muro (espesor real de cada tramo: ver instructivo)</span></div>
 <div class="room-leg" data-layer="amoblamiento" style="display:flex"><span><i style="background:#f4f2ea;border:1px dashed #b0ab99"></i>Mesada</span><span><i style="background:#eae6da;border:1px solid #a39d87"></i>Equipamiento</span></div>
-<div class="room-leg" data-layer="electricidad" style="display:none;flex-direction:column;gap:4px"><div style="display:flex;gap:14px;flex-wrap:wrap;justify-content:center"><span><i style="background:#f2c744;border:1px solid #8a6410;border-radius:50%"></i>Punto de luz (esquemático)</span><span><i style="background:#fff;border:1.5px solid #c9762a"></i>Tomacorriente (esquemático)</span></div><div style="color:#8a877e;font-size:10.5px">2 luces (línea central + tira LED) y 6 tomas (5 sobre la mesada + 1 dedicada heladera) — ver <a href="../instructivo.html">instructivo</a></div><div style="color:#8a877e;font-size:10.5px">Esquemático — no reemplaza el proyecto de instalación eléctrica (recorrido de cables y sección de cada tramo a cargo del electricista matriculado)</div></div>
+<div class="room-leg" data-layer="electricidad" style="display:none;flex-direction:column;gap:4px"><div style="display:flex;gap:14px;flex-wrap:wrap;justify-content:center"><span><i style="background:#f2c744;border:1px solid #8a6410;border-radius:50%"></i>Punto de luz (esquemático)</span><span><i style="background:#fff;border:1.5px solid #c9762a"></i>Tomacorriente (esquemático)</span></div><div style="color:#8a877e;font-size:10.5px">3 luces (línea central + sobre la barra + tira LED) y 5 tomas (4 sobre la mesada + 1 dedicada heladera) — ver <a href="../instructivo.html">instructivo</a></div><div style="color:#8a877e;font-size:10.5px">Esquemático — no reemplaza el proyecto de instalación eléctrica (recorrido de cables y sección de cada tramo a cargo del electricista matriculado)</div></div>
 <div class="room-leg" data-layer="plomeria" style="display:none;flex-direction:column;gap:4px"><div style="display:flex;gap:14px;flex-wrap:wrap;justify-content:center"><span><i style="background:#dcecf5;border:1px solid #1f7fae;border-radius:50%"></i>Agua fría</span><span><i style="background:#f7dedb;border:1px solid #c0392b;border-radius:50%"></i>Agua caliente</span><span><i style="background:#eee7da;border:1px solid #7a6a55;border-radius:50%"></i>Desagüe</span></div><div style="color:#8a877e;font-size:10.5px">Esquemático — no reemplaza el proyecto de instalación sanitaria (alturas, pendientes y recorrido exacto a cargo del profesional matriculado)</div></div>
 </div>
 
@@ -106,11 +110,13 @@ p{font-size:13px;line-height:1.65}
 <table>
 <tr><th>Punto</th><th style="text-align:right">Cantidad</th><th>Circuito</th><th>Ubicación</th></tr>
 <tr><td>Luz central</td><td class="n">1</td><td>IUG 1</td><td>Techo, centro del ambiente</td></tr>
-<tr><td>Tira LED bajo alacena</td><td class="n">1</td><td>IUG 1</td><td>Bajo alacena, sobre la mesada sur</td></tr>
-<tr><td>Tomas uso general</td><td class="n">5</td><td>TUG 1</td><td>Sobre la mesada (3 en el tramo sur, 2 en el tramo este)</td></tr>
+<tr><td>Luz sobre la barra</td><td class="n">1</td><td>IUG 1</td><td>Techo, centrada sobre la barra (mesada oeste), a mitad de su largo de 1,50 m</td></tr>
+<tr><td>Tira LED bajo alacena</td><td class="n">1</td><td>IUG 1</td><td>4 tramos cortos, donde hay alacena: los 2 rincones del muro sur (a los lados de la ventana) y el muro este antes y después del anafe/campana — no corre frente a la ventana ni sobre el anafe</td></tr>
+<tr><td>Tomas uso general</td><td class="n">4</td><td>TUG 1</td><td>Sobre la mesada: 2 en los rincones del muro sur (junto a la bacha, a cada lado de la ventana) + 2 en el muro este (antes y después del anafe)</td></tr>
 <tr><td>Toma dedicada heladera</td><td class="n">1</td><td>TUE</td><td>Rincón noreste, junto a la heladera</td></tr>
 </table>
-<p>Los 6 tomacorrientes van embutidos en el muro, a la altura de la mesada (arriba del zócalo) — en el muro sur y en el muro este, el mismo que ya lleva la cañería de gas hasta el anafe: conviene coordinar ambos recorridos en la misma rotura de muro. La luz central no necesita hueco en la pared (va por el cielorraso); la tira LED tampoco (el cable corre dentro del mueble colgado).</p>
+<p>Los 5 tomacorrientes van embutidos en el muro, a la altura de la mesada (arriba del zócalo) — en el muro sur y en el muro este, el mismo que ya lleva la cañería de gas hasta el anafe: conviene coordinar ambos recorridos en la misma rotura de muro. Ninguno va frente a la ventana (ahí no hay pared) ni sobre el anafe. Ninguna de las 3 luces necesita hueco en la pared: la central y la de la barra van por el cielorraso, y la tira LED corre dentro de cada mueble colgado, en los tramos donde hay alacena.</p>
+<p>El anafe queda sin punto de luz propio en el techo (ahí corta la tira LED, por la campana) — no hace falta: la <b>campana extractora trae su propia luz incorporada</b>, apuntando hacia abajo sobre la hornalla, alimentada por el mismo artefacto. Sobre la bacha tampoco va una luz dedicada — se resuelve con luz natural de la ventana de día y el alcance de la luz central de noche.</p>
 <p style="font-size:12.5px;color:#8a877e">Esquemático — no reemplaza el proyecto de instalación eléctrica. El recorrido exacto de cada cable, su sección y la altura final de cada caja quedan a cargo del electricista matriculado.</p>
 
 <h2>Amoblamiento previsto</h2>
@@ -131,7 +137,7 @@ p{font-size:13px;line-height:1.65}
 <p><b>La mesada sur y la barra se encuentran en el rincón suroeste.</b> La mesada corre hasta ahí (antes se cortaba 0,50 m antes, dejando un tramo de pared/ventana sin uso) y la barra —redibujada a su tamaño real de 0,48 x 1,50 m, antes fuera de escala en el esquema— arranca en ese mismo rincón y se extiende 1,50 m hacia el norte, centrada sobre la apertura entre Cocina y Comedor: la mitad de su profundidad queda del lado Cocina (siguiendo la línea de la mesada, con el bajomesada de despensa) y la otra mitad avanza hacia el Comedor, como una península para desayunar.</p>
 
 <h2>Extracción de aire (campana)</h2>
-<p>La cocina (anafe + horno) lleva <b>campana de extracción</b> sobre sí. El anafe queda a mitad del tramo este —donde tiene lugar para usarse cómodo, sin quedar apretado contra la ventana ni contra la heladera— y el conducto de la campana sale por el <b>cielorraso</b>, corriendo por arriba de la mesada hasta el muro sur (el único muro exterior del ambiente), y de ahí hacia la <b>galería</b>. Con la ventana de 1,00 x 1,00 m (igual a la de Hab. 1) centrada en la pared, quedan 0,50 m de muro macizo a cada lado — de sobra para el conducto, que sale por el tramo este (el más cercano al anafe). Es la solución habitual para campanas que no están pegadas a un muro exterior: un tramo corto de conducto por el entretecho hasta la salida, en vez de mover el anafe a un rincón donde no entraría bien ni sería cómodo cocinar.</p>
+<p>La cocina (anafe + horno) lleva <b>campana de extracción</b> sobre sí. El anafe queda a mitad del tramo este —donde tiene lugar para usarse cómodo, sin quedar apretado contra la ventana ni contra la heladera— y el conducto de la campana sale por el <b>cielorraso</b>, corriendo por arriba de la mesada hasta el muro sur (el único muro exterior del ambiente), y de ahí hacia la <b>galería</b>. Con la ventana de 1,00 x 1,00 m (igual a la de Hab. 1) centrada en la pared, quedan 0,50 m de muro macizo a cada lado — de sobra para el conducto, que sale por el tramo este (el más cercano al anafe). Es la solución habitual para campanas que no están pegadas a un muro exterior: un tramo corto de conducto por el entretecho hasta la salida, en vez de mover el anafe a un rincón donde no entraría bien ni sería cómodo cocinar. La campana trae <b>luz propia incorporada</b> sobre la hornalla —no es un punto de luz de techo aparte, viene con el artefacto y se alimenta de su misma línea—, así que el anafe queda iluminado sin necesidad de un punto dedicado en el cielorraso.</p>
 
 <h2>Gas — garrafa</h2>
 <div class="warn"><b>La garrafa no va dentro de la cocina.</b> Por seguridad (el GLP es más pesado que el aire y necesita ventilación permanente al exterior, lejos de artefactos y de cualquier fuente de ignición), la garrafa se guarda en un <b>gabinete ventilado exterior</b>, de pie sobre la galería, en el rincón donde el muro sur de la Cocina se encuentra con el muro este (contra Hab. 1). Esa ubicación acorta el tramo de manguera hasta el anafe: cruza el <b>muro este</b> —el mismo que ya lleva la cañería de gas hasta el anafe (ver Equipamiento sanitario e Instalación eléctrica)—, no el muro de la ventana. El gabinete es una estructura liviana (metálica o de rejilla, no mampostería), fuera del cómputo de materiales de <a href="../computo.html">albañilería</a>.</div>
