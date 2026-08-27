@@ -1,10 +1,11 @@
-<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8">
+<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Instructivo y criterios técnicos — vivienda</title><style>
 body{font-family:'Segoe UI',Arial,sans-serif;background:#f4f3ef;color:#23231f;margin:0;padding:26px}
 .wrap{max-width:1080px;margin:0 auto}
 .nav{font-size:13px;margin-bottom:14px}
 .nav a{color:#6a6a63;text-decoration:none}
 .nav a:hover{text-decoration:underline}
+.nav .here{color:#23231f;font-weight:600}
 h1{font-size:21px;font-weight:600;margin:0 0 2px}
 .sub{color:#6a6a63;font-size:13px;margin-bottom:18px}
 h2{font-size:15px;margin:26px 0 6px}
@@ -20,10 +21,31 @@ td.n{text-align:right;font-variant-numeric:tabular-nums}
 .foot a{color:#8a877e}
 .sheet{background:#fff;border:1px solid #dedbd1;border-radius:10px;padding:22px;box-shadow:0 1px 3px rgba(0,0,0,.05)}
 p{font-size:13px;line-height:1.65}
+.tablewrap{overflow-x:auto}
+.sheet{overflow-x:auto}
+.foot{color:#6a6a63}
+.totop{position:fixed;right:14px;bottom:14px;width:38px;height:38px;border-radius:50%;background:#2e2e2b;color:#fff;display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:17px;box-shadow:0 2px 8px rgba(0,0,0,.25);opacity:.82;z-index:9}
+.totop:hover{opacity:1}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:0 0 16px;font-size:12.5px;color:#6a6a63}
+.toolbar button{padding:6px 12px;border:1px solid #d8d5cb;border-radius:6px;background:#fff;cursor:pointer;font-size:12.5px;color:#55534c;font-family:inherit}
+.toolbar button:hover{background:#f4f2ec}
+.toc{border:1px solid #e6e3da;border-radius:8px;padding:12px 16px;margin:0 0 18px;font-size:13px;background:#faf9f5}
+.toc b{display:block;margin-bottom:6px;color:#3a3a36}
+.toc ul{margin:0;padding-left:18px;columns:2;column-gap:24px}
+.toc li{margin:3px 0;break-inside:avoid}
+.toc a{color:#6a6a63;text-decoration:none}
+.toc a:hover{text-decoration:underline}
+h2{scroll-margin-top:12px}
+@media(max-width:640px){.toc ul{columns:1}}
+@media print{.nav,.totop,.toolbar,.toc{display:none!important}body{background:#fff;padding:12px}.sheet{box-shadow:none;overflow:visible}}
 </style></head><body><div class="wrap">
-<div class="nav"><a href="index.html">&larr; Inicio</a> &nbsp;·&nbsp; <a href="plano-general.html">Plano general</a> &nbsp;·&nbsp; <a href="computo.html">Cómputo de materiales</a></div>
+<div class="nav"><a href="index.html">Inicio</a> &nbsp;·&nbsp; <a href="plano-general.html">Plano general</a> &nbsp;·&nbsp; <span class="here">Instructivo</span> &nbsp;·&nbsp; <a href="computo.html">Cómputo</a> &nbsp;·&nbsp; <a href="gastos.html">Gastos</a></div>
 <h1>Instructivo y criterios técnicos</h1>
 <div class="sub">Medidas de referencia para aberturas y criterios técnicos de diseño</div>
+
+<div class="toolbar">
+  <button type="button" id="btnImprimir">Imprimir / Guardar PDF</button>
+</div>
 
 <div class="sheet">
 
@@ -229,13 +251,13 @@ p{font-size:13px;line-height:1.65}
 <tr><td>Cantidad de artefactos con desagüe cloacal</td><td>8 (los de la tabla de arriba, sin contar el termotanque)</td></tr>
 <tr><td>Ubicación</td><td>Esquina suroeste del lote, existente</td></tr>
 </table>
-<div class="warn"><b>Dos cosas para verificar en el pozo existente antes de empalmar:</b> (1) que la capacidad del sistema ya construido alcance para los 9 artefactos de esta casa (si el pozo se hizo para una construcción anterior o más chica, puede haber que ampliarlo); (2) el recorrido de la cañería nueva es largo — sale del sector de servicios (Lavadero, contra el retiro oeste) y tiene que atravesar toda la Galería y el patio hasta el fondo del lote, así que conviene prever la pendiente (mínimo 1–2%) en todo ese tramo y cámaras de inspección intermedias cada 15 m aproximadamente o en cada cambio de dirección. Esta cuenta de 8 no incluye el termotanque, cuya válvula de seguridad descarga a un desagüe cercano (no necesariamente al pozo absorbente).</div>
+<div class="warn"><b>Dos cosas para verificar en el pozo existente antes de empalmar:</b> (1) que la capacidad del sistema ya construido alcance para los 8 artefactos con desagüe cloacal de esta casa (si el pozo se hizo para una construcción anterior o más chica, puede haber que ampliarlo); (2) el recorrido de la cañería nueva es largo — sale del sector de servicios (Lavadero, contra el retiro oeste) y tiene que atravesar toda la Galería y el patio hasta el fondo del lote, así que conviene prever la pendiente (mínimo 1–2%) en todo ese tramo y cámaras de inspección intermedias cada 15 m aproximadamente o en cada cambio de dirección. Esta cuenta de 8 no incluye el termotanque, cuya válvula de seguridad descarga a un desagüe cercano (no necesariamente al pozo absorbente).</div>
 
 <h3>Pileta</h3>
 <div class="warn"><b>El desagüe de la Pileta (rebase/backwash del filtro) no va al pozo absorbente.</b> El agua clorada mata la digestión biológica de la cámara séptica — tiene que ir a un desagüe pluvial o directamente a un sector de terreno absorbente alejado, nunca al sistema cloacal.</div>
 
 <h2>Criterios de amoblamiento</h2>
-<p>El detalle completo, ambiente por ambiente, está en cada <a href="../index.html">ficha</a>. Puntos generales que aplican a toda la casa:</p>
+<p>El detalle completo, ambiente por ambiente, está en cada <a href="index.html">ficha</a>. Puntos generales que aplican a toda la casa:</p>
 <ul style="margin:8px 0 0;padding-left:20px">
 <li>Todos los roperos (Habitación 1, 2 y 3) llevan <b>puertas corredizas</b>, no abatibles — no necesitan espacio de barrido para abrirse, así que pueden ir pegados a la pared sin restarle circulación al resto del ambiente.</li>
 <li>El lavamanos y el mueble de guardado del baño (cosas de higiene) van en el <b>Antebaño</b>, no en el Baño: el Baño reúne inodoro + bidet + ducha (3 artefactos en 4,20 m²), mientras que el Antebaño tiene margen de sobra.</li>
@@ -257,4 +279,25 @@ No constituye documentación de obra: faltan plano de instalación sanitaria y e
 cortes, vistas y cálculo estructural, que deben ser elaborados y firmados por un profesional matriculado.
 </div>
 </div>
-</div></body></html>
+</div><a href="#" class="totop" aria-label="Volver arriba">↑</a>
+<script>
+document.getElementById('btnImprimir').addEventListener('click', function () { window.print(); });
+
+// Índice de la página
+(function buildTOC() {
+  var hs = document.querySelectorAll('.wrap .sheet h2');
+  if (hs.length < 4) return;
+  var first = document.querySelector('.wrap .sheet');
+  var nav = document.createElement('nav');
+  nav.className = 'toc';
+  var items = '';
+  hs.forEach(function (h, i) {
+    if (!h.id) h.id = 'sec-' + (i + 1);
+    var label = h.textContent.replace(/\s+/g, ' ').trim();
+    items += '<li><a href="#' + h.id + '">' + label + '</a></li>';
+  });
+  nav.innerHTML = '<b>En esta página</b><ul>' + items + '</ul>';
+  first.parentNode.insertBefore(nav, first);
+})();
+</script>
+</body></html>

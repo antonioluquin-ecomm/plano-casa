@@ -1,10 +1,11 @@
-<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8">
+<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Cómputo de materiales — vivienda</title><style>
 body{font-family:'Segoe UI',Arial,sans-serif;background:#f4f3ef;color:#23231f;margin:0;padding:26px}
 .wrap{max-width:1080px;margin:0 auto}
 .nav{font-size:13px;margin-bottom:14px}
 .nav a{color:#6a6a63;text-decoration:none}
 .nav a:hover{text-decoration:underline}
+.nav .here{color:#23231f;font-weight:600}
 h1{font-size:21px;font-weight:600;margin:0 0 2px}
 .sub{color:#6a6a63;font-size:13px;margin-bottom:18px}
 h2{font-size:15px;margin:26px 0 6px}
@@ -33,10 +34,33 @@ p{font-size:13px;line-height:1.65}
 .rubro-h{display:flex;align-items:center;justify-content:space-between}
 .rubro-h span{font-weight:600;font-size:13.5px}
 .rubro p{color:#8a877e;font-size:12.5px;margin:6px 0 0}
+.tablewrap{overflow-x:auto}
+.sheet{overflow-x:auto}
+.foot{color:#6a6a63}
+.totop{position:fixed;right:14px;bottom:14px;width:38px;height:38px;border-radius:50%;background:#2e2e2b;color:#fff;display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:17px;box-shadow:0 2px 8px rgba(0,0,0,.25);opacity:.82;z-index:9}
+.totop:hover{opacity:1}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:0 0 16px;font-size:12.5px;color:#6a6a63}
+.toolbar button{padding:6px 12px;border:1px solid #d8d5cb;border-radius:6px;background:#fff;cursor:pointer;font-size:12.5px;color:#55534c;font-family:inherit}
+.toolbar button:hover{background:#f4f2ec}
+.toc{border:1px solid #e6e3da;border-radius:8px;padding:12px 16px;margin:0 0 18px;font-size:13px;background:#faf9f5}
+.toc b{display:block;margin-bottom:6px;color:#3a3a36}
+.toc ul{margin:0;padding-left:18px;columns:2;column-gap:24px}
+.toc li{margin:3px 0;break-inside:avoid}
+.toc a{color:#6a6a63;text-decoration:none}
+.toc a:hover{text-decoration:underline}
+h2{scroll-margin-top:12px}
+@media(max-width:640px){.toc ul{columns:1}}
+@media print{.nav,.totop,.toolbar,.toc{display:none!important}body{background:#fff;padding:12px}.sheet{box-shadow:none;overflow:visible}}
 </style></head><body><div class="wrap">
-<div class="nav"><a href="index.html">&larr; Inicio</a> &nbsp;·&nbsp; <a href="plano-general.html">Plano general</a> &nbsp;·&nbsp; <a href="instructivo.html">Instructivo</a> &nbsp;·&nbsp; <a href="gastos.html">Gastos reales</a></div>
+<div class="nav"><a href="index.html">Inicio</a> &nbsp;·&nbsp; <a href="plano-general.html">Plano general</a> &nbsp;·&nbsp; <a href="instructivo.html">Instructivo</a> &nbsp;·&nbsp; <span class="here">Cómputo</span> &nbsp;·&nbsp; <a href="gastos.html">Gastos</a></div>
 <h1>Cómputo de materiales</h1>
 <div class="sub">Cantidades para compra, calculadas a partir de la geometría del plano — se recalculan solas cuando el plano cambia</div>
+
+<div class="toolbar">
+  <button type="button" id="btnImprimir">Imprimir / Guardar PDF</button>
+  <button type="button" id="btnResetComputo">Restablecer valores</button>
+  <span>Los valores que edites (rendimientos, precios, parámetros de techo) se guardan en este navegador.</span>
+</div>
 
 <div class="sheet">
 <h2>Mampostería <span class="badge badge-live">calculado desde el plano</span></h2>
@@ -128,7 +152,7 @@ p{font-size:13px;line-height:1.65}
 <tr><th>Rubro</th><th style="text-align:right">Cantidad</th><th>Unidad</th><th style="text-align:right">Precio unitario</th><th style="text-align:right">Subtotal</th></tr>
 <tr><td>Mampostería <span style="color:#8a877e;font-size:11.5px">(m² de muro a construir, excluye garage)</span></td><td class="n" id="presCantMamposteria">—</td><td>m²</td><td class="n"><input type="number" id="presPrecioMamposteria" value="10000" step="500" min="0"></td><td class="n" id="presSubMamposteria">—</td></tr>
 <tr><td>Bases</td><td class="n"><input type="number" id="presCantBases" value="13" step="1" min="0"></td><td>un.</td><td class="n"><input type="number" id="presPrecioBases" value="30000" step="1000" min="0"></td><td class="n" id="presSubBases">—</td></tr>
-<tr><td>Viga de arrastre</td><td class="n"><input type="number" id="presCantViga" value="60" step="1" min="0"></td><td>m²</td><td class="n"><input type="number" id="presPrecioViga" value="15000" step="500" min="0"></td><td class="n" id="presSubViga">—</td></tr>
+<tr><td>Viga de arrastre</td><td class="n"><input type="number" id="presCantViga" value="60" step="1" min="0"></td><td>m</td><td class="n"><input type="number" id="presPrecioViga" value="15000" step="500" min="0"></td><td class="n" id="presSubViga">—</td></tr>
 <tr><td>Contrapiso <span style="color:#8a877e;font-size:11.5px">(sugerido: igual a la superficie cubierta del techo)</span></td><td class="n"><input type="number" id="presCantContrapiso" value="82.00" step="0.5" min="0"></td><td>m²</td><td class="n"><input type="number" id="presPrecioContrapiso" value="15000" step="500" min="0"></td><td class="n" id="presSubContrapiso">—</td></tr>
 <tr><td>Columnas</td><td class="n"><input type="number" id="presCantColumnas" value="42" step="1" min="0"></td><td>m</td><td class="n"><input type="number" id="presPrecioColumnas" value="15000" step="500" min="0"></td><td class="n" id="presSubColumnas">—</td></tr>
 <tr><td>Encadenado</td><td class="n"><input type="number" id="presCantEncadenado" value="60" step="1" min="0"></td><td>m</td><td class="n"><input type="number" id="presPrecioEncadenado" value="15000" step="500" min="0"></td><td class="n" id="presSubEncadenado">—</td></tr>
@@ -162,6 +186,25 @@ p{font-size:13px;line-height:1.65}
 </div>
 
 <div class="sheet">
+<h2>Hierro — comprado vs. estimado <span class="badge badge-live">cruzado con gastos reales</span></h2>
+<p>El cómputo estima hierro solo para la <b>estructura de la Casa</b> (del 6 y del 8, según el cálculo del albañil de la tabla de arriba). Acá se cruza contra lo <b>efectivamente comprado</b>, leído en vivo desde <a href="gastos.html">gastos.html</a>. Las compras de <b>Frente + Garage</b> y <b>Tapia Este</b> son de etapas ya construidas, con su propio cálculo — se listan aparte, sin estimación del cómputo.</p>
+
+<h3>Casa (Etapa 3) — lo único con estimación</h3>
+<table>
+<tr><th>Diámetro</th><th style="text-align:right">Estimado (cómputo)</th><th style="text-align:right">Comprado (gastos)</th><th style="text-align:right">Diferencia</th></tr>
+<tbody id="tbodyHierroCasa"><tr><td colspan="4">Cargando datos de gastos…</td></tr></tbody>
+</table>
+
+<h3>Otras etapas — comprado, sin estimación en el cómputo</h3>
+<table>
+<tr><th>Diámetro</th><th style="text-align:right">Frente + Garage</th><th style="text-align:right">Tapia Este</th><th style="text-align:right">Total</th></tr>
+<tbody id="tbodyHierroOtras"></tbody>
+</table>
+
+<div class="warn"><b>Se compara por cantidad de barras de 12 m, no por kilos.</b> El cálculo del albañil solo distingue "del 6" y "del 8"; si en obra hiciera falta otro diámetro para la Casa, aparecería acá como comprado sin estimación. Se asume barra de 12 m tanto en el cómputo como en las compras.</div>
+</div>
+
+<div class="sheet">
 <h2>Otros rubros</h2>
 <p>El resto del cómputo se va a ir completando a medida que definamos cada parte del proyecto (techo, estructura, instalaciones, aberturas, terminaciones). Cada rubro va a sumarse acá con el mismo criterio que mampostería: calculado en vivo desde la geometría del plano en cuanto esa parte tenga su propio dibujo, no tipeado a mano.</p>
 
@@ -169,7 +212,7 @@ p{font-size:13px;line-height:1.65}
 <div class="rubro"><div class="rubro-h"><span>Estructura</span><span class="badge badge-quote">cotizado (albañil)</span></div><p>Columnas y encadenado ya tienen precio y metraje del albañil (ver presupuesto de albañilería arriba). Depende del cálculo estructural para confirmar sección y metraje final.</p></div>
 <div class="rubro"><div class="rubro-h"><span>Mampostería</span><span class="badge badge-live">calculado</span></div><p>Ver tabla arriba.</p></div>
 <div class="rubro"><div class="rubro-h"><span>Techos — casa</span><span class="badge badge-live">calculado</span></div><p>Ver sección propia arriba (chapa, correas, cerchas, aislación, cielorraso, canaletas y bajadas). Galería (etapa futura) y Garage (ya construido) quedan fuera de este cómputo.</p></div>
-<div class="rubro"><div class="rubro-h"><span>Instalación sanitaria</span><span class="badge badge-live">calculado (parcial)</span></div><p>Ver criterio completo en el <a href="instructivo.html">instructivo</a>: 8 artefactos con desagüe cloacal (Baño, Antebaño, Lavadero, Cocina, Galería). Cámara séptica + pozo absorbente <b>ya existen</b> (esquina suroeste del lote) — solo falta empalmar, verificando que su capacidad alcance para estos 9 artefactos. Faltan los <b>metros de cañería</b> (dependen del recorrido real, no se pueden estimar sin el plano de tendido) — eso queda a cargo del profesional matriculado.</p></div>
+<div class="rubro"><div class="rubro-h"><span>Instalación sanitaria</span><span class="badge badge-live">calculado (parcial)</span></div><p>Ver criterio completo en el <a href="instructivo.html">instructivo</a>: 8 artefactos con desagüe cloacal (Baño, Antebaño, Lavadero, Cocina, Galería). Cámara séptica + pozo absorbente <b>ya existen</b> (esquina suroeste del lote) — solo falta empalmar, verificando que su capacidad alcance para estos 8 artefactos. Faltan los <b>metros de cañería</b> (dependen del recorrido real, no se pueden estimar sin el plano de tendido) — eso queda a cargo del profesional matriculado.</p></div>
 <div class="rubro"><div class="rubro-h"><span>Instalación eléctrica</span><span class="badge badge-live">calculado (parcial)</span></div><p>Ver criterio completo en el <a href="instructivo.html">instructivo</a>: 13 circuitos (3 IUG + 3 TUG + 7 TUE — incluye el de Hab. 2 previsto, cableado pero sin equipo), ≈36 puntos de luz interiores + Garage, ≈32 tomacorrientes. Faltan los <b>metros de cable</b> (dependen del recorrido real de cañerías, no se pueden estimar sin el plano de tendido) — eso sí queda a cargo del electricista matriculado.</p></div>
 <div class="rubro"><div class="rubro-h"><span>Instalación de gas</span><span class="badge badge-pending">pendiente</span></div><p>Cocina a garrafa (gabinete ventilado exterior en la Galería, junto a la Cocina) con campana en el anafe — ver <a href="instructivo.html">instructivo</a>. Falta definir cañería y accesorios con el instalador matriculado.</p></div>
 <div class="rubro"><div class="rubro-h"><span>Aberturas</span><span class="badge badge-live">calculado</span></div><p>Ver sección propia arriba (cantidad, m² de vidrio y ml de marco por puerta/ventana, leído en vivo desde el plano).</p></div>
@@ -182,6 +225,7 @@ p{font-size:13px;line-height:1.65}
 </div>
 
 <iframe id="planoFrame" src="plano-general.html" style="display:none" title="datos del plano"></iframe>
+<iframe id="gastosFrame" src="gastos.html" style="display:none" title="gastos reales"></iframe>
 
 <script>
 const SCALE = 32; // px por metro en plano-general.html
@@ -369,6 +413,71 @@ document.getElementById('planoFrame').addEventListener('load', function () {
   }
 });
 
+// --- Hierro: comprado (gastos.html) vs. estimado (cálculo del albañil) ---
+let hierroComprado = null;
+
+function parseHierro(materiales) {
+  const acc = {}; // { diametro: { etapa: barras } }
+  materiales.forEach(function (m) {
+    if (!/hierro\s+torsionado/i.test(m.item)) return;
+    const dm = m.item.match(/(\d+)\s*mm/i);
+    if (!dm) return;
+    const d = dm[1];
+    const q = parseFloat(String(m.cant).replace(',', '.'));
+    if (isNaN(q)) return;
+    acc[d] = acc[d] || {};
+    acc[d][m.etapa] = (acc[d][m.etapa] || 0) + q;
+  });
+  return acc;
+}
+
+function renderHierro() {
+  if (!hierroComprado) return;
+  const estim = { '6': num('matHierro6', 60), '8': num('matHierro8', 70) };
+  const diamCasa = [...new Set(
+    Object.keys(estim).concat(Object.keys(hierroComprado).filter(function (d) {
+      return (hierroComprado[d]['Etapa 3'] || 0) > 0;
+    }))
+  )].sort(function (a, b) { return a - b; });
+
+  document.getElementById('tbodyHierroCasa').innerHTML = diamCasa.map(function (d) {
+    const comp = (hierroComprado[d] && hierroComprado[d]['Etapa 3']) || 0;
+    const est = estim[d];
+    const estTxt = est == null ? '—' : est + ' barras';
+    let diffTxt = '—';
+    if (est != null) {
+      const diff = comp - est;
+      diffTxt = diff === 0 ? '0' : (diff > 0 ? '+' + diff : String(diff));
+    }
+    return '<tr><td>Hierro del ' + d + '</td><td class="n">' + estTxt +
+      '</td><td class="n">' + comp + ' barras</td><td class="n">' + diffTxt + '</td></tr>';
+  }).join('') || '<tr><td colspan="4">Sin datos.</td></tr>';
+
+  const diamOtras = Object.keys(hierroComprado).filter(function (d) {
+    return (hierroComprado[d]['Etapa 1'] || 0) + (hierroComprado[d]['Etapa 2'] || 0) > 0;
+  }).sort(function (a, b) { return a - b; });
+
+  document.getElementById('tbodyHierroOtras').innerHTML = diamOtras.map(function (d) {
+    const fg = hierroComprado[d]['Etapa 1'] || 0;
+    const te = hierroComprado[d]['Etapa 2'] || 0;
+    return '<tr><td>Hierro del ' + d + '</td><td class="n">' + (fg || '—') +
+      '</td><td class="n">' + (te || '—') + '</td><td class="n"><b>' + (fg + te) + '</b></td></tr>';
+  }).join('');
+}
+
+document.getElementById('gastosFrame').addEventListener('load', function () {
+  try {
+    hierroComprado = parseHierro(this.contentWindow.MATERIALES);
+    renderHierro();
+  } catch (e) {
+    document.getElementById('tbodyHierroCasa').innerHTML =
+      '<tr><td colspan="4">No se pudo leer gastos.html (' + e.message + '). Si estás abriendo el archivo con file://, publicá el sitio o usá un servidor local.</td></tr>';
+  }
+});
+['matHierro6', 'matHierro8'].forEach(function (id) {
+  document.getElementById(id).addEventListener('input', renderHierro);
+});
+
 ['wallHeight','rendHueco','rendComun','wasteHueco','wasteComun'].forEach(function (id) {
   document.getElementById(id).addEventListener('input', render);
 });
@@ -459,5 +568,49 @@ renderTecho();
  'presCantDemolicion','presPrecioDemolicion'].forEach(function (id) {
   document.getElementById(id).addEventListener('input', renderPresupuesto);
 });
+
+// --- Persistencia de parámetros editables (este navegador) ---
+(function persistInputs() {
+  var KEY = 'planocasa:computo:';
+  var inputs = document.querySelectorAll('input[type="number"][id]');
+  inputs.forEach(function (el) {
+    var saved;
+    try { saved = localStorage.getItem(KEY + el.id); } catch (e) { saved = null; }
+    if (saved !== null && saved !== '') el.value = saved;
+  });
+  // Re-render con los valores restaurados (cada función tiene sus propias guardas)
+  try { render(); } catch (e) {}
+  try { renderTecho(); } catch (e) {}
+  try { renderPresupuesto(); } catch (e) {}
+  inputs.forEach(function (el) {
+    el.addEventListener('input', function () {
+      try { localStorage.setItem(KEY + el.id, el.value); } catch (e) {}
+    });
+  });
+  document.getElementById('btnResetComputo').addEventListener('click', function () {
+    inputs.forEach(function (el) { try { localStorage.removeItem(KEY + el.id); } catch (e) {} });
+    location.reload();
+  });
+  document.getElementById('btnImprimir').addEventListener('click', function () { window.print(); });
+})();
+
+// --- Índice de la página ---
+(function buildTOC() {
+  var hs = document.querySelectorAll('.wrap .sheet h2');
+  if (hs.length < 4) return;
+  var first = document.querySelector('.wrap .sheet');
+  var nav = document.createElement('nav');
+  nav.className = 'toc';
+  var items = '';
+  hs.forEach(function (h, i) {
+    if (!h.id) h.id = 'sec-' + (i + 1);
+    var clone = h.cloneNode(true);
+    clone.querySelectorAll('.badge').forEach(function (b) { b.remove(); });
+    var label = clone.textContent.replace(/\s+/g, ' ').trim();
+    items += '<li><a href="#' + h.id + '">' + label + '</a></li>';
+  });
+  nav.innerHTML = '<b>En esta página</b><ul>' + items + '</ul>';
+  first.parentNode.insertBefore(nav, first);
+})();
 </script>
-</div></body></html>
+</div><a href="#" class="totop" aria-label="Volver arriba">↑</a></body></html>
