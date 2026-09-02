@@ -64,10 +64,11 @@ h2{scroll-margin-top:12px}
 
 <div class="sheet">
 <h2>Mampostería <span class="badge badge-live">calculado desde el plano</span></h2>
-<p>Los metros lineales de cada tipo de muro se leen en vivo desde <a href="plano-general.html">plano-general.html</a> (clases <code>w-ext</code>, <code>w-inst</code>, <code>w-int</code> del SVG). Si se agranda un ambiente, se mueve una pared o se agrega un muro nuevo, esta tabla cambia sola al volver a abrir la página — no hay números escritos a mano acá abajo. El <b>Garage ya está construido</b> (independiente de la casa) — sus muros se excluyen de esta compra, ver nota debajo de la tabla. La <b>Galería es semicubierta y abierta, sin paredes propias</b> — el único muro real en ese límite es el de la casa (Cocina/Hab. 1, ya contabilizado como "con instalaciones" o exterior según el tramo), así que no suma metros de mampostería aparte.</p>
+<p>Los metros lineales de cada tipo de muro se leen en vivo desde <a href="plano-general.html">plano-general.html</a> (clases <code>w-ext</code>, <code>w-inst</code>, <code>w-int</code> del SVG). Si se agranda un ambiente, se mueve una pared o se agrega un muro nuevo, esta tabla cambia sola al volver a abrir la página — no hay números escritos a mano acá abajo. El <b>Garage ya está construido</b> (independiente de la casa) — sus muros se excluyen de esta compra, ver nota debajo de la tabla. La <b>Galería es semicubierta y abierta, sin paredes propias</b> — el único muro real en ese límite es el de la casa (Cocina/Hab. 1, ya contabilizado como "con instalaciones" o exterior según el tramo), así que no suma metros de mampostería aparte. Como la pendiente del techo la dan los muros (modelo tradicional), el <b>perímetro exterior no tiene una altura única</b>: va de 3,00 m en la pared norte a 3,85 m en la sur, con las paredes este y oeste en diagonal — se usa el promedio 3,43 m. Los muros interiores y los de instalaciones van a 2,70 m (el cielorraso cuelga plano a 2,60 m).</p>
 
 <div class="params">
-  <label>Altura de muro (m)<input type="number" id="wallHeight" value="2.60" step="0.05" min="2.00" max="4.00"></label>
+  <label>Altura muro perímetro exterior — promedio piso a encadenado (m)<input type="number" id="wallHeightExt" value="3.43" step="0.05" min="2.00" max="5.00"></label>
+  <label>Altura muros interiores y con instalaciones — piso a encadenado (m)<input type="number" id="wallHeight" value="2.70" step="0.05" min="2.00" max="4.00"></label>
   <label>Rendimiento ladrillo hueco (un/m²)<input type="number" id="rendHueco" value="17" step="0.5" min="1"></label>
   <label>Rendimiento ladrillo común (un/m²)<input type="number" id="rendComun" value="62" step="1" min="1"></label>
   <label>Desperdicio hueco (%)<input type="number" id="wasteHueco" value="10" step="1" min="0"></label>
@@ -95,7 +96,7 @@ h2{scroll-margin-top:12px}
 
 <div class="sheet">
 <h2>Techo — casa <span class="badge badge-live">parámetros editables</span></h2>
-<p>La cubierta no tiene un faldón dibujado como geometría en el plano (a diferencia de los muros), así que este cómputo parte de la superficie cubierta y las medidas ya fijadas en el <a href="plano-general.html">plano general</a> y los criterios del <a href="instructivo.html">instructivo</a> (chapa trapezoidal, cerchas C doble, correas C80, pendiente 10–15%). Cambiá cualquier parámetro y los totales se recalculan solos. Cubre solo la <b>casa</b> — la <b>Galería</b> es una etapa futura (se computa aparte cuando se encare) y el <b>Garage</b> ya está construido, no entra en este cómputo.</p>
+<p>La cubierta no tiene un faldón dibujado como geometría en el plano (a diferencia de los muros), así que este cómputo parte de la superficie cubierta y las medidas ya fijadas en el <a href="plano-general.html">plano general</a> y los criterios del <a href="instructivo.html">instructivo</a> (chapa trapezoidal, tirantería que cruza la luz de 7,70 m de pared a pared, correas C80, pendiente 10–15% dada por los muros). Cambiá cualquier parámetro y los totales se recalculan solos. Cubre solo la <b>casa</b> — la <b>Galería</b> es una etapa futura (se computa aparte cuando se encare) y el <b>Garage</b> ya está construido, no entra en este cómputo.</p>
 
 <div class="params">
   <label>Superficie cubierta — horizontal (m²)<input type="number" id="techoFootprint" value="82.00" step="0.1" min="1"></label>
@@ -105,8 +106,8 @@ h2{scroll-margin-top:12px}
   <label>Voladizo de alero (m)<input type="number" id="techoAlero" value="0.50" step="0.05" min="0"></label>
   <label>Desperdicio de chapa — solapes/cortes (%)<input type="number" id="techoDesperdicioChapa" value="12" step="1" min="0"></label>
   <label>Separación entre correas (m)<input type="number" id="techoSepCorrea" value="1.20" step="0.05" min="0.5"></label>
-  <label>Separación entre cerchas (m)<input type="number" id="techoSepCercha" value="1.35" step="0.05" min="0.5"></label>
-  <label>Factor de perfil por cercha (cordones + diagonales)<input type="number" id="techoFactorCercha" value="2.2" step="0.1" min="1"></label>
+  <label>Separación entre tirantes (m)<input type="number" id="techoSepCercha" value="1.35" step="0.05" min="0.5"></label>
+  <label>Factor de perfil por tirante (perfil compuesto para la luz de 7,70 m)<input type="number" id="techoFactorCercha" value="2.2" step="0.1" min="1"></label>
   <label>Fijaciones chapa (un/m²)<input type="number" id="techoTornillos" value="6" step="0.5" min="1"></label>
   <label>Rendimiento manta aislante (m²/rollo)<input type="number" id="techoRendRollo" value="12" step="0.5" min="1"></label>
   <label>Cielorraso placa verde — Baño+Antebaño+Lavadero (m²)<input type="number" id="techoVerde" value="12.70" step="0.1" min="0"></label>
@@ -119,7 +120,7 @@ h2{scroll-margin-top:12px}
 <tbody id="tbodyTecho"></tbody>
 </table>
 
-<div class="warn"><b>Esto es un cómputo de anteproyecto para presupuestar, no un plano de estructura.</b> La cantidad y sección final de cerchas y correas depende del cálculo del ingeniero estructural (ver <a href="instructivo.html">instructivo</a>) — el "factor de perfil por cercha" de arriba es una estimación gruesa para no dejar el rubro en cero, ajustalo cuando esté el cálculo real. Los rendimientos de chapa, tornillería, manta y placas también dependen del proveedor/marca elegido.</div>
+<div class="warn"><b>Esto es un cómputo de anteproyecto para presupuestar, no un plano de estructura.</b> La cantidad y sección final de los tirantes y las correas depende del cálculo del ingeniero estructural (ver <a href="instructivo.html">instructivo</a>) — el "factor de perfil por tirante" de arriba es una estimación gruesa para no dejar el rubro en cero, ajustalo cuando esté el cálculo real. Los rendimientos de chapa, tornillería, manta y placas también dependen del proveedor/marca elegido.</div>
 </div>
 
 <div class="sheet">
@@ -211,7 +212,7 @@ h2{scroll-margin-top:12px}
 <div class="rubro"><div class="rubro-h"><span>Movimiento de suelo y fundaciones</span><span class="badge badge-quote">cotizado (albañil)</span></div><p>Bases y viga de arrastre ya tienen precio del albañil (ver presupuesto de albañilería arriba), con la cantidad que él mismo tomó. Falta el cálculo estructural (zapatas, vigas de encadenado) que confirme si esa cantidad de bases es la correcta — a cargo del profesional matriculado.</p></div>
 <div class="rubro"><div class="rubro-h"><span>Estructura</span><span class="badge badge-quote">cotizado (albañil)</span></div><p>Columnas y encadenado ya tienen precio y metraje del albañil (ver presupuesto de albañilería arriba). Depende del cálculo estructural para confirmar sección y metraje final.</p></div>
 <div class="rubro"><div class="rubro-h"><span>Mampostería</span><span class="badge badge-live">calculado</span></div><p>Ver tabla arriba.</p></div>
-<div class="rubro"><div class="rubro-h"><span>Techos — casa</span><span class="badge badge-live">calculado</span></div><p>Ver sección propia arriba (chapa, correas, cerchas, aislación, cielorraso, canaletas y bajadas). Galería (etapa futura) y Garage (ya construido) quedan fuera de este cómputo.</p></div>
+<div class="rubro"><div class="rubro-h"><span>Techos — casa</span><span class="badge badge-live">calculado</span></div><p>Ver sección propia arriba (chapa, correas, tirantería, aislación, cielorraso, canaletas y bajadas). Galería (etapa futura) y Garage (ya construido) quedan fuera de este cómputo.</p></div>
 <div class="rubro"><div class="rubro-h"><span>Instalación sanitaria</span><span class="badge badge-live">calculado (parcial)</span></div><p>Ver criterio completo en el <a href="instructivo.html">instructivo</a>: 8 artefactos con desagüe cloacal (Baño, Antebaño, Lavadero, Cocina, Galería). Cámara séptica + pozo absorbente <b>ya existen</b> (esquina suroeste del lote) — solo falta empalmar, verificando que su capacidad alcance para estos 8 artefactos. Faltan los <b>metros de cañería</b> (dependen del recorrido real, no se pueden estimar sin el plano de tendido) — eso queda a cargo del profesional matriculado.</p></div>
 <div class="rubro"><div class="rubro-h"><span>Instalación eléctrica</span><span class="badge badge-live">calculado (parcial)</span></div><p>Ver criterio completo en el <a href="instructivo.html">instructivo</a>: 13 circuitos (3 IUG + 3 TUG + 7 TUE — incluye el de Hab. 2 previsto, cableado pero sin equipo), ≈36 puntos de luz interiores + Garage, ≈32 tomacorrientes. Faltan los <b>metros de cable</b> (dependen del recorrido real de cañerías, no se pueden estimar sin el plano de tendido) — eso sí queda a cargo del electricista matriculado.</p></div>
 <div class="rubro"><div class="rubro-h"><span>Instalación de gas</span><span class="badge badge-pending">pendiente</span></div><p>Cocina a garrafa (gabinete ventilado exterior en la Galería, junto a la Cocina) con campana en el anafe — ver <a href="instructivo.html">instructivo</a>. Falta definir cañería y accesorios con el instalador matriculado.</p></div>
@@ -230,9 +231,9 @@ h2{scroll-margin-top:12px}
 <script>
 const SCALE = 32; // px por metro en plano-general.html
 const WALL_TYPES = [
-  {cls:'w-ext',  label:'Exterior',          material:'Ladrillo hueco',  thickness:'0.12 m'},
-  {cls:'w-inst', label:'Con instalaciones', material:'Ladrillo común',  thickness:'0.15 m'},
-  {cls:'w-int',  label:'Interior',          material:'Ladrillo hueco',  thickness:'0.12 m'}
+  {cls:'w-ext',  label:'Exterior',          material:'Ladrillo hueco',  thickness:'0.12 m', heightId:'wallHeightExt', heightDefault:3.43},
+  {cls:'w-inst', label:'Con instalaciones', material:'Ladrillo común',  thickness:'0.15 m', heightId:'wallHeight',    heightDefault:2.70},
+  {cls:'w-int',  label:'Interior',          material:'Ladrillo hueco',  thickness:'0.12 m', heightId:'wallHeight',    heightDefault:2.70}
 ];
 
 let wallLengthsPx = null;
@@ -265,7 +266,6 @@ function num(id, fallback) {
 
 function render() {
   if (!wallLengthsPx) return;
-  const height = num('wallHeight', 2.60);
   const rendHueco = num('rendHueco', 17);
   const rendComun = num('rendComun', 62);
   const wasteHueco = num('wasteHueco', 10);
@@ -273,9 +273,12 @@ function render() {
 
   let rows = '';
   let totHueco = 0, totComun = 0;
+  let totalAreaM2 = 0;
   WALL_TYPES.forEach(t => {
+    const height = num(t.heightId, t.heightDefault);
     const lenM = wallLengthsPx[t.cls] / SCALE;
     const areaM2 = lenM * height;
+    totalAreaM2 += areaM2;
     const esHueco = t.material === 'Ladrillo hueco';
     const rend = esHueco ? rendHueco : rendComun;
     const waste = esHueco ? wasteHueco : wasteComun;
@@ -294,8 +297,6 @@ function render() {
   document.getElementById('existingNote').textContent =
     'Muros del garage ya construidos, excluidos de esta compra: ' + (existingML / SCALE).toFixed(2) + ' ml de ladrillo hueco (no suman a los totales de arriba).';
 
-  const totalLenM = (wallLengthsPx['w-ext'] + wallLengthsPx['w-int'] + wallLengthsPx['w-inst']) / SCALE;
-  const totalAreaM2 = totalLenM * height;
   const netTodoComun = totalAreaM2 * rendComun;
   const totalTodoComun = Math.ceil(netTodoComun * (1 + wasteComun / 100));
   document.getElementById('cmpMixtoHueco').textContent = totHueco.toLocaleString('es-AR') + ' un.';
@@ -478,7 +479,7 @@ document.getElementById('gastosFrame').addEventListener('load', function () {
   document.getElementById(id).addEventListener('input', renderHierro);
 });
 
-['wallHeight','rendHueco','rendComun','wasteHueco','wasteComun'].forEach(function (id) {
+['wallHeightExt','wallHeight','rendHueco','rendComun','wasteHueco','wasteComun'].forEach(function (id) {
   document.getElementById(id).addEventListener('input', render);
 });
 
@@ -515,7 +516,7 @@ function renderTecho() {
   const mlCorreas = numCorreas * largoCorrea;
   const perfilesCorrea6m = Math.ceil(mlCorreas / 6);
 
-  // Cerchas: a lo largo del ancho, cada sepCercha
+  // Tirantes: cruzan de la pared norte a la sur (luz = profundidad), repartidos a lo largo del ancho
   const numCerchas = Math.ceil(ancho / sepCercha) + 1;
   const largoCerchaInclinada = profundidadInclinada + alero / cosAngulo;
   const mlPerfilCercha = numCerchas * largoCerchaInclinada * factorCercha;
@@ -541,7 +542,7 @@ function renderTecho() {
   const rows = [
     ['Chapa trapezoidal', 'Superficie cubierta + alero, llevada a superficie inclinada (÷cos pendiente) + desperdicio', chapaTotal.toFixed(2) + ' m²'],
     ['Correas C80', numCorreas + ' líneas × ' + largoCorrea.toFixed(2) + ' m', mlCorreas.toFixed(1) + ' ml (≈' + perfilesCorrea6m + ' perfiles de 6 m)'],
-    ['Cerchas (perfil C doble)', numCerchas + ' cerchas × ' + largoCerchaInclinada.toFixed(2) + ' m × factor ' + factorCercha, mlPerfilCercha.toFixed(1) + ' ml de perfil'],
+    ['Tirantes (cruzan la luz de 7,70 m)', numCerchas + ' tirantes × ' + largoCerchaInclinada.toFixed(2) + ' m × factor ' + factorCercha, mlPerfilCercha.toFixed(1) + ' ml de perfil'],
     ['Tornillería autoperforante', chapaTotal.toFixed(2) + ' m² × ' + tornillosPorM2 + ' un/m²', tornillos.toLocaleString('es-AR') + ' un.'],
     ['Aislación (lana + foil aluminizado)', 'Superficie inclinada + 5% desperdicio', m2Aislacion.toFixed(2) + ' m² (≈' + rollosAislacion + ' rollos)'],
     ['Cielorraso Durlock — placa estándar', m2Estandar.toFixed(2) + ' m² + ' + wastePlaca + '%', placasEstandar + ' placas (' + totalEstandarConDesp.toFixed(2) + ' m²)'],

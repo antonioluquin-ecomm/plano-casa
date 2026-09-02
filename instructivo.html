@@ -8,22 +8,26 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#f4f3ef;color:#23231f;ma
 .nav .here{color:#23231f;font-weight:600}
 h1{font-size:21px;font-weight:600;margin:0 0 2px}
 .sub{color:#6a6a63;font-size:13px;margin-bottom:18px}
-h2{font-size:15px;margin:26px 0 6px}
+h2{font-size:16px;font-weight:700;margin:32px 0 8px;border-top:2px solid #e6e3da;padding-top:16px;scroll-margin-top:12px}
+h2:first-of-type{border-top:none;padding-top:0;margin-top:6px}
+h3{font-size:13.5px;font-weight:700;margin:18px 0 4px;color:#3a3a36;scroll-margin-top:12px}
+h4{font-size:12.5px;font-weight:700;margin:12px 0 3px;color:#55534c;scroll-margin-top:12px}
+.capnote{color:#6a6a63;font-size:12.5px;margin:2px 0 12px}
 table{border-collapse:collapse;width:100%;font-size:13px;margin-top:12px}
 th,td{border:1px solid #e3e0d7;padding:6px 9px;text-align:left}
 th{background:#f4f2ec;font-weight:600}
 td.n{text-align:right;font-variant-numeric:tabular-nums}
+tr.tot td{background:#f8f6f0;font-weight:700}
 .warn{background:#fff8e9;border-left:3px solid #d8a93c;padding:11px 14px;border-radius:0 6px 6px 0;font-size:13px;line-height:1.65;margin-top:10px}
 .warn b{color:#8a6410}
 .ok{background:#eef7ec;border-left:3px solid #6f9a51;padding:11px 14px;border-radius:0 6px 6px 0;font-size:13px;line-height:1.65;margin-top:10px}
 .ok b{color:#4e7638}
-.foot{font-size:11.5px;color:#8a877e;margin-top:22px;line-height:1.6;border-top:1px solid #e6e3da;padding-top:12px}
+.foot{font-size:11.5px;color:#6a6a63;margin-top:22px;line-height:1.6;border-top:1px solid #e6e3da;padding-top:12px}
 .foot a{color:#8a877e}
 .sheet{background:#fff;border:1px solid #dedbd1;border-radius:10px;padding:22px;box-shadow:0 1px 3px rgba(0,0,0,.05)}
 p{font-size:13px;line-height:1.65}
 .tablewrap{overflow-x:auto}
 .sheet{overflow-x:auto}
-.foot{color:#6a6a63}
 .totop{position:fixed;right:14px;bottom:14px;width:38px;height:38px;border-radius:50%;background:#2e2e2b;color:#fff;display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:17px;box-shadow:0 2px 8px rgba(0,0,0,.25);opacity:.82;z-index:9}
 .totop:hover{opacity:1}
 .toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:0 0 16px;font-size:12.5px;color:#6a6a63}
@@ -31,17 +35,18 @@ p{font-size:13px;line-height:1.65}
 .toolbar button:hover{background:#f4f2ec}
 .toc{border:1px solid #e6e3da;border-radius:8px;padding:12px 16px;margin:0 0 18px;font-size:13px;background:#faf9f5}
 .toc b{display:block;margin-bottom:6px;color:#3a3a36}
-.toc ul{margin:0;padding-left:18px;columns:2;column-gap:24px}
-.toc li{margin:3px 0;break-inside:avoid}
+.toc ul{margin:0;padding:0;list-style:none}
+.toc li{margin:2px 0}
+.toc .cap{margin-top:7px;font-weight:600}
+.toc .cap:first-child{margin-top:0}
+.toc .sec{font-size:12px;padding-left:16px}
 .toc a{color:#6a6a63;text-decoration:none}
 .toc a:hover{text-decoration:underline}
-h2{scroll-margin-top:12px}
-@media(max-width:640px){.toc ul{columns:1}}
 @media print{.nav,.totop,.toolbar,.toc{display:none!important}body{background:#fff;padding:12px}.sheet{box-shadow:none;overflow:visible}}
 </style></head><body><div class="wrap">
 <div class="nav"><a href="index.html">Inicio</a> &nbsp;·&nbsp; <a href="plano-general.html">Plano general</a> &nbsp;·&nbsp; <span class="here">Instructivo</span> &nbsp;·&nbsp; <a href="computo.html">Cómputo</a> &nbsp;·&nbsp; <a href="gastos.html">Gastos</a></div>
 <h1>Instructivo y criterios técnicos</h1>
-<div class="sub">Medidas de referencia para aberturas y criterios técnicos de diseño</div>
+<div class="sub">Las decisiones de cómo se construye la casa y el porqué de cada una — para que el albañil, la familia y los profesionales que firmen la obra estén mirando lo mismo.</div>
 
 <div class="toolbar">
   <button type="button" id="btnImprimir">Imprimir / Guardar PDF</button>
@@ -49,7 +54,158 @@ h2{scroll-margin-top:12px}
 
 <div class="sheet">
 
-<h2>Anchos de paso de puertas</h2>
+<h2>Generalidades</h2>
+
+<h3>Cómo leer este instructivo</h3>
+<p>Este documento junta <b>todas las decisiones de cómo se construye la casa y por qué se tomó cada una</b>. No es el dibujo (eso está en <a href="plano-general.html">Plano general</a>) ni la lista de materiales (<a href="computo.html">Cómputo</a>): es el "manual de criterios".</p>
+<p>Está <b>ordenado por oficio</b>: cada capítulo reúne todo lo que le toca a un mismo profesional, de punta a punta. Cuando algo le sirve a dos oficios, se deja un cruce corto en vez de repetirlo.</p>
+<p><b>Es un anteproyecto, no la documentación final de obra.</b> Fija el esquema y las medidas; los cálculos que llevan firma de un matriculado —estructura, gas, electricidad, sanitaria— todavía faltan, y este texto no los reemplaza.</p>
+<p><b>Los recuadros de color:</b> los <b>verdes</b> marcan algo ya resuelto o una recomendación firme; los <b>amarillos</b>, una advertencia o algo para verificar en obra. Todos los "verificar" están además juntos en el último capítulo, <b>Puntos a verificar en obra</b>.</p>
+
+<h3>Glosario</h3>
+<p>Los términos que se repiten a lo largo del instructivo, en una línea cada uno.</p>
+<div class="tablewrap"><table>
+<tr><th>Término</th><th>Qué significa</th></tr>
+<tr><td><b>A eje de muro</b></td><td>Medida tomada por el centro de la pared, no por la cara interior. Es la que se usa para replantear; el ambiente terminado queda unos centímetros más chico por el espesor del ladrillo y el revoque.</td></tr>
+<tr><td><b>Acometida</b></td><td>El punto donde la red de la calle (luz o agua) entra al lote.</td></tr>
+<tr><td><b>Alero</b></td><td>El borde más bajo del techo, por donde cae el agua. Acá: el lado norte (frente/calle).</td></tr>
+<tr><td><b>Cumbrera</b></td><td>El borde más alto del techo. Acá: el lado sur (galería/fondo).</td></tr>
+<tr><td><b>Antepecho / alféizar</b></td><td>La altura desde el piso hasta el borde de abajo de una ventana.</td></tr>
+<tr><td><b>Babeta / zinguería</b></td><td>Chapas dobladas que sellan los encuentros del techo con paredes o caños, para que no filtre agua.</td></tr>
+<tr><td><b>Barbacana</b></td><td>Agujero de drenaje en la base de un muro de contención, para que el agua no se junte detrás.</td></tr>
+<tr><td><b>Contrapiso y carpeta</b></td><td>Las capas de mezcla que van sobre el terreno antes del piso final. El "piso terminado" (±0,00) es el nivel de arriba de la carpeta.</td></tr>
+<tr><td><b>Tirante</b></td><td>Perfil de hierro que cruza de una pared a la otra y sostiene el techo. Acá cruzan de la pared norte a la sur (7,70 m).</td></tr>
+<tr><td><b>Correa</b></td><td>Perfil que va apoyado sobre los tirantes y sostiene la chapa.</td></tr>
+<tr><td><b>Encadenado</b></td><td>Viga de hormigón armado que corona los muros y los ata entre sí. Sobre él apoya el techo.</td></tr>
+<tr><td><b>Faldón</b></td><td>Cada plano inclinado de un techo. La galería tiene el suyo, aparte del de la casa.</td></tr>
+<tr><td><b>Frigorías (fg)</b></td><td>La medida de "frío" de un aire acondicionado. Más metros cuadrados y más sol = más frigorías.</td></tr>
+<tr><td><b>IP44 / IP65</b></td><td>Cuánto resiste el agua y el polvo un artefacto eléctrico. IP44 = salpicaduras (baño, cocina, exterior techado); IP65 = chorro directo (arriba de la ducha).</td></tr>
+<tr><td><b>IUG / TUG / TUE</b></td><td>Tipos de circuito eléctrico: Iluminación de Uso General, Tomas de Uso General y Tomas de Uso Especial (heladera, A/C, termotanque). Cada uno con su propia protección en el tablero.</td></tr>
+<tr><td><b>Jabalina / puesta a tierra</b></td><td>Barra de metal clavada en el suelo que descarga a tierra cualquier falla eléctrica. Protege de descargas.</td></tr>
+<tr><td><b>Luz</b></td><td>La distancia que un techo o una viga cruza sin apoyo en el medio. La luz de esta casa es 7,70 m.</td></tr>
+<tr><td><b>Mampostería / mampuesto</b></td><td>La pared de ladrillos, y el ladrillo en sí.</td></tr>
+<tr><td><b>Replanteo</b></td><td>Marcar en el terreno, con hilos y estacas, dónde van las paredes antes de construir.</td></tr>
+<tr><td><b>Retiro</b></td><td>La distancia libre entre la casa y el límite del lote. Acá: 4,50 m al este, 1,50 m al oeste.</td></tr>
+<tr><td><b>Termotanque</b></td><td>El calefón eléctrico de acumulación (guarda agua caliente en un tanque). Va en el Lavadero.</td></tr>
+</table></div>
+
+<h2>Obra gruesa</h2>
+<p class="capnote">Para el albañil. Movimiento de suelo y relleno, muros, estructura, techo y aberturas.</p>
+
+<h3>Niveles y relleno</h3>
+<p>El lote está <b>1,10 m más bajo que la calle</b>. Los vecinos de ambos lados (este y oeste) y la vereda están a nivel calle, con su terreno rellenado, así que el lote es un "pozo" respecto de casi todo su entorno. La única salida a ese nivel bajo es el <b>fondo (sur)</b>: linda con otro lote propio, que tiene salida a otra calle a esa cota — por ahí sale el agua de superficie del terreno por gravedad.</p>
+<p><b>Todas las alturas de la casa se miden desde el piso terminado</b> (contrapiso + carpeta ya hechos) = <b>±0,00</b>. Es el nivel que el albañil marca en obra y desde el que mide todo hacia arriba (antepechos de ventana, llaves, altura de muro).</p>
+
+<div class="tablewrap"><table>
+<tr><th>Sector</th><th style="text-align:right">Relleno sobre terreno natural</th><th style="text-align:right">Nivel vs. piso de la casa</th><th style="text-align:right">Nivel vs. calle</th></tr>
+<tr><td>Terreno natural del lote</td><td class="n">—</td><td class="n">−0,70</td><td class="n">−1,10</td></tr>
+<tr><td>Calle / vereda / Garage</td><td class="n">—</td><td class="n">+0,40</td><td class="n">±0,00</td></tr>
+<tr class="tot"><td>Casa — piso terminado</td><td class="n">+0,70</td><td class="n">±0,00</td><td class="n">−0,40</td></tr>
+<tr><td>Espacio entre Garage y casa</td><td class="n">+0,55</td><td class="n">−0,15</td><td class="n">−0,55</td></tr>
+<tr><td>Galería</td><td class="n">+0,55</td><td class="n">−0,15</td><td class="n">−0,55</td></tr>
+<tr><td>Pasillo lateral oeste (retiro 1,50 m)</td><td class="n">+0,55</td><td class="n">−0,15</td><td class="n">−0,55</td></tr>
+<tr><td>Pasillo lateral este (retiro 4,50 m)</td><td class="n">sin relleno</td><td class="n">−0,70</td><td class="n">−1,10</td></tr>
+<tr><td>Fondo / Pileta</td><td class="n">sin relleno</td><td class="n">−0,70</td><td class="n">−1,10</td></tr>
+</table></div>
+<p>La casa se rellena entera hasta <b>+0,70</b> (queda 0,40 m por debajo de la calle). El espacio entre el Garage y la casa, la Galería y el pasillo oeste se rellenan hasta <b>+0,55</b> — 0,15 m por debajo del piso de la casa, así que el agua de esos sectores <b>no entra a la casa</b>, escurre hacia afuera. El <b>pasillo este y el fondo quedan bajos, sin relleno</b>: son los que juntan el agua y la llevan al fondo.</p>
+
+<div class="ok"><b>Pasillo oeste — se rellena a +0,55, al mismo nivel que la Galería.</b> Al pasillo oeste solo se entra desde la Galería (esquina suroeste, junto al asador). Rellenándolo a +0,55 se pasa caminando, sin escalón, a hacerle mantenimiento al <b>tanque de agua, la entrada de agua de red y las condensadoras de A/C</b> que están sobre ese lado. No recibe agua de techo (el techo tira todo al norte) — solo lluvia directa sobre 1,50 m de ancho más el goteo de los equipos, que se resuelve con una pendiente muy suave hacia el sur, devolviendo el agua a la Galería.</div>
+
+<h4>Escurrimiento del agua de superficie</h4>
+<p>El agua que cae sobre el terreno (no la del techo, que va aparte — ver Estructura y techo) escurre <b>hacia el sur por gravedad</b>: el espacio entre Garage y casa y el pasillo oeste, al quedar 0,15 m por debajo de la casa, drenan al pasillo este y al fondo; de ahí sale por el lote de atrás hacia la otra calle. <b>No hace falta bomba ni pozo pluvial.</b></p>
+
+<h4>Escalones y rampas</h4>
+<table>
+<tr><th>Paso</th><th style="text-align:right">Desnivel</th><th>Solución</th></tr>
+<tr><td>Garage → casa</td><td class="n">0,40 m</td><td>Rampa de 4,00 m = <b>10%</b> (dentro del rango peatonal 8–12%) + escalera de 3 escalones de 0,133 m. Ambas quedan dentro del Garage, sin invadir la separación de 3,00 m hacia la casa</td></tr>
+<tr><td>Casa → Galería / pasillo oeste / espacio Garage-casa</td><td class="n">0,15 m</td><td>Un escalón de 0,15 m o un umbral rampado corto — prácticamente al mismo nivel</td></tr>
+<tr><td>Galería (o espacio Garage-casa) → pasillo este</td><td class="n">0,55 m</td><td>Escalera de 3 escalones de 0,18 m o 4 de 0,14 m. <b>Sin rampa fija:</b> con 4,50 m de retiro, una rampa al 12% necesitaría 4,60 m y no dejaría paso al costado</td></tr>
+</table>
+
+<div class="warn"><b>Contención en las medianeras este y oeste.</b> Los vecinos están a nivel calle, más altos que nuestro terreno adyacente: la medianera oeste retiene tierra del vecino ~0,55 m más alta que el pasillo oeste, y la este retiene ~1,10 m más que el pasillo este. Esas medianeras trabajan como <b>muro de contención</b> — verificar (o construir) que aguanten ese empuje y que tengan <b>drenaje detrás</b> (barbacanas o manto drenante) para que el agua del vecino no se acumule contra ellas. El relleno propio (+0,70 y +0,55) se contiene contra la propia línea, sin empujar la medianera.</div>
+
+<div class="warn"><b>A verificar con el nivel real de vereda:</b> la cota exacta de la calle y la pendiente del terreno del lote del fondo hacia la otra calle, para confirmar que el agua de superficie sale por gravedad.</div>
+
+<h3>Muros y materiales</h3>
+<p>Todas las medidas del plano —de cada ambiente y de implantación— están tomadas <b>a eje de muro</b>: por el centro de la pared, no por la cara interior. Esa es la medida que se usa para replantear en obra.</p>
+<p>El ambiente <b>terminado</b> queda un poco más chico: entre 0,12 y 0,15 m menos por lado, según el espesor del muro que tenga a cada lado. Para el replanteo no hay que restar nada; solo tenerlo en cuenta si vas a poner un mueble justo de medida contra una pared.</p>
+<table>
+<tr><th>Tipo de muro</th><th>Material</th><th style="text-align:right">Espesor</th><th>Función</th></tr>
+<tr><td>Exterior</td><td>Ladrillo hueco</td><td class="n">0.12 m</td><td>Todos los cerramientos perimetrales de la casa. El garage ya tiene sus propios muros construidos (no entran en el cómputo de compra); la galería es semicubierta y abierta, sin paredes propias</td></tr>
+<tr><td>Con instalaciones</td><td>Ladrillo común</td><td class="n">0.15 m</td><td>Muros por donde corren cañerías: los propios de Lavadero, el que conecta Lavadero–Antebaño–Baño y el muro sur de la Cocina (bajo la ventana y la bacha) llevan agua/desagüe; el muro de Cocina contra Hab. 1 lleva la cañería de gas hasta el anafe (ver el capítulo Instalación de gas), no agua</td></tr>
+<tr><td>Interior</td><td>Ladrillo hueco</td><td class="n">0.12 m</td><td>Divisiones internas sin cañerías (entre habitaciones, hacia el pasillo, Hab. 1 contra Antebaño, Antebaño contra Lavadero, etc.)</td></tr>
+</table>
+<p><b>Por qué ladrillo hueco de 0,12 m</b> (tanto en muros exteriores como interiores): el ladrillo hueco no se fabrica en 15 cm — viene en 8, 12 y 18. Para esta casa el de 12 es el punto justo:</p>
+<ul style="margin:8px 0 0;padding-left:20px">
+<li><b>De 8:</b> queda corto para asentar los marcos de puertas y ventanas, y aísla poco.</li>
+<li><b>De 12:</b> toma bien los marcos, permite colgar estantes y espejos, y aísla del calor y del ruido de forma razonable — más barato que el de 18.</li>
+<li><b>De 18:</b> no aporta nada en una casa de una planta sin carga estructural importante; es plata de más.</li>
+</ul>
+<p><b>Sobre la mesada y las alacenas de Cocina:</b> la bacha y la mesada larga con sus alacenas van contra la pared sur (bajo la ventana), que es ladrillo común de 0,15 m por la cañería. El muro de Cocina contra Hab. 1 también es ladrillo común de 0,15 m — así que las alacenas no necesitan un tipo de muro aparte.</p>
+<p>Ese muro contra Hab. 1 es además por donde va la cañería de gas hasta el anafe. Y por el tramo de muro sur, junto a la ventana, sale la campana de la cocina hacia la Galería, con un tramo corto de conducto por el cielorraso.</p>
+<p style="font-size:12.5px;color:#8a877e">Esta clasificación de muros es una estimación de anteproyecto; el recorrido exacto de las cañerías lo define cada proyecto de instalación firmado.</p>
+
+<h3>Estructura y techo</h3>
+<p>Cubierta liviana de <b>chapa trapezoidal</b>, a un agua (una sola pendiente) sobre la casa, con la galería como faldón independiente. La <b>pendiente la dan los muros</b> (modelo tradicional): se levantan a distinta altura —pared norte más baja, pared sur más alta— y entre ellos cruza la tirantería que sostiene las correas y la chapa.</p>
+<table>
+<tr><th>Dato</th><th>Valor</th></tr>
+<tr><td>Material de cubierta</td><td>Chapa trapezoidal (mejor evacuación con pendientes bajas y más fácil de limpiar que la sinusoidal)</td></tr>
+<tr><td>Estructura</td><td>Tirantes o vigas metálicas que cruzan de la pared norte a la sur (luz 7,70 m), apoyados en el encadenado principal del lado norte y en la viga de remate del lado sur — sección y separación a definir por el cálculo estructural</td></tr>
+<tr><td>Correas</td><td>Perfil C80 ("del 8"), perpendiculares a los tirantes, cada 1,10–1,40 m según ficha técnica de la chapa</td></tr>
+<tr><td>Aislación térmica/acústica</td><td>Manta de lana de vidrio o lana de roca con foil aluminizado, entre correas, cara reflectante hacia la chapa</td></tr>
+<tr><td>Cielorraso</td><td>Durlock <b>plano a 2,60 m</b> — placa estándar en general, placa verde (resistente a humedad) en Baño, Antebaño y Lavadero</td></tr>
+<tr><td>Cumbrera (punto alto)</td><td>Lado sur — sobre la galería / fondo del lote</td></tr>
+<tr><td>Alero (punto bajo, caída del agua)</td><td>Lado norte — sobre el garage / frente a la calle</td></tr>
+<tr class="tot"><td>Pendiente</td><td><b>11%</b> hacia el norte — resulta de la diferencia de altura entre los muros (0,85 m en 7,70 m). Rango aceptable 10–15%.</td></tr>
+<tr class="tot"><td>Altura libre interior (piso a cielorraso)</td><td><b>2,60 m</b></td></tr>
+<tr><td>Encadenado principal</td><td>Nivelado y corrido a una sola altura (<b>3,00 m</b>) en las 4 paredes — es el anillo que ata la casa</td></tr>
+<tr class="tot"><td>Pared norte (alero) — piso a encadenado</td><td><b>3,00 m</b> (termina en el encadenado principal)</td></tr>
+<tr class="tot"><td>Pared sur (cumbrera) — piso al remate superior</td><td><b>3,85 m</b> — encadenado principal a 3,00 + 0,85 m de ladrillo por encima, coronado por una viga de remate</td></tr>
+<tr><td>Paredes este y oeste</td><td>Rectas hasta 3,00 m (encadenado principal); por encima, un triángulo de ladrillo que sube en diagonal de 0 en la esquina norte a 0,85 m en la esquina sur, con viga de remate inclinada</td></tr>
+<tr><td>Muros interiores</td><td>2,70 m hasta su propio encadenado (el cielorraso cuelga plano a 2,60)</td></tr>
+</table>
+
+<h4>Altura del techo por fuera</h4>
+<p>Desde el piso terminado (±0,00), ≈ 0,10 m por encima del muro (correa + chapa):</p>
+<table>
+<tr><td>Chapa en el alero (norte / frente)</td><td class="n">≈ 3,10 m</td></tr>
+<tr><td>Chapa en la cumbrera (sur / galería)</td><td class="n">≈ 3,95 m</td></tr>
+</table>
+<div class="ok"><b>Para el albañil:</b>
+<ul style="margin:8px 0 0;padding-left:20px">
+<li><b>La pendiente la hacen los muros:</b> la pared norte queda más baja (3,00 m) y la sur más alta (3,85 m), medido desde el piso terminado.</li>
+<li><b>El encadenado principal va nivelado y corrido a una sola altura (3,00 m)</b> en las 4 paredes. Es el anillo que ata la casa; sobre él apoyan los tirantes del lado norte.</li>
+<li><b>La pendiente se levanta con ladrillo por encima de ese encadenado:</b> en la pared sur, un tramo de +0,85 m; en las paredes este y oeste, un triángulo que sube en diagonal de 0 (esquina norte) a 0,85 m (esquina sur). El ladrillo se escalona y se remata en diagonal.</li>
+<li><b>Ese remonte de ladrillo hay que armarlo:</b> hierros verticales anclados en el encadenado principal cada ~1,00–1,50 m, y un segundo encadenado / viga de remate que lo corona (nivelado sobre la pared sur, inclinado sobre este y oeste). Sobre ese remate apoyan los tirantes y las correas del lado sur. Sin traba arriba, el empuje del techo y el viento rajan el triángulo.</li>
+<li>Muros interiores a <b>2,70 m</b>. El cielorraso de Durlock va <b>plano a 2,60 m</b>, colgado del entramado que baja de los tirantes.</li>
+<li>Entre el cielorraso (2,60) y la pared norte (3,00) quedan ≈ 0,40 m para la estructura del techo. Verificar con el calculista que la sección de los tirantes entre en ese espacio; si no, el cielorraso puede terminar apenas más bajo del lado norte.</li>
+<li>En la <b>pared sur</b> dejar previsto el encadenado / anclaje para el futuro techo de la galería (ver abajo).</li>
+</ul>
+</div>
+
+<div class="warn"><b>El C80 no cruza solo los 7,70 m.</b> Sirve como correa (recibe la chapa), pero la luz entre la pared norte y la sur necesita <b>tirantes o vigas de mayor sección</b>, apoyados en el encadenado principal (norte) y en la viga de remate (sur). La sección, la separación y el tipo de perfil los define el <b>cálculo estructural firmado por el calculista</b>, según la zona eólica — este instructivo define el esquema, no ese cálculo.</div>
+
+<h4>Agua de lluvia del techo</h4>
+<p>Todo el techo de la casa vierte al <b>alero norte</b> (frente), con un único recorrido de canaleta y bajadas hasta el desagüe pluvial de la calle — separado del agua de superficie, que va al fondo. La galería resuelve su propia agua aparte.</p>
+<table>
+<tr><th>Sector</th><th>Canaleta</th><th>Bajadas</th></tr>
+<tr><td>Casa (techo principal)</td><td>Corrida este-oeste sobre el alero norte, recolectando toda la pendiente de la casa (~10 m de recorrido). Contrapendiente de 0,5–1% hacia las bajadas.</td><td>Mínimo 2 (una en cada extremo, o una central + una en el extremo más alejado) — con una sola bajada, una lluvia fuerte desborda antes de llegar al caño más lejano.</td></tr>
+<tr><td>Galería</td><td>Independiente, en el borde sur del faldón (lado opuesto a la casa)</td><td>Propia, dirigida a un desagüe o zanja alejado de la pileta y del paso peatonal — no descargar a nivel de piso junto al vaso (riesgo de piso resbaladizo)</td></tr>
+<tr><td>Garage <span style="font-weight:400;color:#8a877e">(ya construido, independiente de la casa)</span></td><td>Pendiente y caída hacia el norte (frente), mismo lado que la casa</td><td>Canaleta propia descarga a un caño a nivel de piso del garage, lado oeste, que sale enterrado hasta la calle — resuelto así porque el lote está más bajo que la calle y no puede escurrir a nivel de piso hacia el frente sin encauzarlo</td></tr>
+</table>
+<div class="warn"><b>Verificar pendiente del caño enterrado del garage.</b> Al desaguar a nivel de piso y salir enterrado hasta la calle, ese tramo necesita fall suficiente (mínimo ~1%) para escurrir por gravedad — si el nivel de la calle no da esa pendiente desde el piso del garage, hace falta una cámara de bombeo en el punto de entrada al caño, igual que se previó para el tanque de agua. Es un tema para validar en obra con el nivel real de vereda.</div>
+
+<div class="ok"><b>Construcción en etapas: casa primero, galería después.</b> La cumbrera del techo está en la pared sur (donde va la galería), así que de ese lado no hay un alero largo que estorbe para construir por partes. La galería lleva su propio techo, aparte del de la casa (un faldón más bajo apoyado contra esa pared, inclinado hacia el sur), así que sumarla después no obliga a tocar lo ya construido.
+<br><br>Al levantar la casa conviene dejar previsto, en la pared sur:
+<ul style="margin:8px 0 0;padding-left:20px">
+<li>Anclajes o una viga de encadenado corrida, a la altura donde después va a apoyar el techo de la galería.</li>
+<li>Un remate o babeta impermeable en el borde de arriba de esa pared mientras no esté la galería — de ese lado el muro queda sin alero que lo proteja de la lluvia.</li>
+<li>Definida de antemano la altura a la que apoyará el techo de la galería contra la pared, para que el encuentro quede prolijo y sin filtraciones el día que se construya.</li>
+</ul></div>
+
+<h3>Aberturas</h3>
+
+<h4>Anchos de paso de puertas</h4>
 <p>Medida de <b>paso libre</b> (marco a marco), no ancho de hoja ni de marco exterior.</p>
 <table>
 <tr><th>Uso</th><th style="text-align:right">Mínimo</th><th style="text-align:right">Recomendado</th></tr>
@@ -60,54 +216,7 @@ h2{scroll-margin-top:12px}
 <tr><td>Cocina / paso interno</td><td class="n">0.70 m</td><td class="n">0.80–0.90 m</td></tr>
 </table>
 
-<h2>Techo</h2>
-<p>Cubierta liviana: <b>chapa trapezoidal sobre estructura metálica</b> (cerchas + correas). Techo a un agua (una sola pendiente) sobre la casa, con la galería resuelta como un faldón independiente de segunda pendiente.</p>
-<table>
-<tr><th>Dato</th><th>Valor</th></tr>
-<tr><td>Material de cubierta</td><td>Chapa trapezoidal (mejor evacuación con pendientes bajas y más fácil de limpiar que la sinusoidal)</td></tr>
-<tr><td>Estructura principal</td><td>Cerchas metálicas (tijerales) de C doble apareado (C100/C120), apoyadas en los muros perimetrales portantes — sección final a confirmar con cálculo estructural</td></tr>
-<tr><td>Separación entre cerchas</td><td>1,20–1,50 m</td></tr>
-<tr><td>Correas</td><td>Perfil C80 ("del 8"), perpendiculares a las cerchas, cada 1,10–1,40 m según ficha técnica de la chapa</td></tr>
-<tr><td>Aislación térmica/acústica</td><td>Manta de lana de vidrio o lana de roca con foil aluminizado, entre correas, cara reflectante hacia la chapa</td></tr>
-<tr><td>Cielorraso</td><td>Durlock — placa estándar en general, placa verde (resistente a humedad) en Baño, Antebaño y Lavadero</td></tr>
-<tr><td>Tipo</td><td>A un agua (mono-pendiente)</td></tr>
-<tr><td>Cumbrera (punto alto)</td><td>Lado sur — sobre la galería / fondo del lote</td></tr>
-<tr><td>Alero (punto bajo, caída del agua)</td><td>Lado norte — sobre el garage / frente a la calle</td></tr>
-<tr><td>Pendiente sugerida</td><td>10–15%</td></tr>
-</table>
-<div class="warn"><b>El C80 solo no resuelve las luces de este proyecto.</b> Como correa (la pieza que recibe la chapa) es la elección correcta, pero usado como única estructura en tramos de 5–7,70 m (galería, casa y garage) queda corto: por eso se suma la cercha de C doble como estructura principal, que sí está pensada para esas luces. La sección exacta de las cerchas y su separación final dependen de la zona eólica y deben ser verificadas y firmadas por el ingeniero calculista antes de construir — esto define el esquema, no reemplaza ese cálculo.</div>
-<p>Como el lote es bajo, conviene que <b>toda</b> el agua de lluvia de la casa caiga hacia el mismo lado — el norte, frente a la calle — para que salga por un único recorrido de canaletas y bajadas hasta el desagüe pluvial de la calle, en vez de acumularse en el fondo del lote junto a la galería y la pileta. La galería resuelve su propia agua por separado (ver abajo), así que no se suma a este recorrido.</p>
-<table>
-<tr><th>Sector</th><th>Canaleta</th><th>Bajadas</th></tr>
-<tr><td>Casa (techo principal)</td><td>Corrida este-oeste sobre el alero norte, recolectando toda la pendiente de la casa (~10 m de recorrido). Contrapendiente de 0,5–1% hacia las bajadas.</td><td>Mínimo 2 (una en cada extremo, o una central + una en el extremo más alejado) — con una sola bajada, una lluvia fuerte desborda antes de llegar al caño más lejano.</td></tr>
-<tr><td>Galería</td><td>Independiente, en el borde sur del faldón (lado opuesto a la casa)</td><td>Propia, dirigida a un desagüe o zanja alejado de la pileta y del paso peatonal — no descargar a nivel de piso junto al vaso (riesgo de piso resbaladizo)</td></tr>
-<tr><td>Garage <span style="font-weight:400;color:#8a877e">(ya construido, independiente de la casa)</span></td><td>Pendiente y caída hacia el norte (frente), mismo lado que la casa</td><td>Canaleta propia descarga a un caño a nivel de piso del garage, lado oeste, que sale enterrado hasta la calle — resuelto así porque el lote está más bajo que la calle y no puede escurrir a nivel de piso hacia el frente sin encauzarlo</td></tr>
-</table>
-<div class="warn"><b>Verificar pendiente del caño enterrado del garage.</b> Al desaguar a nivel de piso y salir enterrado hasta la calle, ese tramo necesita fall suficiente (mínimo ~1%) para escurrir por gravedad — si el nivel de la calle no da esa pendiente desde el piso del garage, hace falta una cámara de bombeo en el punto de entrada al caño, igual que se previó para el tanque de agua. Es un tema para validar en obra con el nivel real de vereda.</div>
-<div class="ok"><b>Construcción en etapas: casa primero, galería después.</b> La cumbrera del techo está en la pared sur (donde va la galería), así que no hay alero largo de ese lado que estorbe para construir por partes. La galería lleva su propio techo, independiente del de la casa (un faldón más bajo apoyado contra esa pared, con su propia pendiente hacia el sur), así que sumarla después no implica tocar la estructura ya construida. Conviene prever, al levantar la casa: (1) anclajes o una viga de encadenado corrida en la pared sur, a la altura donde apoyará el techo de la galería; (2) un remate o babeta impermeable en el borde superior de esa pared mientras no esté la galería, ya que de ese lado el muro queda sin alero que lo proteja; (3) definir de antemano la altura de apoyo del techo de la galería contra la pared, para que el encuentro quede prolijo y sin filtraciones el día que se construya.</div>
-<div class="ok"><b>Tanque de agua — sobre el Lavadero, esquina noroeste del sector de servicios.</b> El caño de agua entra desde la calle por el lateral oeste (retiro de 1,50 m, contra la tapia) y llega primero al Lavadero, que es además donde hay muro de ladrillo común preparado para cañerías. Poner el tanque ahí minimiza tanto el tramo de caño desde la vereda como la bajada hacia Baño y Cocina.
-<br><br><b>Ojo con el techo de chapa:</b> un tanque lleno pesa mucho (uno de 500–1000 L son 500–1000 kg más el peso propio) y la chapa y las correas del techo no están pensadas para soportar ese peso puntual — no apoyarlo directamente sobre la cubierta.
-<ul style="margin:8px 0 0;padding-left:20px">
-<li>Se necesita una estructura propia (bastidor de perfiles metálicos o pedestal de mampostería/hormigón) que baje la carga a un muro portante o columna — no a la chapa ni a las correas.</li>
-<li>Lo más directo: apoyar esa estructura sobre el muro del Lavadero (ya es portante y de ladrillo común), o agregar una columna si hace falta.</li>
-<li>Conviene que el bastidor quede <b>por fuera</b> del faldón de chapa (una torre que sobresale al lado, no que atraviesa el techo) para no tener que perforarlo. Si de todas formas hay que atravesarlo, cada pata necesita su babeta de zinguería para que no filtre.</li>
-<li>Dejar previsto el acceso para mantenimiento (escalera tipo marinero) y, si la presión de la calle no alcanza, sumar cisterna a nivel de piso junto al ingreso del caño (misma esquina noroeste) + bomba elevadora hacia el tanque.</li>
-</ul>
-</div>
-
-<h2>Tipos de muro y materiales</h2>
-<p>Las medidas de cada ambiente y de implantación están tomadas <b>a eje de muro</b> (línea central del espesor real de cada tramo), que es la medida a usar para el replanteo en obra — no son luz libre interior. Como ahora no todos los muros tienen el mismo espesor, el paño interior real de cada ambiente queda entre 0,12 y 0,15 m menor por eje según qué tipo de muro tenga a cada lado (la mitad del espesor de cada uno); no hay que restar nada para el replanteo, pero sí tenerlo en cuenta al prever amoblamiento ajustado al límite.</p>
-<table>
-<tr><th>Tipo de muro</th><th>Material</th><th style="text-align:right">Espesor</th><th>Función</th></tr>
-<tr><td>Exterior</td><td>Ladrillo hueco</td><td class="n">0.12 m</td><td>Todos los cerramientos perimetrales de la casa. El garage ya tiene sus propios muros construidos (no entran en el cómputo de compra); la galería es semicubierta y abierta, sin paredes propias</td></tr>
-<tr><td>Con instalaciones</td><td>Ladrillo común</td><td class="n">0.15 m</td><td>Muros por donde corren cañerías: los propios de Lavadero, el que conecta Lavadero–Antebaño–Baño y el muro sur de la Cocina (bajo la ventana y la bacha) llevan agua/desagüe; el muro de Cocina contra Hab. 1 lleva la cañería de gas hasta el anafe (ver "Gas — garrafa" más abajo), no agua</td></tr>
-<tr><td>Interior</td><td>Ladrillo hueco</td><td class="n">0.12 m</td><td>Divisiones internas sin cañerías (entre habitaciones, hacia el pasillo, Hab. 1 contra Antebaño, Antebaño contra Lavadero, etc.)</td></tr>
-</table>
-<p><b>Por qué ladrillo hueco de 0,12 m, tanto en muros exteriores como interiores:</b> el ladrillo hueco no se fabrica en módulo de 15 — existe en 8, 12 y 18 cm. El de 12 es el óptimo para esta casa en ambos usos: toma bien los marcos de puerta y ventana, permite anclar estantes/espejos sin problema y da una aislación térmica y acústica razonable, a un costo menor que el de 18. El de 8 queda corto para asentar marcos y aísla poco; el de 18 no aporta nada en un cerramiento de una vivienda de un piso sin carga estructural relevante.</p>
-<p><b>Sobre la mesada y las alacenas de Cocina:</b> tanto la bacha como la mesada larga con alacenas van contra la pared sur (bajo la ventana), que es ladrillo común de 0,15 m por la cañería. El muro de Cocina contra Hab. 1 también queda en ladrillo común de 0,15 m — así que no hace falta una categoría de muro aparte para las alacenas. Ese mismo muro es además el recorrido lógico de la cañería de gas hasta el anafe, y el tramo de muro sur junto a la ventana es por donde sale —vía un corto conducto por el cielorraso— la campana hacia la Galería.</p>
-<p style="font-size:12.5px;color:#8a877e">La ubicación exacta de las cañerías es responsabilidad del proyecto de instalación sanitaria (a cargo de un profesional matriculado, ver observaciones al pie); la clasificación de arriba es la mejor estimación de anteproyecto según el recorrido lógico del agua descripto para el Lavadero.</p>
-
-<h2>Criterio de ventanas</h2>
+<h4>Criterio de ventanas</h4>
 <p>La superficie de ventana debe ser <b>≥ 1/6 a 1/8 de la superficie del piso</b> del ambiente (criterio habitual de código), con parte practicable ≥ la mitad de esa área para ventilación. No alcanza con cumplir el ancho: hay que revisar también la altura de cada abertura contra este cálculo.</p>
 <p><i>Ejemplo:</i> un ambiente de 9 m² necesita al menos 1,10–1,50 m² de ventana. Con 1,00 m de ancho, la altura debería rondar 1,10–1,50 m — no alcanza con una faja angosta.</p>
 <p><b>Altura desde el piso</b> hasta el borde inferior de cada ventana: 0,90 m en dormitorios, living/comedor y cocina (a la altura de la mesada); 1,20–1,40 m en baño y lavadero, por privacidad y para no interferir con artefactos o mobiliario contra esa pared.</p>
@@ -120,66 +229,23 @@ h2{scroll-margin-top:12px}
 </div>
 <div class="ok"><b>Cocina — ventana 1,00 x 1,00 m, igual a la de Habitación 1.</b> Mismo tamaño y misma altura de alféizar (0,90 m) que la de Hab. 1, la habitación vecina sobre la misma pared sur — ambas quedan centradas en su propia pared de 2,00 m, así que los dos vanos se alinean vistos desde la Galería. Superficie 1,00 m², en el techo del rango ideal de código (0,75–1,00 m² para 6 m²). No es una ventana de reúso (ya se usaron las 3 disponibles arriba) — se pide una más del mismo tamaño para mantener la alineación.</div>
 
-<h2>Aire acondicionado</h2>
-<p>Climatización con <b>split frío/calor en Living-Comedor y Habitación 3</b>, con <b>Habitación 2 prevista</b> (espacio y pase reservados, sin equipo instalado por ahora) y <b>Habitación 1 sin equipo</b> — es la más chica y la de uso menos frecuente (visitas), así que se dejó afuera del anteproyecto para no sumar carga ni gasto de un equipo que se usaría poco; si más adelante hace falta, se resuelve con un split chico independiente, sin depender de una previsión física ya que la habitación no tiene otro condicionante de instalación. Cálculo de capacidad por regla práctica: <b>150 frigorías/hora por m²</b> como base (techo de 2,60 m, exposición normal), sumando ~15–20% en ambientes con mucha ventana o bajo cubierta liviana de chapa sin entrepiso (todo el techo de esta casa está en esa condición), y algo más si la orientación recibe sol fuerte.</p>
-<table>
-<tr><th>Ambiente</th><th style="text-align:right">Superficie</th><th>Factores</th><th style="text-align:right">Cálculo</th><th style="text-align:right">Equipo sugerido</th></tr>
-<tr><td>Living-Comedor</td><td class="n">26,95 m²</td><td>Ambiente grande y abierto, mucho vidrio (3 ventanas de 1,50 m), bajo chapa</td><td class="n">≈ 4850 fg</td><td class="n">6000 frigorías</td></tr>
-<tr><td>Habitación 3 (principal)</td><td class="n">12,25 m²</td><td>Doble orientación norte/oeste (sol de tarde), bajo chapa</td><td class="n">≈ 2200 fg</td><td class="n">3000 frigorías</td></tr>
-<tr><td>Habitación 2 (secundaria) — previsto</td><td class="n">10,50 m²</td><td>Orientación norte (sol directo buena parte del día), bajo chapa</td><td class="n">≈ 1810 fg</td><td class="n">3000 frigorías (a futuro)</td></tr>
-</table>
-<p><b>Ubicación de los equipos</b> (ver plano general):</p>
-<ul style="margin:8px 0 0;padding-left:20px">
-<li><b>Living-Comedor:</b> en el muro este (el de las ventanas), en el tramo de muro macizo que queda entre la ventana del Comedor y la de Living — justo a la altura del límite entre ambos, para repartir el aire hacia los dos lados. Si en el futuro se prefiere mejor distribución, la alternativa es dos equipos más chicos (uno por ambiente) en vez de uno solo de 6000 frigorías.</li>
-<li><b>Habitación 3:</b> unidad interior en el muro oeste (exterior), montada en alto, centrada arriba de la ventana angosta — deja todo el muro del pasillo libre para el ropero de punta a punta. Lejos del rincón donde apoya la cabecera de la cama, para que el chorro de aire no pegue directo sobre quien duerme. La condensadora exterior va sujeta a ese mismo muro por afuera, dentro del retiro lateral oeste (1,50 m libres) — instalación y mantenimiento directos, sin cruzar a otro ambiente.</li>
-<li><b>Habitación 2 (previsto):</b> el punto de cableado queda marcado en el muro del pasillo, sobre el ropero (recorrido eléctrico más simple), pero cuando se instale, la unidad interior va al muro del fondo (el de la ventana, único muro exterior del ambiente), centrada en alto arriba de ella — mismo criterio que Hab. 3, no sobre el ropero. No se instala ahora, pero se deja el punto marcado para no tener que definir esto de nuevo.</li>
-</ul>
-<p style="font-size:12.5px;color:#8a877e">Este cálculo es una guía de anteproyecto; la selección final del equipo (y el cálculo de carga térmica si se quiere mayor precisión) queda a cargo del instalador.</p>
-<div class="ok"><b>Cocina — sin cambios, sigue a gas.</b> El anafe y el horno de la Cocina son a gas (no eléctricos), así que no suman carga especial a la instalación eléctrica más allá de tomas de uso general.</div>
-
-<h3>Unidad externa y desagote</h3>
-<p>Los splits necesitan dos cosas que no se resuelven solas con la ubicación del equipo interior: un lugar para la <b>unidad condensadora exterior</b> y una salida para el <b>agua de condensado</b> (desagote). Acá el criterio para cada equipo:</p>
-<table>
-<tr><th>Ambiente</th><th>Unidad externa</th><th>Desagote</th></tr>
-<tr><td>Living-Comedor</td><td>Muro exterior real (retiro lateral de 4,50 m) — el equipo interior ya está sobre ese mismo muro, así que la unidad externa va montada del otro lado, sin necesidad de cañería horizontal larga.</td><td>Por goteo a nivel de piso, sobre el retiro (grava o similar) — no hace falta conectarlo al desagüe pluvial ni cloacal.</td></tr>
-<tr><td>Habitación 3</td><td>El equipo interior ya está montado sobre el muro oeste de la habitación (el de la ventana V 1.00), que es exterior y da al mismo retiro lateral de 1,50 m que usan Baño/Antebaño/Lavadero — no hace falta cañería larga por el entretecho, es un cruce corto directo por ese mismo muro. La unidad externa va ahí, en el retiro.</td><td>Por goteo a nivel de piso, en ese mismo retiro de 1,50 m.</td></tr>
-<tr><td>Habitación 2 (previsto)</td><td>Cuando se instale, el equipo interior va centrado arriba de la ventana del muro del fondo (único muro exterior propio de la habitación) — la unidad externa se monta ahí mismo, por afuera.</td><td>Por goteo a nivel de piso, junto a ese muro (a confirmar según cómo quede resuelto el entorno exterior de ese lado).</td></tr>
-</table>
-<div class="warn"><b>Previsión de Habitación 2: dejar un caño camisa embutido, no solo marcar el punto en el plano.</b> Para que "previsto" sirva de algo en obra, conviene embutir ahora un caño camisa (PVC, ∅ suficiente para línea frigorífica + desagote) desde el punto del equipo interior, por el entretecho, hasta el muro del fondo — así el día que se instale el split no hay que romper pared ni cielorraso para pasar la cañería. Sin ese caño, "previsto" queda solo en el papel.</div>
-
-<h2>Iluminación</h2>
-<p>LED empotrados en el cielorraso, con <b>portalámpara GU10 reemplazable</b> (dicroica LED) y no chip integrado sin recambio — si se quema, se cambia la lamparita en vez de todo el artefacto. Spots aptos para contacto con aislación ("IC rated") o con collar sin aislar alrededor, para no generar puente térmico en cada punto. Separación base 1,20–1,50 m entre spots, 0,60–0,80 m desde las paredes, con altura de cielorraso de 2,60 m.</p>
-<table>
-<tr><th>Ambiente</th><th style="text-align:right">Superficie</th><th style="text-align:right">Puntos</th><th>Distribución</th><th>Observaciones</th></tr>
-<tr><td>Comedor</td><td class="n">10,50 m²</td><td class="n">4</td><td>Grilla 2x2, ~1,70 x 1,50 m</td><td>Sumar colgante decorativo centrado sobre la mesa, en circuito con dimmer</td></tr>
-<tr><td>Living</td><td class="n">16,45 m²</td><td class="n">6</td><td>Grilla 2x3, ~1,50 x 1,40 m</td><td>+ perfil lineal LED embutido en el zócalo del cielorraso (lado ventanas) para luz ambiente. Evitar spot justo frente a la salida de aire del split</td></tr>
-<tr><td>Cocina</td><td class="n">6,00 m²</td><td class="n">3</td><td>Línea central</td><td>+ luz sobre la barra (mesada oeste) + tira LED bajo alacena sobre la mesada, cortada frente a la ventana y sobre el anafe (luz de trabajo real); IP44 por vapor/grasa. El anafe no lleva punto propio — lo cubre la luz incorporada de la campana</td></tr>
-<tr><td>Habitación 1 (visitas)</td><td class="n">6,00 m²</td><td class="n">2</td><td>Línea central</td><td>Llave simple, sin dimmer</td></tr>
-<tr><td>Habitación 2 (secundaria)</td><td class="n">10,50 m²</td><td class="n">4</td><td>Grilla 2x2 corrida hacia la pared norte (opuesta al ropero)</td><td>Ropero contra la pared del pasillo (sur) come ~0,60 m — sin spots sobre el ropero</td></tr>
-<tr><td>Habitación 3 (principal)</td><td class="n">12,25 m²</td><td class="n">4</td><td>Grilla 2x2 corrida hacia la pared norte (opuesta al ropero), ~1,75 x 1,00–2,30 m</td><td>Mismo criterio que Hab. 2; correr el spot más próximo al split de pared para no quedar sobre la salida de aire</td></tr>
-<tr><td>Baño</td><td class="n">4,20 m²</td><td class="n">2</td><td>Zona inodoro/bidet + zona ducha (el vanitory está en el Antebaño, no acá)</td><td>IP44 en general, IP65 la de la ducha (va directo arriba)</td></tr>
-<tr><td>Antebaño</td><td class="n">3,50 m²</td><td class="n">2</td><td>Central + junto al espejo/vanitory</td><td>La del espejo, adelantada — no exacto sobre la cabeza</td></tr>
-<tr><td>Lavadero</td><td class="n">5,00 m²</td><td class="n">2</td><td>Línea central</td><td>IP44 por vapor; priorizar extracción de aire sobre sumar más luz</td></tr>
-<tr><td>Pasillo</td><td class="n">7,60 m²</td><td class="n">4</td><td>3 en el tramo largo (~1,70 m entre sí) + 1 en el recodo</td><td>Candidato a sensor de movimiento en vez de llave, por ser ambiente de paso</td></tr>
-<tr><td>Galería</td><td class="n">62,50 m²</td><td class="n">—</td><td>Franja de artefactos cerca de la casa + faroles de pared/colgados de las cerchas en el resto</td><td>Sin cielorraso: todo de superficie, atornillado a la cara inferior de las cerchas (no a la chapa). IP44 en todos por ser semicubierto. Punto propio de mayor potencia sobre el asador</td></tr>
-<tr><td>Garage</td><td class="n">48,00 m²</td><td class="n">4–6</td><td>2 líneas corridas a lo largo de los 8 m</td><td>Sin cielorraso: artefactos de superficie tipo batten LED atornillados a las correas</td></tr>
-</table>
-<p style="font-size:12.5px;color:#8a877e">Cantidades y distribución de anteproyecto; el cálculo final de circuitos, secciones de cable y protecciones queda a cargo del electricista matriculado.</p>
-
 <h2>Instalación eléctrica</h2>
-<p>Vivienda <b>monofásica 220V</b>, sin gas para climatización (todo con splits) — la carga especial más importante es la de los 2 equipos de aire acondicionado instalados (más el de Hab. 2 previsto) más el termotanque eléctrico del Lavadero. Criterio general según AEA 90364 (circuitos IUG/TUG/TUE separados, cada uno protegido por su propia térmica y con disyuntor diferencial general).</p>
+<p class="capnote">Para el electricista. Todo lo eléctrico junto: criterio general, tablero, circuitos, luces y tomas por ambiente. Cada split lleva su propio circuito TUE, listado en Circuitos.</p>
 
-<h3>Interruptores</h3>
-<p>Altura estándar <b>1,10 m del piso</b> para llaves de iluminación general. Excepción: llaves de tiras LED de trabajo sobre mesada (Cocina, y cualquier otro ambiente que sume una en el futuro) van más bajas, a la altura del salpicadero (~1,05 m, junto a la mesada), no a la altura estándar — se usan de pie frente a la mesada, no al entrar al ambiente. Ver el criterio aplicado en el detalle de <a href="ambientes/cocina.html">Cocina</a>.</p>
-
-<h3>Tablero principal</h3>
+<h3>Criterio general y tablero</h3>
+<p>Vivienda <b>monofásica 220V</b>, sin gas para climatización (todo con splits). La carga especial más importante es la de los 2 equipos de aire acondicionado instalados (más el de Hab. 2 previsto) y el termotanque eléctrico del Lavadero. Criterio general según la norma eléctrica argentina (AEA 90364): circuitos IUG/TUG/TUE separados (ver Glosario), cada uno con su propia llave térmica, y un disyuntor diferencial general que corta ante una fuga de corriente.</p>
 <table>
-<tr><th>Ítem</th><th>Criterio</th></tr>
+<tr><th>Ítem del tablero</th><th>Criterio</th></tr>
 <tr><td>Interruptor general</td><td>Termomagnético bipolar, capacidad según demanda total calculada por el electricista (orientativo: 3x36 o categoría similar para esta superficie y carga de A/C)</td></tr>
 <tr><td>Protección diferencial</td><td>Disyuntor diferencial 30 mA — al menos uno general; recomendable uno separado para el grupo de tomas de Baño/Lavadero (zonas húmedas) si el tablero admite doble diferencial</td></tr>
 <tr><td>Puesta a tierra</td><td>Jabalina + conductor de protección (PAT) a todos los circuitos — no solo a los tomas, también a la estructura metálica del techo si queda al alcance</td></tr>
 <tr><td>Ubicación del tablero</td><td>Sector de servicios (Lavadero o Antebaño), cerca de la entrada de la acometida y del tanque de agua — minimiza recorrido con el termotanque y la eventual bomba elevadora</td></tr>
 </table>
+
+<h3>Alturas de llaves y tomas</h3>
+<p>Altura estándar de las llaves de luz: <b>1,10 m del piso</b>.</p>
+<p><b>Excepción — tiras LED sobre mesada</b> (por ahora solo la Cocina): su llave va más baja, a la altura del salpicadero (~1,05 m, al lado de la mesada). Se usa parado frente a la mesada, no al entrar al ambiente. Ver el detalle en la ficha de <a href="ambientes/cocina.html">Cocina</a>.</p>
+<p><b>Tomacorrientes:</b> los de uso general, a ~0,30 m del piso; los de sobre mesada (Cocina), a ~1,10 m, arriba del salpicadero. Alturas de práctica habitual — el electricista matriculado confirma.</p>
 
 <h3>Circuitos</h3>
 <table>
@@ -198,7 +264,31 @@ h2{scroll-margin-top:12px}
 <tr><td>TUE — A/C Hab. 2 (previsto, 3000 fg)</td><td>Habitación 2 — cableado y protección dejados listos, sin conectar equipo</td><td class="n">20 A</td><td class="n">2,5 mm²</td></tr>
 <tr><td>TUE — Tomas exteriores</td><td>Galería (asador) y Garage, IP44</td><td class="n">20 A</td><td class="n">2,5 mm²</td></tr>
 </table>
-<div class="warn"><b>Bomba elevadora — circuito condicional.</b> Si en obra la presión de la calle no alcanza y hace falta la cisterna + bomba prevista en la sección de Techo/tanque de agua, sumar un circuito TUE dedicado más — no está en la tabla porque todavía no está confirmado que haga falta.</div>
+<div class="warn"><b>Bomba elevadora — circuito condicional.</b> Si en obra la presión de la calle no alcanza y hace falta la cisterna + bomba (ver Instalación sanitaria · Tanque de agua), sumar un circuito TUE dedicado más — no está en la tabla porque todavía no está confirmado que haga falta.</div>
+
+<h3>Iluminación por ambiente</h3>
+<p>Iluminación con <b>spots LED empotrados en el cielorraso</b> de Durlock. Criterios:</p>
+<ul style="margin:8px 0 0;padding-left:20px">
+<li><b>Lámpara reemplazable</b> (tipo GU10 / dicroica LED), no de chip fijo: si se quema, se cambia solo la lamparita, no todo el artefacto.</li>
+<li>Spots que <b>puedan tocar la aislación del techo</b> ("IC rated") o que lleven un collar aislante alrededor, para que cada punto no sea un lugar por donde se escapa el calor o el frío.</li>
+<li><b>Separación:</b> 1,20–1,50 m entre spots y 0,60–0,80 m desde las paredes, con el cielorraso a 2,60 m.</li>
+</ul>
+<table>
+<tr><th>Ambiente</th><th style="text-align:right">Superficie</th><th style="text-align:right">Puntos</th><th>Distribución</th><th>Observaciones</th></tr>
+<tr><td>Comedor</td><td class="n">10,50 m²</td><td class="n">4</td><td>Grilla 2x2, ~1,70 x 1,50 m</td><td>Sumar colgante decorativo centrado sobre la mesa, en circuito con dimmer</td></tr>
+<tr><td>Living</td><td class="n">16,45 m²</td><td class="n">6</td><td>Grilla 2x3, ~1,50 x 1,40 m</td><td>+ perfil lineal LED embutido en el zócalo del cielorraso (lado ventanas) para luz ambiente. Evitar spot justo frente a la salida de aire del split</td></tr>
+<tr><td>Cocina</td><td class="n">6,00 m²</td><td class="n">3</td><td>Línea central</td><td>+ luz sobre la barra (mesada oeste) + tira LED bajo alacena sobre la mesada, cortada frente a la ventana y sobre el anafe (luz de trabajo real); IP44 por vapor/grasa. El anafe no lleva punto propio — lo cubre la luz incorporada de la campana</td></tr>
+<tr><td>Habitación 1 (visitas)</td><td class="n">6,00 m²</td><td class="n">2</td><td>Línea central</td><td>Llave simple, sin dimmer</td></tr>
+<tr><td>Habitación 2 (secundaria)</td><td class="n">10,50 m²</td><td class="n">4</td><td>Grilla 2x2 corrida hacia la pared norte (opuesta al ropero)</td><td>Ropero contra la pared del pasillo (sur) come ~0,60 m — sin spots sobre el ropero</td></tr>
+<tr><td>Habitación 3 (principal)</td><td class="n">12,25 m²</td><td class="n">4</td><td>Grilla 2x2 corrida hacia la pared norte (opuesta al ropero), ~1,75 x 1,00–2,30 m</td><td>Mismo criterio que Hab. 2; correr el spot más próximo al split de pared para no quedar sobre la salida de aire</td></tr>
+<tr><td>Baño</td><td class="n">4,20 m²</td><td class="n">2</td><td>Zona inodoro/bidet + zona ducha (el vanitory está en el Antebaño, no acá)</td><td>IP44 en general, IP65 la de la ducha (va directo arriba)</td></tr>
+<tr><td>Antebaño</td><td class="n">3,50 m²</td><td class="n">2</td><td>Central + junto al espejo/vanitory</td><td>La del espejo, adelantada — no exacto sobre la cabeza</td></tr>
+<tr><td>Lavadero</td><td class="n">5,00 m²</td><td class="n">2</td><td>Línea central</td><td>IP44 por vapor; priorizar extracción de aire sobre sumar más luz</td></tr>
+<tr><td>Pasillo</td><td class="n">7,60 m²</td><td class="n">4</td><td>3 en el tramo largo (~1,70 m entre sí) + 1 en el recodo</td><td>Candidato a sensor de movimiento en vez de llave, por ser ambiente de paso</td></tr>
+<tr><td>Galería</td><td class="n">62,50 m²</td><td class="n">—</td><td>Franja de artefactos cerca de la casa + faroles de pared/colgados de la estructura del techo en el resto</td><td>Sin cielorraso: todo de superficie, atornillado a la estructura del techo de la galería (no a la chapa). IP44 en todos por ser semicubierto. Punto propio de mayor potencia sobre el asador</td></tr>
+<tr><td>Garage</td><td class="n">48,00 m²</td><td class="n">4–6</td><td>2 líneas corridas a lo largo de los 8 m</td><td>Sin cielorraso: artefactos de superficie tipo batten LED atornillados a las correas</td></tr>
+</table>
+<p style="font-size:12.5px;color:#8a877e">Cantidades y distribución de anteproyecto.</p>
 
 <h3>Tomacorrientes por ambiente</h3>
 <table>
@@ -218,8 +308,54 @@ h2{scroll-margin-top:12px}
 </table>
 <p style="font-size:12.5px;color:#8a877e">Cantidades y circuitos de anteproyecto. La demanda total (para dimensionar el interruptor general y confirmar la categoría de suministro con la distribuidora), los recorridos de cañería/cable y la sección final de cada tramo quedan a cargo del electricista matriculado — acá se define qué necesita cada ambiente, no el tendido.</p>
 
-<h2>Instalación sanitaria</h2>
-<p>Agua de red en la calle (ya cubierta más arriba, en "Techo": tanque elevado sobre el Lavadero), pero <b>sin red cloacal</b> — el desagüe cloacal va a la cámara séptica + pozo absorbente que ya existen en el lote (ver más abajo), un sistema totalmente aparte del desagüe pluvial del techo (que ya tiene su propio recorrido de canaletas y bajadas, sin mezclarse con esto).</p>
+<h2>Aire acondicionado</h2>
+<p class="capnote">Para el instalador de A/C. El circuito eléctrico de cada split está en Instalación eléctrica · Circuitos.</p>
+
+<h3>Ambientes y cálculo</h3>
+<p>Climatización con <b>split frío/calor</b>: uno en el Living-Comedor y otro en la Habitación 3.</p>
+<ul style="margin:8px 0 0;padding-left:20px">
+<li><b>Habitación 2 — prevista.</b> Se deja el espacio y el paso de caños, sin equipo por ahora.</li>
+<li><b>Habitación 1 — sin equipo.</b> Es la más chica y la de menos uso (visitas). Si más adelante hace falta, se le pone un split chico aparte — no hace falta dejar nada preparado.</li>
+</ul>
+<p><b>Cómo se calcula la capacidad:</b> unas <b>150 frigorías por hora y por m²</b> como base (techo de 2,60 m, exposición normal). Se suma 15–20% en ambientes con mucha ventana o bajo techo de chapa sin entrepiso —que es el caso de toda esta casa— y un poco más si la orientación recibe sol fuerte.</p>
+<table>
+<tr><th>Ambiente</th><th style="text-align:right">Superficie</th><th>Factores</th><th style="text-align:right">Cálculo</th><th style="text-align:right">Equipo sugerido</th></tr>
+<tr><td>Living-Comedor</td><td class="n">26,95 m²</td><td>Ambiente grande y abierto, mucho vidrio (3 ventanas de 1,50 m), bajo chapa</td><td class="n">≈ 4850 fg</td><td class="n">6000 frigorías</td></tr>
+<tr><td>Habitación 3 (principal)</td><td class="n">12,25 m²</td><td>Doble orientación norte/oeste (sol de tarde), bajo chapa</td><td class="n">≈ 2200 fg</td><td class="n">3000 frigorías</td></tr>
+<tr><td>Habitación 2 (secundaria) — previsto</td><td class="n">10,50 m²</td><td>Orientación norte (sol directo buena parte del día), bajo chapa</td><td class="n">≈ 1810 fg</td><td class="n">3000 frigorías (a futuro)</td></tr>
+</table>
+<p style="font-size:12.5px;color:#8a877e">Guía de anteproyecto; la selección final del equipo (y el cálculo de carga térmica, si se quiere más precisión) queda a cargo del instalador.</p>
+
+<h3>Ubicación de los equipos</h3>
+<ul style="margin:8px 0 0;padding-left:20px">
+<li><b>Living-Comedor:</b> en el muro este (el de las ventanas), en el tramo de muro macizo que queda entre la ventana del Comedor y la de Living — justo a la altura del límite entre ambos, para repartir el aire hacia los dos lados. Si en el futuro se prefiere mejor distribución, la alternativa es dos equipos más chicos (uno por ambiente) en vez de uno solo de 6000 frigorías.</li>
+<li><b>Habitación 3:</b> unidad interior en el muro oeste (exterior), montada en alto, centrada arriba de la ventana angosta — deja todo el muro del pasillo libre para el ropero de punta a punta. Lejos del rincón donde apoya la cabecera de la cama, para que el chorro de aire no pegue directo sobre quien duerme. La condensadora exterior va sujeta a ese mismo muro por afuera, dentro del retiro lateral oeste (1,50 m libres) — instalación y mantenimiento directos, sin cruzar a otro ambiente.</li>
+<li><b>Habitación 2 (previsto):</b> cuando se instale, la unidad va centrada en alto sobre la ventana del muro del fondo (único muro exterior del ambiente, mismo criterio que Hab. 3). El punto de cableado se deja marcado ahora en el muro del pasillo (recorrido más simple desde el tablero).</li>
+</ul>
+
+<h3>Unidad externa y desagote</h3>
+<p>Los splits necesitan dos cosas que no se resuelven solas con la ubicación del equipo interior: un lugar para la <b>unidad condensadora exterior</b> y una salida para el <b>agua de condensado</b> (desagote). Acá el criterio para cada equipo:</p>
+<table>
+<tr><th>Ambiente</th><th>Unidad externa</th><th>Desagote</th></tr>
+<tr><td>Living-Comedor</td><td>Muro exterior real (retiro lateral de 4,50 m) — el equipo interior ya está sobre ese mismo muro, así que la unidad externa va montada del otro lado, sin necesidad de cañería horizontal larga.</td><td>Por goteo a nivel de piso, sobre el retiro (grava o similar) — no hace falta conectarlo al desagüe pluvial ni cloacal.</td></tr>
+<tr><td>Habitación 3</td><td>El equipo interior ya está montado sobre el muro oeste de la habitación (el de la ventana V 1.00), que es exterior y da al mismo retiro lateral de 1,50 m que usan Baño/Antebaño/Lavadero — no hace falta cañería larga por el entretecho, es un cruce corto directo por ese mismo muro. La unidad externa va ahí, en el retiro.</td><td>Por goteo a nivel de piso, en ese mismo retiro de 1,50 m.</td></tr>
+<tr><td>Habitación 2 (previsto)</td><td>Cuando se instale, el equipo interior va centrado arriba de la ventana del muro del fondo (único muro exterior propio de la habitación) — la unidad externa se monta ahí mismo, por afuera.</td><td>Por goteo a nivel de piso, junto a ese muro (a confirmar según cómo quede resuelto el entorno exterior de ese lado).</td></tr>
+</table>
+<div class="warn"><b>Previsión de Habitación 2: dejar un caño camisa embutido, no solo marcar el punto en el plano.</b> Para que "previsto" sirva de algo en obra, conviene embutir ahora un caño camisa (PVC, ∅ suficiente para línea frigorífica + desagote) desde el punto del equipo interior, por el entretecho, hasta el muro del fondo — así el día que se instale el split no hay que romper pared ni cielorraso.</div>
+
+<h2>Instalación sanitaria — agua y desagües</h2>
+<p class="capnote">Para el plomero. Hay agua de red; no hay cloaca (va a la cámara séptica que ya existe). El gas es un capítulo aparte.</p>
+
+<h3>Tanque de agua</h3>
+<div class="ok"><b>Sobre el Lavadero, esquina noroeste del sector de servicios.</b> El caño de agua entra desde la calle por el lateral oeste (retiro de 1,50 m, contra la tapia) y llega primero al Lavadero, que es además donde hay muro de ladrillo común preparado para cañerías. Poner el tanque ahí minimiza tanto el tramo de caño desde la vereda como la bajada hacia Baño y Cocina.
+<br><br><b>Ojo con el techo de chapa:</b> un tanque lleno pesa mucho (uno de 500–1000 L son 500–1000 kg más el peso propio) y la chapa y las correas del techo no están pensadas para soportar ese peso puntual — no apoyarlo directamente sobre la cubierta.
+<ul style="margin:8px 0 0;padding-left:20px">
+<li>Se necesita una estructura propia (bastidor de perfiles metálicos o pedestal de mampostería/hormigón) que baje la carga a un muro portante o columna — no a la chapa ni a las correas.</li>
+<li>Lo más directo: apoyar esa estructura sobre el muro del Lavadero (ya es portante y de ladrillo común), o agregar una columna si hace falta.</li>
+<li>Conviene que el bastidor quede <b>por fuera</b> del faldón de chapa (una torre que sobresale al lado, no que atraviesa el techo) para no tener que perforarlo. Si de todas formas hay que atravesarlo, cada pata necesita su babeta de zinguería para que no filtre.</li>
+<li>Dejar previsto el acceso para mantenimiento (escalera tipo marinero) y, si la presión de la calle no alcanza, sumar cisterna a nivel de piso junto al ingreso del caño (misma esquina noroeste) + bomba elevadora hacia el tanque (esa bomba lleva su propio circuito eléctrico — ver Instalación eléctrica · Circuitos).</li>
+</ul>
+</div>
 
 <h3>Agua fría y caliente</h3>
 <table>
@@ -227,7 +363,12 @@ h2{scroll-margin-top:12px}
 <tr><td>Tanque elevado (sobre Lavadero, agua fría)</td><td>Todos los artefactos de agua fría de la casa, por gravedad</td></tr>
 <tr><td>Termotanque eléctrico (Lavadero)</td><td>Agua caliente a Lavadero, Antebaño, Baño y Cocina</td></tr>
 </table>
-<p><b>Criterio de bajadas:</b> ramal corto para Lavadero/Antebaño/Baño (los tres contra el mismo muro de ladrillo común, junto al tanque); ramal más largo hasta la Cocina (sale del Lavadero, recorre el entretecho de la Galería y baja por la pared sur de la Cocina, justo arriba de la bacha — no comparte recorrido con la cañería de gas, que es la que cruza el muro contra Hab. 1); ramal hacia la Galería para la mesada del asador, saliendo por el Lavadero (que ya tiene la puerta más corta hacia la galería).</p>
+<p><b>Recorrido de las bajadas de agua:</b></p>
+<ul style="margin:8px 0 0;padding-left:20px">
+<li><b>Lavadero, Antebaño y Baño:</b> ramal corto — los tres están contra el mismo muro de ladrillo común, al lado del tanque.</li>
+<li><b>Cocina:</b> ramal largo — sale del Lavadero, cruza por el entretecho de la Galería y baja por la pared sur de la Cocina, justo arriba de la bacha. No comparte recorrido con el gas (el gas cruza el otro muro, el que da a Hab. 1).</li>
+<li><b>Galería (mesada del asador):</b> sale también del Lavadero, que es el que tiene la puerta más cerca de la galería.</li>
+</ul>
 
 <h3>Artefactos — agua y desagüe</h3>
 <table>
@@ -251,27 +392,74 @@ h2{scroll-margin-top:12px}
 <tr><td>Cantidad de artefactos con desagüe cloacal</td><td>8 (los de la tabla de arriba, sin contar el termotanque)</td></tr>
 <tr><td>Ubicación</td><td>Esquina suroeste del lote, existente</td></tr>
 </table>
-<div class="warn"><b>Dos cosas para verificar en el pozo existente antes de empalmar:</b> (1) que la capacidad del sistema ya construido alcance para los 8 artefactos con desagüe cloacal de esta casa (si el pozo se hizo para una construcción anterior o más chica, puede haber que ampliarlo); (2) el recorrido de la cañería nueva es largo — sale del sector de servicios (Lavadero, contra el retiro oeste) y tiene que atravesar toda la Galería y el patio hasta el fondo del lote, así que conviene prever la pendiente (mínimo 1–2%) en todo ese tramo y cámaras de inspección intermedias cada 15 m aproximadamente o en cada cambio de dirección. Esta cuenta de 8 no incluye el termotanque, cuya válvula de seguridad descarga a un desagüe cercano (no necesariamente al pozo absorbente).</div>
+<div class="warn"><b>Dos cosas para verificar en el pozo existente antes de empalmar:</b>
+<ul style="margin:8px 0 0;padding-left:20px">
+<li><b>Capacidad.</b> Que el sistema ya construido alcance para los 8 artefactos con desagüe cloacal de esta casa. Si el pozo se hizo para una construcción anterior o más chica, puede haber que ampliarlo.</li>
+<li><b>Recorrido.</b> La cañería nueva es larga: sale del sector de servicios (Lavadero, contra el retiro oeste), cruza toda la Galería y el patio hasta el fondo del lote. En todo ese tramo hay que mantener pendiente (mínimo 1–2%) y poner cámaras de inspección cada ~15 m o en cada cambio de dirección.</li>
+</ul>
+Los 8 artefactos no incluyen el termotanque: su válvula de seguridad descarga a un desagüe cercano, no necesariamente al pozo.</div>
 
 <h3>Pileta</h3>
 <div class="warn"><b>El desagüe de la Pileta (rebase/backwash del filtro) no va al pozo absorbente.</b> El agua clorada mata la digestión biológica de la cámara séptica — tiene que ir a un desagüe pluvial o directamente a un sector de terreno absorbente alejado, nunca al sistema cloacal.</div>
 
-<h2>Criterios de amoblamiento</h2>
-<p>El detalle completo, ambiente por ambiente, está en cada <a href="index.html">ficha</a>. Puntos generales que aplican a toda la casa:</p>
+<h2>Instalación de gas</h2>
+<p class="capnote">Para el gasista. La cocina (anafe + horno) funciona con gas de garrafa; el resto de la casa es eléctrico. El anafe y el horno no suman carga especial a la instalación eléctrica.</p>
+
+<h3>Garrafa</h3>
+<p>La garrafa <b>no va dentro de la cocina</b>. El GLP es más pesado que el aire, necesita ventilación permanente al exterior y estar lejos de cualquier fuente de ignición.</p>
+<ul style="margin:8px 0 0;padding-left:20px">
+<li>Va en un <b>gabinete ventilado exterior</b>, de pie sobre la Galería, en el rincón donde el muro sur de la Cocina se encuentra con el muro que da a Hab. 1 — junto a la ventana.</li>
+<li>El gabinete es una <b>estructura liviana</b> (metálica o de rejilla, no mampostería) — fuera del cómputo de albañilería.</li>
+</ul>
+
+<h3>Cañería hasta el anafe</h3>
+<ul style="margin:8px 0 0;padding-left:20px">
+<li>Cruza el <b>muro de Cocina que da a Hab. 1</b> — ladrillo común de 0,15 m, el "muro con instalaciones" de Obra gruesa. Ese muro lleva el gas, no agua.</li>
+<li>Conviene coordinar el paso del gas con el de los tomacorrientes de ese sector (misma rotura de muro). Ver la ficha de <a href="ambientes/cocina.html">Cocina</a>.</li>
+</ul>
+
+<h3>Extracción del anafe (campana)</h3>
+<ul style="margin:8px 0 0;padding-left:20px">
+<li>La cocina lleva <b>campana de extracción</b>. El humo sale hacia la Galería por un tramo corto de conducto por el cielorraso hasta el muro sur (el único exterior del ambiente).</li>
+<li>Prever el lugar del conducto: con la ventana de 1,00 m centrada en el muro de 2,00 m quedan 0,50 m de pared a cada lado.</li>
+</ul>
+
+<div class="warn"><b>Instalación de gas a cargo del gasista matriculado.</b> Acá se define dónde va la garrafa y el recorrido lógico de la cañería — no el cálculo, los diámetros ni la prueba de hermeticidad.</div>
+
+<h2>Amoblamiento</h2>
+<p class="capnote">Criterios generales de muebles. El detalle ambiente por ambiente está en la <a href="index.html">ficha de cada ambiente</a>.</p>
 <ul style="margin:8px 0 0;padding-left:20px">
 <li>Todos los roperos (Habitación 1, 2 y 3) llevan <b>puertas corredizas</b>, no abatibles — no necesitan espacio de barrido para abrirse, así que pueden ir pegados a la pared sin restarle circulación al resto del ambiente.</li>
 <li>El lavamanos y el mueble de guardado del baño (cosas de higiene) van en el <b>Antebaño</b>, no en el Baño: el Baño reúne inodoro + bidet + ducha (3 artefactos en 4,20 m²), mientras que el Antebaño tiene margen de sobra.</li>
-<li>El termotanque del Lavadero es <b>eléctrico</b>: no necesita salida de ventilación (a diferencia de uno a gas), pero sí un circuito eléctrico dedicado — dato para la instalación eléctrica.</li>
 <li>La mesa del Comedor va orientada norte-sur, centrada en el ancho del ambiente (3,50 m), con 0,73 m libres a cada lado.</li>
-<li>En la Habitación 3 (principal), el ropero va contra la pared del pasillo, la cama con la cabecera contra la pared este y la TV contra la pared oeste. En la Habitación 2 (secundaria) el ropero también va contra la pared del pasillo (mismo criterio) — dato usado para correr la grilla de luces embutidas de ambas habitaciones hacia el lado opuesto al ropero.</li>
-<li>La parrilla y el horno de la Galería necesitan campana o salida de humo — no es solo amoblamiento, hay que preverlo en la estructura del techo.</li>
-<li>En la Cocina, el anafe queda a mitad del tramo de mesada contra Hab. 1, sin apretarse contra ningún rincón. La <b>campana</b> ventila hacia la Galería con un corto tramo de conducto por el cielorraso hasta el tramo de muro macizo junto a la ventana (único muro exterior del ambiente) — con la ventana de 1,00 m centrada, quedan 0,50 m de muro sólido a cada lado, de sobra para el conducto.</li>
-<li>La <b>garrafa</b> de la Cocina no se guarda dentro del ambiente: por seguridad va en un gabinete ventilado exterior, de pie sobre la Galería, junto a la ventana.</li>
-<li>La <b>heladera</b> de la Cocina va contra el muro norte (limita con el pasillo, sin ninguna abertura), en el rincón noreste junto al anafe, formando una <b>U</b> con los tramos sur y este de la mesada — que llega pegada hasta la heladera, sin cortes. No lleva despensa aparte — la mercadería se resuelve en otro lugar de la casa; el bajomesada de la barra (0,48 x 1,50 m, del lado Cocina) suma guardado adicional.</li>
+<li>En la Habitación 3, el ropero va contra la pared del pasillo, la cama con la cabecera contra la pared este y la TV contra la pared oeste. En la Habitación 2 el ropero también va contra la pared del pasillo. (Por eso la grilla de luces de ambas se corre hacia el lado opuesto — ver Iluminación por ambiente.)</li>
+<li>La <b>heladera</b> de la Cocina va contra el muro norte (limita con el pasillo, sin ninguna abertura), en el rincón junto al anafe, formando una <b>U</b> con los tramos sur y oeste de la mesada — que llega pegada hasta la heladera, sin cortes. No lleva despensa aparte — la mercadería se resuelve en otro lugar de la casa; el bajomesada de la barra (0,48 x 1,50 m, del lado Cocina) suma guardado adicional.</li>
+</ul>
+<p><b>Lo que no es solo mueble</b> (se decide en otro capítulo, se repite acá para no perderlo):</p>
+<ul style="margin:8px 0 0;padding-left:20px">
+<li><b>Termotanque del Lavadero:</b> es eléctrico — necesita circuito dedicado (Instalación eléctrica · Circuitos).</li>
+<li><b>Parrilla y horno de la Galería:</b> necesitan salida de humo — preverlo en la estructura del techo de la galería (Obra gruesa).</li>
+<li><b>Garrafa y campana de la Cocina:</b> ver Instalación de gas.</li>
 </ul>
 
 <h2>Puntos a verificar en obra</h2>
-<div class="warn"><b>Rampa con pendiente del 12,5%.</b> 4,00 m para salvar 0,50 m de desnivel (terreno relleno hasta esa cota) da 12,5%, apenas por encima del 8–12% recomendado para uso peatonal — aceptable para uso vehicular.</div>
+<p>Todo lo que este instructivo deja marcado para confirmar en obra o con un profesional matriculado, en un solo lugar.</p>
+<div class="tablewrap"><table>
+<tr><th>Tema</th><th>Qué verificar</th><th>Capítulo</th></tr>
+<tr><td>Nivel de vereda</td><td>Cota exacta de la calle; que el agua del fondo salga por gravedad hacia el lote de atrás; profundidad del pluvial de la calle para el caño del alero norte</td><td>Obra gruesa</td></tr>
+<tr><td>Medianeras</td><td>Que las medianeras este y oeste aguanten como muro de contención el relleno del vecino (0,55 y 1,10 m) y tengan drenaje detrás</td><td>Obra gruesa</td></tr>
+<tr><td>Estructura del techo</td><td>Sección y separación finales de la tirantería y las correas según la zona eólica — firma del ingeniero calculista</td><td>Obra gruesa</td></tr>
+<tr><td>Desagüe del Garage</td><td>Pendiente del caño enterrado hasta la calle (mín. ~1%); si no da, cámara de bombeo</td><td>Obra gruesa</td></tr>
+<tr><td>Galería futura</td><td>Dejar en la pared sur el encadenado/anclaje, la babeta y la altura de apoyo del techo de la galería</td><td>Obra gruesa</td></tr>
+<tr><td>Demanda eléctrica</td><td>Demanda total para dimensionar el interruptor general y confirmar la categoría de suministro con la distribuidora — firma del electricista matriculado</td><td>Instalación eléctrica</td></tr>
+<tr><td>Presión de agua / bomba</td><td>Si la presión de red no alcanza: cisterna + bomba elevadora + su circuito TUE dedicado</td><td>Eléctrica y Sanitaria</td></tr>
+<tr><td>A/C Habitación 2</td><td>Dejar el caño camisa embutido ahora, no solo el punto marcado en el plano</td><td>Aire acondicionado</td></tr>
+<tr><td>Tanque de agua</td><td>Que no apoye sobre la chapa: bastidor propio bajando la carga a un muro o columna</td><td>Instalación sanitaria</td></tr>
+<tr><td>Pozo séptico existente</td><td>Capacidad para los 8 artefactos de esta casa; pendiente y cámaras de inspección del tramo nuevo de cañería</td><td>Instalación sanitaria</td></tr>
+<tr><td>Desagüe de la Pileta</td><td>Que el rebase / backwash NO vaya al pozo absorbente (mata la digestión biológica)</td><td>Instalación sanitaria</td></tr>
+<tr><td>Instalación de gas</td><td>Cálculo, diámetros y prueba de hermeticidad de la cañería — firma del gasista matriculado</td><td>Instalación de gas</td></tr>
+<tr><td>Ubicación exacta de cañerías</td><td>El recorrido real de agua, desagües y gas lo define cada proyecto de instalación firmado; la clasificación de muros de este instructivo es una estimación de anteproyecto</td><td>Sanitaria / Gas</td></tr>
+</table></div>
 
 <div class="foot">
 Plano de anteproyecto elaborado a partir del diseño en planilla, verificado a escala 1 celda = 0,50 m.
@@ -283,21 +471,28 @@ cortes, vistas y cálculo estructural, que deben ser elaborados y firmados por u
 <script>
 document.getElementById('btnImprimir').addEventListener('click', function () { window.print(); });
 
-// Índice de la página
+// Índice de la página — 2 niveles (capítulos y secciones)
 (function buildTOC() {
-  var hs = document.querySelectorAll('.wrap .sheet h2');
+  var sheet = document.querySelector('.wrap .sheet');
+  var hs = sheet.querySelectorAll('h2, h3');
   if (hs.length < 4) return;
-  var first = document.querySelector('.wrap .sheet');
   var nav = document.createElement('nav');
   nav.className = 'toc';
-  var items = '';
-  hs.forEach(function (h, i) {
-    if (!h.id) h.id = 'sec-' + (i + 1);
+  var cap = 0, sec = 0, items = '';
+  hs.forEach(function (h) {
     var label = h.textContent.replace(/\s+/g, ' ').trim();
-    items += '<li><a href="#' + h.id + '">' + label + '</a></li>';
+    if (h.tagName === 'H2') {
+      cap++; sec = 0;
+      if (!h.id) h.id = 'cap-' + cap;
+      items += '<li class="cap"><a href="#' + h.id + '">' + label + '</a></li>';
+    } else {
+      sec++;
+      if (!h.id) h.id = 'sec-' + cap + '-' + sec;
+      items += '<li class="sec"><a href="#' + h.id + '">' + label + '</a></li>';
+    }
   });
   nav.innerHTML = '<b>En esta página</b><ul>' + items + '</ul>';
-  first.parentNode.insertBefore(nav, first);
+  sheet.parentNode.insertBefore(nav, sheet);
 })();
 </script>
 </body></html>
