@@ -22,6 +22,10 @@ tr.tot td{background:#f8f6f0;font-weight:700}
 .warn b{color:#8a6410}
 .ok{background:#eef7ec;border-left:3px solid #6f9a51;padding:11px 14px;border-radius:0 6px 6px 0;font-size:13px;line-height:1.65;margin-top:10px}
 .ok b{color:#4e7638}
+.porque{margin:6px 0 15px;font-size:12px;color:#6a6a63;line-height:1.62;border-left:2px solid #e6e3da;padding:3px 0 3px 12px}
+.porque b{color:#55534c;font-weight:600}
+.lead{background:#f8f6f0;border:1px solid #e6e3da;border-radius:8px;padding:12px 16px;margin-top:12px}
+.lead ul{margin:6px 0 0;padding-left:20px}.lead li{margin:3px 0;font-size:13px}
 .foot{font-size:11.5px;color:#6a6a63;margin-top:22px;line-height:1.6;border-top:1px solid #e6e3da;padding-top:12px}
 .foot a{color:#8a877e}
 .sheet{background:#fff;border:1px solid #dedbd1;border-radius:10px;padding:22px;box-shadow:0 1px 3px rgba(0,0,0,.05)}
@@ -57,10 +61,11 @@ p{font-size:13px;line-height:1.65}
 <h2>Generalidades</h2>
 
 <h3>Cómo leer este instructivo</h3>
-<p>Este documento junta <b>todas las decisiones de cómo se construye la casa y por qué se tomó cada una</b>. No es el dibujo (eso está en <a href="plano-general.html">Plano general</a>) ni la lista de materiales (<a href="computo.html">Cómputo</a>): es el "manual de criterios".</p>
-<p>Está <b>ordenado por oficio</b>: cada capítulo reúne todo lo que le toca a un mismo profesional, de punta a punta. Cuando algo le sirve a dos oficios, se deja un cruce corto en vez de repetirlo.</p>
-<p><b>Es un anteproyecto, no la documentación final de obra.</b> Fija el esquema y las medidas; los cálculos que llevan firma de un matriculado —estructura, gas, electricidad, sanitaria— todavía faltan, y este texto no los reemplaza.</p>
-<p><b>Los recuadros de color:</b> los <b>verdes</b> marcan algo ya resuelto o una recomendación firme; los <b>amarillos</b>, una advertencia o algo para verificar en obra. Todos los "verificar" están además juntos en el último capítulo, <b>Puntos a verificar en obra</b>.</p>
+<p>Reúne <b>las decisiones de cómo se construye la casa y por qué se tomó cada una</b>. El dibujo está en <a href="plano-general.html">Plano general</a>; la lista de materiales, en <a href="computo.html">Cómputo</a>. Acá van los criterios.</p>
+<p><b>Cómo está armado cada punto:</b> primero la decisión —en negrita o en tabla, para leer de un vistazo— y, cuando hace falta, un recuadro <i>Por qué</i> en gris con el motivo. Ese recuadro se puede saltear si solo se necesita el dato.</p>
+<p><b>Ordenado por oficio:</b> un capítulo por profesional, de punta a punta. Lo que le sirve a dos oficios se cruza en una línea en vez de repetirse. El albañil arranca por <b>Obra gruesa</b>, que abre con una tabla de <b>Números de obra</b> con todo lo que se mide para replantear.</p>
+<p><b>Es un anteproyecto.</b> Fija el esquema y las medidas; los cálculos con firma de matriculado —estructura, gas, electricidad, sanitaria— todavía faltan. Todos los "verificar" están juntos en el último capítulo, <b>Puntos a verificar en obra</b>.</p>
+<p><b>Recuadros de color:</b> verde = ya resuelto o recomendación firme; amarillo = advertencia o algo para verificar en obra.</p>
 
 <h3>Glosario</h3>
 <p>Los términos que se repiten a lo largo del instructivo, en una línea cada uno.</p>
@@ -76,7 +81,9 @@ p{font-size:13px;line-height:1.65}
 <tr><td><b>Contrapiso y carpeta</b></td><td>Las capas de mezcla que van sobre el terreno antes del piso final. El "piso terminado" (±0,00) es el nivel de arriba de la carpeta.</td></tr>
 <tr><td><b>Tirante</b></td><td>Perfil de hierro que cruza de una pared a la otra y sostiene el techo. Acá cruzan de la pared norte a la sur (7,70 m).</td></tr>
 <tr><td><b>Correa</b></td><td>Perfil que va apoyado sobre los tirantes y sostiene la chapa.</td></tr>
-<tr><td><b>Encadenado</b></td><td>Viga de hormigón armado que corona los muros y los ata entre sí. Sobre él apoya el techo.</td></tr>
+<tr><td><b>Encadenado</b></td><td>Viga de hormigón armado que corona los muros y los ata entre sí. Sobre él apoya el techo. El "principal" va nivelado a 3,00 m en las 4 paredes.</td></tr>
+<tr><td><b>Remonte</b></td><td>El tramo de pared que se levanta con ladrillo por encima del encadenado principal para formar la pendiente. En la pared sur sube 0,85 m; en las este y oeste, en diagonal.</td></tr>
+<tr><td><b>Viga de remate</b></td><td>El encadenado que corona el remonte de ladrillo (nivelado sobre la pared sur, inclinado sobre este y oeste). Recibe los tirantes del lado alto.</td></tr>
 <tr><td><b>Entretecho</b></td><td>El espacio cerrado entre el cielorraso (2,60 m) y la chapa. Ahí van los tirantes, la aislación y la pendiente. Desde el ambiente no se ve.</td></tr>
 <tr><td><b>Faldón</b></td><td>Cada plano inclinado de un techo. La galería tiene el suyo, aparte del de la casa.</td></tr>
 <tr><td><b>Frigorías (fg)</b></td><td>La medida de "frío" de un aire acondicionado. Más metros cuadrados y más sol = más frigorías.</td></tr>
@@ -91,11 +98,35 @@ p{font-size:13px;line-height:1.65}
 </table></div>
 
 <h2>Obra gruesa</h2>
-<p class="capnote">Para el albañil. Movimiento de suelo y relleno, muros, estructura, techo y aberturas.</p>
+<p class="capnote">Movimiento de suelo y relleno, muros, techo y aberturas.</p>
 
-<h3>Niveles y relleno</h3>
-<p>El lote está <b>1,10 m más bajo que la calle</b>. Los vecinos de ambos lados (este y oeste) y la vereda están a nivel calle, con su terreno rellenado, así que el lote es un "pozo" respecto de casi todo su entorno. La única salida a ese nivel bajo es el <b>fondo (sur)</b>: linda con otro lote propio, que tiene salida a otra calle a esa cota — por ahí sale el agua de superficie del terreno por gravedad.</p>
-<p><b>Todas las alturas de la casa se miden desde el piso terminado</b> (contrapiso + carpeta ya hechos) = <b>±0,00</b>. Es el nivel que el albañil marca en obra y desde el que mide todo hacia arriba (antepechos de ventana, llaves, altura de muro).</p>
+<h3>Números de obra</h3>
+<p>Todo lo que se mide para replantear, en un solo lugar. Cada valor está explicado en su sección más abajo. El diseño de circuitos, artefactos y cañerías va en los capítulos de cada oficio.</p>
+<div class="tablewrap"><table>
+<tr><th>Qué</th><th>Medida</th></tr>
+<tr><td>Nivel de referencia (±0,00)</td><td>Piso terminado de la casa (contrapiso + carpeta)</td></tr>
+<tr><td>Relleno bajo la casa</td><td>+0,70 sobre terreno natural (queda −0,40 respecto de la calle)</td></tr>
+<tr><td>Relleno galería / pasillo oeste / espacio garage-casa</td><td>+0,55 (−0,15 respecto del piso de la casa)</td></tr>
+<tr class="tot"><td>Altura libre interior (piso a cielorraso)</td><td>2,60 m</td></tr>
+<tr class="tot"><td>Encadenado principal (perímetro)</td><td>3,00 m — nivelado, corrido en las 4 paredes</td></tr>
+<tr class="tot"><td>Pared sur — remate superior</td><td>3,85 m (3,00 + 0,85 m de remonte de ladrillo)</td></tr>
+<tr class="tot"><td>Muros interiores</td><td>2,70 m (no llegan a la chapa)</td></tr>
+<tr><td>Espesor de muros</td><td>Ladrillo hueco 0,12 m · ladrillo común 0,15 m</td></tr>
+<tr><td>Alféizar — ventanas de dormitorios, Living-Comedor y Cocina</td><td>0,90 m del piso</td></tr>
+<tr><td>Alféizar — ventana oeste de Habitación 3</td><td>1,20 m del piso</td></tr>
+<tr><td>Alféizar — ventiluz del Baño y ventana del Lavadero</td><td>1,40 m del piso</td></tr>
+<tr><td>Altura de llaves de luz</td><td>1,10 m del piso</td></tr>
+<tr><td>Altura de tomacorrientes — generales / sobre mesada</td><td>0,30 m / 1,10 m del piso</td></tr>
+<tr><td>Pendiente del techo</td><td>11% hacia el norte</td></tr>
+<tr><td>Garage → casa (desnivel 0,40 m)</td><td>Rampa 4,00 m (10%) + 3 escalones de 0,133 m</td></tr>
+<tr><td>Casa → galería / pasillo oeste (desnivel 0,15 m)</td><td>1 escalón</td></tr>
+<tr><td>Galería → pasillo este (desnivel 0,55 m)</td><td>Escalera de 3 escalones de 0,18 m (o 4 de 0,14 m)</td></tr>
+<tr><td>Medidas del plano</td><td>Tomadas a eje de muro (por el centro de la pared)</td></tr>
+</table></div>
+
+<h3>Replanteo y niveles</h3>
+<p><b>Todas las alturas se miden desde el piso terminado de la casa</b> (contrapiso + carpeta) = <b>±0,00</b>. Es el nivel que se marca en obra y desde el que se mide todo hacia arriba.</p>
+<p>El lote está <b>1,10 m más bajo que la calle</b>. Los vecinos de ambos lados y la vereda están a nivel calle: el lote es un pozo respecto de casi todo su entorno. La única salida a esa cota baja es el <b>fondo (sur)</b>, que linda con otro lote propio con salida a otra calle — por ahí drena el agua de superficie por gravedad.</p>
 
 <div class="tablewrap"><table>
 <tr><th>Sector</th><th style="text-align:right">Relleno sobre terreno natural</th><th style="text-align:right">Nivel vs. piso de la casa</th><th style="text-align:right">Nivel vs. calle</th></tr>
@@ -108,12 +139,7 @@ p{font-size:13px;line-height:1.65}
 <tr><td>Pasillo lateral este (retiro 4,50 m)</td><td class="n">sin relleno</td><td class="n">−0,70</td><td class="n">−1,10</td></tr>
 <tr><td>Fondo / Pileta</td><td class="n">sin relleno</td><td class="n">−0,70</td><td class="n">−1,10</td></tr>
 </table></div>
-<p>La casa se rellena entera hasta <b>+0,70</b> (queda 0,40 m por debajo de la calle). El espacio entre el Garage y la casa, la Galería y el pasillo oeste se rellenan hasta <b>+0,55</b> — 0,15 m por debajo del piso de la casa, así que el agua de esos sectores <b>no entra a la casa</b>, escurre hacia afuera. El <b>pasillo este y el fondo quedan bajos, sin relleno</b>: son los que juntan el agua y la llevan al fondo.</p>
-
-<div class="ok"><b>Pasillo oeste — se rellena a +0,55, al mismo nivel que la Galería.</b> Al pasillo oeste solo se entra desde la Galería (esquina suroeste, junto al asador). Rellenándolo a +0,55 se pasa caminando, sin escalón, a hacerle mantenimiento al <b>tanque de agua, la entrada de agua de red y las condensadoras de A/C</b> que están sobre ese lado. No recibe agua de techo (el techo tira todo al norte) — solo lluvia directa sobre 1,50 m de ancho más el goteo de los equipos, que se resuelve con una pendiente muy suave hacia el sur, devolviendo el agua a la Galería.</div>
-
-<h4>Escurrimiento del agua de superficie</h4>
-<p>El agua que cae sobre el terreno (no la del techo, que va aparte — ver Estructura y techo) escurre <b>hacia el sur por gravedad</b>: el espacio entre Garage y casa y el pasillo oeste, al quedar 0,15 m por debajo de la casa, drenan al pasillo este y al fondo; de ahí sale por el lote de atrás hacia la otra calle. <b>No hace falta bomba ni pozo pluvial.</b></p>
+<p><b>Resumen del relleno:</b> la casa entera a +0,70; la galería, el pasillo oeste y el espacio garage-casa a +0,55 (0,15 m más bajo que la casa, para que el agua escurra hacia afuera y no entre); el pasillo este y el fondo sin relleno, para juntar el agua y llevarla al fondo.</p>
 
 <h4>Escalones y rampas</h4>
 <table>
@@ -123,69 +149,66 @@ p{font-size:13px;line-height:1.65}
 <tr><td>Galería (o espacio Garage-casa) → pasillo este</td><td class="n">0,55 m</td><td>Escalera de 3 escalones de 0,18 m o 4 de 0,14 m. <b>Sin rampa fija:</b> con 4,50 m de retiro, una rampa al 12% necesitaría 4,60 m y no dejaría paso al costado</td></tr>
 </table>
 
-<div class="warn"><b>Contención en las medianeras este y oeste.</b> Los vecinos están a nivel calle, más altos que nuestro terreno adyacente: la medianera oeste retiene tierra del vecino ~0,55 m más alta que el pasillo oeste, y la este retiene ~1,10 m más que el pasillo este. Esas medianeras trabajan como <b>muro de contención</b> — verificar (o construir) que aguanten ese empuje y que tengan <b>drenaje detrás</b> (barbacanas o manto drenante) para que el agua del vecino no se acumule contra ellas. El relleno propio (+0,70 y +0,55) se contiene contra la propia línea, sin empujar la medianera.</div>
+<h4>Escurrimiento del agua de superficie</h4>
+<p>El agua que cae sobre el terreno (la del techo va aparte — ver Techo y estructura) escurre <b>al sur por gravedad</b>: el espacio garage-casa y el pasillo oeste, 0,15 m más bajos que la casa, drenan al pasillo este y al fondo; de ahí sale por el lote de atrás. <b>No hace falta bomba ni pozo pluvial.</b></p>
 
-<div class="warn"><b>A verificar con el nivel real de vereda:</b> la cota exacta de la calle y la pendiente del terreno del lote del fondo hacia la otra calle, para confirmar que el agua de superficie sale por gravedad.</div>
+<div class="ok"><b>Pasillo oeste — a +0,55, mismo nivel que la galería.</b> Se entra solo desde la galería (esquina suroeste). A ese nivel se pasa caminando, sin escalón, a mantener el <b>tanque de agua, la entrada de agua de red y las condensadoras de A/C</b> de ese lado. No recibe agua de techo (todo va al norte); la lluvia directa sobre 1,50 m de ancho se devuelve a la galería con una pendiente muy suave.</div>
 
-<h3>Muros y materiales</h3>
-<p>Todas las medidas del plano —de cada ambiente y de implantación— están tomadas <b>a eje de muro</b>: por el centro de la pared, no por la cara interior. Esa es la medida que se usa para replantear en obra.</p>
-<p>El ambiente <b>terminado</b> queda un poco más chico: entre 0,12 y 0,15 m menos por lado, según el espesor del muro que tenga a cada lado. Para el replanteo no hay que restar nada; solo tenerlo en cuenta si vas a poner un mueble justo de medida contra una pared.</p>
-<table>
-<tr><th>Tipo de muro</th><th>Material</th><th style="text-align:right">Espesor</th><th>Función</th></tr>
-<tr><td>Exterior</td><td>Ladrillo hueco</td><td class="n">0.12 m</td><td>Todos los cerramientos perimetrales de la casa. El garage ya tiene sus propios muros construidos (no entran en el cómputo de compra); la galería es semicubierta y abierta, sin paredes propias</td></tr>
-<tr><td>Con instalaciones</td><td>Ladrillo común</td><td class="n">0.15 m</td><td>Muros por donde corren cañerías: los propios de Lavadero, el que conecta Lavadero–Antebaño–Baño y el muro sur de la Cocina (bajo la ventana y la bacha) llevan agua/desagüe; el muro de Cocina contra Hab. 1 lleva la cañería de gas hasta el anafe (ver el capítulo Instalación de gas), no agua</td></tr>
-<tr><td>Interior</td><td>Ladrillo hueco</td><td class="n">0.12 m</td><td>Divisiones internas sin cañerías (entre habitaciones, hacia el pasillo, Hab. 1 contra Antebaño, Antebaño contra Lavadero, etc.)</td></tr>
-</table>
-<p><b>Por qué ladrillo hueco de 0,12 m</b> (tanto en muros exteriores como interiores): el ladrillo hueco no se fabrica en 15 cm — viene en 8, 12 y 18. Para esta casa el de 12 es el punto justo:</p>
-<ul style="margin:8px 0 0;padding-left:20px">
-<li><b>De 8:</b> queda corto para asentar los marcos de puertas y ventanas, y aísla poco.</li>
-<li><b>De 12:</b> toma bien los marcos, permite colgar estantes y espejos, y aísla del calor y del ruido de forma razonable — más barato que el de 18.</li>
-<li><b>De 18:</b> no aporta nada en una casa de una planta sin carga estructural importante; es plata de más.</li>
-</ul>
-<p><b>Sobre la mesada y las alacenas de Cocina:</b> la bacha y la mesada larga con sus alacenas van contra la pared sur (bajo la ventana), que es ladrillo común de 0,15 m por la cañería. El muro de Cocina contra Hab. 1 también es ladrillo común de 0,15 m — así que las alacenas no necesitan un tipo de muro aparte.</p>
-<p>Ese muro contra Hab. 1 es además por donde va la cañería de gas hasta el anafe. Y por el tramo de muro sur, junto a la ventana, sale la campana de la cocina hacia la Galería, con un tramo corto de conducto por el cielorraso.</p>
-<p style="font-size:12.5px;color:#8a877e">Esta clasificación de muros es una estimación de anteproyecto; el recorrido exacto de las cañerías lo define cada proyecto de instalación firmado.</p>
+<div class="warn"><b>Contención en las medianeras este y oeste.</b> Los vecinos, a nivel calle, quedan más altos: la medianera oeste retiene tierra ~0,55 m más alta que el pasillo oeste; la este, ~1,10 m más que el pasillo este. Trabajan como <b>muro de contención</b> — verificar que aguanten ese empuje y que tengan <b>drenaje detrás</b> (barbacanas o manto drenante). El relleno propio se contiene contra la propia línea, sin empujar la medianera.</div>
 
-<h3>Estructura y techo</h3>
-<p>Cubierta liviana de <b>chapa trapezoidal</b>, a un agua (una sola pendiente) sobre la casa, con la galería como faldón independiente. La <b>pendiente la dan los muros</b> (modelo tradicional): se levantan a distinta altura —pared norte más baja, pared sur más alta— y entre ellos cruza la tirantería que sostiene las correas y la chapa.</p>
-<table>
+<div class="warn"><b>A verificar con el nivel real de vereda:</b> la cota exacta de la calle y la pendiente del lote del fondo hacia la otra calle, para confirmar que el agua sale por gravedad.</div>
+
+<h3>Muros</h3>
+<p>Dos espesores en toda la obra: <b>ladrillo hueco de 0,12 m</b> (exterior e interior) y <b>ladrillo común de 0,15 m</b> (solo donde corren cañerías). Las medidas del plano son <b>a eje de muro</b>; el ambiente terminado queda 0,12–0,15 m más chico por lado.</p>
+<div class="porque"><b>Por qué hueco de 0,12:</b> el hueco no se fabrica en 15 cm (viene en 8, 12 y 18). El de 8 no asienta bien los marcos y aísla poco; el de 18 no aporta nada en una planta baja sin carga estructural importante. El de 12 toma los marcos, permite colgar estantes y espejos y aísla razonable.</div>
+
+<h4>Esquema de alturas</h4>
+<p>La pendiente del techo <b>la dan los muros</b> (modelo tradicional, sin cerchas): se levantan a distinta altura y entre ellos cruzan los tirantes.</p>
+<div class="tablewrap"><table>
+<tr><th>Elemento</th><th>Altura</th></tr>
+<tr class="tot"><td>Encadenado principal (perímetro)</td><td>Nivelado y corrido a <b>3,00 m</b> en las 4 paredes — el anillo que ata la casa</td></tr>
+<tr><td>Pared norte (alero)</td><td>Termina en el encadenado principal, 3,00 m</td></tr>
+<tr class="tot"><td>Pared sur (cumbrera)</td><td><b>3,85 m</b> al remate: encadenado principal a 3,00 + 0,85 m de remonte de ladrillo, coronado por la viga de remate</td></tr>
+<tr><td>Paredes este y oeste</td><td>Rectas hasta 3,00 m; por encima, remonte de ladrillo en diagonal de 0 (esquina norte) a 0,85 m (esquina sur), con viga de remate inclinada</td></tr>
+<tr class="tot"><td>Muros interiores</td><td><b>2,70 m</b> con viga de atado arriba — no llegan a la chapa</td></tr>
+<tr><td>Cielorraso</td><td>Plano a 2,60 m, colgado de la estructura del techo</td></tr>
+</table></div>
+<div class="porque"><b>Por qué así:</b> el remonte de ladrillo se arma con <b>hierros verticales</b> anclados al encadenado principal cada 1,00–1,50 m y la <b>viga de remate</b> que lo corona; sin esa traba, el empuje del techo y el viento lo rajan. Los muros interiores llegan 0,10 m por encima del cielorraso (2,60) para que la placa cierre contra algo firme; ese sobrante queda oculto en el entretecho. Como no tocan la chapa, los movimientos del techo no los rajan. Por encima de los 2,70 m el entretecho de un ambiente se comunica con el del otro: para aislar acústicamente un dormitorio hay que subir ese muro hasta la chapa.</div>
+
+<h4>Perímetro — por pared</h4>
+<p>Qué es cada pared del perímetro y qué hay que <b>dejar previsto</b> al levantarla.</p>
+<div class="tablewrap"><table>
+<tr><th>Pared</th><th>Material</th><th>Altura</th><th>Dejar previsto</th></tr>
+<tr><td><b>Norte</b><br>(frente, da al patio y al garage)</td><td>Hueco 0,12</td><td>3,00 m — encadenado principal, apoyo de tirantes</td><td>Vanos: P 1.00 (Living → patio) y V 1.50 de Living, Habitación 2 y Habitación 3 — alféizar 0,90. Sin cañerías.</td></tr>
+<tr><td><b>Sur</b><br>(da a la galería)</td><td>Hueco 0,12; el tramo de Cocina en común 0,15</td><td>3,00 m + 0,85 m de remonte → 3,85 m a la viga de remate</td><td>Vanos: P 2.00 corrediza (ingreso al Comedor), V 1.00 de Cocina y V 1.00 de Habitación 1 — alféizar 0,90, alineadas. Pase de la campana de Cocina (0,50 m de muro a un lado de esa ventana). En el remonte: anclaje + babeta para el techo futuro de la galería.</td></tr>
+<tr><td><b>Este</b><br>(retiro 4,50 m)</td><td>Hueco 0,12</td><td>Diagonal: 3,00 m en la esquina norte → 3,85 m en la sur. Encadenado inclinado + hierros verticales</td><td>Vanos: V 1.50 de Comedor y V 1.50 de Living — alféizar 0,90. Condensadora del A/C de Living-Comedor por fuera.</td></tr>
+<tr><td><b>Oeste</b><br>(retiro 1,50 m)</td><td>Hueco 0,12 en Habitación 3; común 0,15 en el tramo Baño–Antebaño–Lavadero</td><td>Ídem este: 3,00 → 3,85 en diagonal, encadenado inclinado + hierros verticales</td><td>Vanos: V 1.00 de Habitación 3 (alféizar 1,20), ventiluz VL 0.50 del Baño (1,40), V 0.70 del Lavadero (1,40). Entrada de agua de red. Apoyo del tanque (bastidor propio, no sobre la chapa). Condensadoras del A/C de Habitación 3 (y de Habitación 2, futura).</td></tr>
+</table></div>
+
+<h4>Muros divisorios</h4>
+<div class="tablewrap"><table>
+<tr><th>Muro</th><th>Material</th><th>Qué lleva</th></tr>
+<tr><td>Cocina ↔ Habitación 1</td><td>Común 0,15</td><td>Cañería de gas hasta el anafe (ver Instalación de gas). Coordinar la misma canaleta con los tomacorrientes de ese sector.</td></tr>
+<tr><td>Muro corrido Lavadero ↔ Antebaño ↔ Baño</td><td>Común 0,15</td><td>Bajadas de agua fría y caliente + desagües de los tres ambientes. Canaletas verticales. El tablero eléctrico se monta en este sector.</td></tr>
+<tr><td>Todos los demás (entre dormitorios, contra el pasillo, Hab. 1 ↔ Antebaño, Antebaño ↔ Lavadero)</td><td>Hueco 0,12</td><td>Sin cañerías. Suben a 2,70 m y no llegan a la chapa.</td></tr>
+</table></div>
+<p class="capnote">El muro sur de la Cocina, bajo la ventana, es común 0,15 aunque sea perimetral (lleva el agua y el desagüe de la bacha) — figura en la tabla del perímetro. La clasificación de muros es de anteproyecto; el recorrido exacto de las cañerías lo define cada proyecto de instalación firmado.</p>
+
+<h3>Techo y estructura</h3>
+<p>Cubierta liviana de <b>chapa trapezoidal</b>, a un agua, con pendiente al norte. Apoya sobre los muros (ver <i>Esquema de alturas</i>). La galería lleva su propio faldón, aparte.</p>
+<div class="tablewrap"><table>
 <tr><th>Dato</th><th>Valor</th></tr>
-<tr><td>Material de cubierta</td><td>Chapa trapezoidal (mejor evacuación con pendientes bajas y más fácil de limpiar que la sinusoidal)</td></tr>
-<tr><td>Estructura</td><td>Tirantes o vigas metálicas que cruzan de la pared norte a la sur (luz 7,70 m), apoyados en el encadenado principal del lado norte y en la viga de remate del lado sur — sección y separación a definir por el cálculo estructural</td></tr>
-<tr><td>Correas</td><td>Perfil C80 ("del 8"), perpendiculares a los tirantes, cada 1,10–1,40 m según ficha técnica de la chapa</td></tr>
-<tr><td>Aislación térmica/acústica</td><td>Manta de lana de vidrio o lana de roca con foil aluminizado, entre correas, cara reflectante hacia la chapa</td></tr>
-<tr><td>Cielorraso</td><td>Durlock <b>plano a 2,60 m</b> — placa estándar en general, placa verde (resistente a humedad) en Baño, Antebaño y Lavadero</td></tr>
-<tr><td>Cumbrera (punto alto)</td><td>Lado sur — sobre la galería / fondo del lote</td></tr>
-<tr><td>Alero (punto bajo, caída del agua)</td><td>Lado norte — sobre el garage / frente a la calle</td></tr>
-<tr class="tot"><td>Pendiente</td><td><b>11%</b> hacia el norte — resulta de la diferencia de altura entre los muros (0,85 m en 7,70 m). Rango aceptable 10–15%.</td></tr>
-<tr class="tot"><td>Altura libre interior (piso a cielorraso)</td><td><b>2,60 m</b></td></tr>
-<tr><td>Encadenado principal</td><td>Nivelado y corrido a una sola altura (<b>3,00 m</b>) en las 4 paredes — es el anillo que ata la casa</td></tr>
-<tr class="tot"><td>Pared norte (alero) — piso a encadenado</td><td><b>3,00 m</b> (termina en el encadenado principal)</td></tr>
-<tr class="tot"><td>Pared sur (cumbrera) — piso al remate superior</td><td><b>3,85 m</b> — encadenado principal a 3,00 + 0,85 m de ladrillo por encima, coronado por una viga de remate</td></tr>
-<tr><td>Paredes este y oeste</td><td>Rectas hasta 3,00 m (encadenado principal); por encima, un triángulo de ladrillo que sube en diagonal de 0 en la esquina norte a 0,85 m en la esquina sur, con viga de remate inclinada</td></tr>
-<tr><td>Muros interiores</td><td>Suben a 2,70 m con una viga de atado arriba y ahí terminan (no llegan a la chapa). Quedan 0,10 m por encima del cielorraso (2,60): ese sobrante y todo lo que va de 2,70 para arriba queda oculto en el entretecho, tapado por la placa</td></tr>
-</table>
+<tr><td>Material de cubierta</td><td>Chapa trapezoidal</td></tr>
+<tr><td>Estructura</td><td>Tirantes o vigas metálicas que cruzan de la pared norte a la sur (luz 7,70 m), apoyados en el encadenado principal (norte) y en la viga de remate (sur). Sección y separación: cálculo estructural firmado.</td></tr>
+<tr><td>Correas</td><td>Perfil C80 ("del 8"), perpendiculares a los tirantes, cada 1,10–1,40 m según ficha de la chapa</td></tr>
+<tr><td>Aislación</td><td>Manta de lana de vidrio o de roca con foil aluminizado, entre correas, cara reflectante hacia la chapa</td></tr>
+<tr><td>Cielorraso</td><td>Durlock plano a 2,60 m — placa estándar en general, placa verde en Baño, Antebaño y Lavadero</td></tr>
+<tr><td>Cumbrera / Alero</td><td>Cumbrera al sur (galería); alero al norte (garage / calle), por donde cae el agua</td></tr>
+<tr class="tot"><td>Pendiente</td><td><b>11%</b> hacia el norte (0,85 m en 7,70 m). Rango aceptable 10–15%.</td></tr>
+</table></div>
+<div class="porque"><b>Por qué chapa trapezoidal:</b> evacúa mejor con pendientes bajas y se limpia más fácil que la sinusoidal. <b>Altura del techo por fuera:</b> ≈ 0,10 m por encima del muro (correa + chapa) → chapa a ≈ 3,10 m en el alero y ≈ 3,95 m en la cumbrera. Entre el cielorraso (2,60) y la pared norte (3,00) quedan ≈ 0,40 m para la estructura: verificar con el calculista que la sección de los tirantes entre ahí; si no, el cielorraso puede terminar apenas más bajo del lado norte.</div>
 
-<h4>Altura del techo por fuera</h4>
-<p>Desde el piso terminado (±0,00), ≈ 0,10 m por encima del muro (correa + chapa):</p>
-<table>
-<tr><td>Chapa en el alero (norte / frente)</td><td class="n">≈ 3,10 m</td></tr>
-<tr><td>Chapa en la cumbrera (sur / galería)</td><td class="n">≈ 3,95 m</td></tr>
-</table>
-<div class="ok"><b>Para el albañil:</b>
-<ul style="margin:8px 0 0;padding-left:20px">
-<li><b>La pendiente la hacen los muros:</b> la pared norte queda más baja (3,00 m) y la sur más alta (3,85 m), medido desde el piso terminado.</li>
-<li><b>El encadenado principal va nivelado y corrido a una sola altura (3,00 m)</b> en las 4 paredes. Es el anillo que ata la casa; sobre él apoyan los tirantes del lado norte.</li>
-<li><b>La pendiente se levanta con ladrillo por encima de ese encadenado:</b> en la pared sur, un tramo de +0,85 m; en las paredes este y oeste, un triángulo que sube en diagonal de 0 (esquina norte) a 0,85 m (esquina sur). El ladrillo se escalona y se remata en diagonal.</li>
-<li><b>Ese remonte de ladrillo hay que armarlo:</b> hierros verticales anclados en el encadenado principal cada ~1,00–1,50 m, y un segundo encadenado / viga de remate que lo corona (nivelado sobre la pared sur, inclinado sobre este y oeste). Sobre ese remate apoyan los tirantes y las correas del lado sur. Sin traba arriba, el empuje del techo y el viento rajan el triángulo.</li>
-<li>Los muros interiores suben a <b>2,70 m</b> y ahí terminan (no llegan a la chapa). El cielorraso de Durlock va <b>plano a 2,60 m</b>, colgado del entramado que baja de los tirantes, y tapa los 0,10 m de muro que sobresalen. Entre el cielorraso y el techo queda el <b>entretecho</b> (estructura, aislación, pendiente): desde el ambiente no se ve, es una caja cerrada de 2,60 m. Como el muro no toca el techo, los movimientos del techo no lo rajan.</li>
-<li>Por encima del muro interior (2,70) hasta la chapa queda un paso abierto que <b>conecta el entretecho de un ambiente con el del otro</b>. Si se quiere aislar acústicamente un dormitorio, subir ese muro (o una barrera) hasta la chapa; si no, con 2,70 alcanza.</li>
-<li>Entre el cielorraso (2,60) y la pared norte (3,00) quedan ≈ 0,40 m para la estructura del techo. Verificar con el calculista que la sección de los tirantes entre en ese espacio; si no, el cielorraso puede terminar apenas más bajo del lado norte.</li>
-<li>En la <b>pared sur</b> dejar previsto el encadenado / anclaje para el futuro techo de la galería (ver abajo).</li>
-</ul>
-</div>
-
-<div class="warn"><b>El C80 no cruza solo los 7,70 m.</b> Sirve como correa (recibe la chapa), pero la luz entre la pared norte y la sur necesita <b>tirantes o vigas de mayor sección</b>, apoyados en el encadenado principal (norte) y en la viga de remate (sur). La sección, la separación y el tipo de perfil los define el <b>cálculo estructural firmado por el calculista</b>, según la zona eólica — este instructivo define el esquema, no ese cálculo.</div>
+<div class="warn"><b>El C80 no cruza solo los 7,70 m.</b> Sirve de correa (recibe la chapa), pero la luz entre la pared norte y la sur necesita <b>tirantes o vigas de mayor sección</b>. La sección, la separación y el tipo de perfil los define el <b>cálculo estructural firmado por el calculista</b>, según la zona eólica — este instructivo define el esquema, no ese cálculo.</div>
 
 <h4>Agua de lluvia del techo</h4>
 <p>Todo el techo de la casa vierte al <b>alero norte</b> (frente), con un único recorrido de canaleta y bajadas hasta el desagüe pluvial de la calle — separado del agua de superficie, que va al fondo. La galería resuelve su propia agua aparte.</p>
@@ -197,13 +220,7 @@ p{font-size:13px;line-height:1.65}
 </table>
 <div class="warn"><b>Verificar pendiente del caño enterrado del garage.</b> Al desaguar a nivel de piso y salir enterrado hasta la calle, ese tramo necesita fall suficiente (mínimo ~1%) para escurrir por gravedad — si el nivel de la calle no da esa pendiente desde el piso del garage, hace falta una cámara de bombeo en el punto de entrada al caño, igual que se previó para el tanque de agua. Es un tema para validar en obra con el nivel real de vereda.</div>
 
-<div class="ok"><b>Construcción en etapas: casa primero, galería después.</b> La cumbrera del techo está en la pared sur (donde va la galería), así que de ese lado no hay un alero largo que estorbe para construir por partes. La galería lleva su propio techo, aparte del de la casa (un faldón más bajo apoyado contra esa pared, inclinado hacia el sur), así que sumarla después no obliga a tocar lo ya construido.
-<br><br>Al levantar la casa conviene dejar previsto, en la pared sur:
-<ul style="margin:8px 0 0;padding-left:20px">
-<li>Anclajes o una viga de encadenado corrida, a la altura donde después va a apoyar el techo de la galería.</li>
-<li>Un remate o babeta impermeable en el borde de arriba de esa pared mientras no esté la galería — de ese lado el muro queda sin alero que lo proteja de la lluvia.</li>
-<li>Definida de antemano la altura a la que apoyará el techo de la galería contra la pared, para que el encuentro quede prolijo y sin filtraciones el día que se construya.</li>
-</ul></div>
+<div class="ok"><b>Construcción en etapas: casa primero, galería después.</b> La cumbrera está en la pared sur (donde va la galería), así que de ese lado no hay alero largo que estorbe. La galería lleva su propio techo (un faldón más bajo, apoyado contra esa pared, inclinado al sur), así que sumarla después no obliga a tocar lo construido. Al levantar la casa, en la pared sur dejar: <b>anclajes / viga de encadenado</b> a la altura donde apoyará el techo de la galería; una <b>babeta impermeable</b> en el borde de arriba mientras no esté la galería (ese lado queda sin alero); y <b>definida de antemano esa altura de apoyo</b>, para que el encuentro no filtre.</div>
 
 <h3>Aberturas</h3>
 
@@ -219,9 +236,8 @@ p{font-size:13px;line-height:1.65}
 </table>
 
 <h4>Criterio de ventanas</h4>
-<p>La superficie de ventana debe ser <b>≥ 1/6 a 1/8 de la superficie del piso</b> del ambiente (criterio habitual de código), con parte practicable ≥ la mitad de esa área para ventilación. No alcanza con cumplir el ancho: hay que revisar también la altura de cada abertura contra este cálculo.</p>
-<p><i>Ejemplo:</i> un ambiente de 9 m² necesita al menos 1,10–1,50 m² de ventana. Con 1,00 m de ancho, la altura debería rondar 1,10–1,50 m — no alcanza con una faja angosta.</p>
-<p><b>Altura desde el piso</b> hasta el borde inferior de cada ventana: 0,90 m en dormitorios, living/comedor y cocina (a la altura de la mesada); 1,20–1,40 m en baño y lavadero, por privacidad y para no interferir con artefactos o mobiliario contra esa pared.</p>
+<p><b>Altura del alféizar</b> (borde inferior, desde el piso): 0,90 m en dormitorios, Living-Comedor y Cocina; 1,20–1,40 m en Baño y Lavadero. La medida por ventana está en la <a href="plano-general.html">planilla de aberturas</a>.</p>
+<div class="porque"><b>Por qué:</b> la superficie de cada ventana debe ser <b>≥ 1/6 a 1/8 de la superficie del piso</b> del ambiente (criterio de código), con la parte que abre ≥ la mitad de esa área. No alcanza con el ancho: hay que revisar la altura contra ese cálculo (un ambiente de 9 m² pide 1,10–1,50 m² de ventana). El alféizar más alto en Baño y Lavadero es por privacidad y para no chocar con artefactos o muebles contra esa pared.</div>
 <div class="ok"><b>Ventanas de reúso — 3 unidades ya disponibles (2 de 1,00 x 1,00 m y 1 de 0,70 x 0,70 m).</b> Asignación definida para no comprar nada de más:
 <ul style="margin:8px 0 0;padding-left:20px">
 <li><b>Habitación 3, ventana oeste:</b> una de 1,00 x 1,00 — coincide exacto con el vano ya previsto, no requiere ningún ajuste.</li>
@@ -235,7 +251,8 @@ p{font-size:13px;line-height:1.65}
 <p class="capnote">Para el electricista. Todo lo eléctrico junto: criterio general, tablero, circuitos, luces y tomas por ambiente. Cada split lleva su propio circuito TUE, listado en Circuitos.</p>
 
 <h3>Criterio general y tablero</h3>
-<p>Vivienda <b>monofásica 220V</b>, sin gas para climatización (todo con splits). La carga especial más importante es la de los 2 equipos de aire acondicionado instalados (más el de Hab. 2 previsto) y el termotanque eléctrico del Lavadero. Criterio general según la norma eléctrica argentina (AEA 90364): circuitos IUG/TUG/TUE separados (ver Glosario), cada uno con su propia llave térmica, y un disyuntor diferencial general que corta ante una fuga de corriente.</p>
+<p>Vivienda <b>monofásica 220V</b>, sin gas para climatización (todo con splits). Circuitos <b>IUG/TUG/TUE separados</b> (ver Glosario), cada uno con su llave térmica, más un <b>disyuntor diferencial general</b> que corta ante una fuga de corriente. Criterio según la norma eléctrica argentina AEA 90364.</p>
+<div class="porque"><b>Por qué pesa el tablero:</b> las cargas especiales de esta casa son los 2 equipos de aire acondicionado instalados (más el de Hab. 2 previsto) y el termotanque eléctrico del Lavadero — de ahí que cada uno vaya en su propio circuito TUE.</div>
 <table>
 <tr><th>Ítem del tablero</th><th>Criterio</th></tr>
 <tr><td>Interruptor general</td><td>Termomagnético bipolar, capacidad según demanda total calculada por el electricista (orientativo: 3x36 o categoría similar para esta superficie y carga de A/C)</td></tr>
@@ -245,9 +262,14 @@ p{font-size:13px;line-height:1.65}
 </table>
 
 <h3>Alturas de llaves y tomas</h3>
-<p>Altura estándar de las llaves de luz: <b>1,10 m del piso</b>.</p>
-<p><b>Excepción — tiras LED sobre mesada</b> (por ahora solo la Cocina): su llave va más baja, a la altura del salpicadero (~1,05 m, al lado de la mesada). Se usa parado frente a la mesada, no al entrar al ambiente. Ver el detalle en la ficha de <a href="ambientes/cocina.html">Cocina</a>.</p>
-<p><b>Tomacorrientes:</b> los de uso general, a ~0,30 m del piso; los de sobre mesada (Cocina), a ~1,10 m, arriba del salpicadero. Alturas de práctica habitual — el electricista matriculado confirma.</p>
+<table>
+<tr><th>Elemento</th><th>Altura del piso</th></tr>
+<tr><td>Llaves de luz</td><td>1,10 m</td></tr>
+<tr><td>Llave de la tira LED sobre mesada (por ahora solo la Cocina)</td><td>~1,05 m, al lado de la mesada — se usa parado frente a ella, no al entrar. Ver ficha de <a href="ambientes/cocina.html">Cocina</a></td></tr>
+<tr><td>Tomacorrientes de uso general</td><td>~0,30 m</td></tr>
+<tr><td>Tomacorrientes sobre mesada (Cocina)</td><td>~1,10 m, arriba del salpicadero</td></tr>
+</table>
+<p class="capnote">Alturas de práctica habitual — el electricista matriculado confirma.</p>
 
 <h3>Circuitos</h3>
 <table>
