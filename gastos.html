@@ -99,6 +99,15 @@ details.acc .acc-body{padding:0 16px 16px}
 
 <div id="tab-resumen" class="tabpanel active">
 
+<div class="filtros">
+  <label>Etapa<select id="filtroEtapaRes">
+    <option value="">Todas</option>
+    <option value="Etapa 1">Etapa 1 — Frente + Garage</option>
+    <option value="Etapa 2">Etapa 2 — Tapia Este</option>
+    <option value="Etapa 3" selected>Etapa 3 — Casa</option>
+  </select></label>
+</div>
+
 <div class="cards" id="statCards"></div>
 
 <div class="sheet">
@@ -110,7 +119,7 @@ details.acc .acc-body{padding:0 16px 16px}
 <p class="pendiente">Los $ 193.000 de mano de obra en Etapa 3 son el adelanto que se le pagó a Silvio el 25/07, antes de que arrancara la Casa — se lo asigna ahí porque fue el trabajo siguiente después de la Tapia Este. A partir del 01/08, la mano de obra de la Casa se cuenta por pago semanal (todavía no hay detalle por tarea).</p>
 </div>
 
-<div class="sheet">
+<div class="sheet" id="sheetVsPresupuesto">
 <h2>Casa — comprado vs. presupuestado</h2>
 <p>Lo comprado y pagado para la Casa (Etapa 3) contra lo estimado en el <a href="computo.html">cómputo</a>, leído en vivo: si cambiás una cantidad o un precio allá, se actualiza acá. La obra está en curso, así que un porcentaje bajo no es ahorro todavía; lo que importa es lo que se pasa del 100 %.</p>
 <table>
@@ -126,6 +135,7 @@ details.acc .acc-body{padding:0 16px 16px}
 <div class="cards" id="mesCards" style="margin:10px 0 16px"></div>
 <div class="leyenda"><span><i style="background:var(--c-mat)"></i>Materiales</span><span><i style="background:var(--c-mo)"></i>Mano de obra</span></div>
 <div class="meschart" id="chartMes"></div>
+<div class="mesfoot"></div>
 <details class="acc"><summary>Ver como tabla</summary><div class="acc-body">
 <table><tr><th>Mes</th><th style="text-align:right">Materiales</th><th style="text-align:right">Mano de obra</th><th style="text-align:right">Total</th></tr>
 <tbody id="tbodyMes"></tbody></table>
@@ -569,30 +579,42 @@ function renderResumen() {
   const totLabor = rows.reduce((a, r) => a + r.labor, 0);
   const totAll = totMat + totLabor;
 
+  const sel = etapaRes();
+  const r = rows.find(x => x.etapa === sel) || {mat: totMat, labor: totLabor, total: totAll};
+  const suf = sel ? ' — ' + etapaLabel[sel].replace(/^Etapa \d — /, '').replace(' (en obra)', '') : '';
   document.getElementById('statCards').innerHTML = [
-    {lbl: 'Total materiales', val: totMat},
-    {lbl: 'Total mano de obra', val: totLabor},
-    {lbl: 'Total general', val: totAll}
+    {lbl: 'Materiales' + suf, val: r.mat},
+    {lbl: 'Mano de obra' + suf, val: r.labor},
+    {lbl: 'Total' + suf, val: r.total}
   ].map(c => '<div class="card"><div class="lbl">' + c.lbl + '</div><div class="val">' + money(c.val) + '</div></div>').join('');
 
+  // La tabla por etapa muestra siempre todas: es la comparación entre etapas. Se resalta la elegida.
   const cell = v => v ? money(v) : '—';
   document.getElementById('tblResumenBody').innerHTML = rows.map(r =>
-    '<tr><td>' + etapaLabel[r.etapa] + '</td><td class="n">' + cell(r.mat) + '</td><td class="n">' + cell(r.labor) + '</td><td class="n">' + cell(r.total) + '</td></tr>'
+    '<tr' + (r.etapa === sel ? ' style="background:#fdf1de"' : '') + '><td>' + etapaLabel[r.etapa] + '</td><td class="n">' + cell(r.mat) + '</td><td class="n">' + cell(r.labor) + '</td><td class="n">' + cell(r.total) + '</td></tr>'
   ).join('') + '<tr class="tot"><td>Total general</td><td class="n">' + money(totMat) + '</td><td class="n">' + money(totLabor) + '</td><td class="n">' + money(totAll) + '</td></tr>';
 
-  renderBars('chartDestino', groupSum(MATERIALES, m => m.destino, m => m.subtotal));
-  renderBars('chartOficio', groupSum(PAGOS, p => p.oficio, p => p.monto));
+  document.getElementById('sheetVsPresupuesto').style.display = (!sel || sel === 'Etapa 3') ? '' : 'none';
+  const enEtapa = x => !sel || x.etapa === sel;
+  renderBars('chartDestino', groupSum(MATERIALES.filter(enEtapa), m => m.destino, m => m.subtotal));
+  renderBars('chartOficio', groupSum(PAGOS.filter(enEtapa), p => p.oficio, p => p.monto));
 }
+
+function etapaRes() { return document.getElementById('filtroEtapaRes').value; }
 
 // --- Gasto por mes (flujo de caja: por fecha de compra o de pago) ---
 function renderMeses() {
   const MESES = ['ene', 'feb', 'mar', 'abr', 'may', 'jun', 'jul', 'ago', 'sep', 'oct', 'nov', 'dic'];
   const acc = {};
   const add = (fecha, k, v) => { const m = fecha.slice(0, 7); acc[m] = acc[m] || {mat: 0, mo: 0}; acc[m][k] += v; };
-  MATERIALES.forEach(m => add(m.fecha, 'mat', m.subtotal));
-  PAGOS.forEach(p => add(p.fecha, 'mo', p.monto));
+  const sel = etapaRes();
+  const enEtapa = x => !sel || x.etapa === sel;
+  MATERIALES.filter(enEtapa).forEach(m => add(m.fecha, 'mat', m.subtotal));
+  PAGOS.filter(enEtapa).forEach(p => add(p.fecha, 'mo', p.monto));
   // Completar meses sin movimientos para que la escala de tiempo sea continua
   const claves = Object.keys(acc).sort();
+  const ultimoGlobal = _fechas[_fechas.length - 1].slice(0, 7);
+  const hayEnCurso = claves[claves.length - 1] === ultimoGlobal;
   const meses = [];
   for (let [y, mo] = claves[0].split('-').map(Number); ; mo++) {
     if (mo > 12) { mo = 1; y++; }
@@ -601,29 +623,32 @@ function renderMeses() {
     if (k === claves[claves.length - 1]) break;
   }
   meses.forEach(m => m.tot = m.mat + m.mo);
-  // El mes en curso (el del último movimiento) queda afuera del promedio porque está incompleto
-  const cerrados = meses.slice(0, -1).slice(-3);
-  const prom = cerrados.reduce((a, m) => a + m.tot, 0) / cerrados.length;
-  const actual = meses[meses.length - 1];
+  // El mes en curso (el del último movimiento de toda la obra) queda afuera del promedio porque está incompleto.
+  // En una etapa ya terminada no hay mes en curso: todos sus meses cuentan como cerrados.
+  const cerrados = (hayEnCurso ? meses.slice(0, -1) : meses).slice(-3);
+  const prom = cerrados.length ? cerrados.reduce((a, m) => a + m.tot, 0) / cerrados.length : NaN;
+  const ultimo = meses[meses.length - 1];
+  const esEnCurso = i => hayEnCurso && i === meses.length - 1;
 
   const kM = v => '$ ' + (v / 1e6).toLocaleString('es-AR', {maximumFractionDigits: 1}) + ' M';
   document.getElementById('mesCards').innerHTML = [
-    {lbl: 'Promedio mensual (' + cerrados.map(m => m.label.split(' ')[0]).join(', ') + ')', val: money(prom)},
-    {lbl: 'Mes en curso (' + actual.label + ', hasta ' + fmtFecha(_fechas[_fechas.length - 1]).slice(0, 5) + ')', val: money(actual.tot)}
+    {lbl: 'Promedio mensual (' + (cerrados.length ? cerrados.map(m => m.label.split(' ')[0]).join(', ') : 'sin meses cerrados') + ')', val: isNaN(prom) ? '—' : money(prom)},
+    hayEnCurso
+      ? {lbl: 'Mes en curso (' + ultimo.label + ', hasta ' + fmtFecha(_fechas[_fechas.length - 1]).slice(0, 5) + ')', val: money(ultimo.tot)}
+      : {lbl: 'Último mes con gastos (' + ultimo.label + ')', val: money(ultimo.tot)}
   ].map(c => '<div class="card"><div class="lbl">' + c.lbl + '</div><div class="val">' + c.val + '</div></div>').join('');
 
   const max = Math.max(...meses.map(m => m.tot));
   const h = v => (v / max * 180) + 'px';
   document.getElementById('chartMes').innerHTML = meses.map((m, i) =>
-    '<div class="mescol' + (i === meses.length - 1 ? ' encurso' : '') + '">' +
-    '<div class="mestip"><b>' + m.label + (i === meses.length - 1 ? ' (en curso)' : '') + '</b><br>Materiales: ' + money(m.mat) +
+    '<div class="mescol' + (esEnCurso(i) ? ' encurso' : '') + '">' +
+    '<div class="mestip"><b>' + m.label + (esEnCurso(i) ? ' (en curso)' : '') + '</b><br>Materiales: ' + money(m.mat) +
     '<br>Mano de obra: ' + money(m.mo) + '<br>Total: ' + money(m.tot) + '</div>' +
     '<div class="tot">' + (m.tot ? kM(m.tot) : '') + '</div>' +
     (m.mo ? '<div class="seg mo" style="height:' + h(m.mo) + '"></div>' : '') +
     (m.mat ? '<div class="seg mat" style="height:' + h(m.mat) + '"></div>' : '') +
     '<div class="lbl">' + m.label + '</div></div>'
   ).join('');
-  document.getElementById('chartMes').insertAdjacentHTML('afterend', '<div class="mesfoot"></div>');
 
   document.getElementById('tbodyMes').innerHTML = meses.map(m =>
     '<tr><td>' + m.label + '</td><td class="n">' + money(m.mat) + '</td><td class="n">' + money(m.mo) + '</td><td class="n">' + money(m.tot) + '</td></tr>'
@@ -710,6 +735,11 @@ function renderTareas() {
   document.getElementById('totTareaEtapa1').textContent = money(totEtapa1);
 }
 renderTareas();
+// Etapa elegida en el Resumen: arranca en la Casa y se recuerda en este navegador
+try {
+  const g = localStorage.getItem('planocasa:gastos:etapaRes');
+  if (g !== null) document.getElementById('filtroEtapaRes').value = g;
+} catch (e) {}
 renderResumen();
 
 // --- Mano de obra ---
@@ -803,6 +833,11 @@ renderMateriales();
 const _fechas = [...PAGOS.map(p => p.fecha), ...MATERIALES.map(m => m.fecha)].sort();
 document.getElementById('ultimoMov').textContent = fmtFecha(_fechas[_fechas.length - 1]);
 renderMeses();
+document.getElementById('filtroEtapaRes').addEventListener('change', function () {
+  try { localStorage.setItem('planocasa:gastos:etapaRes', this.value); } catch (e) {}
+  renderResumen();
+  renderMeses();
+});
 
 // --- Imprimir, exportar CSV y recordar filtros/pestaña (este navegador) ---
 (function extras() {
