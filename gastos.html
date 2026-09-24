@@ -51,6 +51,22 @@ th[data-key] .arrow{color:#a6631b;font-size:11px}
 .barrow .label{width:190px;flex-shrink:0;color:#55534c;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .barrow .track{flex:1;background:#f0eee6;border-radius:4px;height:16px;overflow:hidden}
 .barrow .fill{background:#a6631b;height:100%;border-radius:4px}
+:root{--c-mat:#a6631b;--c-mo:#3d6f8e}
+.leyenda{display:flex;gap:16px;font-size:12.5px;color:#55534c;margin-bottom:8px}
+.leyenda i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:6px;vertical-align:-1px}
+.meschart{display:flex;align-items:flex-end;gap:10px;height:230px;border-bottom:1px solid #d8d5cb;padding-top:22px;position:relative}
+.mescol{flex:1;display:flex;flex-direction:column;justify-content:flex-end;height:100%;position:relative;cursor:default;min-width:0}
+.mescol .seg{width:100%;max-width:56px;margin:0 auto}
+.mescol .seg.mo{background:var(--c-mo);border-radius:4px 4px 0 0;margin-bottom:2px}
+.mescol .seg.mat{background:var(--c-mat)}
+.mescol .seg.mat:only-child,.mescol .seg.mat:first-child{border-radius:4px 4px 0 0}
+.mescol .tot{font-size:11px;color:#55534c;text-align:center;white-space:nowrap;margin-bottom:3px;font-variant-numeric:tabular-nums}
+.mescol .lbl{position:absolute;bottom:-20px;left:0;right:0;text-align:center;font-size:11.5px;color:#6a6a63}
+.mescol.encurso .seg{opacity:.55}
+.mescol:hover .seg{filter:brightness(1.1)}
+.mestip{position:absolute;bottom:100%;left:50%;transform:translateX(-50%);background:#2e2e2b;color:#fff;font-size:12px;padding:7px 10px;border-radius:6px;white-space:nowrap;display:none;z-index:5;line-height:1.5;pointer-events:none}
+.mescol:hover .mestip{display:block}
+.mesfoot{height:24px}
 .barrow .fill.over{background:#b8432f}
 td.over{color:#b8432f;font-weight:700}
 .barrow .val{width:100px;text-align:right;font-variant-numeric:tabular-nums;flex-shrink:0}
@@ -102,6 +118,18 @@ details.acc .acc-body{padding:0 16px 16px}
 <tbody id="tbodyVsPresupuesto"><tr><td colspan="4" class="pendiente">Cargando el cómputo…</td></tr></tbody>
 </table>
 <p class="pendiente" id="sinEstimacion"></p>
+</div>
+
+<div class="sheet">
+<h2>Gasto por mes</h2>
+<p>Lo que salió de caja cada mes: compras y pagos por fecha. La mano de obra de Silvio va por pago semanal, no por tarea, así que la suma no coincide exacto con el Resumen por etapa.</p>
+<div class="cards" id="mesCards" style="margin:10px 0 16px"></div>
+<div class="leyenda"><span><i style="background:var(--c-mat)"></i>Materiales</span><span><i style="background:var(--c-mo)"></i>Mano de obra</span></div>
+<div class="meschart" id="chartMes"></div>
+<details class="acc"><summary>Ver como tabla</summary><div class="acc-body">
+<table><tr><th>Mes</th><th style="text-align:right">Materiales</th><th style="text-align:right">Mano de obra</th><th style="text-align:right">Total</th></tr>
+<tbody id="tbodyMes"></tbody></table>
+</div></details>
 </div>
 
 <div class="sheet">
@@ -556,6 +584,52 @@ function renderResumen() {
   renderBars('chartOficio', groupSum(PAGOS, p => p.oficio, p => p.monto));
 }
 
+// --- Gasto por mes (flujo de caja: por fecha de compra o de pago) ---
+function renderMeses() {
+  const MESES = ['ene', 'feb', 'mar', 'abr', 'may', 'jun', 'jul', 'ago', 'sep', 'oct', 'nov', 'dic'];
+  const acc = {};
+  const add = (fecha, k, v) => { const m = fecha.slice(0, 7); acc[m] = acc[m] || {mat: 0, mo: 0}; acc[m][k] += v; };
+  MATERIALES.forEach(m => add(m.fecha, 'mat', m.subtotal));
+  PAGOS.forEach(p => add(p.fecha, 'mo', p.monto));
+  // Completar meses sin movimientos para que la escala de tiempo sea continua
+  const claves = Object.keys(acc).sort();
+  const meses = [];
+  for (let [y, mo] = claves[0].split('-').map(Number); ; mo++) {
+    if (mo > 12) { mo = 1; y++; }
+    const k = y + '-' + String(mo).padStart(2, '0');
+    meses.push({k, label: MESES[mo - 1] + ' ' + String(y).slice(2), mat: (acc[k] || {}).mat || 0, mo: (acc[k] || {}).mo || 0});
+    if (k === claves[claves.length - 1]) break;
+  }
+  meses.forEach(m => m.tot = m.mat + m.mo);
+  // El mes en curso (el del último movimiento) queda afuera del promedio porque está incompleto
+  const cerrados = meses.slice(0, -1).slice(-3);
+  const prom = cerrados.reduce((a, m) => a + m.tot, 0) / cerrados.length;
+  const actual = meses[meses.length - 1];
+
+  const kM = v => '$ ' + (v / 1e6).toLocaleString('es-AR', {maximumFractionDigits: 1}) + ' M';
+  document.getElementById('mesCards').innerHTML = [
+    {lbl: 'Promedio mensual (' + cerrados.map(m => m.label.split(' ')[0]).join(', ') + ')', val: money(prom)},
+    {lbl: 'Mes en curso (' + actual.label + ', hasta ' + fmtFecha(_fechas[_fechas.length - 1]).slice(0, 5) + ')', val: money(actual.tot)}
+  ].map(c => '<div class="card"><div class="lbl">' + c.lbl + '</div><div class="val">' + c.val + '</div></div>').join('');
+
+  const max = Math.max(...meses.map(m => m.tot));
+  const h = v => (v / max * 180) + 'px';
+  document.getElementById('chartMes').innerHTML = meses.map((m, i) =>
+    '<div class="mescol' + (i === meses.length - 1 ? ' encurso' : '') + '">' +
+    '<div class="mestip"><b>' + m.label + (i === meses.length - 1 ? ' (en curso)' : '') + '</b><br>Materiales: ' + money(m.mat) +
+    '<br>Mano de obra: ' + money(m.mo) + '<br>Total: ' + money(m.tot) + '</div>' +
+    '<div class="tot">' + (m.tot ? kM(m.tot) : '') + '</div>' +
+    (m.mo ? '<div class="seg mo" style="height:' + h(m.mo) + '"></div>' : '') +
+    (m.mat ? '<div class="seg mat" style="height:' + h(m.mat) + '"></div>' : '') +
+    '<div class="lbl">' + m.label + '</div></div>'
+  ).join('');
+  document.getElementById('chartMes').insertAdjacentHTML('afterend', '<div class="mesfoot"></div>');
+
+  document.getElementById('tbodyMes').innerHTML = meses.map(m =>
+    '<tr><td>' + m.label + '</td><td class="n">' + money(m.mat) + '</td><td class="n">' + money(m.mo) + '</td><td class="n">' + money(m.tot) + '</td></tr>'
+  ).join('');
+}
+
 // --- Casa: comprado vs. presupuestado (estimaciones leídas en vivo de computo.html) ---
 function sumCasa(filtro, campo) {
   return MATERIALES.filter(m => m.etapa === 'Etapa 3' && filtro(m))
@@ -728,6 +802,7 @@ renderMateriales();
 // Último movimiento: fecha más reciente entre pagos y compras (evita mantener la fecha a mano)
 const _fechas = [...PAGOS.map(p => p.fecha), ...MATERIALES.map(m => m.fecha)].sort();
 document.getElementById('ultimoMov').textContent = fmtFecha(_fechas[_fechas.length - 1]);
+renderMeses();
 
 // --- Imprimir, exportar CSV y recordar filtros/pestaña (este navegador) ---
 (function extras() {
