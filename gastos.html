@@ -89,7 +89,7 @@ details.acc .acc-body{padding:0 16px 16px}
 <tr><th>Etapa</th><th style="text-align:right">Materiales</th><th style="text-align:right">Mano de obra</th><th style="text-align:right">Total</th></tr>
 <tbody id="tblResumenBody"></tbody>
 </table>
-<p class="pendiente">Los $ 193.000 de mano de obra en Etapa 3 son el adelanto que se le pagó a Silvio el 25/07, antes de que arrancara la Casa — se lo asigna ahí porque fue el trabajo siguiente después de la Tapia Este.</p>
+<p class="pendiente">Los $ 193.000 de mano de obra en Etapa 3 son el adelanto que se le pagó a Silvio el 25/07, antes de que arrancara la Casa — se lo asigna ahí porque fue el trabajo siguiente después de la Tapia Este. A partir del 01/08, la mano de obra de la Casa se cuenta por pago semanal (todavía no hay detalle por tarea).</p>
 </div>
 
 <div class="sheet">
@@ -257,7 +257,17 @@ const PAGOS = [
   {fecha:'2026-07-11', etapa:'Etapa 1', oficio:'Albañilería',  contratista:'Silvio',  concepto:'Pago semanal', monto:500000},
   {fecha:'2026-07-18', etapa:'Etapa 2', oficio:'Albañilería',  contratista:'Silvio',  concepto:'Pago semanal (Tapia Este)', monto:500000},
   {fecha:'2026-07-25', etapa:'Etapa 2', oficio:'Albañilería',  contratista:'Silvio',  concepto:'Pago semanal, cierre Tapia Este (incluye adelanto de $ 193.000 para la semana siguiente, sin tarea asignada)', monto:500000},
-  {fecha:'2026-07-01', etapa:'Etapa 1', oficio:'Electricidad', contratista:'Daniel',  concepto:'Instalación eléctrica Garage (6 focos LED tipo barra)', monto:200000}
+  {fecha:'2026-07-01', etapa:'Etapa 1', oficio:'Electricidad', contratista:'Daniel',  concepto:'Instalación eléctrica Garage (6 focos LED tipo barra)', monto:200000},
+  {fecha:'2026-08-01', etapa:'Etapa 3', oficio:'Albañilería',  contratista:'Silvio',  concepto:'Pago semanal (Casa)', monto:500000},
+  {fecha:'2026-08-08', etapa:'Etapa 3', oficio:'Albañilería',  contratista:'Silvio',  concepto:'Pago semanal (Casa)', monto:700000},
+  {fecha:'2026-08-15', etapa:'Etapa 3', oficio:'Albañilería',  contratista:'Silvio',  concepto:'Pago semanal (Casa)', monto:500000},
+  {fecha:'2026-08-22', etapa:'Etapa 3', oficio:'Albañilería',  contratista:'Silvio',  concepto:'Pago semanal (Casa)', monto:500000},
+  {fecha:'2026-08-28', etapa:'Etapa 3', oficio:'Albañilería',  contratista:'Silvio',  concepto:'Pago semanal (Casa)', monto:500000},
+  {fecha:'2026-09-05', etapa:'Etapa 3', oficio:'Albañilería',  contratista:'Silvio',  concepto:'Pago semanal (Casa)', monto:500000},
+  {fecha:'2026-09-11', etapa:'Etapa 3', oficio:'Albañilería',  contratista:'Cristian', concepto:'Meter ripio base (4 días)', monto:320000},
+  {fecha:'2026-09-14', etapa:'Etapa 3', oficio:'Albañilería',  contratista:'Silvio',  concepto:'Pago semanal (Casa)', monto:500000},
+  {fecha:'2026-09-19', etapa:'Etapa 3', oficio:'Albañilería',  contratista:'Silvio',  concepto:'Pago semanal (Casa)', monto:500000},
+  {fecha:'2026-09-19', etapa:'Etapa 3', oficio:'Albañilería',  contratista:'Cristian', concepto:'Meter ripio base', monto:200000}
 ];
 
 const MATERIALES = [
@@ -346,7 +356,34 @@ const MATERIALES = [
   {fecha:'2026-07-30', etapa:'Etapa 3', comp:'0019-00046759', prov:'El Castor', destino:'Casa', item:'Alambre del 16', precio:'$ 3.508,79', desc:'21,00 %', cant:'6 kg', subtotal:21053},
   {fecha:'2026-07-30', etapa:'Etapa 3', comp:'0019-00046759', prov:'El Castor', destino:'Casa', item:'Clavo p/parís 2.5"', precio:'$ 3.306,15', desc:'21,00 %', cant:'1 kg', subtotal:3306},
   {fecha:'2026-07-30', etapa:'Etapa 3', comp:'0019-00046759', prov:'El Castor', destino:'Casa', item:'Clavo p/parís 2"', precio:'$ 3.306,15', desc:'21,00 %', cant:'1 kg', subtotal:3306},
-  {fecha:'2026-07-30', etapa:'Etapa 3', comp:'0019-00046759', prov:'El Castor', destino:'Casa', item:'Flete', precio:'$ 2.338,46', desc:'20,00 %', cant:'3', subtotal:7015}
+  {fecha:'2026-07-30', etapa:'Etapa 3', comp:'0019-00046759', prov:'El Castor', destino:'Casa', item:'Flete', precio:'$ 2.338,46', desc:'20,00 %', cant:'3', subtotal:7015},
+  {fecha:'2026-07-31', etapa:'Etapa 3', comp:'sin comprobante', prov:'Efectivo', destino:'Casa', item:'Ladrillos', precio:'$ 225,00', desc:'—', cant:'2.000', subtotal:450000},
+  {fecha:'2026-08-06', etapa:'Etapa 3', comp:'sin comprobante', prov:'Efectivo', destino:'Casa', item:'Piedras', precio:'—', desc:'—', cant:'—', subtotal:35000},
+  {fecha:'2026-08-06', etapa:'Etapa 3', comp:'sin comprobante', prov:'Efectivo', destino:'Casa', item:'Ripio', precio:'—', desc:'—', cant:'—', subtotal:150000},
+  {fecha:'2026-08-06', etapa:'Etapa 3', comp:'sin comprobante', prov:'Efectivo', destino:'Casa', item:'Plástico', precio:'—', desc:'—', cant:'—', subtotal:35000},
+  {fecha:'2026-08-07', etapa:'Etapa 3', comp:'sin comprobante', prov:'Efectivo', destino:'Casa', item:'Plástico', precio:'—', desc:'—', cant:'20 m', subtotal:52870},
+  {fecha:'2026-08-27', etapa:'Etapa 3', comp:'sin comprobante', prov:'Efectivo', destino:'Casa', item:'Pintura asfáltica + Ceresita', precio:'—', desc:'—', cant:'—', subtotal:76000},
+  {fecha:'2026-08-27', etapa:'Etapa 3', comp:'sin comprobante', prov:'Efectivo', destino:'Casa', item:'Arena', precio:'—', desc:'—', cant:'—', subtotal:150000},
+  {fecha:'2026-08-27', etapa:'Etapa 3', comp:'sin comprobante', prov:'Efectivo', destino:'Casa', item:'Pintura asfáltica', precio:'—', desc:'—', cant:'—', subtotal:23000},
+  {fecha:'2026-09-05', etapa:'Etapa 3', comp:'sin comprobante', prov:'Efectivo', destino:'Casa', item:'Pintura asfáltica', precio:'—', desc:'—', cant:'—', subtotal:23000},
+  {fecha:'2026-09-07', etapa:'Etapa 3', comp:'sin comprobante', prov:'Efectivo', destino:'Casa', item:'Ripio base', precio:'$ 150.000,00', desc:'—', cant:'1 camión', subtotal:150000},
+  {fecha:'2026-09-07', etapa:'Etapa 3', comp:'sin comprobante', prov:'Efectivo', destino:'Casa', item:'Plasticor', precio:'$ 6.575,00', desc:'—', cant:'40', subtotal:263000},
+  {fecha:'2026-09-07', etapa:'Etapa 3', comp:'sin comprobante', prov:'Efectivo', destino:'Casa', item:'Plástico', precio:'—', desc:'—', cant:'20 m', subtotal:52870},
+  {fecha:'2026-09-07', etapa:'Etapa 3', comp:'sin comprobante', prov:'Efectivo', destino:'Casa', item:'Pintura asfáltica', precio:'—', desc:'—', cant:'—', subtotal:18500},
+  {fecha:'2026-09-07', etapa:'Etapa 3', comp:'sin comprobante', prov:'Efectivo', destino:'Casa', item:'Ceresita', precio:'—', desc:'—', cant:'—', subtotal:7500},
+  {fecha:'2026-09-07', etapa:'Etapa 3', comp:'sin comprobante', prov:'Efectivo', destino:'Casa', item:'Guantes', precio:'—', desc:'—', cant:'—', subtotal:1900},
+  {fecha:'2026-09-08', etapa:'Etapa 3', comp:'sin comprobante', prov:'Efectivo', destino:'Casa', item:'Ripio base', precio:'$ 150.000,00', desc:'—', cant:'1 camión', subtotal:150000},
+  {fecha:'2026-09-09', etapa:'Etapa 3', comp:'sin comprobante', prov:'Efectivo', destino:'Casa', item:'Ripio base', precio:'$ 150.000,00', desc:'—', cant:'1 camión', subtotal:150000},
+  {fecha:'2026-09-09', etapa:'Etapa 3', comp:'sin comprobante', prov:'Efectivo', destino:'Casa', item:'Pintura', precio:'—', desc:'—', cant:'—', subtotal:18500},
+  {fecha:'2026-09-09', etapa:'Etapa 3', comp:'sin comprobante', prov:'Efectivo', destino:'Casa', item:'Ladrillos', precio:'$ 230,00', desc:'—', cant:'2.000', subtotal:460000},
+  {fecha:'2026-09-10', etapa:'Etapa 3', comp:'sin comprobante', prov:'Efectivo', destino:'Casa', item:'Ripio base', precio:'$ 150.000,00', desc:'—', cant:'2 camiones', subtotal:300000},
+  {fecha:'2026-09-17', etapa:'Etapa 3', comp:'sin comprobante', prov:'Efectivo', destino:'Casa', item:'Ripio base', precio:'$ 150.000,00', desc:'—', cant:'1 camión', subtotal:150000},
+  {fecha:'2026-09-17', etapa:'Etapa 3', comp:'sin comprobante', prov:'Efectivo', destino:'Casa', item:'Plástico', precio:'—', desc:'—', cant:'—', subtotal:40000},
+  {fecha:'2026-09-17', etapa:'Etapa 3', comp:'sin comprobante', prov:'Efectivo', destino:'Casa', item:'Ceresita', precio:'—', desc:'—', cant:'—', subtotal:10000},
+  {fecha:'2026-09-18', etapa:'Etapa 3', comp:'sin comprobante', prov:'Efectivo', destino:'Casa', item:'Ripio base', precio:'$ 150.000,00', desc:'—', cant:'2 camiones', subtotal:300000},
+  {fecha:'2026-09-22', etapa:'Etapa 3', comp:'sin comprobante', prov:'Efectivo', destino:'Casa', item:'Ripio para contrapiso', precio:'—', desc:'—', cant:'—', subtotal:150000},
+  {fecha:'2026-09-22', etapa:'Etapa 3', comp:'sin comprobante', prov:'Efectivo', destino:'Casa', item:'Cemento', precio:'$ 7.280,00', desc:'—', cant:'25', subtotal:182000},
+  {fecha:'2026-09-23', etapa:'Etapa 3', comp:'sin comprobante', prov:'Efectivo', destino:'Casa', item:'Cemento', precio:'$ 7.280,00', desc:'—', cant:'25', subtotal:182000}
 ];
 
 // Expuestos para que computo.html los lea en vivo por iframe (cruce comprado vs. estimado).
@@ -479,9 +516,11 @@ function renderResumen() {
   const SILVIO_COSTO_TAREA = {};
   TAREAS.forEach(t => { SILVIO_COSTO_TAREA[t.etapa] = (SILVIO_COSTO_TAREA[t.etapa] || 0) + t.monto; });
   SILVIO_COSTO_TAREA[ADELANTO_SIN_ASIGNAR.etapa] = (SILVIO_COSTO_TAREA[ADELANTO_SIN_ASIGNAR.etapa] || 0) + ADELANTO_SIN_ASIGNAR.monto;
+  // En etapas sin detalle de tareas (p. ej. la Casa, en curso) se usan sus pagos por fecha.
+  const conTareas = new Set(TAREAS.map(t => t.etapa));
   const rows = etapas.map(e => {
     const mat = MATERIALES.filter(m => m.etapa === e).reduce((a, m) => a + m.subtotal, 0);
-    const laborResto = PAGOS.filter(p => p.etapa === e && p.contratista !== 'Silvio').reduce((a, p) => a + p.monto, 0);
+    const laborResto = PAGOS.filter(p => p.etapa === e && (p.contratista !== 'Silvio' || !conTareas.has(e))).reduce((a, p) => a + p.monto, 0);
     const labor = laborResto + (SILVIO_COSTO_TAREA[e] || 0);
     return {etapa: e, mat, labor, total: mat + labor};
   });
