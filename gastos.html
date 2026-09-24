@@ -51,6 +51,8 @@ th[data-key] .arrow{color:#a6631b;font-size:11px}
 .barrow .label{width:190px;flex-shrink:0;color:#55534c;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .barrow .track{flex:1;background:#f0eee6;border-radius:4px;height:16px;overflow:hidden}
 .barrow .fill{background:#a6631b;height:100%;border-radius:4px}
+.barrow .fill.over{background:#b8432f}
+td.over{color:#b8432f;font-weight:700}
 .barrow .val{width:100px;text-align:right;font-variant-numeric:tabular-nums;flex-shrink:0}
 details.acc{border:1px solid #e6e3da;border-radius:8px;margin-top:14px}
 details.acc summary{cursor:pointer;padding:12px 16px;font-weight:600;font-size:13.5px;color:#3a3a36;list-style:none}
@@ -90,6 +92,16 @@ details.acc .acc-body{padding:0 16px 16px}
 <tbody id="tblResumenBody"></tbody>
 </table>
 <p class="pendiente">Los $ 193.000 de mano de obra en Etapa 3 son el adelanto que se le pagó a Silvio el 25/07, antes de que arrancara la Casa — se lo asigna ahí porque fue el trabajo siguiente después de la Tapia Este. A partir del 01/08, la mano de obra de la Casa se cuenta por pago semanal (todavía no hay detalle por tarea).</p>
+</div>
+
+<div class="sheet">
+<h2>Casa — comprado vs. presupuestado</h2>
+<p>Lo comprado y pagado para la Casa (Etapa 3) contra lo estimado en el <a href="computo.html">cómputo</a>, leído en vivo: si cambiás una cantidad o un precio allá, se actualiza acá. La obra está en curso, así que un porcentaje bajo no es ahorro todavía; lo que importa es lo que se pasa del 100 %.</p>
+<table>
+<tr><th>Rubro</th><th style="text-align:right">Presupuestado</th><th style="text-align:right">Comprado / pagado</th><th style="width:34%">Usado</th></tr>
+<tbody id="tbodyVsPresupuesto"><tr><td colspan="4" class="pendiente">Cargando el cómputo…</td></tr></tbody>
+</table>
+<p class="pendiente" id="sinEstimacion"></p>
 </div>
 
 <div class="sheet">
@@ -228,7 +240,7 @@ Registro manual de compras y pagos — se actualiza a medida que se van cargando
 <p class="pendiente">La fila de "Clavos" (2 kg, $ 9.041) es la diferencia entre el total real pagado el 08/04 por hierro 10mm + flete ($ 75.700) y lo que figura impreso en la boleta ($ 66.659) — cubre 2 kg de clavos que el remito anota a mano pero no están facturados aparte. El remito 0000-00039086 es la entrega del cemento del 08/04 (0019-00036118), no una compra aparte.</p>
 <p class="pendiente"><b>Proveedores:</b> El Castor está confirmado por el sello del comprobante 0019-00033460. Ferretería y Pinturería Santiago queda en Av. Rivadavia y Pje. Arturo Illia, Alderetes.</p>
 <p class="pendiente"><b>Sobre el destino "Tapia Este":</b> las compras del 25/06 en adelante se asumieron como compradas por adelantado para esa tarea (arrancó el 13/07) — es una inferencia por fecha, no un dato confirmado en la boleta.</p>
-<p class="pendiente"><b>Sobre "Casa" (Etapa 3):</b> valores de la boleta final del 30/07 (Nº 0019-00046759), con el descuento por contado ya aplicado — la Plasticor bajó de 60 a 50 bolsas respecto del presupuesto inicial del mismo día.</p>
+<p class="pendiente"><b>Sobre la Casa (Etapa 3):</b> las compras se separan por tarea (cimientos y estructura, mampostería, capa aisladora, relleno y contrapiso). El plástico va en relleno y contrapiso porque se usó bajo el contrapiso y en las paredes interiores hasta el nivel del relleno. Los valores de la boleta final del 30/07 (Nº 0019-00046759), con el descuento por contado ya aplicado — la Plasticor bajó de 60 a 50 bolsas respecto del presupuesto inicial del mismo día.</p>
 </div>
 </div>
 
@@ -350,41 +362,41 @@ const MATERIALES = [
   {fecha:'2026-06-25', etapa:'Etapa 2', comp:'sin comprobante', prov:'Efectivo', destino:'Tapia Este', item:'Arena', precio:'—', desc:'—', cant:'—', subtotal:30000},
   {fecha:'2026-07-01', etapa:'Etapa 1', comp:'sin comprobante', prov:'Efectivo', destino:'Electricidad — Garage', item:'Focos LED tipo barra', precio:'$ 33.333,33', desc:'—', cant:'6', subtotal:200000},
   {fecha:'2026-07-01', etapa:'Etapa 1', comp:'sin comprobante', prov:'Efectivo', destino:'Electricidad — Garage', item:'Otros materiales eléctricos', precio:'—', desc:'—', cant:'—', subtotal:160000},
-  {fecha:'2026-07-30', etapa:'Etapa 3', comp:'0019-00046759', prov:'El Castor', destino:'Casa', item:'Cemento Loma Negra x 25 kg', precio:'$ 6.300,00', desc:'26,50 %', cant:'90', subtotal:567000},
-  {fecha:'2026-07-30', etapa:'Etapa 3', comp:'0019-00046759', prov:'El Castor', destino:'Casa', item:'Plasticor x 25 kg', precio:'$ 6.100,00', desc:'26,50 %', cant:'50', subtotal:305000},
-  {fecha:'2026-07-30', etapa:'Etapa 3', comp:'0019-00046759', prov:'El Castor', destino:'Casa', item:'Hierro Torsionado 8 mm x 12 m', precio:'$ 8.201,46', desc:'21,00 %', cant:'70', subtotal:574102},
-  {fecha:'2026-07-30', etapa:'Etapa 3', comp:'0019-00046759', prov:'El Castor', destino:'Casa', item:'Hierro Torsionado 6 mm x 12 m', precio:'$ 5.103,40', desc:'21,00 %', cant:'60', subtotal:306204},
-  {fecha:'2026-07-30', etapa:'Etapa 3', comp:'0019-00046759', prov:'El Castor', destino:'Casa', item:'Alambre del 16', precio:'$ 3.508,79', desc:'21,00 %', cant:'6 kg', subtotal:21053},
-  {fecha:'2026-07-30', etapa:'Etapa 3', comp:'0019-00046759', prov:'El Castor', destino:'Casa', item:'Clavo p/parís 2.5"', precio:'$ 3.306,15', desc:'21,00 %', cant:'1 kg', subtotal:3306},
-  {fecha:'2026-07-30', etapa:'Etapa 3', comp:'0019-00046759', prov:'El Castor', destino:'Casa', item:'Clavo p/parís 2"', precio:'$ 3.306,15', desc:'21,00 %', cant:'1 kg', subtotal:3306},
-  {fecha:'2026-07-30', etapa:'Etapa 3', comp:'0019-00046759', prov:'El Castor', destino:'Casa', item:'Flete', precio:'$ 2.338,46', desc:'20,00 %', cant:'3', subtotal:7015},
-  {fecha:'2026-07-31', etapa:'Etapa 3', comp:'sin comprobante', prov:'Efectivo', destino:'Casa', item:'Ladrillos', precio:'$ 225,00', desc:'—', cant:'2.000', subtotal:450000},
-  {fecha:'2026-08-06', etapa:'Etapa 3', comp:'sin comprobante', prov:'Efectivo', destino:'Casa', item:'Piedras', precio:'—', desc:'—', cant:'—', subtotal:35000},
-  {fecha:'2026-08-06', etapa:'Etapa 3', comp:'sin comprobante', prov:'Efectivo', destino:'Casa', item:'Ripio', precio:'—', desc:'—', cant:'—', subtotal:150000},
-  {fecha:'2026-08-06', etapa:'Etapa 3', comp:'sin comprobante', prov:'Efectivo', destino:'Casa', item:'Plástico', precio:'—', desc:'—', cant:'—', subtotal:35000},
-  {fecha:'2026-08-07', etapa:'Etapa 3', comp:'sin comprobante', prov:'Efectivo', destino:'Casa', item:'Plástico', precio:'—', desc:'—', cant:'20 m', subtotal:52870},
-  {fecha:'2026-08-27', etapa:'Etapa 3', comp:'sin comprobante', prov:'Efectivo', destino:'Casa', item:'Pintura asfáltica + Ceresita', precio:'—', desc:'—', cant:'—', subtotal:76000},
-  {fecha:'2026-08-27', etapa:'Etapa 3', comp:'sin comprobante', prov:'Efectivo', destino:'Casa', item:'Arena', precio:'—', desc:'—', cant:'—', subtotal:150000},
-  {fecha:'2026-08-27', etapa:'Etapa 3', comp:'sin comprobante', prov:'Efectivo', destino:'Casa', item:'Pintura asfáltica', precio:'—', desc:'—', cant:'—', subtotal:23000},
-  {fecha:'2026-09-05', etapa:'Etapa 3', comp:'sin comprobante', prov:'Efectivo', destino:'Casa', item:'Pintura asfáltica', precio:'—', desc:'—', cant:'—', subtotal:23000},
-  {fecha:'2026-09-07', etapa:'Etapa 3', comp:'sin comprobante', prov:'Efectivo', destino:'Casa', item:'Ripio base', precio:'$ 150.000,00', desc:'—', cant:'1 camión', subtotal:150000},
-  {fecha:'2026-09-07', etapa:'Etapa 3', comp:'sin comprobante', prov:'Efectivo', destino:'Casa', item:'Plasticor', precio:'$ 6.575,00', desc:'—', cant:'40', subtotal:263000},
-  {fecha:'2026-09-07', etapa:'Etapa 3', comp:'sin comprobante', prov:'Efectivo', destino:'Casa', item:'Plástico', precio:'—', desc:'—', cant:'20 m', subtotal:52870},
-  {fecha:'2026-09-07', etapa:'Etapa 3', comp:'sin comprobante', prov:'Efectivo', destino:'Casa', item:'Pintura asfáltica', precio:'—', desc:'—', cant:'—', subtotal:18500},
-  {fecha:'2026-09-07', etapa:'Etapa 3', comp:'sin comprobante', prov:'Efectivo', destino:'Casa', item:'Ceresita', precio:'—', desc:'—', cant:'—', subtotal:7500},
-  {fecha:'2026-09-07', etapa:'Etapa 3', comp:'sin comprobante', prov:'Efectivo', destino:'Casa', item:'Guantes', precio:'—', desc:'—', cant:'—', subtotal:1900},
-  {fecha:'2026-09-08', etapa:'Etapa 3', comp:'sin comprobante', prov:'Efectivo', destino:'Casa', item:'Ripio base', precio:'$ 150.000,00', desc:'—', cant:'1 camión', subtotal:150000},
-  {fecha:'2026-09-09', etapa:'Etapa 3', comp:'sin comprobante', prov:'Efectivo', destino:'Casa', item:'Ripio base', precio:'$ 150.000,00', desc:'—', cant:'1 camión', subtotal:150000},
-  {fecha:'2026-09-09', etapa:'Etapa 3', comp:'sin comprobante', prov:'Efectivo', destino:'Casa', item:'Pintura asfáltica', precio:'—', desc:'—', cant:'—', subtotal:18500},
-  {fecha:'2026-09-09', etapa:'Etapa 3', comp:'sin comprobante', prov:'Efectivo', destino:'Casa', item:'Ladrillos', precio:'$ 230,00', desc:'—', cant:'2.000', subtotal:460000},
-  {fecha:'2026-09-10', etapa:'Etapa 3', comp:'sin comprobante', prov:'Efectivo', destino:'Casa', item:'Ripio base', precio:'$ 150.000,00', desc:'—', cant:'2 camiones', subtotal:300000},
-  {fecha:'2026-09-17', etapa:'Etapa 3', comp:'sin comprobante', prov:'Efectivo', destino:'Casa', item:'Ripio base', precio:'$ 150.000,00', desc:'—', cant:'1 camión', subtotal:150000},
-  {fecha:'2026-09-17', etapa:'Etapa 3', comp:'sin comprobante', prov:'Efectivo', destino:'Casa', item:'Plástico', precio:'—', desc:'—', cant:'—', subtotal:40000},
-  {fecha:'2026-09-17', etapa:'Etapa 3', comp:'sin comprobante', prov:'Efectivo', destino:'Casa', item:'Ceresita', precio:'—', desc:'—', cant:'—', subtotal:10000},
-  {fecha:'2026-09-18', etapa:'Etapa 3', comp:'sin comprobante', prov:'Efectivo', destino:'Casa', item:'Ripio base', precio:'$ 150.000,00', desc:'—', cant:'2 camiones', subtotal:300000},
-  {fecha:'2026-09-22', etapa:'Etapa 3', comp:'sin comprobante', prov:'Efectivo', destino:'Casa', item:'Ripio para contrapiso', precio:'—', desc:'—', cant:'—', subtotal:150000},
-  {fecha:'2026-09-22', etapa:'Etapa 3', comp:'sin comprobante', prov:'Efectivo', destino:'Casa', item:'Cemento', precio:'$ 7.280,00', desc:'—', cant:'25', subtotal:182000},
-  {fecha:'2026-09-23', etapa:'Etapa 3', comp:'sin comprobante', prov:'Efectivo', destino:'Casa', item:'Cemento', precio:'$ 7.280,00', desc:'—', cant:'25', subtotal:182000}
+  {fecha:'2026-07-30', etapa:'Etapa 3', comp:'0019-00046759', prov:'El Castor', destino:'Cimientos y estructura — Casa', item:'Cemento Loma Negra x 25 kg', precio:'$ 6.300,00', desc:'26,50 %', cant:'90', subtotal:567000},
+  {fecha:'2026-07-30', etapa:'Etapa 3', comp:'0019-00046759', prov:'El Castor', destino:'Mampostería — Casa', item:'Plasticor x 25 kg', precio:'$ 6.100,00', desc:'26,50 %', cant:'50', subtotal:305000},
+  {fecha:'2026-07-30', etapa:'Etapa 3', comp:'0019-00046759', prov:'El Castor', destino:'Cimientos y estructura — Casa', item:'Hierro Torsionado 8 mm x 12 m', precio:'$ 8.201,46', desc:'21,00 %', cant:'70', subtotal:574102},
+  {fecha:'2026-07-30', etapa:'Etapa 3', comp:'0019-00046759', prov:'El Castor', destino:'Cimientos y estructura — Casa', item:'Hierro Torsionado 6 mm x 12 m', precio:'$ 5.103,40', desc:'21,00 %', cant:'60', subtotal:306204},
+  {fecha:'2026-07-30', etapa:'Etapa 3', comp:'0019-00046759', prov:'El Castor', destino:'Cimientos y estructura — Casa', item:'Alambre del 16', precio:'$ 3.508,79', desc:'21,00 %', cant:'6 kg', subtotal:21053},
+  {fecha:'2026-07-30', etapa:'Etapa 3', comp:'0019-00046759', prov:'El Castor', destino:'Cimientos y estructura — Casa', item:'Clavo p/parís 2.5"', precio:'$ 3.306,15', desc:'21,00 %', cant:'1 kg', subtotal:3306},
+  {fecha:'2026-07-30', etapa:'Etapa 3', comp:'0019-00046759', prov:'El Castor', destino:'Cimientos y estructura — Casa', item:'Clavo p/parís 2"', precio:'$ 3.306,15', desc:'21,00 %', cant:'1 kg', subtotal:3306},
+  {fecha:'2026-07-30', etapa:'Etapa 3', comp:'0019-00046759', prov:'El Castor', destino:'Cimientos y estructura — Casa', item:'Flete', precio:'$ 2.338,46', desc:'20,00 %', cant:'3', subtotal:7015},
+  {fecha:'2026-07-31', etapa:'Etapa 3', comp:'sin comprobante', prov:'Efectivo', destino:'Mampostería — Casa', item:'Ladrillos', precio:'$ 225,00', desc:'—', cant:'2.000', subtotal:450000},
+  {fecha:'2026-08-06', etapa:'Etapa 3', comp:'sin comprobante', prov:'Efectivo', destino:'Cimientos y estructura — Casa', item:'Piedras', precio:'—', desc:'—', cant:'—', subtotal:35000},
+  {fecha:'2026-08-06', etapa:'Etapa 3', comp:'sin comprobante', prov:'Efectivo', destino:'Cimientos y estructura — Casa', item:'Ripio', precio:'—', desc:'—', cant:'—', subtotal:150000},
+  {fecha:'2026-08-06', etapa:'Etapa 3', comp:'sin comprobante', prov:'Efectivo', destino:'Relleno y contrapiso — Casa', item:'Plástico', precio:'—', desc:'—', cant:'—', subtotal:35000},
+  {fecha:'2026-08-07', etapa:'Etapa 3', comp:'sin comprobante', prov:'Efectivo', destino:'Relleno y contrapiso — Casa', item:'Plástico', precio:'—', desc:'—', cant:'20 m', subtotal:52870},
+  {fecha:'2026-08-27', etapa:'Etapa 3', comp:'sin comprobante', prov:'Efectivo', destino:'Capa aisladora — Casa', item:'Pintura asfáltica + Ceresita', precio:'—', desc:'—', cant:'—', subtotal:76000},
+  {fecha:'2026-08-27', etapa:'Etapa 3', comp:'sin comprobante', prov:'Efectivo', destino:'Mampostería — Casa', item:'Arena', precio:'—', desc:'—', cant:'—', subtotal:150000},
+  {fecha:'2026-08-27', etapa:'Etapa 3', comp:'sin comprobante', prov:'Efectivo', destino:'Capa aisladora — Casa', item:'Pintura asfáltica', precio:'—', desc:'—', cant:'—', subtotal:23000},
+  {fecha:'2026-09-05', etapa:'Etapa 3', comp:'sin comprobante', prov:'Efectivo', destino:'Capa aisladora — Casa', item:'Pintura asfáltica', precio:'—', desc:'—', cant:'—', subtotal:23000},
+  {fecha:'2026-09-07', etapa:'Etapa 3', comp:'sin comprobante', prov:'Efectivo', destino:'Relleno y contrapiso — Casa', item:'Ripio base', precio:'$ 150.000,00', desc:'—', cant:'1 camión', subtotal:150000},
+  {fecha:'2026-09-07', etapa:'Etapa 3', comp:'sin comprobante', prov:'Efectivo', destino:'Mampostería — Casa', item:'Plasticor', precio:'$ 6.575,00', desc:'—', cant:'40', subtotal:263000},
+  {fecha:'2026-09-07', etapa:'Etapa 3', comp:'sin comprobante', prov:'Efectivo', destino:'Relleno y contrapiso — Casa', item:'Plástico', precio:'—', desc:'—', cant:'20 m', subtotal:52870},
+  {fecha:'2026-09-07', etapa:'Etapa 3', comp:'sin comprobante', prov:'Efectivo', destino:'Capa aisladora — Casa', item:'Pintura asfáltica', precio:'—', desc:'—', cant:'—', subtotal:18500},
+  {fecha:'2026-09-07', etapa:'Etapa 3', comp:'sin comprobante', prov:'Efectivo', destino:'Capa aisladora — Casa', item:'Ceresita', precio:'—', desc:'—', cant:'—', subtotal:7500},
+  {fecha:'2026-09-07', etapa:'Etapa 3', comp:'sin comprobante', prov:'Efectivo', destino:'Varios — Casa', item:'Guantes', precio:'—', desc:'—', cant:'—', subtotal:1900},
+  {fecha:'2026-09-08', etapa:'Etapa 3', comp:'sin comprobante', prov:'Efectivo', destino:'Relleno y contrapiso — Casa', item:'Ripio base', precio:'$ 150.000,00', desc:'—', cant:'1 camión', subtotal:150000},
+  {fecha:'2026-09-09', etapa:'Etapa 3', comp:'sin comprobante', prov:'Efectivo', destino:'Relleno y contrapiso — Casa', item:'Ripio base', precio:'$ 150.000,00', desc:'—', cant:'1 camión', subtotal:150000},
+  {fecha:'2026-09-09', etapa:'Etapa 3', comp:'sin comprobante', prov:'Efectivo', destino:'Capa aisladora — Casa', item:'Pintura asfáltica', precio:'—', desc:'—', cant:'—', subtotal:18500},
+  {fecha:'2026-09-09', etapa:'Etapa 3', comp:'sin comprobante', prov:'Efectivo', destino:'Mampostería — Casa', item:'Ladrillos', precio:'$ 230,00', desc:'—', cant:'2.000', subtotal:460000},
+  {fecha:'2026-09-10', etapa:'Etapa 3', comp:'sin comprobante', prov:'Efectivo', destino:'Relleno y contrapiso — Casa', item:'Ripio base', precio:'$ 150.000,00', desc:'—', cant:'2 camiones', subtotal:300000},
+  {fecha:'2026-09-17', etapa:'Etapa 3', comp:'sin comprobante', prov:'Efectivo', destino:'Relleno y contrapiso — Casa', item:'Ripio base', precio:'$ 150.000,00', desc:'—', cant:'1 camión', subtotal:150000},
+  {fecha:'2026-09-17', etapa:'Etapa 3', comp:'sin comprobante', prov:'Efectivo', destino:'Relleno y contrapiso — Casa', item:'Plástico', precio:'—', desc:'—', cant:'—', subtotal:40000},
+  {fecha:'2026-09-17', etapa:'Etapa 3', comp:'sin comprobante', prov:'Efectivo', destino:'Capa aisladora — Casa', item:'Ceresita', precio:'—', desc:'—', cant:'—', subtotal:10000},
+  {fecha:'2026-09-18', etapa:'Etapa 3', comp:'sin comprobante', prov:'Efectivo', destino:'Relleno y contrapiso — Casa', item:'Ripio base', precio:'$ 150.000,00', desc:'—', cant:'2 camiones', subtotal:300000},
+  {fecha:'2026-09-22', etapa:'Etapa 3', comp:'sin comprobante', prov:'Efectivo', destino:'Relleno y contrapiso — Casa', item:'Ripio para contrapiso', precio:'—', desc:'—', cant:'—', subtotal:150000},
+  {fecha:'2026-09-22', etapa:'Etapa 3', comp:'sin comprobante', prov:'Efectivo', destino:'Relleno y contrapiso — Casa', item:'Cemento', precio:'$ 7.280,00', desc:'—', cant:'25', subtotal:182000},
+  {fecha:'2026-09-23', etapa:'Etapa 3', comp:'sin comprobante', prov:'Efectivo', destino:'Relleno y contrapiso — Casa', item:'Cemento', precio:'$ 7.280,00', desc:'—', cant:'25', subtotal:182000}
 ];
 
 // Expuestos para que computo.html los lea en vivo por iframe (cruce comprado vs. estimado).
@@ -542,6 +554,70 @@ function renderResumen() {
 
   renderBars('chartDestino', groupSum(MATERIALES, m => m.destino, m => m.subtotal));
   renderBars('chartOficio', groupSum(PAGOS, p => p.oficio, p => p.monto));
+}
+
+// --- Casa: comprado vs. presupuestado (estimaciones leídas en vivo de computo.html) ---
+function sumCasa(filtro, campo) {
+  return MATERIALES.filter(m => m.etapa === 'Etapa 3' && filtro(m))
+    .reduce((a, m) => a + (campo === 'cant' ? (toNumber(m.cant) || 0) : m.subtotal), 0);
+}
+
+function renderVsPresupuesto(doc) {
+  const val = id => toNumber(doc.getElementById(id).value);
+  const txt = id => toNumber(doc.getElementById(id).textContent);
+  const esItem = re => m => re.test(m.item);
+  const moSilvio = PAGOS.filter(p => p.etapa === 'Etapa 3' && p.contratista === 'Silvio').reduce((a, p) => a + p.monto, 0)
+    + ADELANTO_SIN_ASIGNAR.monto;
+  const filas = [
+    {rubro: 'Cemento — cimientos y estructura', est: val('matCemento'), real: sumCasa(m => /^Cemento/.test(m.item) && m.destino.startsWith('Cimientos'), 'cant'), u: 'bolsas'},
+    {rubro: 'Plasticor', est: val('matPlasticor'), real: sumCasa(esItem(/^Plasticor/), 'cant'), u: 'bolsas'},
+    {rubro: 'Hierro del 8', est: val('matHierro8'), real: sumCasa(esItem(/Hierro Torsionado 8 mm/), 'cant'), u: 'barras'},
+    {rubro: 'Hierro del 6', est: val('matHierro6'), real: sumCasa(esItem(/Hierro Torsionado 6 mm/), 'cant'), u: 'barras'},
+    {rubro: 'Ladrillos', est: txt('totComun'), real: sumCasa(esItem(/^Ladrillos/), 'cant'), u: 'un.'},
+    {rubro: 'Mano de obra albañil (Silvio)', est: txt('presTotal'), real: moSilvio, u: '$'}
+  ];
+  const fmt = (v, u) => u === '$' ? money(v) : Math.round(v).toLocaleString('es-AR') + ' ' + u;
+  document.getElementById('tbodyVsPresupuesto').innerHTML = filas.map(f => {
+    const pct = f.est ? f.real / f.est * 100 : 0;
+    const over = pct > 100;
+    return '<tr><td>' + f.rubro + '</td><td class="n">' + fmt(f.est, f.u) + '</td><td class="n">' + fmt(f.real, f.u) +
+      '</td><td><div class="barrow" style="margin:0"><div class="track"><div class="fill' + (over ? ' over' : '') +
+      '" style="width:' + Math.min(pct, 100) + '%"></div></div><div class="val' + (over ? ' over' : '') + '" style="width:52px">' +
+      Math.round(pct) + ' %</div></div></td></tr>';
+  }).join('');
+
+  const sinEst = [
+    ['relleno y contrapiso', sumCasa(m => m.destino.startsWith('Relleno'))],
+    ['capa aisladora', sumCasa(m => m.destino.startsWith('Capa aisladora'))],
+    ['mano de obra de Cristian', PAGOS.filter(p => p.etapa === 'Etapa 3' && p.contratista === 'Cristian').reduce((a, p) => a + p.monto, 0)]
+  ];
+  document.getElementById('sinEstimacion').innerHTML = '<b>Sin estimación de materiales en el cómputo:</b> ' +
+    sinEst.map(([k, v]) => k + ' ' + money(v)).join(' · ') + ' (total ' + money(sinEst.reduce((a, [, v]) => a + v, 0)) +
+    '). El cómputo solo cotiza la mano de obra de estos rubros, no sus materiales.';
+}
+
+// Solo si esta página no está dentro de otra (computo.html ya embebe a gastos.html; así se evita el bucle).
+if (window.self === window.top) {
+  const fr = document.createElement('iframe');
+  fr.src = 'computo.html'; fr.style.display = 'none'; fr.title = 'cómputo';
+  fr.addEventListener('load', function () {
+    let intentos = 0;
+    // El cómputo termina de calcular cuando carga su propio plano: esperar a que estén los totales.
+    const esperar = setInterval(() => {
+      try {
+        const doc = fr.contentDocument;
+        if (!isNaN(toNumber(doc.getElementById('totComun').textContent)) && !isNaN(toNumber(doc.getElementById('presTotal').textContent))) {
+          clearInterval(esperar);
+          renderVsPresupuesto(doc);
+        } else if (++intentos > 50) throw new Error('el cómputo no terminó de calcular');
+      } catch (e) {
+        clearInterval(esperar);
+        document.getElementById('tbodyVsPresupuesto').innerHTML =
+          '<tr><td colspan="4" class="pendiente">No se pudo leer computo.html (' + e.message + ').</td></tr>';
+      }
+    }, 200);
+  });
+  document.body.appendChild(fr);
 }
 
 function renderTareaTabla(tbodyId, totId, seccion) {
