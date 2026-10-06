@@ -1,0 +1,221 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Plomería — hoja para el plomero</title><style>
+body{font-family:'Segoe UI',Arial,sans-serif;background:#f4f3ef;color:#23231f;margin:0;padding:26px}
+.wrap{max-width:1080px;margin:0 auto}
+.nav{font-size:13px;margin-bottom:14px}
+.nav a{color:#6a6a63;text-decoration:none}
+.nav a:hover{text-decoration:underline}
+.nav .here{color:#23231f;font-weight:600}
+h1{font-size:21px;font-weight:600;margin:0 0 2px}
+.sub{color:#6a6a63;font-size:13px;margin-bottom:18px}
+h2{font-size:16px;font-weight:700;margin:32px 0 8px;border-top:2px solid #e6e3da;padding-top:16px;scroll-margin-top:12px}
+h2:first-of-type{border-top:none;padding-top:0;margin-top:6px}
+h3{font-size:13.5px;font-weight:700;margin:18px 0 4px;color:#3a3a36}
+.capnote{color:#6a6a63;font-size:12.5px;margin:2px 0 12px}
+table{border-collapse:collapse;width:100%;font-size:13px;margin-top:12px}
+th,td{border:1px solid #e3e0d7;padding:6px 9px;text-align:left;vertical-align:top}
+th{background:#f4f2ec;font-weight:600}
+td.c{text-align:center;white-space:nowrap}
+td.num{text-align:center;font-weight:700;white-space:nowrap}
+tr.amb td{background:#f8f6f0;font-weight:700;font-size:12.5px;color:#3a3a36}
+.warn{background:#fff8e9;border-left:3px solid #d8a93c;padding:11px 14px;border-radius:0 6px 6px 0;font-size:13px;line-height:1.65;margin-top:10px}
+.warn b{color:#8a6410}
+.ok{background:#eef7ec;border-left:3px solid #6f9a51;padding:11px 14px;border-radius:0 6px 6px 0;font-size:13px;line-height:1.65;margin-top:10px}
+.ok b{color:#4e7638}
+.lead{background:#f8f6f0;border:1px solid #e6e3da;border-radius:8px;padding:12px 16px;margin-top:12px}
+.lead ul{margin:6px 0 0;padding-left:20px}.lead li{margin:3px 0;font-size:13px;line-height:1.55}
+ol.pasos{padding-left:22px;margin:8px 0 0}
+ol.pasos li{font-size:13px;line-height:1.6;margin:6px 0}
+ul.check{list-style:none;padding-left:4px;margin:8px 0 0}
+ul.check li{font-size:13px;line-height:1.6;margin:5px 0;padding-left:24px;position:relative}
+ul.check li:before{content:'';position:absolute;left:0;top:3px;width:13px;height:13px;border:1.5px solid #8a877e;border-radius:3px}
+.foot{font-size:11.5px;color:#6a6a63;margin-top:22px;line-height:1.6;border-top:1px solid #e6e3da;padding-top:12px}
+.foot a{color:#8a877e}
+.sheet{background:#fff;border:1px solid #dedbd1;border-radius:10px;padding:22px;box-shadow:0 1px 3px rgba(0,0,0,.05);overflow-x:auto}
+p{font-size:13px;line-height:1.65}
+.tablewrap{overflow-x:auto}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:0 0 16px;font-size:12.5px;color:#6a6a63}
+.toolbar button{padding:6px 12px;border:1px solid #d8d5cb;border-radius:6px;background:#fff;cursor:pointer;font-size:12.5px;color:#55534c;font-family:inherit}
+.toolbar button:hover{background:#f4f2ec}
+.planos{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(280px,100%),1fr));gap:22px;align-items:start;margin-top:12px}
+.plano{text-align:center}
+.plano h3{margin-top:0}
+.plano svg{width:100%;height:auto;background:#fdfcf9;border:1px solid #e3e0d7;border-radius:6px}
+.plano-cap{font-size:11.5px;color:#6a6a63;margin-top:6px;line-height:1.5}
+.leg{font-size:11.5px;color:#55534c;display:flex;gap:14px;flex-wrap:wrap;margin-top:12px}
+.leg i{width:20px;height:9px;display:inline-block;vertical-align:-1px;margin-right:5px;border-radius:2px}
+/* clases de las capas de plomería que se leen de cada ficha */
+.layer{display:none}
+.pl-mk-af{fill:#dcecf5;stroke:#1f7fae;stroke-width:1.3}
+.pl-mk-ac{fill:#f7dedb;stroke:#c0392b;stroke-width:1.3}
+.pl-mk-cl{fill:#eee7da;stroke:#7a6a55;stroke-width:1.3}
+.pl-lbl{font-size:6.5px;fill:#5c5346;text-anchor:middle}
+.pl-ln-af{stroke:#1f7fae;stroke-width:1.2;stroke-dasharray:2 1.5}
+.pl-ln-ac{stroke:#c0392b;stroke-width:1.2;stroke-dasharray:2 1.5}
+.pl-llave{fill:#fff;stroke:#2e2e2b;stroke-width:.8}
+.pl-pp{fill:#eee7da;stroke:#7a6a55;stroke-width:1.1}
+.pl-num{fill:#fff;stroke:#2e2e2b;stroke-width:.8}
+.pl-num-t{font-size:5px;font-weight:700;fill:#2e2e2b;text-anchor:middle}
+@media print{.nav,.toolbar{display:none!important}body{background:#fff;padding:12px}.sheet{box-shadow:none;overflow:visible;border:none;padding:0}h2{break-after:avoid}tr{break-inside:avoid}.planos{grid-template-columns:1fr 1fr}}
+</style></head><body><div class="wrap">
+<div class="nav"><a href="index.html">Inicio</a> &nbsp;·&nbsp; <a href="plano-general.html">Plano general</a> &nbsp;·&nbsp; <a href="instructivo.html">Instructivo</a> &nbsp;·&nbsp; <span class="here">Plomería</span> &nbsp;·&nbsp; <a href="computo.html">Cómputo</a> &nbsp;·&nbsp; <a href="gastos.html">Gastos</a></div>
+<h1>Plomería — hoja para el plomero</h1>
+<div class="sub">Agua fría, agua caliente y desagües de toda la casa, boca por boca. Lo que le toca al plomero, separado de la albañilería, para imprimir y llevar a obra.</div>
+
+<div class="toolbar">
+  <button type="button" id="btnImprimir">Imprimir / Guardar PDF</button>
+</div>
+
+<div class="sheet">
+
+<h2>La instalación en cinco líneas</h2>
+<div class="lead"><ul>
+<li><b>Agua:</b> hay red. Entra por el <b>retiro oeste</b> (el pasillo de 1,50 m del lado del Lavadero), con la <b>llave de paso general</b> ahí, y sube a un <b>tanque en el techo, sobre el Lavadero</b>. Desde el tanque, todo baja <b>por gravedad</b>.</li>
+<li><b>Agua caliente:</b> <b>termotanque eléctrico</b> colgado en el Lavadero. Da caliente a Lavadero, Antebaño, Baño y Cocina. La Galería lleva solo fría.</li>
+<li><b>Desagües:</b> <b>no hay cloaca</b>. Todo va a la <b>cámara séptica + pozo que ya existen</b>, en la esquina suroeste del fondo del lote. No se construye pozo nuevo.</li>
+<li><b>Sector húmedo junto:</b> Lavadero, Antebaño y Baño están uno al lado del otro, contra la <b>pared oeste</b>. Por esa pared suben y bajan todas las cañerías y corre el colector de desagües. La Cocina y la Galería son ramales aparte.</li>
+<li><b>No es del plomero:</b> el gas (lo hace el gasista matriculado), la electricidad del termotanque y del lavarropas (electricista), y las canaletas, el contrapiso y los revestimientos (albañil) — ver el reparto más abajo.</li>
+</ul></div>
+
+<div class="warn"><b>Urgente — antes de colar el contrapiso.</b> El contrapiso de la casa todavía no está colado. Todo lo que va <b>bajo el piso</b> tiene que quedar colocado y probado antes: el colector de la pared oeste, los ramales del Baño, Antebaño y Lavadero, las tres rejillas de piso, el desagüe de la ducha y el tramo de la Cocina hasta el muro sur. El albañil después cuela respetando el <b>piso 5 cm más bajo de la ducha</b> y las pendientes hacia las rejillas. Si se cuela antes, hay que picar.</div>
+
+<h2>Orden de trabajo</h2>
+<ol class="pasos">
+<li><b>Desagües bajo el piso (ahora).</b> Colector al pie de la pared oeste, cámara de inspección en el retiro (16), ramales de cada artefacto, rejillas del Lavadero (6) y del Baño (14), desagüe al centro de la ducha (13), tramo de la Cocina hasta pasar el muro sur. <b>Prueba con agua</b> antes de que el albañil tape. Marcar con el albañil el sector hundido de la ducha y las pendientes.</li>
+<li><b>Cañería principal al pozo.</b> De la cámara de inspección (16) al pozo existente: tramo largo por el retiro oeste y el fondo. Pendiente pareja (mínimo 1–2 %) y cámara de inspección cada ~15 m y en cada cambio de dirección. Verificar antes la <b>profundidad de llegada al pozo</b> para que la pendiente dé.</li>
+<li><b>Agua en las paredes.</b> Marcar las canaletas para que las abra el albañil; colocar fría y caliente con las bocas a la altura de la tabla; llaves de paso de cada ambiente. <b>Prueba de presión</b> antes de que se revoque.</li>
+<li><b>Tanque y entrada de red.</b> Cuando esté el bastidor del tanque (no apoya sobre la chapa — ver instructivo): tanque, flotante, rebalse, colector con sus llaves, entrada de red con llave general.</li>
+<li><b>Ventilación cloacal (15).</b> Sube por la pared oeste y pasa el techo: coordinar con el que pone la chapa para la babeta.</li>
+<li><b>Bajo el piso de la galería.</b> Interceptor de grasa de la Cocina (19), tramo hacia el oeste hasta la cañería principal y empalme de la bacha del asador (20). Puede ir después, pero <b>antes de hacer el piso de la galería</b>.</li>
+<li><b>Terminaciones.</b> Después de los revestimientos: artefactos, grifería, conexión del termotanque y del lavarropas, rejillas finales.</li>
+</ol>
+
+<h2>Planos de plomería</h2>
+<p class="capnote">Los números son los de la tabla de bocas. Esquemáticos: muestran qué va dónde y por qué pared, no las pendientes ni el recorrido exacto. El norte queda abajo y el este a la izquierda, igual que en el plano general. Los muebles se ven en gris claro para ubicarse.</p>
+<div class="planos">
+  <div class="plano"><h3>Lavadero, Antebaño y Baño</h3><div id="planoServicio"></div><div class="plano-cap">Bocas 1 a 16 · de arriba (sur, galería) hacia abajo (norte): Lavadero, Antebaño, Baño · la pared de la derecha es la oeste, la de las cañerías</div></div>
+  <div class="plano"><h3>Cocina</h3><div id="planoCocina"></div><div class="plano-cap">Bocas 17 a 19 · arriba, la galería: el desagüe sale al sur, al interceptor de grasa, y sigue al oeste hacia el pozo</div></div>
+</div>
+<div class="leg">
+  <span><i style="background:#dcecf5;border:1px solid #1f7fae;border-radius:50%"></i>Agua fría</span>
+  <span><i style="background:#f7dedb;border:1px solid #c0392b;border-radius:50%"></i>Agua caliente</span>
+  <span><i style="background:#eee7da;border:1px solid #7a6a55;border-radius:50%"></i>Desagüe</span>
+  <span><i style="background:#eee7da;border:1px solid #7a6a55"></i>Rejilla de piso / cámara / interceptor</span>
+  <span><i style="background:#fff;border:1px solid #2e2e2b;clip-path:polygon(0 0,100% 100%,100% 0,0 100%)"></i>Llave de paso</span>
+</div>
+<p style="font-size:12.5px;color:#6a6a63">El recorrido completo por el lote (tanque, cañería al pozo, interceptor, bacha del asador) está en el <a href="plano-general.html">plano general</a>, pestaña <b>Plomería</b>. La bacha del asador (20) está en la ficha de la <a href="ambientes/galeria.html">Galería</a>.</p>
+
+<h2>Tabla de bocas</h2>
+<p class="capnote">Una fila por boca. <b>Alturas orientativas</b>, medidas al centro de la boca desde el <b>piso terminado</b> — se confirman con el artefacto y la grifería que se compren (ver "Antes de empezar"). F = fría · C = caliente · D = desagüe.</p>
+<div class="tablewrap"><table>
+<tr><th>N°</th><th>Boca</th><th>F</th><th>C</th><th>D</th><th>Altura / ubicación</th><th>Notas</th></tr>
+<tr class="amb"><td colspan="7">Entrada y tanque</td></tr>
+<tr><td class="num">1</td><td>Entrada de agua de red + <b>llave de paso general</b></td><td class="c">●</td><td class="c">—</td><td class="c">—</td><td>Retiro oeste, contra la pared del Lavadero</td><td>Llave a la vista, en caja con tapa. De ahí sube al tanque</td></tr>
+<tr><td class="num">2</td><td>Tanque en el techo, sobre el Lavadero</td><td class="c">●</td><td class="c">—</td><td class="c">rebalse</td><td>Sobre bastidor propio, no sobre la chapa</td><td>Flotante; rebalse con caño que descargue a la vista en el retiro; <b>colector con una llave por bajada</b> — una bajada solo para el termotanque y otra para el resto de la casa</td></tr>
+<tr class="amb"><td colspan="7">Lavadero</td></tr>
+<tr><td class="num">3</td><td>Termotanque eléctrico (colgado)</td><td class="c">●</td><td class="c">●</td><td class="c">válvula</td><td>Según el modelo — colgado, sin ocupar piso</td><td><b>Llave de paso en la entrada y en la salida</b>. Válvula de seguridad con caño a la rejilla 6. Sin ventilación (es eléctrico)</td></tr>
+<tr><td class="num">4</td><td>Lavarropas</td><td class="c">●</td><td class="c">—</td><td class="c">●</td><td>Canilla: 1,00–1,10 m · desagüe vertical: boca a 0,80–0,90 m</td><td>Contra la pared oeste. <b>Canilla propia</b> con rosca para manguera. <b>Desagüe vertical con sifón</b> (∅40–50) para enganchar la manguera; descarga a la rejilla 6</td></tr>
+<tr><td class="num">5</td><td>Pileta de lavado</td><td class="c">●</td><td class="c">●</td><td class="c">●</td><td>F/C: 1,00–1,10 m si la canilla es de pared · D: 0,40–0,50 m</td><td>Contra la pared oeste, al lado del lavarropas. Descarga a la rejilla 6</td></tr>
+<tr><td class="num">6</td><td><b>Rejilla de piso</b> del Lavadero (pileta de patio)</td><td class="c">—</td><td class="c">—</td><td class="c">●</td><td>En el piso, delante de la pileta</td><td>Recibe 3, 4 y 5. Piso del Lavadero con leve pendiente hacia ella (contrapiso). Ramal al colector</td></tr>
+<tr class="amb"><td colspan="7">Antebaño</td></tr>
+<tr><td class="num">7</td><td>Llaves de paso del Antebaño</td><td class="c">●</td><td class="c">●</td><td class="c">—</td><td>≈1,20 m, a la vista</td><td>Cortan solo el Antebaño</td></tr>
+<tr><td class="num">8</td><td>Lavamanos (vanitory)</td><td class="c">●</td><td class="c">●</td><td class="c">●</td><td>F/C: 0,55–0,60 m · D: 0,45–0,50 m</td><td>Pared oeste, con mueble y espejo arriba</td></tr>
+<tr class="amb"><td colspan="7">Baño</td></tr>
+<tr><td class="num">9</td><td>Llaves de paso del Baño</td><td class="c">●</td><td class="c">●</td><td class="c">—</td><td>≈1,20 m, a la vista, cerca de la puerta</td><td>Cortan solo el Baño</td></tr>
+<tr><td class="num">10</td><td>Lavamanos pequeño</td><td class="c">●</td><td class="c">●</td><td class="c">●</td><td>F/C: 0,55–0,60 m · D: 0,45–0,50 m</td><td>Pared oeste, junto a la entrada</td></tr>
+<tr><td class="num">11</td><td>Inodoro</td><td class="c">●</td><td class="c">—</td><td class="c">●</td><td>F: 0,20–0,25 m (mochila apoyada) · D: ∅110 en el piso, eje a ≈0,30 m de la pared terminada</td><td>Pared oeste. La boca de agua cambia si es depósito embutido o válvula — <b>definir antes</b>. Va directo al colector, no a la rejilla</td></tr>
+<tr><td class="num">12</td><td>Bidet</td><td class="c">●</td><td class="c">●</td><td class="c">●</td><td>F/C: 0,20–0,25 m · D: en el piso</td><td>Pared oeste, entre inodoro y ducha</td></tr>
+<tr><td class="num">13</td><td>Ducha</td><td class="c">●</td><td class="c">●</td><td class="c">●</td><td>Grifería: 1,00–1,10 m · flor: 2,00–2,10 m · desagüe al centro del piso</td><td>Grifería en la pared oeste, <b>centrada en la profundidad</b> (0,40 m del frente). Piso de la ducha <b>5 cm más bajo</b>, con pendiente hacia la rejilla central desde los cuatro lados. Nicho en la pared del fondo: no pasar caños por ahí</td></tr>
+<tr><td class="num">14</td><td><b>Rejilla de piso</b> del Baño (pileta de patio)</td><td class="c">—</td><td class="c">—</td><td class="c">●</td><td>En el piso, zona de circulación cerca de la salida de la ducha</td><td>Junta el agua de fuera de la ducha. Puede recibir lavamanos y bidet según el criterio del plomero. Ramal al colector</td></tr>
+<tr><td class="num">15</td><td>Ventilación cloacal</td><td class="c">—</td><td class="c">—</td><td class="c">●</td><td>Sube por la pared oeste hasta pasar el techo</td><td>Con sombrerete arriba y babeta en la chapa</td></tr>
+<tr class="amb"><td colspan="7">Afuera, retiro oeste</td></tr>
+<tr><td class="num">16</td><td>Cámara de inspección</td><td class="c">—</td><td class="c">—</td><td class="c">●</td><td>Retiro oeste, en el rincón del Lavadero hacia la galería</td><td>Junta el colector del sector. Tapa a nivel. De ahí, la cañería larga al pozo</td></tr>
+<tr class="amb"><td colspan="7">Cocina</td></tr>
+<tr><td class="num">17</td><td>Llaves de paso de la Cocina</td><td class="c">●</td><td class="c">●</td><td class="c">—</td><td>Bajo la mesada</td><td>El agua llega del Lavadero por el entretecho de la galería y baja por el muro sur</td></tr>
+<tr><td class="num">18</td><td>Bacha</td><td class="c">●</td><td class="c">●</td><td class="c">●</td><td>F/C: 0,50–0,60 m · D: 0,40–0,45 m</td><td>Bajo la ventana, centrada con ella (muro sur). El desagüe sale al sur, a la galería — no cruza la casa</td></tr>
+<tr><td class="num">19</td><td><b>Interceptor de grasa</b></td><td class="c">—</td><td class="c">—</td><td class="c">●</td><td>Piso de la galería, contra el muro sur de la Cocina</td><td>Tapa a nivel, a la vista, para limpiarlo seguido. De ahí sigue al oeste, bajo la galería, hasta la cañería principal</td></tr>
+<tr class="amb"><td colspan="7">Galería</td></tr>
+<tr><td class="num">20</td><td>Bacha del asador</td><td class="c">●</td><td class="c">—</td><td class="c">●</td><td>Según la mesada del asador</td><td>Solo fría. El agua sale del Lavadero por su muro sur. El desagüe empalma en el tramo que viene del interceptor</td></tr>
+</table></div>
+<p style="font-size:12.5px;color:#6a6a63">Bocas con desagüe a la cámara séptica: <b>11</b> (4, 5, 6, 8, 10, 11, 12, 13, 14, 18 y 20). El termotanque no suma: su válvula va a la rejilla 6.</p>
+
+<h2>Quién hace qué</h2>
+<div class="tablewrap"><table>
+<tr><th>Tarea</th><th>Plomero</th><th>Albañil</th><th>Otro</th></tr>
+<tr><td>Marcar recorridos y alturas de bocas</td><td>●</td><td></td><td></td></tr>
+<tr><td>Abrir canaletas y pases en muros</td><td>marca</td><td>●</td><td></td></tr>
+<tr><td>Cañerías de agua, llaves de paso, colector del tanque</td><td>●</td><td></td><td></td></tr>
+<tr><td>Desagües, rejillas, cámaras, interceptor, cañería al pozo, ventilación</td><td>●</td><td></td><td></td></tr>
+<tr><td>Pruebas (agua en desagües, presión en agua) antes de tapar</td><td>●</td><td>espera</td><td></td></tr>
+<tr><td>Tapar canaletas, contrapiso con pendientes, piso hundido de la ducha</td><td></td><td>●</td><td></td></tr>
+<tr><td>Membrana del piso del Baño y del nicho de la ducha</td><td></td><td>●</td><td></td></tr>
+<tr><td>Bastidor del tanque (no sobre la chapa)</td><td></td><td>●</td><td>o herrero</td></tr>
+<tr><td>Babeta de la ventilación en la chapa</td><td></td><td></td><td>techista</td></tr>
+<tr><td>Circuito del termotanque, toma del lavarropas</td><td></td><td></td><td>electricista</td></tr>
+<tr><td>Gas del anafe (garrafa)</td><td></td><td></td><td>gasista</td></tr>
+<tr><td>Colocar artefactos y grifería</td><td>●</td><td></td><td></td></tr>
+</table></div>
+
+<h2>Materiales orientativos</h2>
+<p class="capnote">Para pedir presupuesto. Diámetros y marcas los confirma el plomero.</p>
+<div class="tablewrap"><table>
+<tr><th>Uso</th><th>Material</th><th>Medida</th></tr>
+<tr><td>Agua fría y caliente</td><td>Polipropileno por termofusión (el de caliente, apto agua caliente)</td><td>∅25 en la bajada del tanque y troncales · ∅20 en los ramales a cada boca</td></tr>
+<tr><td>Inodoro, colector y cañería al pozo</td><td>PVC para desagüe</td><td>∅110</td></tr>
+<tr><td>Rejillas de piso al colector</td><td>PVC para desagüe</td><td>∅63</td></tr>
+<tr><td>Lavamanos, bidet, pileta, lavarropas, bachas</td><td>PVC para desagüe</td><td>∅40 (lavarropas ∅40–50)</td></tr>
+<tr><td>Ventilación cloacal</td><td>PVC</td><td>∅63 o ∅110, según el plomero</td></tr>
+<tr><td>Rejillas de piso (Lavadero, Baño, ducha)</td><td>Pileta de patio sifonada con rejilla</td><td>3 unidades</td></tr>
+<tr><td>Llaves de paso</td><td>Llave de paso embutida o esférica</td><td>1 general + 1 por bajada en el colector + 2 termotanque + 2 Antebaño + 2 Baño + 2 Cocina</td></tr>
+<tr><td>Interceptor de grasa</td><td>Premoldeado con tapa</td><td>1, para la Cocina</td></tr>
+<tr><td>Cámaras de inspección</td><td>Premoldeada o de mampostería, con tapa</td><td>1 en el retiro oeste + las que pida el tramo al pozo</td></tr>
+</table></div>
+
+<h2>Antes de empezar — definir con el plomero</h2>
+<p class="capnote">Cada uno cambia dónde va una boca. Conviene tenerlos resueltos (o el artefacto comprado) antes de cerrar las paredes.</p>
+<ul class="check">
+<li><b>Inodoro:</b> mochila apoyada, depósito embutido o válvula — cambia la boca de agua y la distancia del desagüe a la pared.</li>
+<li><b>Grifería de la ducha:</b> embutida (monocomando) o de dos llaves. Si es embutida, <b>comprar el cuerpo antes</b> para amurarlo con la cañería.</li>
+<li><b>Grifería de la pileta de lavar y de las bachas:</b> de pared o de mesada — cambia la altura de las bocas.</li>
+<li><b>Termotanque:</b> modelo y litros — dónde tiene la entrada y la salida, y a qué altura se cuelga.</li>
+<li><b>Tanque:</b> capacidad (500 o 1000 L) y el bastidor. El <a href="instructivo.html">instructivo</a> lo ubica en la "esquina noroeste del sector de servicios", pero el plano general lo dibuja sobre el rincón suroeste del Lavadero (arriba del lavarropas, que es como queda en esta hoja) — <b>confirmar cuál</b>.</li>
+<li><b>Presión de la red:</b> si no alcanza para subir al tanque, hace falta cisterna + bomba (y un circuito eléctrico más).</li>
+<li><b>Pozo existente:</b> que alcance para las 11 bocas, y a qué profundidad llega la cañería — que la pendiente desde la casa dé.</li>
+<li><b>Lavamanos y bidet:</b> si descargan a la rejilla del Baño o directo al colector — criterio del plomero.</li>
+</ul>
+
+<div class="foot">
+Hoja armada a partir del <a href="plano-general.html">plano general</a>, el <a href="instructivo.html">instructivo</a> (capítulo Instalación sanitaria) y las fichas de <a href="ambientes/bano-lavadero.html">Baño, Antebaño y Lavadero</a>, <a href="ambientes/cocina.html">Cocina</a> y <a href="ambientes/galeria.html">Galería</a>. Los dibujos se leen en vivo de esas fichas: si se cambia algo allá, se actualiza acá.
+Es un esquema de anteproyecto: alturas, diámetros y recorrido final los define el plomero en obra.
+</div>
+</div>
+</div>
+
+<iframe id="fServicio" src="ambientes/bano-lavadero.html" style="display:none" title="ficha Baño, Antebaño y Lavadero"></iframe>
+<iframe id="fCocina" src="ambientes/cocina.html" style="display:none" title="ficha Cocina"></iframe>
+<script>
+document.getElementById('btnImprimir').addEventListener('click', function () { window.print(); });
+
+// Copia el dibujo de cada ficha con su capa de plomería (los muebles en gris claro de fondo).
+function traerPlano(frameId, destId, fichaHref) {
+  var dest = document.getElementById(destId);
+  var fallback = '<p style="font-size:12.5px;color:#8a877e">No se pudo leer el dibujo — abrilo en la <a href="' + fichaHref + '">ficha</a>, pestaña Plomería.</p>';
+  document.getElementById(frameId).addEventListener('load', function () {
+    try {
+      var svg = this.contentDocument.querySelector('.plano svg').cloneNode(true);
+      svg.removeAttribute('style');
+      svg.querySelectorAll('.layer').forEach(function (g) {
+        var l = g.getAttribute('data-layer');
+        if (l === 'plomeria') { g.style.display = 'inline'; }
+        else if (l === 'amoblamiento') { g.style.display = 'inline'; g.style.opacity = '.28'; }
+        else { g.remove(); }
+      });
+      dest.appendChild(svg);
+    } catch (e) { dest.innerHTML = fallback; }
+  });
+  setTimeout(function () { if (!dest.firstChild) dest.innerHTML = fallback; }, 4000);
+}
+traerPlano('fServicio', 'planoServicio', 'ambientes/bano-lavadero.html');
+traerPlano('fCocina', 'planoCocina', 'ambientes/cocina.html');
+</script>
+</body></html>
