@@ -1,0 +1,237 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Electricidad — hoja para el electricista</title><style>
+body{font-family:'Segoe UI',Arial,sans-serif;background:#f4f3ef;color:#23231f;margin:0;padding:26px}
+.wrap{max-width:1080px;margin:0 auto}
+.nav{font-size:13px;margin-bottom:14px}
+.nav a{color:#6a6a63;text-decoration:none}
+.nav a:hover{text-decoration:underline}
+.nav .here{color:#23231f;font-weight:600}
+h1{font-size:21px;font-weight:600;margin:0 0 2px}
+.sub{color:#6a6a63;font-size:13px;margin-bottom:18px}
+h2{font-size:16px;font-weight:700;margin:32px 0 8px;border-top:2px solid #e6e3da;padding-top:16px;scroll-margin-top:12px}
+h2:first-of-type{border-top:none;padding-top:0;margin-top:6px}
+.capnote{color:#6a6a63;font-size:12.5px;margin:2px 0 12px}
+table{border-collapse:collapse;width:100%;font-size:13px;margin-top:12px}
+th,td{border:1px solid #e3e0d7;padding:6px 9px;text-align:left;vertical-align:top}
+th{background:#f4f2ec;font-weight:600}
+td.c{text-align:center;white-space:nowrap}
+td.num{text-align:center;font-weight:700;white-space:nowrap}
+td.ck{width:18px;text-align:center}
+td.ck:before{content:'';display:inline-block;width:12px;height:12px;border:1.5px solid #8a877e;border-radius:3px;vertical-align:-2px}
+tr.grp td{background:#f8f6f0;font-weight:700;font-size:12.5px;color:#3a3a36}
+.tag{display:inline-block;font-size:11px;font-weight:600;padding:1px 6px;border-radius:4px;background:#fff3d6;color:#8a6410;border:1px solid #ecd7a2;white-space:nowrap}
+.warn{background:#fff8e9;border-left:3px solid #d8a93c;padding:11px 14px;border-radius:0 6px 6px 0;font-size:13px;line-height:1.65;margin-top:10px}
+.warn b{color:#8a6410}
+.ok{background:#eef7ec;border-left:3px solid #6f9a51;padding:11px 14px;border-radius:0 6px 6px 0;font-size:13px;line-height:1.65;margin-top:10px}
+.ok b{color:#4e7638}
+.lead{background:#f8f6f0;border:1px solid #e6e3da;border-radius:8px;padding:12px 16px;margin-top:12px}
+.lead ul{margin:6px 0 0;padding-left:20px}.lead li{margin:3px 0;font-size:13px;line-height:1.55}
+ol.pasos{padding-left:22px;margin:8px 0 0}
+ol.pasos li{font-size:13px;line-height:1.6;margin:6px 0}
+.foot{font-size:11.5px;color:#6a6a63;margin-top:22px;line-height:1.6;border-top:1px solid #e6e3da;padding-top:12px}
+.foot a{color:#8a877e}
+.sheet{background:#fff;border:1px solid #dedbd1;border-radius:10px;padding:22px;box-shadow:0 1px 3px rgba(0,0,0,.05)}
+p{font-size:13px;line-height:1.65}
+.tablewrap{overflow-x:auto}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:0 0 16px;font-size:12.5px;color:#6a6a63}
+.toolbar button{padding:6px 12px;border:1px solid #d8d5cb;border-radius:6px;background:#fff;cursor:pointer;font-size:12.5px;color:#55534c;font-family:inherit}
+.toolbar button:hover{background:#f4f2ec}
+.toc{font-size:12.5px;color:#6a6a63;margin:10px 0 0;line-height:1.9}
+.toc a{color:#55534c}
+@media (max-width:600px){body{padding:14px}.sheet{padding:14px}}
+@media print{.nav,.toolbar,.toc{display:none!important}body{background:#fff;padding:12px}.sheet{box-shadow:none;border:none;padding:0}h2{break-after:avoid}tr{break-inside:avoid}}
+</style></head><body><div class="wrap">
+<div class="nav"><a href="index.html">Inicio</a> &nbsp;·&nbsp; <a href="plano-general.html">Plano general</a> &nbsp;·&nbsp; <a href="instructivo.html">Instructivo</a> &nbsp;·&nbsp; <a href="plomeria.html">Plomería</a> &nbsp;·&nbsp; <span class="here">Electricidad</span> &nbsp;·&nbsp; <a href="computo.html">Cómputo</a> &nbsp;·&nbsp; <a href="gastos.html">Gastos</a></div>
+<h1>Electricidad — hoja para el electricista (Daniel)</h1>
+<div class="sub">Dónde va cada luz, llave, toma y caja de aire, ambiente por ambiente, con medidas para marcar en obra. Para imprimir y llevar.</div>
+
+<div class="toolbar">
+  <button type="button" id="btnImprimir">Imprimir / Guardar PDF</button>
+</div>
+
+<div class="sheet">
+
+<h2>Para ubicarse</h2>
+<div class="lead"><ul>
+<li><b>Puntos cardinales:</b> <b>norte</b> = calle y garage · <b>sur</b> = galería · <b>este</b> = retiro grande de 4,50 m (ventanas del Living) · <b>oeste</b> = retiro chico de 1,50 m (sector húmedo, Hab. 3).</li>
+<li><b>Medidas:</b> todas a eje de muro, desde la pared que se nombra. Si se mide desde la cara de la pared, restar ~7 cm.</li>
+<li><b>Alturas</b> (del piso terminado): llaves <b>1,10 m</b> · tomas comunes <b>~0,30 m</b> · tomas sobre mesada <b>~1,10 m</b> · cajas de aire acondicionado <b>~2,20 m</b> (lo confirma el instalador del aire).</li>
+<li><b>Qué se marca ahora:</b> llaves, tomas, cajas de aire, extractor y tablero — lo que rompe pared. Los spots van en el cielorraso de Durlock: se anotan ahora (o se marcan en el piso) y se colocan cuando esté la estructura.</li>
+<li><b>Circuitos:</b> IUG = luces · TUG = tomas comunes · TUE = toma de uso especial, con circuito propio (ver <a href="instructivo.html">instructivo</a> · Instalación eléctrica · Circuitos).</li>
+</ul></div>
+
+<div class="warn"><b>Dos cosas para decidir antes de marcar.</b><br>
+<b>1. Llave de Hab. 3:</b> va pegada al marco de la puerta, del lado oeste, pero el ropero arranca a ~7 cm del marco y la taparía. Opciones: achicar o correr el ropero 10–15 cm, o dejar la llave pegada al marco.<br>
+<b>2. Llaves del Living-Comedor y de la Galería:</b> no estaban definidas en el proyecto. Las de esta hoja son una propuesta (marcadas <span class="tag">propuesta</span>) — confirmarlas.</div>
+
+<div class="toc">Ir a: <a href="#orden">Orden</a> · <a href="#tablero">Tablero</a> · <a href="#living">Living-Comedor</a> · <a href="#cocina">Cocina</a> · <a href="#hab1">Hab. 1</a> · <a href="#hab2">Hab. 2</a> · <a href="#hab3">Hab. 3</a> · <a href="#pasillo">Pasillo</a> · <a href="#humedo">Baño, Antebaño, Lavadero</a> · <a href="#galeria">Galería</a> · <a href="#garage">Garage</a> · <a href="#totales">Totales</a></div>
+
+<h2 id="orden">Orden para marcar</h2>
+<ol class="pasos">
+<li><b>Tablero</b> primero: de ahí salen todos los caños.</li>
+<li><b>Sector húmedo</b> (Lavadero, Antebaño, Baño) junto con las canaletas de plomería de la pared oeste — el albañil rompe una sola vez (ver <a href="plomeria.html">hoja del plomero</a>).</li>
+<li><b>Cocina</b>: los tomas sobre mesada y la llave de la tira LED dependen de la altura de la mesada y del salpicadero.</li>
+<li><b>Dormitorios, Living-Comedor y Pasillo.</b></li>
+<li><b>Bajadas desde el cielorraso:</b> cada llave necesita su caño que sube hasta el entretecho, donde se reparte a los spots.</li>
+<li><b>Galería y Garage</b> al final: todo va por fuera de la pared.</li>
+</ol>
+
+<h2 id="tablero">0. Tablero</h2>
+<div class="tablewrap"><table>
+<tr><th></th><th>Qué</th><th>Dónde</th><th>Altura</th></tr>
+<tr><td class="ck"></td><td>Tablero general</td><td>Muro corrido Lavadero ↔ Antebaño ↔ Baño, del lado del Lavadero o del Antebaño. Cerca de la entrada de la luz de la calle y del termotanque.</td><td class="c">~1,50–1,80 m</td></tr>
+</table></div>
+<p class="capnote">Disyuntor diferencial general + uno aparte para los tomas del sector húmedo si el tablero lo admite. Jabalina y cable a tierra a todos los circuitos.</p>
+
+<h2 id="living">1. Living-Comedor (3,50 × 7,70)</h2>
+<p class="capnote">El Comedor ocupa los primeros 3,00 m desde el muro sur (galería, corrediza). El Living, el resto hasta el muro norte (puerta al patio).</p>
+<div class="tablewrap"><table>
+<tr><th></th><th>Qué</th><th>Cant.</th><th>Dónde</th><th>Altura</th><th>Circuito</th></tr>
+<tr class="grp"><td colspan="6">Comedor</td></tr>
+<tr><td class="ck"></td><td>Spots</td><td class="num">4</td><td>En cuadrado: a 0,90 y 2,60 m del muro este × a 0,75 y 2,25 m del muro sur</td><td class="c">techo</td><td>IUG 1</td></tr>
+<tr><td class="ck"></td><td>Colgante sobre la mesa</td><td class="num">1</td><td>A 1,75 m del muro este y 1,50 m del muro sur (centro de la mesa). Con dimmer</td><td class="c">techo</td><td>IUG 1</td></tr>
+<tr><td class="ck"></td><td>Toma (aparador)</td><td class="num">1</td><td>Muro este, bajo la ventana, a ~1,75 m del muro sur</td><td class="c">0,30</td><td>TUG 1</td></tr>
+<tr><td class="ck"></td><td>Toma general</td><td class="num">1</td><td>Muro sur, tramo al este de la corrediza, a ~0,40 m del rincón</td><td class="c">0,30</td><td>TUG 1</td></tr>
+<tr><td class="ck"></td><td>Caja del aire acondicionado (6000 fg)</td><td class="num">1</td><td>Muro este, a 3,00 m del muro sur (tramo macizo entre las dos ventanas)</td><td class="c">~2,20</td><td>TUE</td></tr>
+<tr class="grp"><td colspan="6">Living</td></tr>
+<tr><td class="ck"></td><td>Spots</td><td class="num">6</td><td>Dos filas a 1,00 y 2,50 m del muro este × a 3,95, 5,35 y 6,75 m del muro sur. Si alguno queda frente a la salida del aire, correrlo un poco</td><td class="c">techo</td><td>IUG 1</td></tr>
+<tr><td class="ck"></td><td>Tira LED</td><td class="num">1</td><td>Embutida en el borde del cielorraso, a lo largo del muro este (ventanas)</td><td class="c">techo</td><td>IUG 1</td></tr>
+<tr><td class="ck"></td><td>Toma TV / audio</td><td class="num">1</td><td>Muro oeste, a ~5,55 m del muro sur, detrás del mueble. Conviene doble + caja para TV/internet</td><td class="c">0,30</td><td>TUG 1</td></tr>
+<tr><td class="ck"></td><td>Tomas del sillón</td><td class="num">2</td><td>Muro este, a ~4,30 m y a ~6,75 m del muro sur (uno a cada lado del sillón)</td><td class="c">0,30</td><td>TUG 1</td></tr>
+<tr><td class="ck"></td><td>Toma de reserva</td><td class="num">1</td><td>Muro oeste, a ~3,70 m del muro sur</td><td class="c">0,30</td><td>TUG 1</td></tr>
+<tr class="grp"><td colspan="6">Llaves <span class="tag">propuesta</span></td></tr>
+<tr><td class="ck"></td><td>Llave triple — entrada</td><td class="num">1</td><td>Junto a la corrediza, en el tramo de muro que no tapa la hoja al abrir. Prende: spots del Comedor · colgante (dimmer) · spots del Living</td><td class="c">1,10</td><td>IUG 1</td></tr>
+<tr><td class="ck"></td><td>Llave doble — puerta norte</td><td class="num">1</td><td>Muro norte, tramo de 0,50 m entre la ventana y la puerta (a ~2,25 m del muro este). Prende: spots del Living · tira LED</td><td class="c">1,10</td><td>IUG 1</td></tr>
+</table></div>
+<p class="capnote">Los spots del Living conviene hacerlos de combinación (se prenden y apagan desde las dos puertas).</p>
+
+<h2 id="cocina">2. Cocina (2,00 × 3,00)</h2>
+<p class="capnote">Abierta al Comedor por el este (barra). Ventana al sur, anafe en el muro oeste, heladera en el rincón noroeste. Ver <a href="ambientes/cocina.html">ficha de la Cocina</a>.</p>
+<div class="tablewrap"><table>
+<tr><th></th><th>Qué</th><th>Cant.</th><th>Dónde</th><th>Altura</th><th>Circuito</th></tr>
+<tr><td class="ck"></td><td>Luz central</td><td class="num">1</td><td>Centro del ambiente</td><td class="c">techo</td><td>IUG 1</td></tr>
+<tr><td class="ck"></td><td>Luz sobre la barra</td><td class="num">1</td><td>Centrada sobre la barra (lado este)</td><td class="c">techo</td><td>IUG 1</td></tr>
+<tr><td class="ck"></td><td>Tira LED bajo alacena</td><td class="num">1</td><td>Dentro del mueble colgado del muro oeste, cortada sobre el anafe (la campana trae su luz)</td><td class="c">alacena</td><td>IUG 1</td></tr>
+<tr><td class="ck"></td><td>Tomas sobre mesada</td><td class="num">2</td><td>Muro sur, uno a cada lado de la ventana</td><td class="c">~1,10</td><td>TUG 1</td></tr>
+<tr><td class="ck"></td><td>Tomas sobre mesada</td><td class="num">2</td><td>Muro oeste, uno antes y otro después del anafe</td><td class="c">~1,10</td><td>TUG 1</td></tr>
+<tr><td class="ck"></td><td>Toma heladera</td><td class="num">1</td><td>Rincón noroeste, junto a la heladera</td><td class="c">0,30</td><td>TUE</td></tr>
+<tr><td class="ck"></td><td>Llave A (central + barra)</td><td class="num">1</td><td>Muro norte, al este de la heladera</td><td class="c">1,10</td><td>IUG 1</td></tr>
+<tr><td class="ck"></td><td>Llave B (tira LED)</td><td class="num">1</td><td>Muro oeste, antes del anafe</td><td class="c">~1,05</td><td>IUG 1</td></tr>
+</table></div>
+<p class="capnote">El caño de gas al anafe cruza el muro contra Hab. 1: coordinar con los tomas de ese sector (misma rotura).</p>
+
+<h2 id="hab1">3. Habitación 1 — visitas (2,00 × 3,00)</h2>
+<p class="capnote">Puerta en el muro norte, en el extremo oeste; abre contra la pared oeste. Cama contra la pared este con la cabecera al sur; mesa de luz en el rincón suroeste; ropero en el rincón noreste.</p>
+<div class="tablewrap"><table>
+<tr><th></th><th>Qué</th><th>Cant.</th><th>Dónde</th><th>Altura</th><th>Circuito</th></tr>
+<tr><td class="ck"></td><td>Spots</td><td class="num">2</td><td>En línea por el centro (a 1,00 m de cada pared lateral), a 0,75 y 2,25 m del muro sur</td><td class="c">techo</td><td>IUG 2</td></tr>
+<tr><td class="ck"></td><td>Llave simple</td><td class="num">1</td><td>Muro norte, a ~0,15 m del marco del lado este (≈1,05 m de la pared este)</td><td class="c">1,10</td><td>IUG 2</td></tr>
+<tr><td class="ck"></td><td>Toma mesa de luz</td><td class="num">1</td><td>Muro oeste, a ~0,60 m del muro sur</td><td class="c">0,30</td><td>TUG 2</td></tr>
+<tr><td class="ck"></td><td>Toma general</td><td class="num">1</td><td>Muro este, a ~2,20 m del muro sur (entre los pies de la cama y el ropero)</td><td class="c">0,30</td><td>TUG 2</td></tr>
+</table></div>
+<p class="capnote">La cama va contra la pared este, así que no entra un toma de cada lado de la cabecera.</p>
+
+<h2 id="hab2">4. Habitación 2 — secundaria (3,00 × 3,50)</h2>
+<p class="capnote">Puerta en el muro sur (pasillo), a 1,85 m de la pared este; abre hacia el este. Ropero contra el muro sur, lado este. Cama con la cabecera contra la pared este, del lado norte; mesa de luz en el rincón noreste. TV contra la pared oeste.</p>
+<div class="tablewrap"><table>
+<tr><th></th><th>Qué</th><th>Cant.</th><th>Dónde</th><th>Altura</th><th>Circuito</th></tr>
+<tr><td class="ck"></td><td>Spots</td><td class="num">4</td><td>A 0,75 y 2,25 m del muro este × a 1,30 y 2,80 m del muro sur. Ninguno sobre el ropero</td><td class="c">techo</td><td>IUG 2</td></tr>
+<tr><td class="ck"></td><td>Llave simple</td><td class="num">1</td><td>Muro sur, a ~2,80 m de la pared este (entre el marco y el rincón oeste)</td><td class="c">1,10</td><td>IUG 2</td></tr>
+<tr><td class="ck"></td><td>Tomas de cabecera</td><td class="num">2</td><td>Muro este, a ~1,55 m y a ~3,30 m del muro sur (uno a cada lado de la cama)</td><td class="c">0,30</td><td>TUG 2</td></tr>
+<tr><td class="ck"></td><td>Toma TV / escritorio</td><td class="num">1</td><td>Muro oeste, a ~2,50 m del muro sur, detrás de la TV</td><td class="c">0,30</td><td>TUG 2</td></tr>
+<tr><td class="ck"></td><td>Caja del aire (previsto, 3000 fg)</td><td class="num">1</td><td>Centrada en alto sobre la ventana norte (a 1,50 m de la pared este). Caño embutido desde el muro del pasillo; cable y térmica listos, sin equipo</td><td class="c">~2,20</td><td>TUE</td></tr>
+</table></div>
+
+<h2 id="hab3">5. Habitación 3 — principal (3,50 × 3,50)</h2>
+<p class="capnote">Puerta en el muro sur (pasillo), a 0,35 m de la pared este; abre hacia el este. Ropero contra el muro sur, al oeste de la puerta. Cama con la cabecera contra la pared este, del lado norte, con una mesa de luz a cada lado. TV contra la pared oeste.</p>
+<div class="tablewrap"><table>
+<tr><th></th><th>Qué</th><th>Cant.</th><th>Dónde</th><th>Altura</th><th>Circuito</th></tr>
+<tr><td class="ck"></td><td>Spots</td><td class="num">4</td><td>A 0,90 y 2,60 m del muro este × a 1,30 y 2,80 m del muro sur. El del rincón suroeste, correrlo 20–30 cm al este (frente al aire)</td><td class="c">techo</td><td>IUG 2</td></tr>
+<tr><td class="ck"></td><td>Llave simple <span class="tag">a definir</span></td><td class="num">1</td><td>Muro sur, pegada al marco del lado oeste (~1,20 m de la pared este). Choca con el ropero — ver aviso arriba</td><td class="c">1,10</td><td>IUG 2</td></tr>
+<tr><td class="ck"></td><td>Tomas de mesas de luz</td><td class="num">2</td><td>Muro este, a ~1,50 m y a ~3,30 m del muro sur</td><td class="c">0,30</td><td>TUG 2</td></tr>
+<tr><td class="ck"></td><td>Toma TV</td><td class="num">1</td><td>Muro oeste, a ~2,20 m del muro sur</td><td class="c">0,30</td><td>TUG 2</td></tr>
+<tr><td class="ck"></td><td>Toma escritorio <span class="tag">a definir</span></td><td class="num">1</td><td>Muro norte, tramo entre la ventana y la pared oeste (~3,00 m de la pared este)</td><td class="c">0,30</td><td>TUG 2</td></tr>
+<tr><td class="ck"></td><td>Caja del aire (3000 fg)</td><td class="num">1</td><td>Muro oeste, a ~1,10 m del muro sur. La condensadora va del otro lado, en el retiro oeste</td><td class="c">~2,20</td><td>TUE</td></tr>
+</table></div>
+
+<h2 id="pasillo">6. Pasillo (1,20 de ancho)</h2>
+<div class="tablewrap"><table>
+<tr><th></th><th>Qué</th><th>Cant.</th><th>Dónde</th><th>Altura</th><th>Circuito</th></tr>
+<tr><td class="ck"></td><td>Spots</td><td class="num">4</td><td>3 en el tramo largo (frente a Hab. 2 y Hab. 3), centrados en el ancho y a ~1,70 m entre sí + 1 en el recodo hacia el Baño</td><td class="c">techo</td><td>IUG 1</td></tr>
+<tr><td class="ck"></td><td>Llaves de combinación</td><td class="num">2</td><td>Una al entrar desde la zona social y otra en el recodo. Alternativa: sensor de movimiento</td><td class="c">1,10</td><td>IUG 1</td></tr>
+<tr><td class="ck"></td><td>Toma</td><td class="num">1</td><td>A mitad del tramo largo (aspiradora)</td><td class="c">0,30</td><td>TUG 2</td></tr>
+</table></div>
+
+<h2 id="humedo">7. Baño, Antebaño y Lavadero</h2>
+<p class="capnote">Todo bajo diferencial reforzado. Las luces son resistentes a la humedad (IP44); la de la ducha, al chorro de agua (IP65). Ver <a href="ambientes/bano-lavadero.html">ficha</a> y <a href="plomeria.html">hoja del plomero</a> — misma pared oeste.</p>
+<div class="tablewrap"><table>
+<tr><th></th><th>Qué</th><th>Cant.</th><th>Dónde</th><th>Altura</th><th>Circuito</th></tr>
+<tr class="grp"><td colspan="6">Lavadero (2,50 × 2,00)</td></tr>
+<tr><td class="ck"></td><td>Luces</td><td class="num">2</td><td>En línea por el centro</td><td class="c">techo</td><td>IUG 2</td></tr>
+<tr><td class="ck"></td><td>Llave L</td><td class="num">1</td><td>Junto a la puerta a la galería</td><td class="c">1,10</td><td>IUG 2</td></tr>
+<tr><td class="ck"></td><td>Toma general (plancha)</td><td class="num">1</td><td>Pared libre, lejos de la pileta</td><td class="c">0,30</td><td>TUG 3</td></tr>
+<tr><td class="ck"></td><td>Toma lavarropas</td><td class="num">1</td><td>Junto a la pileta de lavado, por encima de la canilla</td><td class="c">~1,10</td><td>TUE</td></tr>
+<tr><td class="ck"></td><td>Toma termotanque</td><td class="num">1</td><td>Junto al termotanque</td><td class="c">a la altura del equipo</td><td>TUE</td></tr>
+<tr class="grp"><td colspan="6">Antebaño (2,50 × 1,40)</td></tr>
+<tr><td class="ck"></td><td>Luces</td><td class="num">2</td><td>Una central + una junto al espejo, un poco adelantada (no encima de la cabeza)</td><td class="c">techo</td><td>IUG 2</td></tr>
+<tr><td class="ck"></td><td>Llave A</td><td class="num">1</td><td>Junto al paso al pasillo</td><td class="c">1,10</td><td>IUG 2</td></tr>
+<tr><td class="ck"></td><td>Toma secador (IP44)</td><td class="num">1</td><td>Junto al espejo / vanitory</td><td class="c">~1,10</td><td>TUG 3</td></tr>
+<tr class="grp"><td colspan="6">Baño (1,50 × 2,80)</td></tr>
+<tr><td class="ck"></td><td>Luces</td><td class="num">3</td><td>Zona inodoro/bidet (IP44) · arriba de la ducha (IP65) · sobre el espejo del lavamanos, adelantada</td><td class="c">techo</td><td>IUG 2</td></tr>
+<tr><td class="ck"></td><td>Llave B (luz + extractor)</td><td class="num">1</td><td>Junto a la puerta, fuera del recorrido de la hoja</td><td class="c">1,10</td><td>IUG 2</td></tr>
+<tr><td class="ck"></td><td>Toma (IP44)</td><td class="num">1</td><td>Junto a la puerta, lejos de la ducha y del bidet</td><td class="c">~1,10</td><td>TUG 3</td></tr>
+<tr><td class="ck"></td><td>Extractor</td><td class="num">1</td><td>Muro oeste (exterior), arriba, sobre la ducha. Sale directo afuera, sin conducto</td><td class="c">alto</td><td>IUG 2</td></tr>
+</table></div>
+
+<h2 id="galeria">8. Galería (12,50 × 5,00, sin cielorraso)</h2>
+<p class="capnote">Todo por fuera de la pared, atornillado a la estructura del techo (no a la chapa), resistente a la humedad (IP44). Medidas desde el extremo este de la galería. Mesa en el extremo este; asador en el oeste, contra el muro sur del Lavadero.</p>
+<div class="tablewrap"><table>
+<tr><th></th><th>Qué</th><th>Cant.</th><th>Dónde</th><th>Altura</th><th>Circuito</th></tr>
+<tr><td class="ck"></td><td>Línea de artefactos</td><td class="num">—</td><td>Paralela a la pared de la casa, a ~1 m de ella, a lo largo de la galería</td><td class="c">estructura</td><td>IUG 3</td></tr>
+<tr><td class="ck"></td><td>Luz sobre la mesa</td><td class="num">1</td><td>A ~3,00 m del extremo este</td><td class="c">estructura</td><td>IUG 3</td></tr>
+<tr><td class="ck"></td><td>Luz del asador (más potente)</td><td class="num">1</td><td>Sobre el asador, a ~9,20 m del extremo este</td><td class="c">estructura</td><td>IUG 3</td></tr>
+<tr><td class="ck"></td><td>Faroles</td><td class="num">—</td><td>En el resto, de pared o colgados de la estructura</td><td class="c">—</td><td>IUG 3</td></tr>
+<tr><td class="ck"></td><td>Tomas del asador (IP44, con tapa)</td><td class="num">2</td><td>Contra el muro del Lavadero, a ~9,80 m del extremo este</td><td class="c">~1,10</td><td>TUE ext.</td></tr>
+<tr><td class="ck"></td><td>Toma zona mesa (IP44, con tapa)</td><td class="num">1</td><td>Pared de la casa, al lado de la corrediza</td><td class="c">0,30</td><td>TUE ext.</td></tr>
+<tr><td class="ck"></td><td>Llave <span class="tag">propuesta</span></td><td class="num">1</td><td>Pared de la casa junto a la corrediza, del lado de la galería</td><td class="c">1,10</td><td>IUG 3</td></tr>
+</table></div>
+
+<h2 id="garage">9. Garage (8,00 × 6,00, ya construido)</h2>
+<p class="capnote">Todo por fuera de la pared. Artefactos tipo batten LED atornillados a las correas.</p>
+<div class="tablewrap"><table>
+<tr><th></th><th>Qué</th><th>Cant.</th><th>Dónde</th><th>Altura</th><th>Circuito</th></tr>
+<tr><td class="ck"></td><td>Battens LED</td><td class="num">4–6</td><td>Dos líneas paralelas al frente, a ~2 y ~4 m del portón; 2 o 3 por línea repartidos en los 8 m</td><td class="c">correas</td><td>IUG 3</td></tr>
+<tr><td class="ck"></td><td>Llave</td><td class="num">1</td><td>En la bajada desde la casa (descanso, arranque de la escalera)</td><td class="c">1,10</td><td>IUG 3</td></tr>
+<tr><td class="ck"></td><td>Toma descanso</td><td class="num">1</td><td>Junto a la escalera</td><td class="c">0,30</td><td>TUE ext.</td></tr>
+<tr><td class="ck"></td><td>Toma herramientas</td><td class="num">1</td><td>Donde vaya el banco de trabajo</td><td class="c">~1,10</td><td>TUE ext.</td></tr>
+</table></div>
+
+<h2 id="totales">Totales para comprar cajas</h2>
+<div class="tablewrap"><table>
+<tr><th>Ambiente</th><th>Luces / spots</th><th>Llaves</th><th>Tomas</th><th>Especiales</th></tr>
+<tr><td>Living-Comedor</td><td class="c">10 + colgante + tira LED</td><td class="c">2</td><td class="c">6</td><td>Caja aire</td></tr>
+<tr><td>Cocina</td><td class="c">2 + tira LED</td><td class="c">2</td><td class="c">5</td><td>—</td></tr>
+<tr><td>Habitación 1</td><td class="c">2</td><td class="c">1</td><td class="c">2</td><td>—</td></tr>
+<tr><td>Habitación 2</td><td class="c">4</td><td class="c">1</td><td class="c">3</td><td>Caja aire (previsto)</td></tr>
+<tr><td>Habitación 3</td><td class="c">4</td><td class="c">1</td><td class="c">4</td><td>Caja aire</td></tr>
+<tr><td>Pasillo</td><td class="c">4</td><td class="c">2</td><td class="c">1</td><td>—</td></tr>
+<tr><td>Lavadero</td><td class="c">2</td><td class="c">1</td><td class="c">3</td><td>—</td></tr>
+<tr><td>Antebaño</td><td class="c">2</td><td class="c">1</td><td class="c">1</td><td>—</td></tr>
+<tr><td>Baño</td><td class="c">3</td><td class="c">1</td><td class="c">1</td><td>Extractor</td></tr>
+<tr><td>Galería</td><td class="c">franja + 2 + faroles</td><td class="c">1</td><td class="c">3</td><td>—</td></tr>
+<tr><td>Garage</td><td class="c">4–6</td><td class="c">1</td><td class="c">2</td><td>—</td></tr>
+<tr><th>Total embutido (sin Galería ni Garage)</th><th class="c">—</th><th class="c">12</th><th class="c">26</th><th>3 cajas de aire + extractor</th></tr>
+</table></div>
+
+<div class="ok"><b>Agua y luz en la misma pasada.</b> En la pared oeste del sector húmedo conviene marcar de una sola vez las canaletas de agua y las de electricidad, para que el albañil rompa una sola vez y un caño y un cable no compitan por el mismo lugar.</div>
+
+<div class="foot">
+Hoja armada a partir del <a href="instructivo.html">instructivo</a> (capítulo Instalación eléctrica), el <a href="plano-general.html">plano general</a> y las fichas de cada ambiente (cantidades del instructivo; posiciones según el amoblamiento de cada ficha). Las llaves marcadas como propuesta no estaban definidas en el proyecto.
+Es un esquema de anteproyecto: recorrido de caños, sección de cada tramo y demanda total los define el electricista matriculado.
+</div>
+</div>
+</div>
+<script>
+document.getElementById('btnImprimir').addEventListener('click', function () { window.print(); });
+</script>
+</body></html>

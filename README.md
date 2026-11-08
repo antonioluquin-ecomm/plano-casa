@@ -8,6 +8,7 @@ Anteproyecto de una vivienda de una planta con galería, garage y pileta, en un 
 - **[Plano general](plano-general.html)** — planta acotada completa (muros, aberturas, cotas, cuadro de superficies)
 - **[Instructivo](instructivo.html)** — criterios de puertas/ventanas, techo, tanque de agua, materiales de muros y observaciones técnicas
 - **[Plomería — hoja para el plomero](plomeria.html)** — agua y desagües boca por boca, con alturas, orden de trabajo y reparto de tareas
+- **[Electricidad — hoja para el electricista](electricidad.html)** — luces, llaves, tomas y cajas de aire por ambiente, con medidas para marcar en obra
 - **[Cómputo de materiales](computo.html)** — cantidad de ladrillo común, calculada en vivo desde el plano
 - **Por ambiente:** [Living-Comedor](ambientes/living-comedor.html) · [Cocina](ambientes/cocina.html) · [Habitación 1 (visitas)](ambientes/habitacion-1.html) · [Habitación 2 (secundaria)](ambientes/habitacion-2.html) · [Habitación 3 (principal)](ambientes/habitacion-3.html) · [Baño, Antebaño y Lavadero](ambientes/bano-lavadero.html) · [Galería](ambientes/galeria.html) · [Garage](ambientes/garage.html)
 
