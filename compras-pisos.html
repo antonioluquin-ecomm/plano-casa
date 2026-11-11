@@ -1,0 +1,230 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Compra de pisos y revestimientos — vivienda</title><style>
+body{font-family:'Segoe UI',Arial,sans-serif;background:#f4f3ef;color:#23231f;margin:0;padding:26px}
+.wrap{max-width:1080px;margin:0 auto}
+.nav{font-size:13px;margin-bottom:14px}
+.nav a{color:#6a6a63;text-decoration:none}
+.nav a:hover{text-decoration:underline}
+.nav .here{color:#23231f;font-weight:600}
+h1{font-size:21px;font-weight:600;margin:0 0 2px}
+.sub{color:#6a6a63;font-size:13px;margin-bottom:18px;line-height:1.6}
+h2{font-size:15px;margin:0 0 6px}
+h3{font-size:13.5px;margin:18px 0 6px;color:#3a3a36}
+table{border-collapse:collapse;width:100%;font-size:13px;margin-top:10px}
+th,td{border:1px solid #e3e0d7;padding:7px 9px;text-align:left;vertical-align:top}
+th{background:#f4f2ec;font-weight:600}
+td.n,th.n{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+tr.tot td{background:#f8f6f0;font-weight:700}
+tr.done td{opacity:.45}
+tr.done td.chk{opacity:1}
+td.chk{width:28px;text-align:center}
+td.chk input{width:18px;height:18px;cursor:pointer}
+.zona{font-size:11.5px;color:#8a877e;display:block;margin-bottom:2px}
+.det{font-size:11.5px;color:#8a877e;display:block;margin-top:2px}
+a{color:#1f6f99}
+.warn{background:#fff8e9;border-left:3px solid #d8a93c;padding:11px 14px;border-radius:0 6px 6px 0;font-size:13px;line-height:1.65;margin-top:12px}
+.warn b{color:#8a6410}
+.ok{background:#eef7ec;border-left:3px solid #6f9a51;padding:11px 14px;border-radius:0 6px 6px 0;font-size:13px;line-height:1.65;margin-top:12px}
+.ok b{color:#4e7638}
+.sheet{background:#fff;border:1px solid #dedbd1;border-radius:10px;padding:22px;box-shadow:0 1px 3px rgba(0,0,0,.05);margin-bottom:18px;overflow-x:auto}
+p{font-size:13px;line-height:1.65}
+.tabs{display:flex;gap:8px;margin:0 0 16px;flex-wrap:wrap}
+.tab{padding:9px 16px;border:1px solid #d8d5cb;border-radius:8px;background:#fff;cursor:pointer;font-size:13.5px;color:#55534c;font-family:inherit;display:flex;align-items:center;gap:8px}
+.tab:hover{background:#f4f2ec}
+.tab.active{background:#2e2e2b;color:#fff;border-color:#2e2e2b}
+.sw{width:14px;height:14px;border-radius:3px;display:inline-block;border:1px solid rgba(0,0,0,.15)}
+.plan{display:none}
+.plan.active{display:block}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px;margin:4px 0 6px}
+.kpi{border:1px solid #e6e3da;border-radius:8px;padding:10px 12px;background:#faf9f5}
+.kpi b{display:block;font-size:19px;font-variant-numeric:tabular-nums;margin-top:2px}
+.kpi span{font-size:11.5px;color:#8a877e}
+.btn{display:inline-block;padding:9px 14px;border-radius:8px;background:#2e7d4f;color:#fff;text-decoration:none;font-size:13px;font-weight:600;margin-top:8px}
+.btn:hover{background:#256b42}
+.btn.sec{background:#fff;color:#55534c;border:1px solid #d8d5cb;font-weight:500}
+.msg{background:#f8f6f0;border:1px solid #e6e3da;border-radius:8px;padding:12px 14px;font-size:13px;line-height:1.6;white-space:pre-wrap;margin-top:8px}
+.check li{font-size:13px;line-height:1.7;margin:2px 0}
+.foot{font-size:11.5px;color:#6a6a63;margin-top:22px;line-height:1.6;border-top:1px solid #e6e3da;padding-top:12px}
+.renders{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px;margin-top:10px}
+.renders a{display:block;border:1px solid #e3e0d7;border-radius:6px;overflow:hidden;text-decoration:none;color:#55534c;font-size:12px;background:#faf9f5}
+.renders img{width:100%;height:auto;display:block}
+.renders span{display:block;padding:6px 8px}
+@media(max-width:640px){body{padding:16px}.sheet{padding:14px}th,td{padding:6px 7px}.hide-m{display:none}}
+@media print{.nav,.tabs,.btn,.noprint{display:none!important}body{background:#fff;padding:12px}.sheet{box-shadow:none;overflow:visible}.plan{display:block!important;page-break-after:always}}
+</style></head><body><div class="wrap">
+<div class="nav"><a href="index.html">Inicio</a> &nbsp;·&nbsp; <a href="plano-general.html">Plano general</a> &nbsp;·&nbsp; <a href="instructivo.html">Instructivo</a> &nbsp;·&nbsp; <a href="plomeria.html">Plomería</a> &nbsp;·&nbsp; <a href="electricidad.html">Electricidad</a> &nbsp;·&nbsp; <a href="computo.html">Cómputo</a> &nbsp;·&nbsp; <span class="here">Compra de pisos</span> &nbsp;·&nbsp; <a href="gastos.html">Gastos</a></div>
+<h1>Compra de pisos y revestimientos</h1>
+<div class="sub">Lista para llevar a <b>Zeramiko</b> — 24 de Septiembre 731, San Miguel de Tucumán · <a href="https://wa.me/543815151723" target="_blank">WhatsApp +54 381 515-1723</a> · <a href="https://zeramiko.com/" target="_blank">zeramiko.com</a><br>
+Precios de lista de la web al <b>11/11/2026</b> · <b>6 cuotas sin interés solo pagando con Nave</b> (por Mercado Pago las cuotas tienen interés) · <b>5% menos por transferencia</b>. Cantidades del <a href="computo.html#sec-7">cómputo de pisos y revestimientos</a>. Marcá cada ítem a medida que lo comprás (queda guardado en este navegador).</div>
+
+<div class="tabs noprint">
+  <button class="tab active" data-plan="calida"><span class="sw" style="background:#e9d6bf"></span>Ideal — cálida</button>
+  <button class="tab" data-plan="gris"><span class="sw" style="background:#c9c8c4"></span>Alternativa gris</button>
+</div>
+
+<!-- ===================== IDEAL CÁLIDA ===================== -->
+<div class="plan active" id="plan-calida">
+<div class="sheet">
+<h2>Ideal — cálida <span style="font-weight:400;color:#8a877e;font-size:12.5px">piso arena · baño granito · paredes blancas</span></h2>
+<div class="kpis">
+  <div class="kpi"><span>Total de lista</span><b>$ 1.943.664</b></div>
+  <div class="kpi"><span>6 cuotas sin interés (Nave)</span><b>$ 323.944</b></div>
+  <div class="kpi"><span>Por transferencia (−5%)</span><b>$ 1.846.481</b></div>
+</div>
+
+<h3>Pisos y revestimientos</h3>
+<table>
+<tr><th></th><th>Producto</th><th class="n">Cantidad</th><th class="n hide-m">Precio unidad</th><th class="n">Subtotal</th><th class="n hide-m">Stock web</th></tr>
+<tr data-id="c-casa"><td class="chk"><input type="checkbox"></td><td><span class="zona">Piso — resto de la casa (64,5 m²)</span><a href="https://zeramiko.com/productos/gress-allpa-61x61-alisado-arena-2-263m21/" target="_blank">Gres Allpa 61x61 Alisado Arena</a><span class="det">2ª calidad · 2,63 m²/caja · llega a 76,27 m² (15% desperdicio)</span></td><td class="n"><b>29 cajas</b></td><td class="n hide-m">$ 31.562</td><td class="n">$ 915.309</td><td class="n hide-m">200</td></tr>
+<tr data-id="c-bano"><td class="chk"><input type="checkbox"></td><td><span class="zona">Piso — Baño + Lavadero (7,5 m²)</span><a href="https://zeramiko.com/productos/ceramico-scop-ps-granito-marron-1-33x33-196m-8300-90-1ou7j/" target="_blank">Cerámico Scop PS Granito Marrón 33x33</a><span class="det">1ª · 1,96 m²/caja · llega a 9,8 m² · confirmar que sirva para piso de ducha</span></td><td class="n"><b>5 cajas</b></td><td class="n hide-m">$ 13.916</td><td class="n">$ 69.580</td><td class="n hide-m">500</td></tr>
+<tr data-id="c-pbano"><td class="chk"><input type="checkbox"></td><td><span class="zona">Paredes del Baño, a 2,10 m (14,7 m²)</span><a href="https://zeramiko.com/productos/revestimiento-scop-acacia-blanco-satinado-1-33x45-209m2-1070090-ds25w/" target="_blank">Revestimiento Scop Acacia Blanco Satinado 33x45</a><span class="det">1ª · 2,09 m²/caja · llega a 16,72 m²</span></td><td class="n"><b>8 cajas</b></td><td class="n hide-m">$ 24.455</td><td class="n">$ 195.639</td><td class="n hide-m">500</td></tr>
+<tr data-id="c-coc"><td class="chk"><input type="checkbox"></td><td><span class="zona">Pared de la Cocina (2,4 m²)</span><a href="https://zeramiko.com/productos/revestimiento-importado-75x26-color-calce-1-x-unid/" target="_blank">Revestimiento importado 7,5x26 Calce</a><span class="det">1ª · se vende por unidad (≈ 51 por m²) · blanco cálido, borde redondeado</span></td><td class="n"><b>140 unid.</b></td><td class="n hide-m">$ 663</td><td class="n">$ 92.820</td><td class="n hide-m">4942</td></tr>
+</table>
+
+<h3>Pegamentos y pastinas</h3>
+<table>
+<tr><th></th><th>Producto</th><th class="n">Cantidad</th><th class="n hide-m">Precio unidad</th><th class="n">Subtotal</th><th class="n hide-m">Stock web</th></tr>
+<tr data-id="c-keraflex"><td class="chk"><input type="checkbox"></td><td><span class="zona">Para el gres 61x61 de la casa (doble encolado, ≈ 7 kg/m²)</span><a href="https://zeramiko.com/productos/adhesivo-cementicio-mapei-keraflex-grey-gris-25-kg-119125-1o7yi/" target="_blank">Adhesivo Mapei Keraflex Gris 25 kg</a><span class="det">Adhesivo flexible para porcelanato / gres de formato grande</span></td><td class="n"><b>18 bolsas</b></td><td class="n hide-m">$ 32.500</td><td class="n">$ 585.000</td><td class="n hide-m">50</td></tr>
+<tr data-id="c-mapeset"><td class="chk"><input type="checkbox"></td><td><span class="zona">Para el piso del Baño + Lavadero (≈ 5 kg/m²)</span><a href="https://zeramiko.com/productos/pegamento-mapeset-gris-ceramico-25kg/" target="_blank">Pegamento Mapeset Gris Cerámico 25 kg</a></td><td class="n"><b>2 bolsas</b></td><td class="n hide-m">$ 8.725</td><td class="n">$ 17.450</td><td class="n hide-m">300</td></tr>
+<tr data-id="c-construkor"><td class="chk"><input type="checkbox"></td><td><span class="zona">Para las paredes de Baño y Cocina (≈ 4 kg/m²)</span><a href="https://zeramiko.com/productos/pegamento-construkor-impermeable-x-25kg/" target="_blank">Pegamento Klaukol Construkor Impermeable 25 kg</a><span class="det">Para azulejos y cerámicas de pared</span></td><td class="n"><b>3 bolsas</b></td><td class="n hide-m">$ 6.800</td><td class="n">$ 20.400</td><td class="n hide-m">299</td></tr>
+<tr data-id="c-pastinas"><td class="chk"><input type="checkbox"></td><td><span class="zona">Pastina Klaukol antihongos, bolsas de 1 kg</span>12 kg para la casa (color cercano al piso: <a href="https://zeramiko.com/productos/pastina-klukol-blenda-x-1kg/" target="_blank">Blenda</a>, a confirmar) · 2 kg para el piso del Baño (Blenda o <a href="https://zeramiko.com/productos/pastina-klukol-caoba-x-1kg/" target="_blank">Caoba</a>) · 4 kg para las paredes (<a href="https://zeramiko.com/productos/pastina-klaukol-talco-x-1kg/" target="_blank">Talco</a>, claro)<span class="det">Pedí ver la carta de colores en el local: los nombres no dicen bien el tono. Talco tiene solo 20 en stock web.</span></td><td class="n"><b>18 kg</b></td><td class="n hide-m">$ 2.637</td><td class="n">$ 47.466</td><td class="n hide-m">—</td></tr>
+<tr class="tot"><td></td><td>Total ideal cálida</td><td></td><td class="hide-m"></td><td class="n">$ 1.943.664</td><td class="hide-m"></td></tr>
+</table>
+
+<div class="warn"><b>Plan B si el Allpa Alisado Arena no pasa la revisión en el local</b> (tonos muy distintos entre cajas o piezas alabeadas): <a href="https://zeramiko.com/productos/ceramico-cordillera-beton-beige-45x45-1-7-7509-m2-l6zzm/" target="_blank">Cerámico Cordillera Beton Beige 45x45, 1ª</a> — <b>32 cajas</b> ($ 687.105, stock web 87). Al ser cerámico no necesita el Keraflex: alcanza con <b>13 bolsas de Mapeset</b> ($ 113.425). Ese par sale <b>$ 800.530</b>, contra $ 1.500.309 del Allpa + Keraflex.</div>
+
+<h3>Mensaje para pedir confirmación</h3>
+<div class="msg" id="msg-calida">Hola! Quiero comprar:
+• Gres Allpa 61x61 Alisado Arena 2ª: 29 cajas (76,27 m²)
+• Cerámico Scop PS Granito Marrón 33x33: 5 cajas
+• Revestimiento Scop Acacia Blanco Satinado 33x45: 8 cajas
+• Revestimiento importado 7,5x26 Calce: 140 unidades
+• Mapei Keraflex Gris 25 kg: 18 bolsas · Mapeset 25 kg: 2 · Klaukol Construkor 25 kg: 3
+• Pastina Klaukol: 18 kg (colores a elegir en el local)
+
+¿Me confirman:
+1. Stock de todo, con las 29 cajas del Allpa del mismo lote, tono y calibre?
+2. Si el Allpa es gres porcelánico y si el Mapeset sirve para pegarlo (en vez del Keraflex)?
+3. Si el Granito Marrón es antideslizante / apto para piso de ducha?
+4. Si sale en 6 cuotas sin interés con Nave y cuánto es el envío?
+Gracias!</div>
+<a class="btn noprint" target="_blank" data-wa="msg-calida" href="#">Enviar por WhatsApp</a>
+</div>
+</div>
+
+<!-- ===================== ALTERNATIVA GRIS ===================== -->
+<div class="plan" id="plan-gris">
+<div class="sheet">
+<h2>Alternativa gris <span style="font-weight:400;color:#8a877e;font-size:12.5px">piso gris claro · baño gris mate · paredes blancas</span></h2>
+<div class="kpis">
+  <div class="kpi"><span>Total de lista</span><b>$ 1.979.320</b></div>
+  <div class="kpi"><span>6 cuotas sin interés (Nave)</span><b>$ 329.887</b></div>
+  <div class="kpi"><span>Por transferencia (−5%)</span><b>$ 1.880.354</b></div>
+</div>
+
+<h3>Pisos y revestimientos</h3>
+<table>
+<tr><th></th><th>Producto</th><th class="n">Cantidad</th><th class="n hide-m">Precio unidad</th><th class="n">Subtotal</th><th class="n hide-m">Stock web</th></tr>
+<tr data-id="g-casa"><td class="chk"><input type="checkbox"></td><td><span class="zona">Piso — resto de la casa (64,5 m²)</span><a href="https://zeramiko.com/productos/gress-allpa-61x61-alisado-gris-2-263m21/" target="_blank">Gres Allpa 61x61 Alisado Gris</a><span class="det">2ª calidad · 2,63 m²/caja · llega a 76,27 m² (15% desperdicio)</span></td><td class="n"><b>29 cajas</b></td><td class="n hide-m">$ 31.562</td><td class="n">$ 915.309</td><td class="n hide-m">100</td></tr>
+<tr data-id="g-bano"><td class="chk"><input type="checkbox"></td><td><span class="zona">Piso — Baño + Lavadero (7,5 m²)</span><a href="https://zeramiko.com/productos/ceramico-scop-cemento-tala-gris-1-45x45-226m2-900090-1jv7g/" target="_blank">Cerámico Scop Cemento Tala Gris 45x45</a><span class="det">1ª · mate · tránsito P4 · 2,26 m²/caja · llega a 9,04 m² (justo: si el colocador corta mucho, 5 cajas)</span></td><td class="n"><b>4 cajas</b></td><td class="n hide-m">$ 22.327</td><td class="n">$ 89.306</td><td class="n hide-m">200</td></tr>
+<tr data-id="g-pbano"><td class="chk"><input type="checkbox"></td><td><span class="zona">Paredes del Baño, a 2,10 m (14,7 m²)</span><a href="https://zeramiko.com/productos/revestimiento-scop-acacia-blanco-satinado-1-33x45-209m2-1070090-ds25w/" target="_blank">Revestimiento Scop Acacia Blanco Satinado 33x45</a><span class="det">1ª · 2,09 m²/caja · blanco para no cerrar un baño de 1,30 m de ancho · si lo querés gris: <a href="https://zeramiko.com/productos/rev-allpa-california-gris-claro-34x51-1-9-30090-m2-bzd2v/" target="_blank">Allpa California Gris Claro 34x51 mate</a></span></td><td class="n"><b>8 cajas</b></td><td class="n hide-m">$ 24.455</td><td class="n">$ 195.639</td><td class="n hide-m">500</td></tr>
+<tr data-id="g-coc"><td class="chk"><input type="checkbox"></td><td><span class="zona">Pared de la Cocina (2,4 m²)</span><a href="https://zeramiko.com/productos/revestimiento-linea-subway-blanco-brillante-75-x-15-cm-x-unidad-12pq4/" target="_blank">Revestimiento Subway Blanco Brillante 7,5x15</a><span class="det">Se vende por unidad (≈ 89 por m²) · blanco frío, acompaña el gris</span></td><td class="n"><b>250 unid.</b></td><td class="n hide-m">$ 435</td><td class="n">$ 108.750</td><td class="n hide-m">500</td></tr>
+</table>
+
+<h3>Pegamentos y pastinas</h3>
+<table>
+<tr><th></th><th>Producto</th><th class="n">Cantidad</th><th class="n hide-m">Precio unidad</th><th class="n">Subtotal</th><th class="n hide-m">Stock web</th></tr>
+<tr data-id="g-keraflex"><td class="chk"><input type="checkbox"></td><td><span class="zona">Para el gres 61x61 de la casa (doble encolado, ≈ 7 kg/m²)</span><a href="https://zeramiko.com/productos/adhesivo-cementicio-mapei-keraflex-grey-gris-25-kg-119125-1o7yi/" target="_blank">Adhesivo Mapei Keraflex Gris 25 kg</a></td><td class="n"><b>18 bolsas</b></td><td class="n hide-m">$ 32.500</td><td class="n">$ 585.000</td><td class="n hide-m">50</td></tr>
+<tr data-id="g-mapeset"><td class="chk"><input type="checkbox"></td><td><span class="zona">Para el piso del Baño + Lavadero</span><a href="https://zeramiko.com/productos/pegamento-mapeset-gris-ceramico-25kg/" target="_blank">Pegamento Mapeset Gris Cerámico 25 kg</a></td><td class="n"><b>2 bolsas</b></td><td class="n hide-m">$ 8.725</td><td class="n">$ 17.450</td><td class="n hide-m">300</td></tr>
+<tr data-id="g-construkor"><td class="chk"><input type="checkbox"></td><td><span class="zona">Para las paredes de Baño y Cocina</span><a href="https://zeramiko.com/productos/pegamento-construkor-impermeable-x-25kg/" target="_blank">Pegamento Klaukol Construkor Impermeable 25 kg</a></td><td class="n"><b>3 bolsas</b></td><td class="n hide-m">$ 6.800</td><td class="n">$ 20.400</td><td class="n hide-m">299</td></tr>
+<tr data-id="g-pastinas"><td class="chk"><input type="checkbox"></td><td><span class="zona">Pastina Klaukol antihongos, bolsas de 1 kg</span>12 kg para la casa y 2 kg para el piso del Baño (<b>gris</b>: la web no la lista, pedirla en el local — <a href="https://zeramiko.com/productos/pastina-klaukol-hulla-x-1kg/" target="_blank">Hulla</a> es muy oscura para un gris claro) · 4 kg para las paredes (<a href="https://zeramiko.com/productos/pastina-klaukol-talco-x-1kg/" target="_blank">Talco</a>)<span class="det">Talco tiene solo 20 en stock web.</span></td><td class="n"><b>18 kg</b></td><td class="n hide-m">$ 2.637</td><td class="n">$ 47.466</td><td class="n hide-m">—</td></tr>
+<tr class="tot"><td></td><td>Total alternativa gris</td><td></td><td class="hide-m"></td><td class="n">$ 1.979.320</td><td class="hide-m"></td></tr>
+</table>
+
+<div class="warn"><b>Plan B si el Allpa Alisado Gris no pasa la revisión en el local:</b> <a href="https://zeramiko.com/productos/ceramico-cordillera-beton-tiza-45x45-1-7-7509-m2-965x2/" target="_blank">Cerámico Cordillera Beton Tiza 45x45, 1ª</a> (gris muy claro) — <b>32 cajas</b> ($ 687.105, stock web 50) + <b>13 bolsas de Mapeset</b> ($ 113.425) en lugar del Keraflex. Ese par sale <b>$ 800.530</b>, contra $ 1.500.309 del Allpa + Keraflex.</div>
+
+<h3>Mensaje para pedir confirmación</h3>
+<div class="msg" id="msg-gris">Hola! Quiero comprar:
+• Gres Allpa 61x61 Alisado Gris 2ª: 29 cajas (76,27 m²)
+• Cerámico Scop Cemento Tala Gris 45x45: 4 cajas
+• Revestimiento Scop Acacia Blanco Satinado 33x45: 8 cajas
+• Revestimiento Subway Blanco Brillante 7,5x15: 250 unidades
+• Mapei Keraflex Gris 25 kg: 18 bolsas · Mapeset 25 kg: 2 · Klaukol Construkor 25 kg: 3
+• Pastina Klaukol: 18 kg (gris claro y Talco)
+
+¿Me confirman:
+1. Stock de todo, con las 29 cajas del Allpa del mismo lote, tono y calibre?
+2. Si el Allpa es gres porcelánico y si el Mapeset sirve para pegarlo (en vez del Keraflex)?
+3. Si el Tala Gris es antideslizante / apto para piso de ducha?
+4. Si sale en 6 cuotas sin interés con Nave y cuánto es el envío?
+Gracias!</div>
+<a class="btn noprint" target="_blank" data-wa="msg-gris" href="#">Enviar por WhatsApp</a>
+</div>
+</div>
+
+<!-- ===================== COMÚN ===================== -->
+<div class="sheet">
+<h2>Lo que más pesa: el pegamento del gres</h2>
+<p>Con el gres 61x61, el pegamento para porcelanato (Keraflex, 18 bolsas) cuesta <b>$ 585.000</b>: casi lo mismo que el piso. Antes de comprar, preguntá si el <b>Mapeset</b> ($ 8.725 la bolsa) sirve para ese gres. Si dicen que sí, ahorrás unos <b>$ 428.000</b>. Si no, no lo cambies: un pegamento común en gres de baja absorción y pieza grande es la causa típica de piezas que suenan huecas o se despegan.</p>
+</div>
+
+<div class="sheet">
+<h2>En el local — antes de pagar</h2>
+<ol class="check">
+<li><b>Gres porcelánico de verdad:</b> que la caja o la ficha diga "porcelánico" o una absorción de agua menor al 3%.</li>
+<li><b>Abrí 2 o 3 cajas del lote que te van a vender</b>, no una muestra. Poné piezas de cajas distintas una al lado de la otra y mirá el tono.</li>
+<li><b>Alabeo:</b> apoyá dos piezas cara contra cara. Si se balancean o queda luz en el medio, no.</li>
+<li><b>Mismo lote, tono y calibre</b> impresos en todas las cajas. Comprá todo de una vez.</li>
+<li><b>Baño:</b> que confirmen que el piso elegido es antideslizante o apto para ducha.</li>
+<li><b>Pastinas:</b> pedí la carta de colores y elegí con una pieza del piso en la mano.</li>
+<li><b>Pago:</b> elegí <b>Nave</b> para las 6 cuotas sin interés; por transferencia hay 5% menos.</li>
+<li><b>Envío:</b> preguntá costo y que entreguen todo junto (son ~45 cajas y ~23 bolsas).</li>
+</ol>
+</div>
+
+<div class="sheet noprint">
+<h2>Cómo queda el piso de la casa</h2>
+<p>Render del Living-Comedor según el plano, con piezas y juntas a tamaño real. Los colores salen de las fotos de la tienda: confirmarlos con la pieza.</p>
+<div class="renders">
+<a href="renders/pisos-living/1-allpa-alisado-arena.jpg" target="_blank"><img src="renders/pisos-living/1-allpa-alisado-arena.jpg" alt="Living con Allpa Alisado Arena" loading="lazy"><span>Ideal — Allpa Alisado Arena</span></a>
+<a href="renders/pisos-living/2-allpa-alisado-gris.jpg" target="_blank"><img src="renders/pisos-living/2-allpa-alisado-gris.jpg" alt="Living con Allpa Alisado Gris" loading="lazy"><span>Gris — Allpa Alisado Gris</span></a>
+<a href="renders/pisos-living/3-cordillera-beton-beige.jpg" target="_blank"><img src="renders/pisos-living/3-cordillera-beton-beige.jpg" alt="Living con Cordillera Beton Beige" loading="lazy"><span>Plan B — Cordillera Beton Beige</span></a>
+</div>
+</div>
+
+<div class="foot">Precios y stock tomados de zeramiko.com el 11/11/2026 — pueden cambiar. Cantidades con desperdicio incluido (10–15% según material); pegamentos y pastinas son estimaciones por m² para que no falte: confirmar con el colocador. Igual que el resto del sitio, no reemplaza el cómputo de un profesional matriculado.</div>
+</div>
+<script>
+(function () {
+  var KEY = 'compras-pisos-v1';
+  var state = {};
+  try { state = JSON.parse(localStorage.getItem(KEY) || '{}') || {}; } catch (e) { state = {}; }
+  function save() { try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) {} }
+
+  document.querySelectorAll('tr[data-id]').forEach(function (tr) {
+    var cb = tr.querySelector('input[type=checkbox]');
+    var id = tr.getAttribute('data-id');
+    cb.checked = !!state[id];
+    tr.classList.toggle('done', cb.checked);
+    cb.addEventListener('change', function () {
+      state[id] = cb.checked; tr.classList.toggle('done', cb.checked); save();
+    });
+  });
+
+  function show(plan) {
+    document.querySelectorAll('.plan').forEach(function (p) { p.classList.toggle('active', p.id === 'plan-' + plan); });
+    document.querySelectorAll('.tab').forEach(function (b) { b.classList.toggle('active', b.getAttribute('data-plan') === plan); });
+    state._plan = plan; save();
+  }
+  document.querySelectorAll('.tab').forEach(function (b) {
+    b.addEventListener('click', function () { show(b.getAttribute('data-plan')); });
+  });
+  if (state._plan === 'gris') show('gris');
+
+  document.querySelectorAll('[data-wa]').forEach(function (a) {
+    var txt = document.getElementById(a.getAttribute('data-wa')).textContent;
+    a.href = 'https://wa.me/543815151723?text=' + encodeURIComponent(txt);
+  });
+})();
+</script>
+</body></html>
