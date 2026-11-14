@@ -280,6 +280,7 @@ Registro manual de compras y pagos — se actualiza a medida que se van cargando
 <p class="pendiente"><b>Sobre el destino "Tapia Este":</b> las compras del 25/06 en adelante se asumieron como compradas por adelantado para esa tarea (arrancó el 13/07) — es una inferencia por fecha, no un dato confirmado en la boleta.</p>
 <p class="pendiente"><b>Sobre la Casa (Etapa 3):</b> las compras se separan por tarea (cimientos y estructura, mampostería, capa aisladora, relleno y contrapiso). El plástico va en relleno y contrapiso porque se usó bajo el contrapiso y en las paredes interiores hasta el nivel del relleno. Los valores de la boleta final del 30/07 (Nº 0019-00046759) ya tienen aplicado el descuento por contado — la Plasticor bajó de 60 a 50 bolsas respecto del presupuesto inicial del mismo día.</p>
 <p class="pendiente"><b>Pisos de la Casa (11/11, Zeramiko):</b> pagado con tarjeta por Mercado Pago en 6 cuotas — el precio por caja de la factura ($ 28.965,30) ya incluye el recargo de esa forma de pago, ≈ 7 % sobre el precio de lista ($ 10.100,90/m² = $ 27.070,41 la caja). Las 10 bolsas de Sika Ceram fueron de regalo por la promo. A qué zona va cada piso se dedujo de las cantidades: el Jónico Gris (48,2 m²) es el único que alcanza para la zona social.</p>
+<p class="pendiente"><b>Cambio a porcelanato (13/11):</b> sin haber retirado el Jónico Gris, se cambiaron sus 18 cajas por 29 cajas de porcelanato Striato Bianco pulido para la zona social. Los $ 521.375 del Jónico quedaron a cuenta del porcelanato y se pagaron <b>$ 600.000 de diferencia en un solo pago</b>; la factura original sigue en sus 6 cuotas de Mercado Pago. El porcelanato costó en total $ 1.121.375 (≈ $ 38.668 la caja). Las 10 bolsas de Sika Ceram quedaron para el Benfica de los dormitorios.</p>
 </div>
 </div>
 
@@ -436,9 +437,10 @@ const MATERIALES = [
   {fecha:'2026-09-22', etapa:'Etapa 3', comp:'sin comprobante', prov:'Efectivo', destino:'Relleno y contrapiso — Casa', item:'Ripio para contrapiso', precio:'—', desc:'—', cant:'—', subtotal:150000},
   {fecha:'2026-09-22', etapa:'Etapa 3', comp:'sin comprobante', prov:'Efectivo', destino:'Relleno y contrapiso — Casa', item:'Cemento', precio:'$ 7.280,00', desc:'—', cant:'25', subtotal:182000},
   {fecha:'2026-09-23', etapa:'Etapa 3', comp:'sin comprobante', prov:'Efectivo', destino:'Relleno y contrapiso — Casa', item:'Cemento', precio:'$ 7.280,00', desc:'—', cant:'25', subtotal:182000},
-  {fecha:'2026-11-11', etapa:'Etapa 3', comp:'B 00052-00102024', prov:'Zeramiko', destino:'Pisos — Casa', item:'Cerámico Allpa 36x36 Jónico Gris 1ª (2,68 m²/caja) — Living-Comedor, Cocina, pasillos y Antebaño', precio:'$ 28.965,30', desc:'—', cant:'18 cajas', subtotal:521375},
+  {fecha:'2026-11-11', etapa:'Etapa 3', comp:'B 00052-00102024', prov:'Zeramiko', destino:'Pisos — Casa', item:'Cerámico Allpa 36x36 Jónico Gris 1ª (2,68 m²/caja) — cambiado el 13/11 por porcelanato (el importe quedó a cuenta)', precio:'$ 28.965,30', desc:'—', cant:'18 cajas', subtotal:521375},
   {fecha:'2026-11-11', etapa:'Etapa 3', comp:'B 00052-00102024', prov:'Zeramiko', destino:'Pisos — Casa', item:'Cerámico Allpa 36x36 Benfica Marfil 1ª (2,68 m²/caja) — dormitorios', precio:'$ 28.965,30', desc:'—', cant:'13 cajas', subtotal:376549},
-  {fecha:'2026-11-11', etapa:'Etapa 3', comp:'B 00052-00102024', prov:'Zeramiko', destino:'Pisos — Casa', item:'Pegamento Sika Ceram (promo: 1 bolsa cada 8 m² de cerámico)', precio:'$ 0,00', desc:'regalo', cant:'10 bolsas', subtotal:0}
+  {fecha:'2026-11-11', etapa:'Etapa 3', comp:'B 00052-00102024', prov:'Zeramiko', destino:'Pisos — Casa', item:'Pegamento Sika Ceram (promo: 1 bolsa cada 8 m² de cerámico)', precio:'$ 0,00', desc:'regalo', cant:'10 bolsas', subtotal:0},
+  {fecha:'2026-11-13', etapa:'Etapa 3', comp:'cambio sobre B 00052-00102024', prov:'Zeramiko', destino:'Pisos — Casa', item:'Porcelanato San Lorenzo Striato Bianco pulido 57,7x57,7 1ª (1,66 m²/caja) — Living-Comedor, Cocina, pasillos y Antebaño · diferencia del cambio por el Jónico', precio:'—', desc:'—', cant:'29 cajas', subtotal:600000}
 ];
 
 // Expuestos para que computo.html los lea en vivo por iframe (cruce comprado vs. estimado).
