@@ -38,6 +38,7 @@ p{font-size:13px;line-height:1.65}
 .rubro-h{display:flex;align-items:center;justify-content:space-between}
 .rubro-h span{font-weight:600;font-size:13.5px}
 .rubro p{color:#8a877e;font-size:12.5px;margin:6px 0 0}
+.pin{width:90px;padding:4px 6px;border:1px solid #d8d5cb;border-radius:5px;font-size:13px;text-align:right;font-variant-numeric:tabular-nums}
 .tablewrap{overflow-x:auto}
 .sheet{overflow-x:auto}
 .foot{color:#6a6a63}
@@ -114,6 +115,43 @@ h2{scroll-margin-top:12px}
 </table>
 
 <div class="warn"><b>Esto es un cómputo de anteproyecto para presupuestar, no un plano de estructura.</b> La cantidad y sección final de los tirantes y las correas depende del cálculo del ingeniero estructural (ver <a href="instructivo.html">instructivo</a>) — el "factor de perfil por tirante" de arriba es una estimación gruesa para no dejar el rubro en cero, ajustalo cuando esté el cálculo real. Los rendimientos de chapa, tornillería, manta y placas también dependen del proveedor/marca elegido.</div>
+</div>
+
+<div class="sheet">
+<h2>Cielorraso de Durlock — mano de obra y materiales <span class="badge badge-quote">estimado, precios de referencia</span></h2>
+<p>Cielorraso plano a 2,60 m en todos los ambientes interiores de la casa (la superficie sale del parámetro "Superficie cubierta" del Techo de arriba; placas, % de desperdicio y m² de placa verde también). Mano de obra: cotización del colocador por m². Materiales: <b>precios de referencia de internet</b> (Easy y Mercado Libre, no de un corralón de Tucumán), editables — reemplazalos cuando tengas el presupuesto local.</p>
+
+<div class="params">
+  <label>Mano de obra ($/m²)<input type="number" id="cielPrecioMO" value="15000" step="500" min="0"></label>
+  <label>Perímetro de ambientes (ml, estimado)<input type="number" id="cielPerimetro" value="115" step="1" min="0"></label>
+  <label>Separación de omegas (m)<input type="number" id="cielSepOmega" value="0.40" step="0.05" min="0.2"></label>
+  <label>Desperdicio perfiles e insumos (%)<input type="number" id="cielDesperdicio" value="10" step="1" min="0"></label>
+  <label>Velas rígidas (un/m²)<input type="number" id="cielVelas" value="1" step="0.1" min="0"></label>
+  <label>Tornillos T1 (un/m²)<input type="number" id="cielT1" value="15" step="1" min="0"></label>
+  <label>Tornillos T2 (un/m²)<input type="number" id="cielT2" value="5" step="1" min="0"></label>
+  <label>Masilla (kg/m²)<input type="number" id="cielMasilla" value="0.7" step="0.1" min="0"></label>
+  <label>Cinta (ml/m²)<input type="number" id="cielCinta" value="1.5" step="0.1" min="0"></label>
+  <label>Tapas de inspección (un.)<input type="number" id="cielTapas" value="2" step="1" min="0"></label>
+</div>
+
+<table>
+<tr><th>Material</th><th style="text-align:right">Cantidad</th><th>Unidad</th><th style="text-align:right">Precio unitario</th><th style="text-align:right">Subtotal</th></tr>
+<tr><td>Placa estándar 9,5 mm (1,20 × 2,40) <span style="color:#8a877e;font-size:11.5px">precio Knauf en Easy</span></td><td class="n" id="cielCantPlacaEst">—</td><td>placas</td><td class="n"><input class="pin" type="number" id="cielPrecioPlacaEst" value="12070" step="100" min="0"></td><td class="n" id="cielSubPlacaEst">—</td></tr>
+<tr><td>Placa verde (RH), Baño + Antebaño + Lavadero <span style="color:#8a877e;font-size:11.5px">precio Knauf antihumedad 12,5 mm</span></td><td class="n" id="cielCantPlacaVerde">—</td><td>placas</td><td class="n"><input class="pin" type="number" id="cielPrecioPlacaVerde" value="23295" step="100" min="0"></td><td class="n" id="cielSubPlacaVerde">—</td></tr>
+<tr><td>Perfil solera 35 (perimetral)</td><td class="n" id="cielCantSolera">—</td><td>barras de 2,60 m</td><td class="n"><input class="pin" type="number" id="cielPrecioSolera" value="4150" step="50" min="0"></td><td class="n" id="cielSubSolera">—</td></tr>
+<tr><td>Perfil omega / montante <span style="color:#8a877e;font-size:11.5px">precio del montante 34 como referencia</span></td><td class="n" id="cielCantOmega">—</td><td>barras de 2,60 m</td><td class="n"><input class="pin" type="number" id="cielPrecioOmega" value="4800" step="50" min="0"></td><td class="n" id="cielSubOmega">—</td></tr>
+<tr><td>Velas rígidas</td><td class="n" id="cielCantVelas">—</td><td>un.</td><td class="n"><input class="pin" type="number" id="cielPrecioVelas" value="0" step="10" min="0"></td><td class="n" id="cielSubVelas">—</td></tr>
+<tr><td>Tornillos T1 punta aguja (placa a perfil)</td><td class="n" id="cielCantT1">—</td><td>un.</td><td class="n"><input class="pin" type="number" id="cielPrecioT1" value="0" step="1" min="0"></td><td class="n" id="cielSubT1">—</td></tr>
+<tr><td>Tornillos T2 punta mecha (perfil a perfil)</td><td class="n" id="cielCantT2">—</td><td>un.</td><td class="n"><input class="pin" type="number" id="cielPrecioT2" value="0" step="1" min="0"></td><td class="n" id="cielSubT2">—</td></tr>
+<tr><td>Masilla para juntas</td><td class="n" id="cielCantMasilla">—</td><td>kg</td><td class="n"><input class="pin" type="number" id="cielPrecioMasilla" value="0" step="50" min="0"></td><td class="n" id="cielSubMasilla">—</td></tr>
+<tr><td>Cinta de papel para juntas</td><td class="n" id="cielCantCinta">—</td><td>rollos de 150 m</td><td class="n"><input class="pin" type="number" id="cielPrecioCinta" value="0" step="100" min="0"></td><td class="n" id="cielSubCinta">—</td></tr>
+<tr><td>Tapas de inspección</td><td class="n" id="cielCantTapas">—</td><td>un.</td><td class="n"><input class="pin" type="number" id="cielPrecioTapas" value="0" step="100" min="0"></td><td class="n" id="cielSubTapas">—</td></tr>
+<tr class="tot"><td colspan="4">Materiales con precio cargado</td><td class="n" id="cielTotMat">—</td></tr>
+<tr><td colspan="4">Mano de obra <span style="color:#8a877e;font-size:11.5px" id="cielMOdetalle"></span></td><td class="n" id="cielTotMO">—</td></tr>
+<tr class="tot"><td colspan="4">Total parcial (materiales cargados + mano de obra)</td><td class="n" id="cielTotal">—</td></tr>
+</table>
+
+<div class="warn"><b>Es un estimado parcial.</b> Las filas con precio 0 (velas, tornillos, masilla, cinta y tapas) todavía no tienen precio: no se encontró uno confiable, así que no suman al total. Los precios cargados son de catálogos nacionales (Easy y Mercado Libre, consultados el 23/11/2026), sin flete a Tucumán, y la placa verde es de 12,5 mm porque no apareció la de 9,5 mm. Con placa Durlock en vez de Knauf, los precios de referencia hallados fueron ≈ $28.336 la estándar y ≈ $45.072 la verde (espesor sin confirmar). El perímetro de 115 ml es una estimación, no un cómputo del plano. Fuentes: <a href="https://www.easy.com.ar/placa-yeso-knauf-9-5-1-20x2-40mt/p">placa Knauf 9,5 mm</a>, <a href="https://easy.com.ar/solera-35mm-x-2-6m---ap/p">solera 35</a>, <a href="https://easy.com.ar/montante-34mm-x-2-6m---ap/p">montante 34</a>, <a href="https://www.mercadolibre.com.ar/tienda/almacen-seco">Mercado Libre</a>. Pintura no incluida.</div>
 </div>
 
 <div class="sheet">
@@ -605,6 +643,34 @@ function renderTecho() {
     ['Caño pluvial común a la vista PVC Ø125 (casa + galería)', 'B1 → muro oeste hasta la calle: bajada ~2,2 m + tramo ~8,5 m, con abrazaderas, codos, T con tapón y tapa de limpieza', '≈ 11 ml (galería, Ø110: +15 ml cuando se haga)']
   ];
 
+  // Cielorraso Durlock: cantidades de compra, subtotales y mano de obra
+  const cielDesp = 1 + num('cielDesperdicio', 10) / 100;
+  const BARRA_PERFIL = 2.60;
+  const cq = {
+    PlacaEst: placasEstandar,
+    PlacaVerde: placasVerdes,
+    Solera: Math.ceil(num('cielPerimetro', 115) * cielDesp / BARRA_PERFIL),
+    Omega: Math.ceil(footprint / num('cielSepOmega', 0.40) * cielDesp / BARRA_PERFIL),
+    Velas: Math.ceil(footprint * num('cielVelas', 1) * cielDesp),
+    T1: Math.ceil(footprint * num('cielT1', 15) * cielDesp),
+    T2: Math.ceil(footprint * num('cielT2', 5) * cielDesp),
+    Masilla: Math.ceil(footprint * num('cielMasilla', 0.7)),
+    Cinta: Math.ceil(footprint * num('cielCinta', 1.5) * cielDesp / 150),
+    Tapas: num('cielTapas', 2)
+  };
+  let cielMat = 0;
+  Object.keys(cq).forEach(function (k) {
+    const sub = cq[k] * num('cielPrecio' + k, 0);
+    cielMat += sub;
+    document.getElementById('cielCant' + k).textContent = cq[k].toLocaleString('es-AR');
+    document.getElementById('cielSub' + k).textContent = sub > 0 ? money(sub) : '—';
+  });
+  const cielMO = footprint * num('cielPrecioMO', 15000);
+  document.getElementById('cielTotMat').textContent = money(cielMat);
+  document.getElementById('cielMOdetalle').textContent = '(' + footprint.toFixed(2) + ' m² × ' + money(num('cielPrecioMO', 15000)) + ')';
+  document.getElementById('cielTotMO').textContent = money(cielMO);
+  document.getElementById('cielTotal').textContent = money(cielMat + cielMO);
+
   document.getElementById('tbodyTecho').innerHTML = rows.map(r =>
     '<tr><td>' + r[0] + '</td><td style="color:#6a6a63;font-size:12px">' + r[1] + '</td><td class="n"><b>' + r[2] + '</b></td></tr>'
   ).join('');
@@ -612,7 +678,10 @@ function renderTecho() {
 
 ['techoFootprint','techoAncho','techoProfundidad','techoPendiente','techoAlero','techoDesperdicioChapa',
  'techoSepCorrea','techoSepCercha','techoFactorCercha','techoTornillos','techoRendRollo','techoVerde',
- 'techoDesperdicioPlaca','techoBajadas'].forEach(function (id) {
+ 'techoDesperdicioPlaca','techoBajadas',
+ 'cielPrecioMO','cielPerimetro','cielSepOmega','cielDesperdicio','cielVelas','cielT1','cielT2','cielMasilla','cielCinta','cielTapas',
+ 'cielPrecioPlacaEst','cielPrecioPlacaVerde','cielPrecioSolera','cielPrecioOmega','cielPrecioVelas','cielPrecioT1','cielPrecioT2',
+ 'cielPrecioMasilla','cielPrecioCinta','cielPrecioTapas'].forEach(function (id) {
   document.getElementById(id).addEventListener('input', renderTecho);
 });
 renderTecho();
