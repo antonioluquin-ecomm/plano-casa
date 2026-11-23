@@ -1,0 +1,133 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 540" font-family="'Segoe UI',Arial,sans-serif">
+  <rect width="760" height="540" fill="#ffffff"/>
+
+  <!-- ============ PLANTA ============ -->
+  <text x="60" y="30" font-size="14" font-weight="700" fill="#23231f">Planta — cajón en U (este, oeste y sur)</text>
+  <text x="60" y="47" font-size="11" fill="#8a877e">3,50 × 7,70 m a eje · esquema</text>
+
+  <!-- compás -->
+  <g transform="translate(262,70)">
+    <path d="M0 22 L0 0 M-5 7 L0 0 L5 7" stroke="#55534c" stroke-width="1.5" fill="none"/>
+    <text x="-4" y="36" font-size="11" font-weight="700" fill="#55534c">N</text>
+  </g>
+
+  <!-- ambiente -->
+  <rect x="60" y="60" width="175" height="385" fill="#faf9f5"/>
+  <!-- límite Comedor / Living -->
+  <line x1="60" y1="295" x2="235" y2="295" stroke="#c9c4b3" stroke-width="1" stroke-dasharray="4 3"/>
+
+  <!-- cajón: franjas de 0,20 m (10 px) -->
+  <rect x="225" y="60" width="10" height="385" fill="#efe4c2" stroke="#b79b4a" stroke-width="1"/>
+  <rect x="60" y="60" width="10" height="385" fill="#efe4c2" stroke="#b79b4a" stroke-width="1"/>
+  <rect x="60" y="435" width="175" height="10" fill="#efe4c2" stroke="#b79b4a" stroke-width="1"/>
+  <!-- línea LED -->
+  <line x1="223" y1="62" x2="223" y2="433" stroke="#f2c744" stroke-width="2.5"/>
+  <line x1="72" y1="62" x2="72" y2="433" stroke="#f2c744" stroke-width="2.5"/>
+  <line x1="72" y1="433" x2="223" y2="433" stroke="#f2c744" stroke-width="2.5"/>
+
+  <!-- muro norte: sin cajón (split) -->
+  <rect x="116" y="64" width="50" height="9" rx="2" fill="#e3ecf2" stroke="#1f7fae" stroke-width="1.2"/>
+  <text x="141" y="58" font-size="10" fill="#1f7fae" text-anchor="middle">split</text>
+  <line x1="62" y1="60" x2="233" y2="60" stroke="#d8a93c" stroke-width="2" stroke-dasharray="5 3"/>
+
+  <!-- muros -->
+  <rect x="60" y="60" width="175" height="385" fill="none" stroke="#6a6a63" stroke-width="5"/>
+
+  <!-- luces del ambiente (colgante comedor, medio, living) -->
+  <circle cx="147" cy="370" r="6" fill="#f2c744" stroke="#8a6410" stroke-width="1"/>
+  <circle cx="147" cy="295" r="6" fill="#f2c744" stroke="#8a6410" stroke-width="1"/>
+  <circle cx="147" cy="178" r="6" fill="#f2c744" stroke="#8a6410" stroke-width="1"/>
+
+  <text x="147" y="410" font-size="12" font-weight="700" fill="#55534c" text-anchor="middle">COMEDOR</text>
+  <text x="147" y="425" font-size="10" fill="#8a877e" text-anchor="middle">3,00 m</text>
+  <text x="147" y="215" font-size="12" font-weight="700" fill="#55534c" text-anchor="middle">LIVING</text>
+  <text x="147" y="230" font-size="10" fill="#8a877e" text-anchor="middle">4,70 m</text>
+
+  <!-- cotas -->
+  <text x="147" y="470" font-size="11" fill="#55534c" text-anchor="middle">3,50 m</text>
+  <line x1="60" y1="456" x2="235" y2="456" stroke="#8a877e" stroke-width="1"/>
+  <line x1="60" y1="452" x2="60" y2="460" stroke="#8a877e"/><line x1="235" y1="452" x2="235" y2="460" stroke="#8a877e"/>
+  <text transform="translate(40,252) rotate(-90)" font-size="11" fill="#55534c" text-anchor="middle">7,70 m</text>
+  <line x1="46" y1="60" x2="46" y2="445" stroke="#8a877e" stroke-width="1" transform="translate(-0,0)"/>
+
+  <!-- leyenda planta -->
+  <g font-size="11" fill="#55534c">
+    <rect x="60" y="486" width="14" height="9" fill="#efe4c2" stroke="#b79b4a"/><text x="80" y="495">Cajón (≈ 18,5 ml)</text>
+    <line x1="170" y1="490" x2="188" y2="490" stroke="#f2c744" stroke-width="2.5"/><text x="194" y="495">Tira LED</text>
+    <line x1="60" y1="512" x2="78" y2="512" stroke="#d8a93c" stroke-width="2" stroke-dasharray="5 3"/><text x="84" y="516">Muro norte: sin cajón (choca con el split)</text>
+    <circle cx="68" cy="530" r="5" fill="#f2c744" stroke="#8a6410"/><text x="80" y="534">Luces del ambiente (plano eléctrico)</text>
+  </g>
+
+  <!-- ============ CORTE ============ -->
+  <text x="340" y="30" font-size="14" font-weight="700" fill="#23231f">Corte transversal (este–oeste)</text>
+  <text x="340" y="47" font-size="11" fill="#8a877e">Cielorraso a 2,60 m · el cajón baja 0,20 m en cada borde</text>
+
+  <!-- entretecho -->
+  <rect x="320" y="70" width="410" height="20" fill="#f4f2ec"/>
+  <text x="525" y="84" font-size="10" fill="#8a877e" text-anchor="middle">entretecho</text>
+  <!-- muros -->
+  <rect x="335" y="90" width="15" height="260" fill="#d6d1c1"/>
+  <rect x="700" y="90" width="15" height="260" fill="#d6d1c1"/>
+  <!-- cielorraso y piso -->
+  <line x1="335" y1="90" x2="715" y2="90" stroke="#3a3a36" stroke-width="2.5"/>
+  <line x1="320" y1="350" x2="730" y2="350" stroke="#3a3a36" stroke-width="3"/>
+
+  <!-- luz hacia el cielorraso -->
+  <polygon points="356,108 366,108 480,90 356,90" fill="#f2c744" opacity=".38"/>
+  <polygon points="694,108 684,108 570,90 694,90" fill="#f2c744" opacity=".38"/>
+
+  <!-- cajón izquierdo -->
+  <rect x="350" y="108" width="20" height="3" fill="#b79b4a"/>
+  <rect x="368" y="98" width="3" height="13" fill="#b79b4a"/>
+  <rect x="354" y="105" width="12" height="3" fill="#f2c744"/>
+  <!-- cajón derecho -->
+  <rect x="680" y="108" width="20" height="3" fill="#b79b4a"/>
+  <rect x="679" y="98" width="3" height="13" fill="#b79b4a"/>
+  <rect x="684" y="105" width="12" height="3" fill="#f2c744"/>
+
+  <!-- cota 2,60 -->
+  <line x1="318" y1="90" x2="318" y2="350" stroke="#8a877e"/>
+  <line x1="314" y1="90" x2="322" y2="90" stroke="#8a877e"/><line x1="314" y1="350" x2="322" y2="350" stroke="#8a877e"/>
+  <text transform="translate(306,225) rotate(-90)" font-size="11" fill="#55534c" text-anchor="middle">2,60 m</text>
+
+  <!-- altura libre -->
+  <line x1="410" y1="111" x2="410" y2="350" stroke="#c9c4b3" stroke-dasharray="3 3"/>
+  <text x="525" y="215" font-size="11.5" fill="#55534c" text-anchor="middle">Altura libre 2,60 m en el centro</text>
+  <text x="525" y="232" font-size="11.5" fill="#55534c" text-anchor="middle">y 2,40 m bajo el cajón</text>
+  <text x="525" y="250" font-size="10.5" fill="#8a877e" text-anchor="middle">(la corrediza mide 2,10 m: pasa)</text>
+
+  <text x="342" y="120" font-size="10" fill="#b79b4a">A</text>
+  <circle cx="360" cy="105" r="14" fill="none" stroke="#b79b4a" stroke-dasharray="3 2"/>
+
+  <!-- ============ DETALLE A ============ -->
+  <text x="340" y="380" font-size="13" font-weight="700" fill="#23231f">Detalle A — el cajón (ampliado)</text>
+  <!-- muro y cielorraso -->
+  <rect x="340" y="395" width="14" height="125" fill="#d6d1c1"/>
+  <line x1="340" y1="395" x2="640" y2="395" stroke="#3a3a36" stroke-width="2.5"/>
+  <!-- bandeja y faldón -->
+  <rect x="354" y="474" width="80" height="5" fill="#b79b4a"/>
+  <rect x="431" y="426" width="5" height="53" fill="#b79b4a"/>
+  <!-- LED -->
+  <rect x="368" y="468" width="46" height="6" fill="#f2c744" stroke="#8a6410" stroke-width=".8"/>
+  <!-- luz -->
+  <polygon points="368,468 414,468 560,395 368,395" fill="#f2c744" opacity=".32"/>
+  <!-- cotas del detalle -->
+  <line x1="337" y1="395" x2="337" y2="479" stroke="#8a877e"/>
+  <line x1="333" y1="395" x2="341" y2="395" stroke="#8a877e"/><line x1="333" y1="479" x2="341" y2="479" stroke="#8a877e"/>
+  <text transform="translate(327,437) rotate(-90)" font-size="10.5" fill="#55534c" text-anchor="middle">baja 0,20 m</text>
+  <line x1="354" y1="498" x2="434" y2="498" stroke="#8a877e"/>
+  <line x1="354" y1="494" x2="354" y2="502" stroke="#8a877e"/><line x1="434" y1="494" x2="434" y2="502" stroke="#8a877e"/>
+  <text x="394" y="514" font-size="10.5" fill="#55534c" text-anchor="middle">ancho 0,20 m</text>
+
+  <g font-size="10.5" fill="#55534c">
+    <text x="470" y="440">Faldón ≈ 0,12 m (placa de yeso)</text>
+    <line x1="466" y1="437" x2="438" y2="447" stroke="#8a877e"/>
+    <text x="470" y="418">Abertura de luz ≈ 0,08 m hasta el cielorraso</text>
+    <line x1="466" y1="415" x2="440" y2="410" stroke="#8a877e"/>
+    <text x="470" y="486">Bandeja de placa, apoyada en solera</text>
+    <text x="470" y="500">sobre el muro y colgada con velas</text>
+    <line x1="466" y1="483" x2="436" y2="477" stroke="#8a877e"/>
+    <text x="470" y="522" fill="#8a6410">Tira LED sobre la bandeja, oculta tras el faldón</text>
+    <line x1="466" y1="519" x2="416" y2="473" stroke="#8a6410"/>
+  </g>
+</svg>
