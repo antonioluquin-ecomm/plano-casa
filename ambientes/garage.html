@@ -46,22 +46,16 @@ p{font-size:13px;line-height:1.65}
 <div class="tabs">
 <button class="tab-btn" data-tab="cotas" onclick="showLayer('cotas')">Cotas</button>
 <button class="tab-btn active" data-tab="amoblamiento" onclick="showLayer('amoblamiento')">Amoblamiento</button>
-<button class="tab-btn" data-tab="electricidad" onclick="showLayer('electricidad')">Electricidad</button>
 </div>
 <div class="plano"><svg viewBox="-8 -8 544 344" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:420px;height:auto;background:#fdfcf9;border:1px solid #e3e0d7;border-radius:6px" class=""><line x1="14.0" y1="314.0" x2="514.0" y2="314.0" stroke="#2e2e2b" stroke-width="4.2" stroke-linecap="square"/><line x1="514.0" y1="314.0" x2="514.0" y2="14.0" stroke="#2e2e2b" stroke-width="4.2" stroke-linecap="square"/><line x1="514.0" y1="14.0" x2="114.0" y2="14.0" stroke="#2e2e2b" stroke-width="4.2" stroke-linecap="square"/><line x1="54.0" y1="14.0" x2="54.0" y2="184.0" stroke="#2e2e2b" stroke-width="4.2" stroke-linecap="square"/><line x1="14.0" y1="184.0" x2="14.0" y2="314.0" stroke="#2e2e2b" stroke-width="4.2" stroke-linecap="square"/><line x1="114.0" y1="214.0" x2="114.0" y2="14.0" stroke="#2e2e2b" stroke-width="2.4"/><line x1="14.0" y1="214.0" x2="114.0" y2="214.0" stroke="#a9a599" stroke-width="1.2" stroke-dasharray="6 4"/><text x="314.0" y="296.0" font-size="10" fill="#6a6a63" text-anchor="middle">Garage</text><text x="84.0" y="164.0" font-size="8.5" fill="#6a6a63" text-anchor="middle" transform="rotate(-90 84.0 164.0)">Rampa</text><text x="34.0" y="249.0" font-size="8.5" fill="#6a6a63" text-anchor="middle" transform="rotate(-90 34.0 249.0)">Escalera</text><g class="layer active" data-layer="amoblamiento"><rect x="160.9" y="49.0" width="90.0" height="230.0" fill="#e6e1d5" stroke="#a39d87" stroke-width="1.3" stroke-dasharray="4 3" rx="9.4"/><rect x="304.6" y="49.0" width="90.0" height="230.0" fill="#e6e1d5" stroke="#a39d87" stroke-width="1.3" stroke-dasharray="4 3" rx="9.4"/></g><g class="layer" data-layer="cotas">
 <line class="dim" x1="14" y1="322" x2="514" y2="322"/><line class="dimt" x1="14" y1="324.5" x2="14" y2="319.5"/><line class="dimt" x1="114" y1="324.5" x2="114" y2="319.5"/><line class="dimt" x1="514" y1="324.5" x2="514" y2="319.5"/><text class="dt" x="64" y="323.5">2.00</text><text class="dt" x="314" y="323.5">8.00</text>
 <line class="dim" x1="521" y1="14" x2="521" y2="314"/><line class="dimt" x1="518.5" y1="314" x2="523.5" y2="314"/><line class="dimt" x1="518.5" y1="14" x2="523.5" y2="14"/><text class="dt" x="522.5" y="164" transform="rotate(-90 522.5 164)">6.00</text>
 <line class="dim" x1="6" y1="14" x2="6" y2="314"/><line class="dimt" x1="3.5" y1="314" x2="8.5" y2="314"/><line class="dimt" x1="3.5" y1="214" x2="8.5" y2="214"/><line class="dimt" x1="3.5" y1="14" x2="8.5" y2="14"/><text class="dt" x="5" y="264" transform="rotate(-90 5 264)">2.00</text><text class="dt" x="5" y="114" transform="rotate(-90 5 114)">4.00</text>
 <line class="dim" x1="54" y1="7" x2="114" y2="7"/><line class="dimt" x1="54" y1="9.5" x2="54" y2="4.5"/><line class="dimt" x1="114" y1="9.5" x2="114" y2="4.5"/><text class="dt" x="84" y="8.5">1.20</text>
-</g><g class="layer" data-layer="electricidad">
-<circle class="elec-luz" cx="205" cy="164" r="3"/>
-<circle class="elec-luz" cx="350" cy="164" r="3"/>
-<rect class="elec-toma" x="27" y="275" width="6" height="6"/>
 </g></svg><div style="display:flex;align-items:center;gap:8px;justify-content:center;margin:8px 0 0;font-size:11px;color:#6a6a63"><svg width="26" height="30" viewBox="0 0 26 30" aria-hidden="true"><circle cx="13" cy="12" r="9" fill="#fff" stroke="#a9a599" stroke-width="1.1"/><line x1="13" y1="6" x2="13" y2="15" stroke="#2e2e2b" stroke-width="1.6"/><path d="M13 20 L16 13 L10 13 Z" fill="#2e2e2b"/><text x="13" y="29" font-size="7.5" text-anchor="middle" font-weight="700" fill="#2e2e2b">N</text></svg><span>Norte hacia abajo (frente / calle) · este a la izquierda — igual que el plano general</span></div>
-<div class="plano-cap">Esquema de Garage — muros y aberturas simplificados · elegí cotas, amoblamiento o electricidad arriba</div>
+<div class="plano-cap">Esquema de Garage — muros y aberturas simplificados · elegí cotas o amoblamiento arriba</div>
 <div class="room-leg" data-layer="cotas" style="display:none"><span>Medidas a eje de muro (0,15 m de espesor)</span></div>
 <div class="room-leg" data-layer="amoblamiento" style="display:flex"><span><i style="background:#e6e1d5;border:1px dashed #a39d87"></i>Auto (referencia)</span></div>
-<div class="room-leg" data-layer="electricidad" style="display:none"><span><i style="background:#f2c744;border:1px solid #8a6410;border-radius:50%"></i>Punto de luz (esquemático)</span><span><i style="background:#fff;border:1.5px solid #c9762a"></i>Tomacorriente (esquemático)</span></div>
 </div>
 
 <div class="sheet">
@@ -88,6 +82,7 @@ p{font-size:13px;line-height:1.65}
 
 <h2>Para la obra</h2>
 <ul>
+<li><b>Electricidad:</b> el Garage ya tiene su instalación propia; no sale del tablero de la casa.</li>
 <li><b>El Garage ya está construido.</b> El trabajo nuevo es la rampa y la escalera que bajan a la casa (0,40 m de desnivel).</li>
 <li><b>Rampa:</b> 4,00 m para salvar 0,40 m = <b>10%</b> (rango peatonal 8–12%). El desnivel es 0,40 m porque la casa se rellena a +0,70 y el Garage queda a nivel calle — ver "Replanteo y niveles" del <a href="../instructivo.html">instructivo</a>.</li>
 <li><b>Escalera:</b> 3 escalones de 0,133 m, desde el descanso. Rampa y escalera quedan dentro del Garage, sin invadir la separación de 3,00 m hacia la casa.</li>

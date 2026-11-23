@@ -66,7 +66,7 @@ p{font-size:13px;line-height:1.65}
 
 <div class="ok"><b>Circuitos:</b> el <a href="circuitos.html">plano de circuitos</a> muestra el recorrido de cada uno desde el tablero hasta cada boca, con un color por circuito, y el esquema unifilar del tablero.</div>
 
-<div class="toc">Ir a: <a href="#orden">Orden</a> · <a href="#tablero">Tablero</a> · <a href="#living">Living-Comedor</a> · <a href="#cocina">Cocina</a> · <a href="#hab1">Hab. 1</a> · <a href="#hab2">Hab. 2</a> · <a href="#hab3">Hab. 3</a> · <a href="#pasillo">Pasillo</a> · <a href="#humedo">Baño, Antebaño, Lavadero</a> · <a href="#galeria">Galería</a> · <a href="#garage">Garage</a> · <a href="#totales">Totales</a></div>
+<div class="toc">Ir a: <a href="#orden">Orden</a> · <a href="#tablero">Tablero</a> · <a href="#living">Living-Comedor</a> · <a href="#cocina">Cocina</a> · <a href="#hab1">Hab. 1</a> · <a href="#hab2">Hab. 2</a> · <a href="#hab3">Hab. 3</a> · <a href="#pasillo">Pasillo</a> · <a href="#humedo">Baño, Antebaño, Lavadero</a> · <a href="#galeria">Galería</a> · <a href="#tapia">Tapia este</a> · <a href="#totales">Totales</a></div>
 
 <h2 id="orden">Orden para marcar</h2>
 <ol class="pasos">
@@ -75,15 +75,30 @@ p{font-size:13px;line-height:1.65}
 <li><b>Cocina</b>: los tomas sobre mesada y la llave de la tira LED dependen de la altura de la mesada y del salpicadero.</li>
 <li><b>Dormitorios, Living-Comedor y Pasillo.</b></li>
 <li><b>Bajadas desde el cielorraso:</b> cada llave necesita su caño que sube hasta el entretecho, donde se reparte a los spots.</li>
-<li><b>Galería y Garage</b> al final: todo va por fuera de la pared.</li>
+<li><b>Galería</b> al final: todo va por fuera de la pared. El garage queda aparte: ya tiene su instalación propia.</li>
 </ol>
 
 <h2 id="tablero">0. Tablero</h2>
 <div class="tablewrap"><table>
 <tr><th></th><th>Qué</th><th>Dónde</th><th>Altura</th></tr>
-<tr><td class="ck"></td><td>Tablero general</td><td>Living, rincón noreste: muro este, tramo macizo entre la ventana del Living y el muro norte, a ~7,20 m del muro sur (≈0,50 m del rincón). Del lado de la calle, por donde entra la luz.</td><td class="c">~1,50–1,80 m</td></tr>
+<tr><td class="ck"></td><td>Tablero general</td><td>Living, rincón noreste: <b>muro norte</b>, en el tramo macizo de 0,50 m entre el rincón y la ventana del Living (la caja ya está embutida ahí). Del lado de la calle, por donde entra la luz. Libre hay ~0,42 m (descontando el espesor del muro este) y la caja de 24 módulos mide ~30 cm de ancho: entra, pero con poca holgura. Medirla antes de agrandar el hueco.</td><td class="c">~1,50–1,80 m</td></tr>
 </table></div>
-<p class="capnote">Disyuntor diferencial general + uno aparte para los tomas del sector húmedo si el tablero lo admite. Jabalina y cable a tierra a todos los circuitos.</p>
+<p class="capnote">Caja embutida de <b>24 módulos</b>. Disyuntor general y diferenciales bipolares; térmicas de los circuitos unipolares (si el electricista prefiere todas bipolares, la caja tiene que ser de 36). Jabalina y cable a tierra a todos los circuitos. El garage no cuelga de este tablero.</p>
+<p class="capnote"><b>Caños que salen de la caja: 10 en total.</b> Hoy hay 2 (el del medidor y el de los aires): faltan 8. Hay que dejarlos todos antes del fino de esa pared; después ya no se puede calar.</p>
+<div class="tablewrap"><table>
+<tr><th></th><th>Caño</th><th>Lleva</th></tr>
+<tr><td class="ck"></td><td>Medidor</td><td>Cable que viene del medidor (ya está)</td></tr>
+<tr><td class="ck"></td><td>Aire Living-Comedor</td><td>TUE aire 6000 fg. El caño de los aires que ya está hecho sirve para uno de los 3</td></tr>
+<tr><td class="ck"></td><td>Aire Hab. 3</td><td>TUE aire 3000 fg</td></tr>
+<tr><td class="ck"></td><td>Aire Hab. 2 (previsto)</td><td>TUE aire 3000 fg — cable y térmica listos, sin equipo</td></tr>
+<tr><td class="ck"></td><td>Zona social</td><td>IUG 1 + TUG 1 + TUE heladera</td></tr>
+<tr><td class="ck"></td><td>Zona privada</td><td>IUG 2 + TUG 2</td></tr>
+<tr><td class="ck"></td><td>Sector húmedo</td><td>TUG 3 + TUE termotanque + TUE lavarropas. Cruza la casa por el entretecho (~15 m)</td></tr>
+<tr><td class="ck"></td><td>Fondo (galería)</td><td>IUG 3 + TUE tomas de la galería (asador y mesa). Va por adentro hasta el Lavadero y sale por su muro: no va por fuera</td></tr>
+<tr><td class="ck"></td><td>Tapia este</td><td>IUG 3 (4 focos bidireccionales). Sale de la caja hacia el este, enterrado o por la tapia</td></tr>
+<tr><td class="ck"></td><td>Reserva</td><td>Vacío, con guía</td></tr>
+</table></div>
+<p class="capnote">Un caño por aire (no los 3 cables juntos): así no se calientan entre sí. El del sector húmedo y el del fondo van por el mismo recorrido pero en caños separados. El recorrido final y la sección de cada cable los define el electricista.</p>
 
 <h2 id="living">1. Living-Comedor (3,50 × 7,70)</h2>
 <p class="capnote">El Comedor ocupa los primeros 3,00 m desde el muro sur (galería, corrediza). El Living, el resto hasta el muro norte (puerta al patio).</p>
@@ -103,7 +118,7 @@ p{font-size:13px;line-height:1.65}
 <tr><td class="ck"></td><td>Toma de reserva</td><td class="num">1</td><td>Muro oeste, a ~3,70 m del muro sur</td><td class="c">0,30</td><td>TUG 1</td></tr>
 <tr class="grp"><td colspan="6">Llaves <span class="tag">propuesta</span></td></tr>
 <tr><td class="ck"></td><td>Llave triple — entrada</td><td class="num">1</td><td>Junto a la corrediza, en el tramo de muro que no tapa la hoja al abrir. Prende: luz del Comedor (dimmer) · luz del medio · luz del Living</td><td class="c">1,10</td><td>IUG 1</td></tr>
-<tr><td class="ck"></td><td>Llave simple — puerta norte</td><td class="num">1</td><td>Muro norte, tramo de 0,50 m entre la ventana y la puerta (a ~2,25 m del muro este). Prende: luz del Living</td><td class="c">1,10</td><td>IUG 1</td></tr>
+<tr><td class="ck"></td><td>Llave doble — puerta norte</td><td class="num">1</td><td>Muro norte, tramo de 0,50 m entre la ventana y la puerta (a ~2,25 m del muro este). Botón 1: luz del Living · botón 2: focos de la tapia este</td><td class="c">1,10</td><td>IUG 1 + IUG 3</td></tr>
 </table></div>
 <p class="capnote">Tres luces en todo el ambiente: Comedor, medio y Living. La del Living conviene hacerla de combinación (se prende y apaga desde las dos puertas). El tablero general también va en este ambiente, en el rincón noreste (ver 0. Tablero).</p>
 
@@ -187,7 +202,7 @@ p{font-size:13px;line-height:1.65}
 </table></div>
 
 <h2 id="galeria">8. Galería (12,50 × 5,00, sin cielorraso)</h2>
-<p class="capnote">Todo por fuera de la pared, atornillado a la estructura del techo (no a la chapa), resistente a la humedad (IP44). Medidas desde el extremo este de la galería. Mesa en el extremo este; asador en el oeste, contra el muro sur del Lavadero.</p>
+<p class="capnote">Todo por fuera de la pared, atornillado a la estructura del techo (no a la chapa), resistente a la humedad (IP44). Medidas desde el extremo este de la galería. Mesa en el extremo este; asador en el oeste, contra el muro sur del Lavadero. Se alimenta desde adentro: el caño del fondo llega al Lavadero y sale por su muro.</p>
 <div class="tablewrap"><table>
 <tr><th></th><th>Qué</th><th>Cant.</th><th>Dónde</th><th>Altura</th><th>Circuito</th></tr>
 <tr><td class="ck"></td><td>Línea de artefactos</td><td class="num">—</td><td>Paralela a la pared de la casa, a ~1 m de ella, a lo largo de la galería</td><td class="c">estructura</td><td>IUG 3</td></tr>
@@ -196,18 +211,21 @@ p{font-size:13px;line-height:1.65}
 <tr><td class="ck"></td><td>Faroles</td><td class="num">—</td><td>En el resto, de pared o colgados de la estructura</td><td class="c">—</td><td>IUG 3</td></tr>
 <tr><td class="ck"></td><td>Tomas del asador (IP44, con tapa)</td><td class="num">2</td><td>Contra el muro del Lavadero, a ~9,80 m del extremo este</td><td class="c">~1,10</td><td>TUE ext.</td></tr>
 <tr><td class="ck"></td><td>Toma zona mesa (IP44, con tapa)</td><td class="num">1</td><td>Pared de la casa, al lado de la corrediza</td><td class="c">0,30</td><td>TUE ext.</td></tr>
-<tr><td class="ck"></td><td>Llave <span class="tag">propuesta</span></td><td class="num">1</td><td>Pared de la casa junto a la corrediza, del lado de la galería</td><td class="c">1,10</td><td>IUG 3</td></tr>
+<tr><td class="ck"></td><td>Llave doble <span class="tag">propuesta</span></td><td class="num">1</td><td>Pared de la casa junto a la corrediza, del lado de la galería. Botón 1: luces de la galería · botón 2 (opcional): focos de la tapia este, en combinación con la de la puerta norte del Living</td><td class="c">1,10</td><td>IUG 3</td></tr>
 </table></div>
 
-<h2 id="garage">9. Garage (8,00 × 6,00, ya construido)</h2>
-<p class="capnote">Todo por fuera de la pared. Artefactos tipo batten LED atornillados a las correas.</p>
+<h2 id="tapia">9. Tapia este (4 focos bidireccionales)</h2>
+<p class="capnote">Focos que ya están; falta marcar las posiciones. Van por fuera, IP65, repartidos a lo largo de la tapia este (retiro de 4,50 m).</p>
 <div class="tablewrap"><table>
 <tr><th></th><th>Qué</th><th>Cant.</th><th>Dónde</th><th>Altura</th><th>Circuito</th></tr>
-<tr><td class="ck"></td><td>Battens LED</td><td class="num">4–6</td><td>Dos líneas paralelas al frente, a ~2 y ~4 m del portón; 2 o 3 por línea repartidos en los 8 m</td><td class="c">correas</td><td>IUG 3</td></tr>
-<tr><td class="ck"></td><td>Llave</td><td class="num">1</td><td>En la bajada desde la casa (descanso, arranque de la escalera)</td><td class="c">1,10</td><td>IUG 3</td></tr>
-<tr><td class="ck"></td><td>Toma descanso</td><td class="num">1</td><td>Junto a la escalera</td><td class="c">0,30</td><td>TUE ext.</td></tr>
-<tr><td class="ck"></td><td>Toma herramientas</td><td class="num">1</td><td>Donde vaya el banco de trabajo</td><td class="c">~1,10</td><td>TUE ext.</td></tr>
+<tr><td class="ck"></td><td>Focos bidireccionales (IP65)</td><td class="num">4</td><td>A lo largo de la tapia este (posiciones a marcar)</td><td class="c">a definir</td><td>IUG 3</td></tr>
+<tr><td class="ck"></td><td>Llave principal</td><td class="num">1</td><td>Botón 2 de la llave doble de la puerta norte del Living (ver 1. Living-Comedor)</td><td class="c">1,10</td><td>IUG 3</td></tr>
+<tr><td class="ck"></td><td>Llave de combinación <span class="tag">opcional</span></td><td class="num">1</td><td>Botón 2 de la llave doble de la galería, junto a la corrediza (ver 8. Galería). Pide un cable de retorno entre los dos puntos</td><td class="c">1,10</td><td>IUG 3</td></tr>
+<tr><td class="ck"></td><td>Caño</td><td class="num">1</td><td>Sale de la caja hacia el este, enterrado o por la tapia: lo define el electricista</td><td class="c">—</td><td>IUG 3</td></tr>
 </table></div>
+<p class="capnote">Van en IUG 3 con la galería: son pocos watts y la térmica sobra. Si el electricista los prefiere separados, la caja de 24 tiene lugar. Opcional: una fotocélula en el circuito para que se prendan solos de noche.</p>
+
+<div class="ok"><b>Garage:</b> ya está construido y tiene su instalación eléctrica propia. No se cuenta en esta hoja ni sale de este tablero.</div>
 
 <h2 id="totales">Totales para comprar cajas</h2>
 <div class="tablewrap"><table>
@@ -222,8 +240,8 @@ p{font-size:13px;line-height:1.65}
 <tr><td>Antebaño</td><td class="c">2</td><td class="c">1</td><td class="c">1</td><td>—</td></tr>
 <tr><td>Baño</td><td class="c">3</td><td class="c">1</td><td class="c">1</td><td>Extractor</td></tr>
 <tr><td>Galería</td><td class="c">franja + 2 + faroles</td><td class="c">1</td><td class="c">3</td><td>—</td></tr>
-<tr><td>Garage</td><td class="c">4–6</td><td class="c">1</td><td class="c">2</td><td>—</td></tr>
-<tr><th>Total embutido (sin Galería ni Garage)</th><th class="c">—</th><th class="c">12</th><th class="c">26</th><th>3 cajas de aire + extractor</th></tr>
+<tr><td>Tapia este</td><td class="c">4 focos bidireccionales</td><td class="c">(botones de las llaves dobles)</td><td class="c">0</td><td>—</td></tr>
+<tr><th>Total embutido (sin Galería)</th><th class="c">—</th><th class="c">12</th><th class="c">26</th><th>3 cajas de aire + extractor</th></tr>
 </table></div>
 
 <div class="ok"><b>Agua y luz en la misma pasada.</b> En la pared oeste del sector húmedo conviene marcar de una sola vez las canaletas de agua y las de electricidad, para que el albañil rompa una sola vez y un caño y un cable no compitan por el mismo lugar.</div>
